@@ -25,8 +25,8 @@ angular
                     url: '/',
                     views: {
                         main: {
-                            templateUrl: '',
-                            controller: ''
+                            templateUrl: 'pages/home/home.html',
+                            controller: 'homeCtrl'
                         }
                     }
                 });
@@ -38,6 +38,6 @@ angular
 
     ]);
 
-angular.element(document).ready(function() {
+    angular.element(document).ready(function() {
     angular.bootstrap(document, ['railroad']);
 });

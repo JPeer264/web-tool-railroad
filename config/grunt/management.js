@@ -17,20 +17,8 @@ module.exports = {
 		js: {
 			options: {
 				process: function(src, filepath) {
-					// TODO replace use strict
-					var filename = filepath.split('/').pop();
-					var wrapper;
-
-					if (filename.indexOf('app') > 0) {
-						wrapper = 	(filepath.indexOf('_intro') === -1 ? ";(function( window, jQuery, angular, undefined ){ \n 'use strict';\n\n":"") +
-										src +
-									(filepath.indexOf('_intro') === -1 ? "\n\n}( window, jQuery, angular ));":"");
-					} else {
-						wrapper = src;
-					}
-
 			  		return "// Source: " + filepath + "\n" +
-			  				wrapper
+			  				src
 				},
 			},
 			files: [
@@ -46,11 +34,6 @@ module.exports = {
 
 		// concat all vendor files
 		vendor: {
-			options: {
-				banner: 	'window.jQuery = {};\n' +
-							'window.angular = {};\n' +
-							'window.module = {};\n'
-			},
 			files: [{
 				src: [
 					'<%= paths.tmp.folder.assets.js %>/bower.js',
@@ -67,9 +50,7 @@ module.exports = {
 			options: {
 				process: function(src, filepath) {
 					return "// Source: " + filepath + "\n" +
-			  				(filepath.indexOf('_intro') === -1 ? ";(function( window, jQuery, angular, undefined ){ \n 'use strict';\n\n":"") +
-								src +
-							(filepath.indexOf('_intro') === -1 ? "\n\n}( window, jQuery, angular ));":"");
+								src;
 				}
 			},
 			files: [{
@@ -137,13 +118,10 @@ module.exports = {
 			// relative: false
 			},
 			dependencies: {
-				'angular': 'jquery'
+				// 'angular': 'jquery'
 			},
 			process: function(src) {
-				"\n" +
-				";(function( window, jQuery, angular, undefined ){ \n 'use strict';\n\n" +
-					src +
-				"\n\n}( window, jQuery, angular ));"
+				return src;
 			} ,
 			callback: function(file, comp) {
 				return file;
