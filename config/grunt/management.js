@@ -171,7 +171,7 @@ module.exports = {
 				{
 					expand: true,
 					cwd: '<%= paths.src.folder.assets.base %>',
-					src: ['img/**', 'svg/**', 'json/**'],
+					src: ['**/**', '!js/**', '!scss/**'],
 					dest: '<%= paths.tmp.folder.assets.base %>'
 				},
 
@@ -180,8 +180,8 @@ module.exports = {
 					expand: true,
 					cwd: '<%= paths.src.base %>',
 					src: [
-						'**/*.{html,php}',
-						'!**/app/**/*.html',
+						'index.html',
+						'i18n/**'
 					],
 					dest: '<%= paths.tmp.base %>/'
 				}
@@ -194,7 +194,7 @@ module.exports = {
 				{
 					expand: true,
 					cwd: '<%= paths.src.folder.assets.base %>',
-					src: ['img/**', 'svg/**', 'json/**'],
+					src: ['**/**', '!js/**', '!scss/**'],
 					dest: '<%= paths.dest.folder.assets.base %>'
 				},
 
@@ -203,8 +203,8 @@ module.exports = {
 					expand: true,
 					cwd: '<%= paths.src.base %>',
 					src: [
-						'**/*.{html,php}',
-						'!**/app/**/*.html',
+						'index.html',
+						'i18n/**'
 					],
 					dest: '<%= paths.dest.base %>'
 				}
