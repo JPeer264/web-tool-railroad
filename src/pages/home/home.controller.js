@@ -9,9 +9,8 @@ homeController.$inject = [
 
 function homeController($scope, swaggerService) {
 
-    $scope.welcome = 'Welcome to our the railroad museum!';
-
     swaggerService.data().success(function(data) {
         $scope.swagger = data;
     });
+
 }

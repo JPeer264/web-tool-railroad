@@ -7,7 +7,8 @@
     'use strict';
 
     angular.module('pages', [
-        'pages.home'
+        'pages.home',
+        'pages.header'
     ]);
 
 })(window, window.angular);
