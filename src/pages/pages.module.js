@@ -8,7 +8,14 @@
 
     angular.module('pages', [
         'pages.home',
-        'pages.header'
+        'pages.header',
+        'pages.landing',
+        'pages.admin',
+        'pages.categories',
+        'pages.category',
+        'pages.faq',
+        'pages.profile',
+        'pages.rules',
     ]);
 
 })(window, window.angular);

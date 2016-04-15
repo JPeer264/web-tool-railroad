@@ -33,6 +33,7 @@ module.exports = function(grunt) {
 			cache: {
 				scss:   '<%= paths.base %>/.scss-cache',
 			},
+			docs: '<%= paths.base %>/docs',
 			tmp: {
                 base: '<%= paths.base       %>/tmp',
                 folder: {
@@ -645,8 +646,9 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 				'connect:reports'
 			],
 			docs: [
-				'jsdoc',
-				'connect:docs'
+				'clean:docs',
+				'ngdocs',
+				'connect:ngdocs'
 			]
 		}
 	}, jitMappings);

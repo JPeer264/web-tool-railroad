@@ -1,16 +1,14 @@
 angular
 	.module('pages.home')
-	.controller('homeCtrl', homeController);
+	.controller('HomeCtrl', HomeController);
 
-homeController.$inject = [
-	'$scope',
-    'swaggerService'
+HomeController.$inject = [
+	'$scope'
 ];
 
-function homeController($scope, swaggerService) {
+function HomeController($scope) {
 
-    swaggerService.data().success(function(data) {
-        $scope.swagger = data;
-    });
-
+    // swaggerService.data().success(function(data) {
+    //     $scope.swagger = data;
+    // });
 }

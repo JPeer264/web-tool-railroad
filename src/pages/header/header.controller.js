@@ -1,13 +1,13 @@
 angular
     .module('pages.header')
-    .controller('headerCtrl', headerController);
+    .controller('HeaderCtrl', HeaderController);
 
-headerController.$inject = [
+HeaderController.$inject = [
     '$scope',
     '$translate'
 ];
 
-function headerController($scope, $translate) {
+function HeaderController($scope, $translate) {
 
     /**
      * @param key {String} - language code; e.g. en-US

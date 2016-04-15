@@ -85,7 +85,17 @@ module.exports = {
 				port: '<%= connect.dev.options.port %>',
 				base: '<%= hstn.names.dest %>',
 			}
+		},
+		ngdocs: {
+			options: {
+				hostname: '<%= connect.dev.options.hostname %>',
+				port: '<%= connect.docs.options.port %>',
+				base: '<%= paths.docs %>',
+				keepalive: true,
+				open: true,
+			}
 		}
+
 	},
 
 	php: {
