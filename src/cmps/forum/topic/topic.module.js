@@ -1,1 +1,1 @@
-angular.module('cmps.topic', []);
+angular.module('forum.topic', []);

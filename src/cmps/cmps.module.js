@@ -1,8 +1,8 @@
 /**
 * cmps Module
-*
-* Description
 */
 angular.module('cmps', [
-    'cmps.topic'
+    'cmps.forum',
+    'cmps.page',
+    'cmps.profile',
 ]);

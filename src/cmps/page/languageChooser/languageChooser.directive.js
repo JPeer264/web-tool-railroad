@@ -1,28 +1,28 @@
 /**
  * @ngdoc directive
  *
- * @name forum.topic
+ * @name page.languageChooser
  *
  * @description 
- * Generates a single topic component
+ * Generates a single languageChooser component
  */
 angular
-    .module('forum.topic')
-    .directive('topic', topicDirective);
+    .module('page.languageChooser')
+    .directive('languageChooser', languageChooserDirective);
 
 
-function topicDirective() {
+function languageChooserDirective() {
         // Runs during compile
         return {
             // name: '',
             // priority: 1,
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
-            controller: 'TopicCtrl',
+            controller: 'LanguageChooserCtrl',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
-            templateUrl: 'cmps/forum/topic/topic.html',
+            templateUrl: 'cmps/page/languageChooser/languageChooser.html',
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),

@@ -1,15 +1,11 @@
 angular
-    .module('cmps.topic')
-    .controller('topicCtrl', topicController);
+    .module('forum.topic')
+    .controller('TopicCtrl', topicController);
 
 topicController.$inject = [
-    '$scope',
-    'swaggerService'
+    '$scope'
 ];
 
-function topicController($scope, swaggerService) {
+function topicController($scope) {
 
-    swaggerService.data().success(function(data) {
-        $scope.swagger = data;
-    });
 }

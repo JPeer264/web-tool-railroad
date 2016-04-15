@@ -1,28 +1,28 @@
 /**
  * @ngdoc directive
  *
- * @name forum.topic
+ * @name forum.addTopic
  *
  * @description 
- * Generates a single topic component
+ * Should pop up if the button "add topic" is clicked.
  */
 angular
-    .module('forum.topic')
-    .directive('topic', topicDirective);
+    .module('forum.addTopic')
+    .directive('addTopic', addFormDirective);
 
 
-function topicDirective() {
+function addFormDirective() {
         // Runs during compile
         return {
             // name: '',
             // priority: 1,
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
-            controller: 'TopicCtrl',
+            controller: 'AddFormCtrl',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
-            templateUrl: 'cmps/forum/topic/topic.html',
+            templateUrl: 'cmps/forum/addTopic/addTopic.html',
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
