@@ -16,6 +16,22 @@ user.$inject = [
 ];
 
 function user($rootScope, Restangular) {
+
+    /**
+     * @ngdoc method
+     *
+     * @name service.user#getCurrent
+     *
+     * @methodOf service.user
+     *
+     * @description 
+     * Get the ID and Name from the logged in user
+     *
+     * @returns {Object} information about the logged in user
+     */
+    this.getCurrent = function() {
+        // todo get userdata from JWT token
+    }
     
     /**
      * @ngdoc method
