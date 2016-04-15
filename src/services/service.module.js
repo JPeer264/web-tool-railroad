@@ -4,5 +4,13 @@
 * Description
 */
 angular.module('service', [
-    'service.swagger'
+    'service.authorization',
+    'service.subcategory',
+    'service.category',
+    'service.comment',
+    'service.company',
+    'service.job',
+    'service.topic',
+    'service.type',
+    'service.user',
 ]);
