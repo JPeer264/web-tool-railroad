@@ -1,5 +1,5 @@
 {
-  "name": "PicStar",
+  "name": "Railroad",
   "version": "1.0.0",
   "authors": [
     "Jan Peer Stöcklmair"
@@ -12,18 +12,19 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.4.3",
+    "angular": "^1.5.3",
     "angular-animate": "^1.4.3",
-    "angular-cookies": "~1.4.5",
+    "angular-cookies": "^1.5.3",
     "angular-local-storage": "^0.2.2",
     "angular-touch": "^1.4.3",
     "angular-translate": "^2.11.0",
     "angular-translate-loader-static-files": "^2.11.0",
     "angular-ui-router": "^0.2.15",
     "bootstrap-sass": "^3.3.5",
-    "jquery": "~2.2.0",
+    "jquery": "^2.2.3",
     "lodash": "^2.4.1",
-    "ng-file-upload": "~7.2.1"
+    "ng-file-upload": "~7.2.1",
+    "restangular": "^1.5.2"
   },
   "license": "MIT"
 }

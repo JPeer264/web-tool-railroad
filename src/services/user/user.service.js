@@ -12,10 +12,16 @@ angular
 
 user.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer',
+    '$cookies',
+    '$location',
+    'COOKIE'
 ];
 
-function user($rootScope, Restangular) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, $location, COOKIE) {
+    var token = Restangular.service('auth/token'),
+        users = Restangular.service('user')
 
     /**
      * @ngdoc method
@@ -31,6 +37,27 @@ function user($rootScope, Restangular) {
      */
     this.getCurrent = function() {
         // todo get userdata from JWT token
+    }
+
+    /**
+     * @ngdoc method
+     *
+     * @name service.user#login
+     *
+     * @methodOf service.user
+     *
+     * @description 
+     * Request a token and saves into $cookies if the token is valid
+     * Redirect on successfully login to home
+     *
+     * @param {String} formData email and password for the requested user
+     */
+    this.login = function(formData) {
+        token.post($httpParamSerializer(formData)).then(function (data) {
+            $cookies.put(COOKIE.TOKEN, data.token);
+
+            $location.path('/');
+        });
     }
     
     /**

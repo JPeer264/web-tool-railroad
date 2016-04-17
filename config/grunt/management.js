@@ -115,10 +115,10 @@ module.exports = {
         all: {
             dest: '<%= paths.tmp.folder.assets.js %>/bower.js',
             bowerOptions: {
-            // relative: false
+                relative: false
             },
             dependencies: {
-                // 'angular': 'jquery'
+                'angular': 'jquery'
             },
             process: function(src) {
                 return src;
