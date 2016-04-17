@@ -46,7 +46,7 @@ function authorization($rootScope, Restangular, $state, $window, $cookies, COOKI
      * Checks if the user is authorized to see a specific page
      * Get the cookie and validate the JWT token
      *
-     * @returns {Boolean} 
+     * @returns {Boolean} same value as _authenticated
      */
     this.check = function() {
         var token = $cookies.get(COOKIE.TOKEN);
