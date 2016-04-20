@@ -4,7 +4,7 @@
 * Description
 */
 angular.module('service', [
-    'service.authorization',
+    'service.auth',
     'service.subcategory',
     'service.category',
     'service.comment',

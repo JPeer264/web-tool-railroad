@@ -4,10 +4,23 @@ angular
 
 HeaderController.$inject = [
     '$scope',
-    '$translate'
+    '$translate',
+    'user',
+    'auth'
 ];
 
-function HeaderController($scope, $translate) {
+/**
+ * @ngdoc object
+ * @name pages.HeaderCtrl
+ * @requires $scope
+ * @requires $translate
+ * @requires user
+ * @requires auth
+ *
+ * @description
+ * HeaderCtrl for the Header Component
+ */
+function HeaderController($scope, $translate, user, auth) {
 
     /**
      * @param key {String} - language code; e.g. en-US
@@ -22,5 +35,21 @@ function HeaderController($scope, $translate) {
             console.log("Something went wrong.");
         });
     };
+
+    /**
+     * call the user.logout() service
+     */
+    $scope.logout = function() {
+        user.logout();
+    }
+
+    /**
+     * call the user.logout() service
+     *
+     * @return {Boolean}
+     */
+    $scope.isLoggedIn = function() {
+        return auth.isAuthorized();
+    }
 
 }

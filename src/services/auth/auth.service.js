@@ -1,17 +1,17 @@
 /**
  * @ngdoc service 
  *
- * @name service.authorization
+ * @name service.auth
  *
  * @requires $rootScope
  * @requires Restangular
  * @requires $state
  */
 angular
-    .module('service.authorization')
-    .service('authorization', authorization);
+    .module('service.auth')
+    .service('auth', auth);
 
-authorization.$inject = [
+auth.$inject = [
     '$rootScope',
     'Restangular',
     '$state',
@@ -20,13 +20,13 @@ authorization.$inject = [
     'COOKIE'
 ];
 
-function authorization($rootScope, Restangular, $state, $window, $cookies, COOKIE) {
+function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE) {
     var _authenticated = false;
 
     /**
      * @ngdoc method
-     * @name service.authorization#isAuthorized
-     * @methodOf service.authorization
+     * @name service.auth#isAuthorized
+     * @methodOf service.auth
      *
      * @description 
      * Just return the stored _authenticated value.
@@ -39,8 +39,8 @@ function authorization($rootScope, Restangular, $state, $window, $cookies, COOKI
     
     /**
      * @ngdoc method
-     * @name service.authorization#check
-     * @methodOf service.authorization
+     * @name service.auth#check
+     * @methodOf service.auth
      *
      * @description 
      * Checks if the user is authorized to see a specific page
@@ -69,8 +69,8 @@ function authorization($rootScope, Restangular, $state, $window, $cookies, COOKI
 
     /**
      * @ngdoc method
-     * @name service.authorization#login
-     * @methodOf service.authorization
+     * @name service.auth#login
+     * @methodOf service.auth
      *
      * @description 
      * Login a person to receive and store JWT token
@@ -88,8 +88,8 @@ function authorization($rootScope, Restangular, $state, $window, $cookies, COOKI
 
     /**
      * @ngdoc method
-     * @name service.authorization#parseJwt
-     * @methodOf service.authorization
+     * @name service.auth#parseJwt
+     * @methodOf service.auth
      *
      * @description 
      * Convert the JWT into an object and returns the payload content

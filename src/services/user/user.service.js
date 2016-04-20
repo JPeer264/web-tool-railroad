@@ -15,11 +15,11 @@ user.$inject = [
     'Restangular',
     '$httpParamSerializer',
     '$cookies',
-    '$location',
+    '$window',
     'COOKIE'
 ];
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies, $location, COOKIE) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, COOKIE) {
     var token = Restangular.service('auth/token'),
         users = Restangular.service('user')
 
@@ -55,9 +55,23 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $location
     this.login = function(formData) {
         token.post($httpParamSerializer(formData)).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
-
-            $location.path('/');
+            $window.location.assign('/');
         });
+    }
+
+    /**
+     * @ngdoc method
+     *
+     * @name service.user#logout
+     *
+     * @methodOf service.user
+     *
+     * @description 
+     * Deletes the user token and return to the welcome page
+     */
+    this.logout = function() {
+        $cookies.remove(COOKIE.TOKEN);
+        $window.location.assign('/');
     }
     
     /**

@@ -75,9 +75,9 @@ angular
             .state('secure', {
                 abstract: true,
                 resolve: {
-                    authorize: ['authorization',
-                        function(authorization) {
-                            return authorization.check();
+                    authorize: ['auth',
+                        function(auth) {
+                            return auth.check();
                         }
                     ]
                 },
@@ -185,15 +185,15 @@ angular
         '$rootScope', 
         '$location',
         '$http',
-        'authorization'
+        'auth'
     ];
     
-    function run($rootScope, $location, $http, authorization) {
-        authorization.check();
+    function run($rootScope, $location, $http, auth) {
+        auth.check();
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var loggedIn = authorization.isAuthorized();
+            var loggedIn = auth.isAuthorized();
 
             // if you do not want to enable the login 
             // deavticte the following 2 if
