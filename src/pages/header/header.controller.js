@@ -4,7 +4,6 @@ angular
 
 HeaderController.$inject = [
     '$scope',
-    '$translate',
     'user',
     'auth'
 ];
@@ -13,28 +12,13 @@ HeaderController.$inject = [
  * @ngdoc object
  * @name pages.HeaderCtrl
  * @requires $scope
- * @requires $translate
  * @requires user
  * @requires auth
  *
  * @description
  * HeaderCtrl for the Header Component
  */
-function HeaderController($scope, $translate, user, auth) {
-
-    /**
-     * @param key {String} - language code; e.g. en-US
-     *
-     * changes the language to a specific one
-     * stored in "i18n/locale-*.json"
-     */
-    $scope.changeLang = function (key) {
-        $translate.use(key).then(function (key) {
-            console.log("Language changed to " + key + ".");
-        }, function (key) {
-            console.log("Something went wrong.");
-        });
-    };
+function HeaderController($scope, user, auth) {
 
     /**
      * call the user.logout() service

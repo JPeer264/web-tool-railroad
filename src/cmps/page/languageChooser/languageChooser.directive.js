@@ -26,8 +26,13 @@ function languageChooserDirective() {
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function($scope, iElm, iAttrs, controller) {
-                
+            link: function($scope, iElm, iAttrs, controller) {                
+
+                $(iElm).find('.dropdown-menu li a').click(function(){
+                    var chosenLanguage = $(this).text();
+
+                    $(iElm).find('#chosenLanguage').text(chosenLanguage);
+                });
             }
         };
 };
