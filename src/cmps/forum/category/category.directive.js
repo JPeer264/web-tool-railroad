@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name forum.category
+ * @name component.category
  *
  * @description 
  * Generates a single category component

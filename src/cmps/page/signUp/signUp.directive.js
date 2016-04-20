@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.signUp
+ * @name component.signUp
  *
  * @description 
  * Generates a single signUp component

@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name forum.comment
+ * @name component.comment
  *
  * @description 
  * Generates a single comment component

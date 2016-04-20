@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.adminUserRequest
+ * @name component.adminUserRequest
  *
  * @description 
  * Generates a single adminUserRequest component

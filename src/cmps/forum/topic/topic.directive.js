@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name forum.topic
+ * @name component.topic
  *
  * @description 
  * Generates a single topic component

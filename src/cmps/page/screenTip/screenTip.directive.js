@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.screenTip
+ * @name component.screenTip
  *
  * @description 
  * Generates a single screenTip component

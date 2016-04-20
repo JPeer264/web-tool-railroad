@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.login
+ * @name component.login
  *
  * @description 
  * Generates a single login component

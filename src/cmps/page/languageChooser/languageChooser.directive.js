@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.languageChooser
+ * @name component.languageChooser
  *
  * @description 
  * Generates a single languageChooser component

@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name page.search
+ * @name component.search
  *
  * @description 
  * Generates a single search component

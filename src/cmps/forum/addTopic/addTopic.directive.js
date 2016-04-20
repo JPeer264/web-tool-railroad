@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name forum.addTopic
+ * @name component.addTopic
  *
  * @description 
  * Should pop up if the button "add topic" is clicked.

@@ -1,7 +1,7 @@
 /**
  * @ngdoc directive
  *
- * @name forum.addComment
+ * @name component.addComment
  *
  * @description 
  * Pop up at the end from the topic to add a new comment.
