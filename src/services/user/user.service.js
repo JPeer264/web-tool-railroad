@@ -21,7 +21,7 @@ user.$inject = [
 
 function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, COOKIE) {
     var token = Restangular.service('auth/token'),
-        users = Restangular.service('user')
+        users = Restangular.service('user');
 
     /**
      * @ngdoc method
@@ -53,10 +53,14 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @param {String} formData email and password for the requested user
      */
     this.login = function(formData) {
+        delete Restangular.configuration.defaultHeaders.Authorization;
+        
         token.post($httpParamSerializer(formData)).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
+                        
             $window.location.assign('/');
         });
+
     }
 
     /**
@@ -105,7 +109,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-
+        return Restangular.all('user').getList();
     }
 
     /**

@@ -2,13 +2,29 @@ angular
 	.module('pages.home')
 	.controller('HomeCtrl', HomeController);
 
+/**
+ * @ngdoc object
+ * @name pages.HomeCtrl
+ * @requires $scope
+ * @requires user
+ * @requires auth
+ *
+ * @description
+ * HomeCtrl for the Home Component
+ */
 HomeController.$inject = [
-	'$scope'
+    '$scope',
+    'user'
 ];
 
-function HomeController($scope) {
+function HomeController($scope, user) {
 
-    // swaggerService.data().success(function(data) {
-    //     $scope.swagger = data;
-    // });
+    /**
+     * get the userdata from cookie
+     */
+    user.getAll().then(function(data) {
+        var users = data.plain();
+
+        $scope.getUser = users;
+    });
 }

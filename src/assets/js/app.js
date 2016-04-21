@@ -31,21 +31,31 @@ angular
     ];
 
     function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider) {
+        // workaround to enable cookies in config
+        var $cookies;
+
+        angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
+            $cookies = _$cookies_;
+        }]);
+
         // redirect to home state when we call the page without route information
         // activate in proudction and set mod_rewrite to index.html
         //$locationProvider.html5Mode(true);
 
         // setup restangular basics
         RestangularProvider.setBaseUrl('http://localhost/web-tool-railroad-api/public/api/v1/')
-        .setDefaultHeaders({'Content-Type': "application/x-www-form-urlencoded"})
-        .setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig) {
-            return {
-                element: element,
-                params: params,
-                headers: headers,
-                httpConfig: _.extend({paramSerializer: '$httpParamSerializerJQLike'}, httpConfig)
-            };
+        .setDefaultHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Bearer ' + $cookies.get('tkn_u')
         });
+        // .setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig) {
+        //     return {
+        //         element: element,
+        //         params: params,
+        //         headers: headers,
+        //         httpConfig: _.extend({paramSerializer: '$httpParamSerializerJQLike'}, httpConfig)
+        //     };
+        // });
 
         // activate translation
         $translateProvider.useStaticFilesLoader({
