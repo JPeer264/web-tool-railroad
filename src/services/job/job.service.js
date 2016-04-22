@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.job')
@@ -12,10 +13,11 @@ angular
 
 job.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function job($rootScope, Restangular) {
+function job($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -32,7 +34,7 @@ function job($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('job', id).get();
     }
 
     /**
@@ -48,7 +50,7 @@ function job($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-
+        return Restangular.all('job').getList();
     }
 
     /**
@@ -66,7 +68,7 @@ function job($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.all('job').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -84,7 +86,7 @@ function job($rootScope, Restangular) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('job', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -100,6 +102,6 @@ function job($rootScope, Restangular) {
      * @param {Object} id - the id from the job
      */
     this.delete = function(id) {
-
+        return Restangular.one('job', id).customDELETE();
     }
 }

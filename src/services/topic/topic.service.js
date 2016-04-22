@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.topic')
@@ -12,10 +13,11 @@ angular
 
 topic.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function topic($rootScope, Restangular) {
+function topic($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -32,7 +34,7 @@ function topic($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('topic', id).get();
     }
 
     /**
@@ -43,14 +45,14 @@ function topic($rootScope, Restangular) {
      * @methodOf service.topic
      *
      * @description 
-     * Get all topics
+     * Get all topics - maybe we do not need it -> subcategory.get(id)
      *
      * @param {Object} category_id - the id from the subcategory
      *
      * @returns {Promise} returns promise
      */
     this.getAllBySubcategory = function(category_id) {
-
+        // return Restangular.all('subcategory', category_id).getList();
     }
 
     /**
@@ -61,14 +63,15 @@ function topic($rootScope, Restangular) {
      * @methodOf service.topic
      *
      * @description 
-     * Creates a new topic based on the formData
+     * Creates a new topic based on the formData and subcategory
      *
+     * @param {Object} id       - the subcategory id
      * @param {Object} formData - the given formData of a form
      *
      * @returns {Promise} returns promise
      */
-    this.create = function(formData) {
-
+    this.create = function(id, formData) {
+        return Restangular.one('subcategory', id).one('topic').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -86,7 +89,7 @@ function topic($rootScope, Restangular) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('topic', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -102,6 +105,6 @@ function topic($rootScope, Restangular) {
      * @param {Object} id - the id from the topic
      */
     this.delete = function(id) {
-
+        return Restangular.one('topic', id).customDELETE();
     }   
 }

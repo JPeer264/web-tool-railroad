@@ -14,17 +14,22 @@ angular
  */
 HomeController.$inject = [
     '$scope',
-    'user'
+    'user',
+    'company'
 ];
 
-function HomeController($scope, user) {
+function HomeController($scope, user, company) {
 
     /**
      * get the userdata from cookie
      */
-    user.getAll().then(function(data) {
+    user.get(2).then(function(data) {
         var users = data.plain();
 
         $scope.getUser = users;
+    });
+
+    company.create().then(function(data) {
+        console.log(data);
     });
 }

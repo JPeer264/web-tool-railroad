@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.company')
@@ -12,10 +13,11 @@ angular
 
 company.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function company($rootScope, Restangular) {
+function company($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -32,7 +34,7 @@ function company($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('company', id).get();
     }
 
     /**
@@ -48,7 +50,7 @@ function company($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-
+        return Restangular.all('company').getList();
     }
 
     /**
@@ -66,7 +68,7 @@ function company($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.one('company').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -84,7 +86,7 @@ function company($rootScope, Restangular) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('company', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -100,6 +102,6 @@ function company($rootScope, Restangular) {
      * @param {Object} id - the id from the company
      */
     this.delete = function(id) {
-
+        return Restangular.one('company', id).customDELETE();
     }
 }

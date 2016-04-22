@@ -5,6 +5,10 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
+ * @requires $cookies
+ * @requires $window
+ * @requires COOKIE
  */
 angular
     .module('service.user')
@@ -93,7 +97,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('user', id).get();
     }
 
     /**
@@ -127,7 +131,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.all('register').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -145,7 +149,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('user', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -161,6 +165,6 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      * @param {Object} id - the id from the user
      */
     this.delete = function(id) {
-
+        return Restangular.one('user', id).customDELETE();
     }
 }

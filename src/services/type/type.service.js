@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.type')
@@ -12,10 +13,11 @@ angular
 
 type.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function type($rootScope, Restangular) {
+function type($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -32,7 +34,7 @@ function type($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('type', id).get();
     }
 
     /**
@@ -50,7 +52,7 @@ function type($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.all('type').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -68,7 +70,7 @@ function type($rootScope, Restangular) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('type', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -84,6 +86,6 @@ function type($rootScope, Restangular) {
      * @param {Object} id - the id from the type
      */
     this.delete = function(id) {
-
+        return Restangular.one('type', id).customDELETE();
     }
 }
