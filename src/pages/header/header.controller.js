@@ -21,10 +21,10 @@ HeaderController.$inject = [
 function HeaderController($scope, user, auth) {
 
     /**
-     * call the user.logout() service
+     * call the auth.logout() service
      */
     $scope.logout = function() {
-        user.logout();
+        auth.logout();
     }
 
     /**

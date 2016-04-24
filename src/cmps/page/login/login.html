@@ -1,5 +1,6 @@
 <form>
-    <input type="text" data-ng-model="user.email" placeholder="Email">
-    <input type="password" data-ng-model="user.password" placeholder="Password">
+    <span>{{ error | translate }}</span>
+    <input type="text" data-ng-model="user.email" placeholder="Email" required>
+    <input type="password" data-ng-model="user.password" placeholder="Password" required>
     <input type="submit" data-ng-click="login()">
 </form>

@@ -88,11 +88,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
     this.login = function(formData) {
         delete Restangular.configuration.defaultHeaders.Authorization;
         
-        token.post($httpParamSerializer(formData)).then(function (data) {
-            $cookies.put(COOKIE.TOKEN, data.token);
-                        
-            $window.location.assign('/');
-        });
+        return token.post($httpParamSerializer(formData));
     }
 
     /**
