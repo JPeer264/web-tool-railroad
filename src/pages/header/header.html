@@ -1,6 +1,17 @@
-<button ng-click="logout()" ng-if="isLoggedIn()">Log out!</button>
-<div data-language-chooser></div>
-<ul>
-    <li>{{"NAV_HOME" | translate}}</li>
-    <li>{{"NAV_SETTINGS" | translate}}</li>
-</ul>
+<div id="header">
+    <div class="container">
+        <div class="hcenter">
+            <div class="pull-left">
+                <ul class="ul-normalize">
+                    <li>{{"NAV_HOME" | translate}}</li>
+                    <li>{{"NAV_SETTINGS" | translate}}</li>
+                </ul>
+            </div>
+            <div class="pull-right">
+                <button class="button-neutralize" ng-click="logout()" ng-if="isLoggedIn()">Log out!</button>
+                <div class="clearfix" data-language-chooser></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

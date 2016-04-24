@@ -26,4 +26,6 @@ function HomeController($scope) {
      * example of a property
      */
     $scope.getUser = 'users';
+
+    $scope.testData = ['soda','beer','water','milk','wine','cognac'];
 }

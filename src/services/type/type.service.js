@@ -17,7 +17,7 @@ type.$inject = [
 ];
 
 // cache all promises - private
-ßvar _promiseCache = {
+var _promiseCache = {
     get: {},
 }
 

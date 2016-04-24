@@ -1,0 +1,57 @@
+$color1: #FEC72E; 
+$color2: #FF9200;
+
+$header-height: 50px;
+
+* {
+    box-sizing: border-box;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.relative {
+    position: relative;
+    height: inherit;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+// set the button invisible 
+.button-neutralize {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.ul-normalize {
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        margin-left: 2rem;
+
+        &:nth-of-type(1) {
+            margin-left: 0;
+        }
+    }
+}

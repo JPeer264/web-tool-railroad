@@ -92,7 +92,7 @@ angular
                         }
                     ]
                 },
-                template: '<div class="view-header" data-ui-view="header"></div><div class="view-main" data-ui-view="main"></div>'
+                template: '<div class="view-header" data-ui-view="header"></div><div class="container"><div class="view-main" data-ui-view="main"></div></div>'
             })
             .state('secure.index', {
                 url: '/',

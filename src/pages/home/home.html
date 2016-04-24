@@ -1,6 +1,28 @@
-<div>{{"WELCOME" | translate}}</div>
-<br>
-<p>{{ getUser }}</p>
-<div>We can use more than one topic from our components:</div>
-<p data-topic></p>
-<p data-topic></p>
+<div class="row">
+    <div class="col-sm-8">
+        <p>{{"WELCOME" | translate}}</p>
+    </div>
+    <div class="col-sm-4">
+        <p>{{ getUser }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <p>Some information:</p>
+        <div class="row">
+            <div data-ng-repeat="i in [1,2,3,4,5]">
+                <div class="clearfix" ng-if="$index % 2 == 0"></div>
+                <div class="col-md-6" style="border: 1px solid #000;">Random</div>
+            </div>     
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <p>Some news:</p>
+        <div class="row">
+            <div data-ng-repeat="test in testData">
+                <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                <div class="col-md-4" style="border: 1px solid #000;">{{ test }}</div>
+            </div>
+        </div>
+    </div>
+</div>
