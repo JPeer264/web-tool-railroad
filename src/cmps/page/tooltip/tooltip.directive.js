@@ -6,6 +6,8 @@ angular
  * @ngdoc directive
  * @name cmps.page:tooltip
  *
+ * @restrict AE
+ *
  * @description 
  * Generates a single tooltip component
  */

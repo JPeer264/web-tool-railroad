@@ -22,7 +22,7 @@ function TooltipController($scope, type) {
     /**
      * @ngdoc method
      * @name getType
-     * @methodOf cmps.page:TooltipController
+     * @methodOf cmps.page:TooltipCtrl
      *
      * @description
      * get the type data from type service
