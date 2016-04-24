@@ -16,6 +16,7 @@
         'pages.faq',
         'pages.profile',
         'pages.rules',
+        'pages.error',
     ]);
 
 })(window, window.angular);

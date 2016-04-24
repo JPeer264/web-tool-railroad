@@ -55,7 +55,8 @@ angular
         //         headers: headers,
         //         httpConfig: _.extend({paramSerializer: '$httpParamSerializerJQLike'}, httpConfig)
         //     };
-        // });
+        // })
+        
 
         // activate translation
         $translateProvider.useStaticFilesLoader({
@@ -175,12 +176,25 @@ angular
                 url: '/welcome',
                 views: {
                     header: {
-                        templateUrl: 'pages/header/header.html',
-                        controller: 'HeaderCtrl'
+                        templateUrl: templates.header.template,
+                        controller: templates.header.controller
                     },
                     main: {
                         templateUrl: 'pages/landing/landing.html',
                         controller: 'LandingCtrl'
+                    }
+                }
+            })
+            .state('error', {
+                url: '/error',
+                views: {
+                    header: {
+                        templateUrl: templates.header.template,
+                        controller: templates.header.controller
+                    },
+                    main: {
+                        templateUrl: 'pages/error/error.html',
+                        controller: 'ErrorCtrl'
                     }
                 }
             });
@@ -195,10 +209,11 @@ angular
         '$rootScope', 
         '$location',
         '$http',
-        'auth'
+        'auth',
+        'Restangular'
     ];
     
-    function run($rootScope, $location, $http, auth) {
+    function run($rootScope, $location, $http, auth, Restangular) {
         auth.check();
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
@@ -215,6 +230,16 @@ angular
             if (loggedIn && $location.url() == '/welcome') {
                 $location.path('/');
             }
+        });
+
+        Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
+            // if(response.status >= 300) {
+            //     $location.path('/error');
+
+            //     return false; // error handled
+            // }
+
+            return true; // error not handled
         });
     }
 
