@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.comment')
@@ -12,10 +13,11 @@ angular
 
 comment.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function comment($rootScope, Restangular) {
+function comment($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
@@ -32,6 +34,6 @@ function comment($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.one('company').customPOST($httpParamSerializer(formData));
     }
 }

@@ -4,7 +4,7 @@ angular
 
 loginController.$inject = [
     '$scope',
-    'user'
+    'auth'
 ];
 
 /**
@@ -17,12 +17,12 @@ loginController.$inject = [
  * @description
  * Hello App controller
  */
-function loginController($scope, user) {
+function loginController($scope, auth) {
 
     /**
-     * call the user.login() service
+     * call the auth.login() service
      */
     $scope.login = function() {
-        user.login($scope.user);
+        auth.login($scope.user);
     }
 }

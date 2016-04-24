@@ -6,6 +6,10 @@
  * @requires $rootScope
  * @requires Restangular
  * @requires $state
+ * @requires $window
+ * @requires $cookies
+ * @requires COOKIE
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.auth')
@@ -17,11 +21,13 @@ auth.$inject = [
     '$state',
     '$window',
     '$cookies',
-    'COOKIE'
+    'COOKIE',
+    '$httpParamSerializer'
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE) {
-    var _authenticated = false;
+function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpParamSerializer) {
+    var _authenticated = false,
+        token = Restangular.service('auth/token');
 
     /**
      * @ngdoc method
@@ -73,17 +79,35 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE) {
      * @methodOf service.auth
      *
      * @description 
-     * Login a person to receive and store JWT token
+     * Request a token and saves into $cookies if the token is valid
+     * Redirect on successfully login to home
      *
-     * @param {String} formData the given formData of the login
+     * @param {String} formData email and password for the requested user
      * @returns {Promise} Returns a promise with a token
      */
     this.login = function(formData) {
-        // todo get token
-        // todo store token in $cookie
-        // todo store userid in $cookie
+        delete Restangular.configuration.defaultHeaders.Authorization;
+        
+        token.post($httpParamSerializer(formData)).then(function (data) {
+            $cookies.put(COOKIE.TOKEN, data.token);
+                        
+            $window.location.assign('/');
+        });
+    }
 
-        return Restangular;
+    /**
+     * @ngdoc method
+     *
+     * @name service.auth#logout
+     *
+     * @methodOf service.auth
+     *
+     * @description 
+     * Deletes the user token and return to the welcome page
+     */
+    this.logout = function() {
+        $cookies.remove(COOKIE.TOKEN);
+        $window.location.assign('/');
     }
 
     /**

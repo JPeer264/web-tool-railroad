@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.subcategory')
@@ -12,10 +13,11 @@ angular
 
 subcategory.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function subcategory($rootScope, Restangular) {
+function subcategory($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -32,7 +34,7 @@ function subcategory($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-
+        return Restangular.one('subcategory', id).get();
     }
 
     /**
@@ -48,7 +50,7 @@ function subcategory($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-
+        return Restangular.all('subcategory').getList();
     }
 
     /**
@@ -61,12 +63,13 @@ function subcategory($rootScope, Restangular) {
      * @description 
      * Creates a new subcategory based on the formData
      *
-     * @param {Object} formData - the given formData of a form
+     * @param {Object} category_id  - parent category
+     * @param {Object} formData     - the given formData of a form
      *
      * @returns {Promise} returns promise
      */
-    this.create = function(formData) {
-
+    this.create = function(category_id, formData) {
+        return Restangular.one('category', category_id).one('subcategory').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -84,7 +87,7 @@ function subcategory($rootScope, Restangular) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('subcategory', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -100,6 +103,6 @@ function subcategory($rootScope, Restangular) {
      * @param {Object} id - the id from the subcategory
      */
     this.delete = function(id) {
-
+        return Restangular.one('subcategory', id).customDELETE();
     }
 }

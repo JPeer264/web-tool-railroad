@@ -6,9 +6,6 @@
  * @requires $rootScope
  * @requires Restangular
  * @requires $httpParamSerializer
- * @requires $cookies
- * @requires $window
- * @requires COOKIE
  */
 angular
     .module('service.user')
@@ -18,14 +15,9 @@ user.$inject = [
     '$rootScope',
     'Restangular',
     '$httpParamSerializer',
-    '$cookies',
-    '$window',
-    'COOKIE'
 ];
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, COOKIE) {
-    var token = Restangular.service('auth/token'),
-        users = Restangular.service('user');
+function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
@@ -41,45 +33,6 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $window, 
      */
     this.getCurrent = function() {
         // todo get userdata from JWT token
-    }
-
-    /**
-     * @ngdoc method
-     *
-     * @name service.user#login
-     *
-     * @methodOf service.user
-     *
-     * @description 
-     * Request a token and saves into $cookies if the token is valid
-     * Redirect on successfully login to home
-     *
-     * @param {String} formData email and password for the requested user
-     */
-    this.login = function(formData) {
-        delete Restangular.configuration.defaultHeaders.Authorization;
-        
-        token.post($httpParamSerializer(formData)).then(function (data) {
-            $cookies.put(COOKIE.TOKEN, data.token);
-                        
-            $window.location.assign('/');
-        });
-
-    }
-
-    /**
-     * @ngdoc method
-     *
-     * @name service.user#logout
-     *
-     * @methodOf service.user
-     *
-     * @description 
-     * Deletes the user token and return to the welcome page
-     */
-    this.logout = function() {
-        $cookies.remove(COOKIE.TOKEN);
-        $window.location.assign('/');
     }
     
     /**

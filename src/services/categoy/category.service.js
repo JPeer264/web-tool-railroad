@@ -5,6 +5,7 @@
  *
  * @requires $rootScope
  * @requires Restangular
+ * @requires $httpParamSerializer
  */
 angular
     .module('service.category')
@@ -12,10 +13,11 @@ angular
 
 category.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function category($rootScope, Restangular) {
+function category($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
@@ -30,7 +32,7 @@ function category($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-
+        return Restangular.all('category').getList();
     }
 
     /**
@@ -48,7 +50,7 @@ function category($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-
+        return Restangular.one('category').customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -67,7 +69,7 @@ function category($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.update = function(id, formData) {
-
+        return Restangular.one('category', id).customPOST($httpParamSerializer(formData));
     }
 
     /**
@@ -85,6 +87,6 @@ function category($rootScope, Restangular) {
      * @returns {Promise} returns promise
      */
     this.delete = function(id) {
-
+        return Restangular.one('category', id).customDELETE();
     }
 }
