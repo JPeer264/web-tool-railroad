@@ -52,6 +52,10 @@ module.exports = {
 			tasks: [
 				'concat:js'
 			]
+		},
+		json: {
+			files: '<%= paths.src.base %>/i18n/**/*',
+			tasks: 'copy:dev'
 		}
 	},
 
