@@ -17,15 +17,26 @@ function screenTipDirective() {
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
             controller: 'TooltipCtrl',
+            controllerAs: 'tool',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-            // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
+            restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
             templateUrl: 'cmps/page/tooltip/tooltip.html',
             replace: true,
-            // transclude: true,
+            transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function($scope, iElm, iAttrs, controller) {
-                
+            link: function(scope, iElm, iAttrs, controller) {
+
+                if (iAttrs.type) {
+                    scope.getType(iAttrs.type).then(function(data) {
+                        // scope.content = data.description;
+                        $('[data-toggle="tooltip"][type=' + iAttrs.type + ']')
+                            .attr('data-title', data.title)
+                            .attr('data-content', data.description)
+                            .popover();
+                    });
+                }
+
             }
         };
 };

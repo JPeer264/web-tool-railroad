@@ -16,6 +16,11 @@ type.$inject = [
     '$httpParamSerializer'
 ];
 
+// cache all promises - private
+ßvar _promiseCache = {
+    get: {},
+}
+
 function type($rootScope, Restangular, $httpParamSerializer) {
     
     /**
@@ -31,7 +36,12 @@ function type($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-        return Restangular.one('type', id).get();
+
+        if (!_promiseCache.get[id]) {
+            _promiseCache.get[id] = Restangular.one('type', id).get();
+        }
+
+        return _promiseCache.get[id];
     }
 
     /**
