@@ -1,6 +1,9 @@
 {
+    "ERROR_WRONG_CREDENTIALS": "TODO ERROR_WRONG_CREDENTIALS",
+
     "NAV_HOME": "Inicio",
     "NAV_SETTINGS": "Configuración",
+
     "WELCOME": "Bienvenido a nuestro la herramienta museo del ferrocarril",
     "PROFILE":"Perfil"
 }

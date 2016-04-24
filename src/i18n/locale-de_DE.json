@@ -1,5 +1,8 @@
 {
+    "ERROR_WRONG_CREDENTIALS": "Falsche email oder falsches password.",
+
     "NAV_HOME": "Startseite",
     "NAV_SETTINGS": "Einstellungen",
+
     "WELCOME": "Willkommen zu unserem Zugmuseumstool!"
 }

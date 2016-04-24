@@ -1,6 +1,9 @@
 {
+    "ERROR_WRONG_CREDENTIALS": "TODO ERROR_WRONG_CREDENTIALS",
+    
     "NAV_HOME": "Startpagina",
     "NAV_SETTINGS": "Instellingen",
+
     "WELCOME": "Welkom bij ons spoorweg museum webtool!",
     "PROFILE":"Profile"
 }
