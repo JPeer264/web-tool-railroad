@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.subcategory
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function subcategory($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.subcategory#get
-     *
      * @methodOf service.subcategory
      *
      * @description 
@@ -39,9 +36,7 @@ function subcategory($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.subcategory#getAll
-     *
      * @methodOf service.subcategory
      *
      * @description 
@@ -55,9 +50,7 @@ function subcategory($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.subcategory#create
-     *
      * @methodOf service.subcategory
      *
      * @description 
@@ -74,9 +67,7 @@ function subcategory($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.subcategory#update
-     *
      * @methodOf service.subcategory
      *
      * @description 
@@ -92,9 +83,7 @@ function subcategory($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.subcategory#delete
-     * @private
      * @methodOf service.subcategory
      *
      * @description 

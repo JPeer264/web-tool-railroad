@@ -1,16 +1,14 @@
-/**
- * @ngdoc directive
- *
- * @name component.languageChooser
- *
- * @description 
- * Generates a single languageChooser component
- */
 angular
     .module('page.languageChooser')
     .directive('languageChooser', languageChooserDirective);
 
-
+/**
+ * @ngdoc directive
+ * @name cmps.page:languageChooser
+ *
+ * @description 
+ * Generates a single languageChooser component
+ */
 function languageChooserDirective() {
         // Runs during compile
         return {

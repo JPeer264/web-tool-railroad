@@ -2,25 +2,31 @@ angular
     .module('pages.header')
     .controller('HeaderCtrl', HeaderController);
 
+/**
+ * @ngdoc controller
+ * @name pages.header:HeaderCtrl
+ *
+ * @requires $scope
+ * @requires service.user
+ * @requires service.auth
+ *
+ * @description
+ * HeaderCtrl for the header page
+ */
 HeaderController.$inject = [
     '$scope',
     'user',
     'auth'
 ];
 
-/**
- * @ngdoc object
- * @name pages.HeaderCtrl
- * @requires $scope
- * @requires user
- * @requires auth
- *
- * @description
- * HeaderCtrl for the Header Component
- */
 function HeaderController($scope, user, auth) {
 
     /**
+     * @ngdoc method
+     * @name logout
+     * @methodOf pages.header:HeaderCtrl
+     *
+     * @description
      * call the auth.logout() service
      */
     $scope.logout = function() {
@@ -28,9 +34,14 @@ function HeaderController($scope, user, auth) {
     }
 
     /**
-     * call the user.logout() service
+     * @ngdoc method
+     * @name isLoggedIn
+     * @methodOf pages.header:HeaderCtrl
      *
-     * @return {Boolean}
+     * @description
+     * call the auth.logout() service and check logged in status
+     *
+     * @return {Boolean} auth.isAuthorized()
      */
     $scope.isLoggedIn = function() {
         return auth.isAuthorized();

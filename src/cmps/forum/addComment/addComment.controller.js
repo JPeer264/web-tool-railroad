@@ -1,11 +1,20 @@
 angular
     .module('forum.addComment')
-    .controller('AddCommentCtrl', addCommentController);
+    .controller('AddCommentCtrl', AddCommentController);
 
-addCommentController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.forum:AddCommentCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * AddCommentCtrl for the addComment Component
+ */
+AddCommentController.$inject = [
     '$scope'
 ];
 
-function addCommentController($scope) {
+function AddCommentController($scope) {
 
 }

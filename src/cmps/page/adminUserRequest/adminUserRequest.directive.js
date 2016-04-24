@@ -1,16 +1,14 @@
-/**
- * @ngdoc directive
- *
- * @name component.adminUserRequest
- *
- * @description 
- * Generates a single adminUserRequest component
- */
 angular
     .module('page.adminUserRequest')
     .directive('adminUserRequest', adminUserRequestDirective);
 
-
+/**
+ * @ngdoc directive
+ * @name cmps.page:adminUserRequest
+ *
+ * @description 
+ * Generates a single adminUserRequest component
+ */
 function adminUserRequestDirective() {
         // Runs during compile
         return {

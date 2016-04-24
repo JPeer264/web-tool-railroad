@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.type
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function type($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.type#get
-     *
      * @methodOf service.type
      *
      * @description 
@@ -39,9 +36,7 @@ function type($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.type#create
-     *
      * @methodOf service.type
      *
      * @description 
@@ -57,9 +52,7 @@ function type($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.type#update
-     *
      * @methodOf service.type
      *
      * @description 
@@ -75,9 +68,7 @@ function type($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.type#delete
-     * @private
      * @methodOf service.type
      *
      * @description 

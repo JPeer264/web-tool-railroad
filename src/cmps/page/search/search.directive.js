@@ -1,16 +1,14 @@
-/**
- * @ngdoc directive
- *
- * @name component.search
- *
- * @description 
- * Generates a single search component
- */
 angular
     .module('page.search')
     .directive('search', searchDirective);
 
-
+/**
+ * @ngdoc directive
+ * @name cmps.page:search
+ *
+ * @description 
+ * Generates a single search component
+ */
 function searchDirective() {
         // Runs during compile
         return {

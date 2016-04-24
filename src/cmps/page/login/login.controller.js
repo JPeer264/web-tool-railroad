@@ -1,13 +1,13 @@
 angular
     .module('page.login')
-    .controller('LoginCtrl', loginController);
+    .controller('LoginCtrl', LoginController);
 
 /**
- * @ngdoc object
- * @name component.LoginCtrl
+ * @ngdoc controller
+ * @name cmps.page:LoginCtrl
  *
  * @requires $scope
- * @requires auth
+ * @requires service.auth
  * @requires $window
  * @requires $cookies
  * @requires COOKIE
@@ -15,7 +15,7 @@ angular
  * @description
  * Hello App controller
  */
-loginController.$inject = [
+LoginController.$inject = [
     '$scope',
     'auth',
     '$window',
@@ -23,9 +23,14 @@ loginController.$inject = [
     'COOKIE',
 ];
 
-function loginController($scope, auth, $window, $cookies, COOKIE) {
+function LoginController($scope, auth, $window, $cookies, COOKIE) {
 
     /**
+     * @ngdoc method
+     * @name login
+     * @methodOf cmps.page:LoginCtrl
+     *
+     * @description
      * call the auth.login() service and set token if it not fail
      */
     $scope.login = function() {

@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.topic
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function topic($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.topic#get
-     *
      * @methodOf service.topic
      *
      * @description 
@@ -39,9 +36,7 @@ function topic($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.topic#getAllBySubcategory
-     *
      * @methodOf service.topic
      *
      * @description 
@@ -57,9 +52,7 @@ function topic($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.topic#create
-     *
      * @methodOf service.topic
      *
      * @description 
@@ -76,9 +69,7 @@ function topic($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.topic#update
-     *
      * @methodOf service.topic
      *
      * @description 
@@ -94,9 +85,7 @@ function topic($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.topic#delete
-     * @private
      * @methodOf service.topic
      *
      * @description 

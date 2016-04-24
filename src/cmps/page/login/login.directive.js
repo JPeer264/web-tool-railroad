@@ -1,16 +1,14 @@
-/**
- * @ngdoc directive
- *
- * @name component.login
- *
- * @description 
- * Generates a single login component
- */
 angular
     .module('page.login')
     .directive('login', loginDirective);
 
-
+/**
+ * @ngdoc directive
+ * @name cmps.page:login
+ *
+ * @description 
+ * Generates a single login component
+ */
 function loginDirective() {
         // Runs during compile
         return {

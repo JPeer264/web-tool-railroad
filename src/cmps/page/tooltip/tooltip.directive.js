@@ -1,16 +1,14 @@
+angular
+    .module('page.tooltip')
+    .directive('tooltip', screenTipDirective);
+
 /**
  * @ngdoc directive
- *
- * @name component.screenTip
+ * @name cmps.page:tooltip
  *
  * @description 
- * Generates a single screenTip component
+ * Generates a single tooltip component
  */
-angular
-    .module('page.screenTip')
-    .directive('screenTip', screenTipDirective);
-
-
 function screenTipDirective() {
         // Runs during compile
         return {
@@ -18,11 +16,11 @@ function screenTipDirective() {
             // priority: 1,
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
-            controller: 'ScreenTipCtrl',
+            controller: 'TooltipCtrl',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
-            templateUrl: 'cmps/page/screenTip/screenTip.html',
+            templateUrl: 'cmps/page/tooltip/tooltip.html',
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),

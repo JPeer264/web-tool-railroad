@@ -1,11 +1,20 @@
 angular
     .module('page.search')
-    .controller('SearchCtrl', searchController);
+    .controller('SearchCtrl', SearchController);
 
-searchController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.page:SearchCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * SearchCtrl for the search directive
+ */
+SearchController.$inject = [
     '$scope'
 ];
 
-function searchController($scope) {
+function SearchController($scope) {
 
 }

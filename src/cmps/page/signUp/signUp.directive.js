@@ -1,16 +1,14 @@
-/**
- * @ngdoc directive
- *
- * @name component.signUp
- *
- * @description 
- * Generates a single signUp component
- */
 angular
     .module('page.signUp')
     .directive('signUp', signUpDirective);
 
-
+/**
+ * @ngdoc directive
+ * @name cmps.page:signUp
+ *
+ * @description 
+ * Generates a single signUp component
+ */
 function signUpDirective() {
         // Runs during compile
         return {

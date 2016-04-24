@@ -1,11 +1,20 @@
 angular
     .module('page.signUp')
-    .controller('SignUpCtrl', signUpController);
+    .controller('SignUpCtrl', SignUpController);
 
-signUpController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.page:SignUpCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * SignUpCtrl for the signUp directive
+ */
+SignUpController.$inject = [
     '$scope'
 ];
 
-function signUpController($scope) {
+function SignUpController($scope) {
 
 }

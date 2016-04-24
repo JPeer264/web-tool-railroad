@@ -1,11 +1,20 @@
 angular
     .module('page.adminUserRequest')
-    .controller('AdminUserRequestCtrl', aurController);
+    .controller('AdminUserRequestCtrl', AurController);
 
-aurController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.page:AdminUserRequestCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * AdminUserRequestCtrl for the adminUserRequest directive
+ */
+AurController.$inject = [
     '$scope'
 ];
 
-function aurController($scope) {
+function AurController($scope) {
 
 }

@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.comment
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function comment($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.comment#create
-     *
      * @methodOf service.comment
      *
      * @description 

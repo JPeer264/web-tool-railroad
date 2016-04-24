@@ -1,11 +1,20 @@
 angular
     .module('forum.subcategory')
-    .controller('SubcategoryCtrl', subcategoryController);
+    .controller('SubcategoryCtrl', SubcategoryController);
 
-subcategoryController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.forum:SubcategoryCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * SubcategoryCtrl for the subcategory directive
+ */
+SubcategoryController.$inject = [
     '$scope'
 ];
 
-function subcategoryController($scope) {
+function SubcategoryController($scope) {
 
 }

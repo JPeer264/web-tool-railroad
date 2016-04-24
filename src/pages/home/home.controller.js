@@ -3,33 +3,27 @@ angular
 	.controller('HomeCtrl', HomeController);
 
 /**
- * @ngdoc object
- * @name pages.HomeCtrl
+ * @ngdoc controller
+ * @name pages.home:HomeCtrl
+ *
  * @requires $scope
- * @requires user
- * @requires auth
  *
  * @description
- * HomeCtrl for the Home Component
+ * HomeCtrl for the home page
  */
 HomeController.$inject = [
     '$scope',
-    'user',
-    'company'
 ];
 
-function HomeController($scope, user, company) {
+function HomeController($scope) {
 
     /**
-     * get the userdata from cookie
+     * @ngdoc property
+     * @name $scope.getUser
+     * @propertyOf pages.home:HomeCtrl
+     *
+     * @description
+     * example of a property
      */
-    user.get(2).then(function(data) {
-        var users = data.plain();
-
-        $scope.getUser = users;
-    });
-
-    company.create().then(function(data) {
-        console.log(data);
-    });
+    $scope.getUser = 'users';
 }

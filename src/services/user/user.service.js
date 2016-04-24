@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.user
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.user#getCurrent
-     *
      * @methodOf service.user
      *
      * @description 
@@ -37,9 +34,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.user#get
-     *
      * @methodOf service.user
      *
      * @description 
@@ -55,9 +50,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.user#getAll
-     *
      * @methodOf service.user
      *
      * @description 
@@ -71,9 +64,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.user#create
-     *
      * @methodOf service.user
      *
      * @description 
@@ -89,9 +80,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.user#update
-     *
      * @methodOf service.user
      *
      * @description 
@@ -107,9 +96,7 @@ function user($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.user#delete
-     * @private
      * @methodOf service.user
      *
      * @description 

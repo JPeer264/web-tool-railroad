@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.auth
  *
  * @requires $rootScope

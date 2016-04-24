@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.job
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function job($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.job#get
-     *
      * @methodOf service.job
      *
      * @description 
@@ -39,9 +36,7 @@ function job($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.job#getAll
-     *
      * @methodOf service.job
      *
      * @description 
@@ -55,9 +50,7 @@ function job($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.job#create
-     *
      * @methodOf service.job
      *
      * @description 
@@ -73,9 +66,7 @@ function job($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.job#update
-     *
      * @methodOf service.job
      *
      * @description 
@@ -91,9 +82,7 @@ function job($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.job#delete
-     * @private
      * @methodOf service.job
      *
      * @description 

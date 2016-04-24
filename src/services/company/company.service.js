@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.company
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.company#get
-     *
      * @methodOf service.company
      *
      * @description 
@@ -39,9 +36,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.company#getAll
-     *
      * @methodOf service.company
      *
      * @description 
@@ -55,9 +50,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.company#create
-     *
      * @methodOf service.company
      *
      * @description 
@@ -73,9 +66,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.company#update
-     *
      * @methodOf service.company
      *
      * @description 
@@ -91,9 +82,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.company#delete
-     * @private
      * @methodOf service.company
      *
      * @description 

@@ -1,6 +1,5 @@
 /**
  * @ngdoc service 
- *
  * @name service.category
  *
  * @requires $rootScope
@@ -21,9 +20,7 @@ function category($rootScope, Restangular, $httpParamSerializer) {
     
     /**
      * @ngdoc method
-     *
      * @name service.category#getAll
-     *
      * @methodOf service.category
      *
      * @description 
@@ -37,9 +34,7 @@ function category($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.category#create
-     *
      * @methodOf service.category
      *
      * @description 
@@ -55,9 +50,7 @@ function category($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.category#update
-     *
      * @methodOf service.category
      *
      * @description 
@@ -74,9 +67,7 @@ function category($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     *
      * @name service.category#delete
-     *
      * @methodOf service.category
      *
      * @description 

@@ -1,11 +1,20 @@
 angular
     .module('forum.addTopic')
-    .controller('AddTopicCtrl', addTopicController);
+    .controller('AddTopicCtrl', AddTopicController);
 
-addTopicController.$inject = [
+/**
+ * @ngdoc controller
+ * @name cmps.forum:AddTopicCtrl
+ *
+ * @requires $scope
+ *
+ * @description
+ * AddTopicCtrl for the addTopic directive
+ */
+AddTopicController.$inject = [
     '$scope'
 ];
 
-function addTopicController($scope) {
+function AddTopicController($scope) {
 
 }

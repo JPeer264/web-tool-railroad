@@ -5,7 +5,7 @@ angular.module('cmps.page', [
     'page.adminUserRequest',
     'page.languageChooser',
     'page.login',
-    'page.screenTip',
+    'page.tooltip',
     'page.search',
     'page.signUp',
 ]);
