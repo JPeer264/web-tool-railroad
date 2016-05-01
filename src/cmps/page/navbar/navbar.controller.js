@@ -11,6 +11,7 @@ angular
  * @requires $window
  * @requires $cookies
  * @requires COOKIE
+ * @requires $state
  *
  * @description
  * Hello App controller
@@ -21,14 +22,15 @@ NavbarController.$inject = [
     '$window',
     '$cookies',
     'COOKIE',
+    '$state',
 ];
 
-function NavbarController($scope, auth, $window, $cookies, COOKIE) {
+function NavbarController($scope, auth, $window, $cookies, COOKIE, $state) {
 
     /**
      * @ngdoc method
      * @name logout
-     * @methodOf pages.page:NavbarCtrl
+     * @methodOf cmps.page:NavbarCtrl
      *
      * @description
      * call the auth.logout() service
@@ -36,4 +38,14 @@ function NavbarController($scope, auth, $window, $cookies, COOKIE) {
     $scope.logout = function() {
         auth.logout();
     }
+
+    /**
+     * @ngdoc property
+     * @name $state
+     * @propertyOf cmps.page:NavbarCtrl
+     *
+     * @description
+     * The $state object
+     */
+    $scope.$state = $state;
 }

@@ -105,7 +105,8 @@ angular
                         templateUrl: 'pages/home/home.html',
                         controller: 'HomeCtrl'
                     },
-                }
+                },
+                activetab: 'home'
             })
             .state('secure.categories', {
                 url: '/category',
@@ -118,7 +119,8 @@ angular
                         templateUrl: 'pages/categories/categories.html',
                         controller: 'CategoriesCtrl'
                     },
-                }
+                },
+                activetab: 'category'
             })
             .state('secure.category', {
                 url: '/category/{id}',
@@ -131,7 +133,8 @@ angular
                         templateUrl: 'pages/category/category.html',
                         controller: 'CategoryCtrl'
                     },
-                }
+                },
+                activetab: 'category'
             })
             .state('secure.profile', {
                 url: '/user/{id}',
@@ -144,7 +147,8 @@ angular
                         templateUrl: 'pages/profile/profile.html',
                         controller: 'ProfileCtrl'
                     },
-                }
+                },
+                activetab: 'profile'
             })
             .state('secure.rules', {
                 url: '/rules',
@@ -157,7 +161,8 @@ angular
                         templateUrl: 'pages/rules/rules.html',
                         controller: 'RulesCtrl'
                     },
-                }
+                },
+                activetab: 'rules'
             })
             .state('secure.faq', {
                 url: '/faq',
@@ -170,7 +175,8 @@ angular
                         templateUrl: 'pages/faq/faq.html',
                         controller: 'FaqCtrl'
                     },
-                }
+                },
+                activetab: 'faq'
             })
             .state('landing', {
                 url: '/welcome',

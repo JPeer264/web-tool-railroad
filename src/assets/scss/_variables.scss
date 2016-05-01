@@ -2,7 +2,7 @@
  ** COLORS **
  ************/
 // colors for backgrounds
-$color1: #FEC72E; 
+$color1: #FFC14E; 
 $color2: #FF9200;
 
 // colors for borders
@@ -15,7 +15,16 @@ $border-color: #A7813B;
 $header-height: 75px;
 $header-button-margin: 5px;
 
+/*************
+ ** USERBAR **
+ *************/
+$userbar-height: 55px;
+$userbar-padding: 5px;
+$userbar-image: 50px;
+
 /***************
  ** STANDARDS **
  ***************/
 $border-radius-standard: 0 0 15px 0;
+$space-between-links: 20px;
+

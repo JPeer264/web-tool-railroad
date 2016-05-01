@@ -28,7 +28,7 @@ function UserbarController($scope, auth, $window, $cookies, COOKIE) {
     /**
      * @ngdoc method
      * @name logout
-     * @methodOf pages.page:UserbarCtrl
+     * @methodOf cmps.page:UserbarCtrl
      *
      * @description
      * call the auth.logout() service
@@ -40,7 +40,7 @@ function UserbarController($scope, auth, $window, $cookies, COOKIE) {
     /**
      * @ngdoc method
      * @name isLoggedIn
-     * @methodOf pages.page:UserbarCtrl
+     * @methodOf cmps.page:UserbarCtrl
      *
      * @description
      * call the auth.logout() service and check logged in status

@@ -1,10 +1,14 @@
 <div>
     <div id="header">
-        <div class="container">
-            <div class="pull-left">
-                <img src="" alt="Logo">
+        <div class="container flex">
+            <div class="flex-start">
+                <div id="logo">
+                    <a href="/">
+                        <img src="https://www.jpeer.at/railroad/testimage/logo.jpg" alt="Logo">
+                    </a>
+                </div>
             </div>
-            <div class="pull-right" ng-if="isLoggedIn()">
+            <div class="flex-end" ng-if="isLoggedIn()">
                 <div data-userbar></div>
                 <div class="clearfix" data-language-chooser></div>
             </div>

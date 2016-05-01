@@ -2,9 +2,9 @@
     background-color: $color1;
     height: $header-height;
 
-    .pull-right {
+    .flex-end {
         > div {
-            margin-left: $header-button-margin;
+            margin-left: $space-between-links;
             float: left;
 
             &:nth-of-type(1) {
@@ -19,5 +19,13 @@
 
     button {
         line-height: normal;
+    }
+}
+
+#logo {
+    height: $header-height;
+
+    img {
+        height: 100%;
     }
 }

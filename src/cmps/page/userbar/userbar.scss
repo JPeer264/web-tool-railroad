@@ -1,12 +1,8 @@
-$userbarHeight: 55px;
-$userPadding: 5px;
-$userImage: 50px;
-
 .userbar {
     // width: 200px;
-    min-height: $userbarHeight + 5px; // dropdown go 5px down
+    height: $userbar-height + 5px; // dropdown go 5px down
     display: inline-block;
-    padding: $userPadding;
+    padding: $userbar-padding;
     background-color: $color2;
     color: white;
     text-align: left;
@@ -36,14 +32,14 @@ $userImage: 50px;
     flex-direction: row;
 
     .img {
-        padding-right: $userPadding;
-        width: $userImage;
-        height: $userImage;
+        padding-right: $userbar-padding;
+        width: $userbar-image;
+        height: $userbar-image;
 
         img {
             width: 100%;
             overflow: hidden;
-            border-radius: $userImage / 2;
+            border-radius: $userbar-image / 2;
             border: 1px solid $border-color;
         }
     }
