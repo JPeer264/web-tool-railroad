@@ -1,0 +1,11 @@
+.landing {
+    margin-top: $landing-margin;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    > div {
+        margin-bottom: $landing-margin;
+    }
+}

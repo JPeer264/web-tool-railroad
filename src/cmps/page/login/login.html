@@ -1,6 +1,22 @@
 <form>
     <span>{{ error | translate }}</span>
-    <input type="text" data-ng-model="user.email" placeholder="Email" required>
-    <input type="password" data-ng-model="user.password" placeholder="Password" required>
-    <input type="submit" data-ng-click="login()">
+    <div layout="column" class="login md-whiteframe-z1">
+        <md-toolbar>
+            <h2 class="md-toolbar-tools"><span>Login</span></h2>
+        </md-toolbar>
+        <md-content layout="column" class="md-padding">
+            <md-input-container>
+                <label>EmailAddress</label>
+                <input type="email" data-ng-model="user.email" required/>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" data-ng-model="user.password" required/>
+            </md-input-container>
+            <div layout="row" layout-align="center center" style="padding-top:20px;">
+                <md-button class="md-raised md-primary" data-ng-click="login()">Login</md-button>
+                <div flex="flex"></div>
+            </div>
+        </md-content>
+    </div>
 </form>

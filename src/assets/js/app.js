@@ -7,7 +7,8 @@ angular.module('railroad', [
     'cmps',
     'pascalprecht.translate',
     'restangular',
-    'ngCookies'
+    'ngCookies',
+    'ngMaterial'
 ]);
 
 angular
@@ -28,9 +29,10 @@ angular
         'localStorageServiceProvider',
         '$translateProvider',
         'RestangularProvider', // restangular
+        '$mdThemingProvider'
     ];
 
-    function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider) {
+    function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider) {
         // workaround to enable cookies in config
         var $cookies;
 
@@ -48,14 +50,25 @@ angular
             'Content-Type': 'application/x-www-form-urlencoded',
             Authorization: 'Bearer ' + $cookies.get('tkn_u')
         });
-        // .setFullRequestInterceptor(function(element, operation, route, url, headers, params, httpConfig) {
-        //     return {
-        //         element: element,
-        //         params: params,
-        //         headers: headers,
-        //         httpConfig: _.extend({paramSerializer: '$httpParamSerializerJQLike'}, httpConfig)
-        //     };
-        // })
+
+        $mdThemingProvider.definePalette('railroad', {
+            '50': 'FFC14E',
+            '100': 'ffffff',
+            '200': 'ffffff',
+            '300': 'ffffff',
+            '400': 'ffffff',
+            '500': 'FFC14E',
+            '600': 'e53935',
+            '700': 'd32f2f',
+            '800': 'c62828',
+            '900': 'b71c1c',
+            'A100': 'ff8980',
+            'A200': 'ff5252',
+            'A400': 'ff1744',
+            'A700': 'd50000',
+        });
+          $mdThemingProvider.theme('default')
+            .primaryPalette('railroad')
         
 
         // activate translation
