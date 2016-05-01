@@ -8,4 +8,6 @@ angular.module('cmps.page', [
     'page.tooltip',
     'page.search',
     'page.signUp',
+    'page.userbar',
+    'page.navbar',
 ]);

@@ -3,6 +3,12 @@
 
     "NAV_HOME": "Accueil",
     "NAV_SETTINGS": "Paramètres",
+    "NAV_PROFILE": "TODO NAV_PROFILE",
+    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
+    "NAV_FAQ": "TODO NAV_FAQ",
+    "NAV_RULES": "TODO NAV_RULES",
+    
+    "LOGOUT": "TODO LOGOUT",
 
     "WELCOME": "Bienvenue à notre outil de musée ferroviaire!",
     "PROFILE":"Profil"

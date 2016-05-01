@@ -1,17 +1,17 @@
-<div id="header">
-    <div class="container">
-        <div class="hcenter">
+<div>
+    <div id="header">
+        <div class="container">
             <div class="pull-left">
-                <ul class="ul-normalize">
-                    <li>{{"NAV_HOME" | translate}}</li>
-                    <li>{{"NAV_SETTINGS" | translate}}</li>
-                </ul>
+                <img src="" alt="Logo">
             </div>
-            <div class="pull-right">
-                <button class="button-neutralize" ng-click="logout()" ng-if="isLoggedIn()">Log out!</button>
+            <div class="pull-right" ng-if="isLoggedIn()">
+                <div data-userbar></div>
                 <div class="clearfix" data-language-chooser></div>
             </div>
             <div class="clearfix"></div>
         </div>
+    </div>
+    <div class="container" ng-if="isLoggedIn()">
+        <div data-navbar></div>
     </div>
 </div>

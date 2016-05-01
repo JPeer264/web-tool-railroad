@@ -23,18 +23,6 @@ function HeaderController($scope, user, auth) {
 
     /**
      * @ngdoc method
-     * @name logout
-     * @methodOf pages.header:HeaderCtrl
-     *
-     * @description
-     * call the auth.logout() service
-     */
-    $scope.logout = function() {
-        auth.logout();
-    }
-
-    /**
-     * @ngdoc method
      * @name isLoggedIn
      * @methodOf pages.header:HeaderCtrl
      *

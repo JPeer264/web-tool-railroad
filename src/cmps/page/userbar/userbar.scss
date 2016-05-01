@@ -1,0 +1,50 @@
+$userbarHeight: 55px;
+$userPadding: 5px;
+$userImage: 50px;
+
+.userbar {
+    // width: 200px;
+    min-height: $userbarHeight + 5px; // dropdown go 5px down
+    display: inline-block;
+    padding: $userPadding;
+    background-color: $color2;
+    color: white;
+    text-align: left;
+    border-radius: $border-radius-standard;
+    border: 1px solid $border-color;
+    border-top: 0;
+
+    
+    p {
+        margin: 0 5px 0 0;
+        padding: 0;
+        font-size: .7rem;
+
+        &:nth-of-type(1) {
+            margin-top: 5px;
+        }
+    }
+
+    .dropdown-menu {
+        color: black;
+    }
+}
+
+.btn-userbar {
+    text-align: inherit;
+    display: flex;
+    flex-direction: row;
+
+    .img {
+        padding-right: $userPadding;
+        width: $userImage;
+        height: $userImage;
+
+        img {
+            width: 100%;
+            overflow: hidden;
+            border-radius: $userImage / 2;
+            border: 1px solid $border-color;
+        }
+    }
+}

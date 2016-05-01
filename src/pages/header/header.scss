@@ -1,8 +1,23 @@
 #header {
     background-color: $color1;
     height: $header-height;
+
+    .pull-right {
+        > div {
+            margin-left: $header-button-margin;
+            float: left;
+
+            &:nth-of-type(1) {
+                margin-left: 0;
+            }
+        }
+    }
 }
 
 .hcenter {
     line-height: $header-height;
+
+    button {
+        line-height: normal;
+    }
 }

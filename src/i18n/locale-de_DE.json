@@ -3,6 +3,12 @@
 
     "NAV_HOME": "Startseite",
     "NAV_SETTINGS": "Einstellungen",
+    "NAV_PROFILE": "Profil",
+    "NAV_CATEGORIES": "Kategorien", 
+    "NAV_FAQ": "FAQ",
+    "NAV_RULES": "Regeln",
+
+    "LOGOUT": "Ausloggen",
 
     "WELCOME": "Willkommen zu unserem Zugmuseumstool!"
 }

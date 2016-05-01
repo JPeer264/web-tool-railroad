@@ -1,3 +1,8 @@
 .languageChooser {
     display: inline-block;
+
+    .dropdown-menu {
+        right: 0;
+        left: initial !important;
+    }
 }

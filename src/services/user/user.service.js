@@ -5,6 +5,7 @@
  * @requires $rootScope
  * @requires Restangular
  * @requires $httpParamSerializer
+ * @requires $cookies
  */
 angular
     .module('service.user')
@@ -14,9 +15,25 @@ user.$inject = [
     '$rootScope',
     'Restangular',
     '$httpParamSerializer',
+    '$cookies'
 ];
 
-function user($rootScope, Restangular, $httpParamSerializer) {
+
+function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
+    // cache all promises - private
+    var _promiseCache = {
+        get: {}, // saves the id of every saved person
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.user#currentUser
+     * @methodOf service.user
+     *
+     * @description 
+     * Data of the current user - run setCurrent() before use
+     */
+    $rootScope.currentUser = '';
 
     /**
      * @ngdoc method
@@ -26,10 +43,29 @@ function user($rootScope, Restangular, $httpParamSerializer) {
      * @description 
      * Get the ID and Name from the logged in user
      *
-     * @returns {Object} information about the logged in user
+     * @returns {Promise} promise for the current user
      */
     this.getCurrent = function() {
-        // todo get userdata from JWT token
+        // todo get userid from JWT token
+        if (!_promiseCache.current) {
+            _promiseCache.current = this.get(2);
+        }
+
+        return _promiseCache.current;
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.user#setCurrent
+     * @methodOf service.user
+     *
+     * @description 
+     * Set the rootscope of currentUser
+     */
+    this.setCurrent = function() {
+        (this.getCurrent()).then(function(data) {
+            $rootScope.currentUser = data.plain();
+        });
     }
     
     /**

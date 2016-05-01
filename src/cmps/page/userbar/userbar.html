@@ -1,0 +1,15 @@
+<div class="dropdown userbar" data-ng-if="isLoggedIn()">
+    <button class="dropdown-toggle btn-neutralize btn-userbar" type="button" data-toggle="dropdown">
+        <div class="img">
+            <img src="https://jpeer.at/railroad/testimage/person-default-flat.png" alt="Testimage">
+        </div>
+        <div class="info">
+            <span>{{ currentUser.firstname }}</span>
+            <p>Function</p>
+            <p>Country</p>
+        </div>
+    </button>
+    <div class="dropdown-menu">
+        <button class="btn-neutralize" ng-click="logout()"><span ng-bind="'LOGOUT' | translate"></span></button>
+    </div>
+</div>

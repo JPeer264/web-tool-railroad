@@ -40,7 +40,7 @@ angular
 
         // redirect to home state when we call the page without route information
         // activate in proudction and set mod_rewrite to index.html
-        //$locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true);
 
         // setup restangular basics
         RestangularProvider.setBaseUrl('http://localhost/web-tool-railroad-api/public/api/v1/')
@@ -210,11 +210,14 @@ angular
         '$location',
         '$http',
         'auth',
-        'Restangular'
+        'user',
+        'Restangular',
     ];
     
-    function run($rootScope, $location, $http, auth, Restangular) {
+    function run($rootScope, $location, $http, auth, user, Restangular) {
         auth.check();
+        // todo put setCurrent into auth service
+        user.setCurrent();
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page

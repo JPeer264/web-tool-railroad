@@ -3,6 +3,12 @@
     
     "NAV_HOME": "Startpagina",
     "NAV_SETTINGS": "Instellingen",
+    "NAV_PROFILE": "TODO NAV_PROFILE",
+    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
+    "NAV_FAQ": "TODO NAV_FAQ",
+    "NAV_RULES": "TODO NAV_RULES",
+    
+    "LOGOUT": "TODO LOGOUT",
 
     "WELCOME": "Welkom bij ons spoorweg museum webtool!",
     "PROFILE":"Profile"

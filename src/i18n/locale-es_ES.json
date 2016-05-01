@@ -3,6 +3,12 @@
 
     "NAV_HOME": "Inicio",
     "NAV_SETTINGS": "Configuración",
+    "NAV_PROFILE": "TODO NAV_PROFILE",
+    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
+    "NAV_FAQ": "TODO NAV_FAQ",
+    "NAV_RULES": "TODO NAV_RULES",
+
+    "LOGOUT": "TODO LOGOUT",
 
     "WELCOME": "Bienvenido a nuestro la herramienta museo del ferrocarril",
     "PROFILE":"Perfil"

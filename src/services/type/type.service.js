@@ -16,12 +16,12 @@ type.$inject = [
     '$httpParamSerializer'
 ];
 
-// cache all promises - private
-var _promiseCache = {
-    get: {},
-}
 
 function type($rootScope, Restangular, $httpParamSerializer) {
+    // cache all promises - private
+    var _promiseCache = {
+        get: {},
+    }
     
     /**
      * @ngdoc method
