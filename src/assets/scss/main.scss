@@ -66,3 +66,29 @@ body, html {
         }
     }
 }
+
+.rail-panel {
+    padding: 5px;
+
+    .rail-header {
+        height: auto;
+        padding: 5px;
+        background: $color2;
+        color: white;
+        margin-bottom: 10px;
+        border-radius: $border-radius-standard;
+
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .rail-panel-inner {
+        border: 1px solid $border-color;
+    }
+
+    .rail-content {
+        padding: 5px;
+    }
+}

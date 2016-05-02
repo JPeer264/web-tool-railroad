@@ -1,4 +1,14 @@
-<div>
-    <div>This is one category!</div>
-    <div data-topic data-ng-repeat="i in [1, 2, 3, 4]"></div>
+<div class="rail-panel">
+    <div class="rail-panel-inner">
+        <div class="rail-header">
+            <h3>{{ category.title }}</h3>
+        </div>
+        <div class="rail-content">
+            <div data-ng-repeat="subcategory in category.subcategory">
+                <div>
+                    This is one subcategory
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

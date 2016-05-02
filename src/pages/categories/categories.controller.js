@@ -7,14 +7,20 @@ angular
  * @name pages.categories:CategoriesCtrl
  *
  * @requires $scope
+ * @requires service.category
  *
  * @description
  * CategoriesCtrl for the categories page
  */
 CategoriesController.$inject = [
-	'$scope'
+	'$scope',
+    'category'
 ];
 
-function CategoriesController($scope) {
-    console.log('categories');
+function CategoriesController($scope, category) {
+    
+    category.getAll().then(function(data) {
+        $scope.categories = data.plain();
+    });
+
 }
