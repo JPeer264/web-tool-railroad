@@ -13,9 +13,8 @@ angular
  */
 ErrorController.$inject = [
 	'$scope',
-    'Restangular'
 ];
 
-function ErrorController($scope, Restangular) {
+function ErrorController($scope) {
 
 }

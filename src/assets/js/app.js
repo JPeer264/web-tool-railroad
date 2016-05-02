@@ -81,7 +81,7 @@ angular
         .fallbackLanguage('en_US');
 
         $urlRouterProvider.when('', '/');
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/error');
 
         // setup header and footer templates
         var templates = {
@@ -287,11 +287,11 @@ angular
         });
 
         Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
-            // if(response.status >= 300) {
-            //     $location.path('/error');
+            if(response.status >= 300) {
+                $location.path('/error');
 
-            //     return false; // error handled
-            // }
+                return false; // error handled
+            }
 
             return true; // error not handled
         });

@@ -1,5 +1,6 @@
 {
     "ERROR_WRONG_CREDENTIALS": "Falsche email oder falsches password.",
+    "ERROR_STATUS": "Entschuldigung! Diese Seite konnte nicht gefunden werden. Zurück zur <a href='/'>Startseite</a>.",
 
     "NAV_HOME": "Startseite",
     "NAV_SETTINGS": "Einstellungen",
