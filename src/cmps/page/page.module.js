@@ -10,4 +10,5 @@ angular.module('cmps.page', [
     'page.signUp',
     'page.userbar',
     'page.navbar',
+    'page.news',
 ]);

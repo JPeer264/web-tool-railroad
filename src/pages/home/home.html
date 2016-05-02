@@ -6,25 +6,8 @@
         <p>{{ getUser }}</p>
     </div>
 </div>
-<div class="row">
-    <div class="small-12 large-expand columns">
-        <p>Some information:</p>
-        <div class="row small-up-1 medium-up-2 large-up-3">
-            <div data-ng-repeat="i in [1,2,3,4,5]" class="column">
-                <div style="border: 1px solid #000;">
-                    Random
-                </div>
-            </div>     
-        </div>
-    </div>
-    <div class="small-12 large-expand columns">
-        <p>Some news:</p>
-        <div class="row small-up-1 medium-up-3 large-up-4">
-            <div data-ng-repeat="test in testData" class="column">
-                <div style="border: 1px solid #000;">
-                    {{ test }}
-                </div>
-            </div>
-        </div>
+<div class="row small-up-1 medium-up-3 large-up-4">
+    <div class="columns small-3" ng-repeat="i in [1,2,3,4,5,6,7,8]">
+        <div data-news></div>
     </div>
 </div>
