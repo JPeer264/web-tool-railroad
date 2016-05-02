@@ -12,7 +12,7 @@
         'pages.landing',
         'pages.admin',
         'pages.categories',
-        'pages.category',
+        'pages.subcategory',
         'pages.faq',
         'pages.profile',
         'pages.rules',

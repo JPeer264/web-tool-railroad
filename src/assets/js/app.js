@@ -151,8 +151,8 @@ angular
                         controller: templates.header.controller
                     },
                     main: {
-                        templateUrl: 'pages/category/category.html',
-                        controller: 'CategoryCtrl'
+                        templateUrl: 'pages/subcategory/subcategory.html',
+                        controller: 'SubcategoryCtrl'
                     },
                     footer: {
                         templateUrl: templates.footer.template,
