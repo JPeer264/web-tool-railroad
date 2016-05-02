@@ -1,20 +1,26 @@
 angular
     .module('forum.subcategory')
-    .controller('SubcategoryCtrl', SubcategoryController);
-
+    .controller('SubcategoryCmpsCtrl', SubcategoryCmpsController);
 /**
  * @ngdoc controller
- * @name cmps.forum:SubcategoryCtrl
+ * @name cmps.forum:SubcategoryCmpsCtrl
  *
  * @requires $scope
+ * @requires service.subcategory
  *
  * @description
- * SubcategoryCtrl for the subcategory directive
+ * SubcategoryCmpsCtrl for the subcategory directive
  */
-SubcategoryController.$inject = [
-    '$scope'
+SubcategoryCmpsController.$inject = [
+    '$scope',
+    'subcategory'
 ];
 
-function SubcategoryController($scope) {
+function SubcategoryCmpsController($scope, subcategory) {
+    console.log('test');
+    subcategory.get($scope.subcategoryId).then(function (data) {
+        console.log('test');
+        $scope.subcategory = data.plain();
+    });
 
 }
