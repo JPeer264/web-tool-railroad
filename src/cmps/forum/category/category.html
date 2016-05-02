@@ -5,9 +5,11 @@
         </div>
         <div class="rail-content">
             <div data-ng-repeat="subcategory in category.subcategory">
-                <div>
-                    This is one subcategory
-                </div>
+                <a data-ng-href="#/category/{{ subcategory.id }}">
+                    <div>
+                    {{ subcategory.title }}
+                    </div>
+                </a>
             </div>
         </div>
     </div>
