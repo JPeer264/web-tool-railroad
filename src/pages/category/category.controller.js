@@ -16,5 +16,5 @@ CategoryController.$inject = [
 ];
 
 function CategoryController($scope) {
-    console.log('category');
+
 }

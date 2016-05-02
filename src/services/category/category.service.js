@@ -17,7 +17,9 @@ category.$inject = [
 ];
 
 function category($rootScope, Restangular, $httpParamSerializer) {
-    
+    // cache all promises - private
+    var _promiseCache = {};
+
     /**
      * @ngdoc method
      * @name service.category#getAll
@@ -29,7 +31,12 @@ function category($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-        return Restangular.all('category').getList();
+
+        if (!_promiseCache.getAll) {
+            _promiseCache.getAll = Restangular.all('category').getList();
+        } 
+        
+        return _promiseCache.getAll;
     }
 
     /**

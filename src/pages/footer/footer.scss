@@ -1,0 +1,14 @@
+#footer {
+    margin: 20px 20px 40px;
+    padding: 10px;
+    color: grey;
+    border-top: 1px solid grey;
+
+    a {
+        color: grey;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

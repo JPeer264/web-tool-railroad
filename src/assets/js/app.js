@@ -105,7 +105,7 @@ angular
                         }
                     ]
                 },
-                template: '<div class="view-header" data-ui-view="header"></div><div class="row small-up-1 medium-up-1 large-up-1"></div><div class="view-main column" data-ui-view="main"></div>'
+                template: '<div class="view-header" data-ui-view="header"></div><div class="row small-up-1 medium-up-1 large-up-1"><div class="view-main column" data-ui-view="main"></div></div><div class="view-footer" data-ui-view="footer"></div>'
             })
             .state('secure.index', {
                 url: '/',
@@ -117,6 +117,10 @@ angular
                     main: {
                         templateUrl: 'pages/home/home.html',
                         controller: 'HomeCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
                     },
                 },
                 activetab: 'home'
@@ -132,6 +136,10 @@ angular
                         templateUrl: 'pages/categories/categories.html',
                         controller: 'CategoriesCtrl'
                     },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
                 },
                 activetab: 'category'
             })
@@ -145,6 +153,10 @@ angular
                     main: {
                         templateUrl: 'pages/category/category.html',
                         controller: 'CategoryCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
                     },
                 },
                 activetab: 'category'
@@ -160,6 +172,10 @@ angular
                         templateUrl: 'pages/profile/profile.html',
                         controller: 'ProfileCtrl'
                     },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
                 },
                 activetab: 'profile'
             })
@@ -173,6 +189,10 @@ angular
                     main: {
                         templateUrl: 'pages/rules/rules.html',
                         controller: 'RulesCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
                     },
                 },
                 activetab: 'rules'
@@ -188,6 +208,10 @@ angular
                         templateUrl: 'pages/faq/faq.html',
                         controller: 'FaqCtrl'
                     },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
                 },
                 activetab: 'faq'
             })
@@ -201,7 +225,11 @@ angular
                     main: {
                         templateUrl: 'pages/landing/landing.html',
                         controller: 'LandingCtrl'
-                    }
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
                 }
             })
             .state('error', {
@@ -214,7 +242,11 @@ angular
                     main: {
                         templateUrl: 'pages/error/error.html',
                         controller: 'ErrorCtrl'
-                    }
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
                 }
             });
 
