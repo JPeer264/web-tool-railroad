@@ -1,13 +1,15 @@
-<div class="languageChooser dropdown">
-    <button class="dropdown-toggle btn-neutralize" type="button" data-toggle="dropdown">
+<div class="languageChooser">
+    <button class="button" type="button" data-toggle="btn-langChooser">
         <span id="chosenLanguage">English</span>
-        <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu">
-        <li><a href="#" ng-click="changeLang('en_US')">English</a></li>
-        <li><a href="#" ng-click="changeLang('de_DE')">Deutsch</a></li>
-        <li><a href="#" ng-click="changeLang('fr_FR')">Français</a></li>
-        <li><a href="#" ng-click="changeLang('es_ES')">Español</a></li>
-        <li><a href="#" ng-click="changeLang('nl_NL')">Nederlands</a></li>
-    </ul>
+
+    <div class="dropdown-pane bottom" id="btn-langChooser" data-dropdown data-close-on-click="true">
+        <ul>
+            <li><a href="#" ng-click="changeLang('en_US')">English</a></li>
+            <li><a href="#" ng-click="changeLang('de_DE')">Deutsch</a></li>
+            <li><a href="#" ng-click="changeLang('fr_FR')">Français</a></li>
+            <li><a href="#" ng-click="changeLang('es_ES')">Español</a></li>
+            <li><a href="#" ng-click="changeLang('nl_NL')">Nederlands</a></li>
+        </ul>
+    </div>
 </div>

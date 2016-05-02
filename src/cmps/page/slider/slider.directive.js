@@ -1,32 +1,31 @@
 angular
-    .module('page.userbar')
-    .directive('userbar', userbarDirective);
+    .module('page.slider')
+    .directive('slider', sliderDirective);
 
 /**
  * @ngdoc directive
- * @name cmps.page:userbar
+ * @name cmps.page:slider
  *
  * @description 
- * Generates a single userbar component for 
- * the header to log out or manage the useraccout
+ * Generates a single slider component
  */
-function userbarDirective() {
+function sliderDirective() {
         // Runs during compile
         return {
             // name: '',
             // priority: 1,
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
-            controller: 'UserbarCtrl',
+            controller: 'SliderCtrl',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
-            templateUrl: 'cmps/page/userbar/userbar.html',
+            templateUrl: 'cmps/page/slider/slider.html',
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                var elem = new Foundation.Dropdown($('#btn-userbar'));
+                var elem = new Foundation.Orbit($('.orbit'));
             }
         };
 };

@@ -1,8 +1,35 @@
 .languageChooser {
     display: inline-block;
+    margin-right: $space-between-links;
 
-    .dropdown-menu {
-        right: 0;
+    button {
+        color: black !important;
+        background-color: none !important;
+
+        &:hover, &:focus {
+            background-color: none !important;
+            color: black;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        a {
+            color: black;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .dropdown-pane {
+        width: auto;
+        top: $header-height;
+        right: $space-between-links;
         left: initial !important;
     }
 }
