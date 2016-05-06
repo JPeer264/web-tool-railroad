@@ -18,7 +18,8 @@ angular
     // cosntant COOKIE is used for the tokens
     .constant("COOKIE", {
         "TOKEN": "tkn_u", // tkn_u = token_user
-        "USER_ID": "u_i" // u_i = user_id
+        "USER_ID": "u_i", // u_i = user_id
+        "PREFLANGUAGE": "p_lang",
     });
 
     // config method
@@ -75,10 +76,10 @@ angular
         $translateProvider.useStaticFilesLoader({
             prefix: 'i18n/locale-',// path to translations files
             suffix: '.json'// suffix, currently- extension of the translations
-        })
-        .useMissingTranslationHandlerLog() // log if TRANSLATION_CODE not found
-        .preferredLanguage('en_US')
-        .fallbackLanguage('en_US');
+        });
+        $translateProvider.useMissingTranslationHandler(); // log if TRANSLATION_CODE not found
+        $translateProvider.preferredLanguage('en_US');
+        $translateProvider.fallbackLanguage('en_US');
 
         $urlRouterProvider.when('', '/');
         $urlRouterProvider.otherwise('/error');

@@ -24,16 +24,19 @@ function languageChooserDirective() {
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function($scope, iElm, iAttrs, controller) {                
+            link: function(scope, iElm, iAttrs, controller) {                
                 var elem = new Foundation.Dropdown($('#btn-langChooser'));
+                var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
 
-                // todo get cookie of preferred language
-                // todo set cookie of preferred language
-                // todo return to the same page than before
+                $('#chosenLanguage').text(preferredLanguage); 
+                scope.changeLang(scope.getPreferredLanguage());             
 
-                $('#btn-langChooser a').click(function(){
+                $('#btn-langChooser a').click(function(e){
+                    e.preventDefault();
                     var chosenLanguage = $(this).text();
+                    var langKey = $(this).data('lang');
 
+                    scope.setPreferredLanguage(langKey);
                     $('#chosenLanguage').text(chosenLanguage);
                     $('#btn-langChooser').foundation('close');
                 });

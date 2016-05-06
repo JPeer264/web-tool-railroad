@@ -8,16 +8,20 @@ angular
  *
  * @requires $scope
  * @requires $translate
+ * @requires $cookies
+ * @requires COOKIE
  *
  * @description
  * LanguageChooserCtrl for the languageChooser Component
  */
 LanguageChooserController.$inject = [
     '$scope',
-    '$translate'
+    '$translate',
+    '$cookies',
+    'COOKIE'
 ];
 
-function LanguageChooserController($scope, $translate) {
+function LanguageChooserController($scope, $translate, $cookies, COOKIE) {
 
     /**
      * @ngdoc method
@@ -28,14 +32,41 @@ function LanguageChooserController($scope, $translate) {
      * changes the language to a specific one
      * stored in "i18n/locale-*.json"
      *
-     * @param {String} key language code; e.g. en-US
+     * @param {String} langKey language code; e.g. en-US
      */
-    $scope.changeLang = function (key) {
-        $translate.use(key).then(function (key) {
-            console.log("Language changed to " + key + ".");
-        }, function (key) {
-            console.log("Something went wrong.");
+    $scope.changeLang = function (langKey) {
+        $translate.use(langKey).then(function (langKey) {
+            $scope.setPreferredLanguage(langKey);
         });
     };
+
+    /**
+     * @ngdoc method
+     * @name getPreferredLanguage
+     * @methodOf cmps.page:LanguageChooserCtrl
+     *
+     * @description
+     * get the set preferred language
+     *
+     * @return {String} Value of prefLanguage cookie
+     */
+    $scope.getPreferredLanguage = function() {
+        return $cookies.get(COOKIE.PREFLANGUAGE);
+    }
+
+    /**
+     * @ngdoc method
+     * @name setPreferredLanguage
+     * @methodOf cmps.page:LanguageChooserCtrl
+     *
+     * @description
+     * changes the language to a specific one
+     * stored in "i18n/locale-*.json"
+     *
+     * @param {String} langKey e.g. 'en_US'
+     */
+    $scope.setPreferredLanguage = function(langKey) {
+        $cookies.put(COOKIE.PREFLANGUAGE, langKey);
+    }
 
 }
