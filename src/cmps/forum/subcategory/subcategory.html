@@ -9,7 +9,9 @@
             <div class="rail-content a-background">
                 <div class="row flex-center" data-ng-repeat="topic in subcategory.topic">
                     <div class="column small-6">
-                        {{ topic.title }}
+                        <a data-ng-href="#/topic/{{ topic.id }}">
+                            {{ topic.title }}
+                        </a>
                     </div>
                     <div class="column small-3">
                         By <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>

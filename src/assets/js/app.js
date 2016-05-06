@@ -70,7 +70,6 @@ angular
         });
           $mdThemingProvider.theme('default')
             .primaryPalette('railroad')
-        
 
         // activate translation
         $translateProvider.useStaticFilesLoader({
@@ -154,6 +153,24 @@ angular
                     main: {
                         templateUrl: 'pages/subcategory/subcategory.html',
                         controller: 'SubcategoryCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
+                },
+                activetab: 'category'
+            })
+            .state('secure.topic', {
+                url: '/topic/{id}',
+                views: {
+                    header: {
+                        templateUrl: templates.header.template,
+                        controller: templates.header.controller
+                    },
+                    main: {
+                        templateUrl: 'pages/topic/topic.html',
+                        controller: 'TopicCtrl'
                     },
                     footer: {
                         templateUrl: templates.footer.template,
@@ -258,24 +275,24 @@ angular
 
     // run method
     run.$inject = [
-        '$rootScope', 
+        '$rootScope',
         '$location',
         '$http',
         'auth',
         'user',
         'Restangular',
     ];
-    
+
     function run($rootScope, $location, $http, auth, user, Restangular) {
         auth.check();
         // todo put setCurrent into auth service
         user.setCurrent();
- 
+
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             var loggedIn = auth.isAuthorized();
 
-            // if you do not want to enable the login 
+            // if you do not want to enable the login
             // deavticte the following 2 if
             if (!loggedIn) {
                 $location.path('/welcome');

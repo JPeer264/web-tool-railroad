@@ -1,20 +1,20 @@
 angular
     .module('forum.topic')
-    .controller('TopicCtrl', TopicController);
+    .controller('TopicCmpsCtrl', TopicCmpsController);
 
 /**
  * @ngdoc controller
- * @name cmps.forum:TopicCtrl
+ * @name cmps.forum:TopicCmpsCtrl
  *
  * @requires $scope
  *
  * @description
- * TopicCtrl for the topic directive
+ * TopicCmpsCtrl for the topic directive
  */
-TopicController.$inject = [
+TopicCmpsController.$inject = [
     '$scope'
 ];
 
-function TopicController($scope) {
+function TopicCmpsController($scope) {
 
 }
