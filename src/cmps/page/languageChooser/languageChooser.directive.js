@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:languageChooser
  *
- * @description 
+ * @description
  * Generates a single languageChooser component
  */
 function languageChooserDirective() {
@@ -24,12 +24,12 @@ function languageChooserDirective() {
             replace: true,
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function(scope, iElm, iAttrs, controller) {                
+            link: function(scope, iElm, iAttrs, controller) {
                 var elem = new Foundation.Dropdown($('#btn-langChooser'));
                 var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
 
-                $('#chosenLanguage').text(preferredLanguage); 
-                scope.changeLang(scope.getPreferredLanguage());             
+                $('#chosenLanguage').text(preferredLanguage);
+                scope.changeLang(scope.getPreferredLanguage());
 
                 $('#btn-langChooser a').click(function(e){
                     e.preventDefault();
