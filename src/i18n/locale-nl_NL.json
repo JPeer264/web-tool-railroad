@@ -1,16 +1,19 @@
 {
-    "ERROR_WRONG_CREDENTIALS": "TODO ERROR_WRONG_CREDENTIALS",
-    "ERROR_STATUS": "TODO ERROR_STATUS",
-    
-    "NAV_HOME": "Startpagina",
-    "NAV_SETTINGS": "Instellingen",
-    "NAV_PROFILE": "TODO NAV_PROFILE",
-    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
-    "NAV_FAQ": "TODO NAV_FAQ",
-    "NAV_RULES": "TODO NAV_RULES",
-    
-    "LOGOUT": "TODO LOGOUT",
+    "ERROR_WRONG_CREDENTIALS":  "TODO",
+    "ERROR_STATUS":             "TODO",
+
+    "NAV_HOME":         "Startpagina",
+    "NAV_SETTINGS":     "Instellingen",
+    "NAV_PROFILE":      "Profile",
+    "NAV_CATEGORIES":   "TODO",
+    "NAV_FAQ":          "TODO",
+    "NAV_RULES":        "TODO",
+
+    "LOGOUT": "TODO",
+    "LOGIN": "TODO",
 
     "WELCOME": "Welkom bij ons spoorweg museum webtool!",
-    "PROFILE":"Profile"
+
+    "FORUM_ADD_TOPIC":      "TODO",
+    "FORUM_ADD_COMMENT":    "TODO"
 }

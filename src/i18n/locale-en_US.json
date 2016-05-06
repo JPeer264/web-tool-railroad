@@ -1,16 +1,19 @@
 {
-    "ERROR_WRONG_CREDENTIALS": "Wrong email or password.",
-    "ERROR_STATUS": "Sorry! Page not found. Back to the <a href='/'>home</a> page.",
+    "ERROR_WRONG_CREDENTIALS":  "Wrong email or password.",
+    "ERROR_STATUS":             "Sorry! Page not found. Back to the <a href='/'>home</a> page.",
 
-    "NAV_HOME": "Home",
-    "NAV_SETTINGS": "Settings",
-    "NAV_PROFILE": "Profile",
-    "NAV_CATEGORIES": "Categories", 
-    "NAV_FAQ": "FAQ",
-    "NAV_RULES": "Rules",
+    "NAV_HOME":         "Home",
+    "NAV_SETTINGS":     "Settings",
+    "NAV_PROFILE":      "Profile",
+    "NAV_CATEGORIES":   "Categories",
+    "NAV_FAQ":          "FAQ",
+    "NAV_RULES":        "Rules",
 
     "LOGOUT": "Log out",
+    "LOGIN":  "Log in",
 
     "WELCOME": "Welcome to our the railroad museum tool!",
-    "PROFILE":"Profile"
+
+    "FORUM_ADD_TOPIC":      "Add topic",
+    "FORUM_ADD_COMMENT":    "Add comment"
 }

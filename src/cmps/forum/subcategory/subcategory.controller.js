@@ -17,9 +17,16 @@ SubcategoryCmpsController.$inject = [
 ];
 
 function SubcategoryCmpsController($scope, subcategory) {
-    console.log('test');
+
+    /**
+     * @ngdoc property
+     * @name $scope.subcategory
+     * @propertyOf forum.subcategory:SubcategoryCmpsCtrl
+     *
+     * @description
+     * Async - Receives one specific subcategory as object
+     */
     subcategory.get($scope.subcategoryId).then(function (data) {
-        console.log('test');
         $scope.subcategory = data.plain();
     });
 

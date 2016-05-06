@@ -1,15 +1,19 @@
 {
-    "ERROR_WRONG_CREDENTIALS": "Falsche email oder falsches password.",
-    "ERROR_STATUS": "Entschuldigung! Diese Seite konnte nicht gefunden werden. Zurück zur <a href='/'>Startseite</a>.",
+    "ERROR_WRONG_CREDENTIALS":  "Falsche email oder falsches password.",
+    "ERROR_STATUS":             "Entschuldigung! Diese Seite konnte nicht gefunden werden. Zurück zur <a href='/'>Startseite</a>.",
 
-    "NAV_HOME": "Startseite",
-    "NAV_SETTINGS": "Einstellungen",
-    "NAV_PROFILE": "Profil",
-    "NAV_CATEGORIES": "Kategorien", 
-    "NAV_FAQ": "FAQ",
-    "NAV_RULES": "Regeln",
+    "NAV_HOME":         "Startseite",
+    "NAV_SETTINGS":     "Einstellungen",
+    "NAV_PROFILE":      "Profil",
+    "NAV_CATEGORIES":   "Kategorien",
+    "NAV_FAQ":          "FAQ",
+    "NAV_RULES":        "Regeln",
 
     "LOGOUT": "Ausloggen",
+    "LOGIN":  "Einloggen",
 
-    "WELCOME": "Willkommen zu unserem Zugmuseumstool!"
+    "WELCOME":  "Willkommen zu unserem Zugmuseumstool!",
+
+    "FORUM_ADD_TOPIC":      "Topic hinzufügen",
+    "FORUM_ADD_COMMENT":    "Kommentar hinzufügen"
 }

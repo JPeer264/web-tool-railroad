@@ -1,16 +1,19 @@
 {
-    "ERROR_WRONG_CREDENTIALS": "TODO ERROR_WRONG_CREDENTIALS",
-    "ERROR_STATUS": "TODO ERROR_STATUS",
+    "ERROR_WRONG_CREDENTIALS":  "TODO",
+    "ERROR_STATUS":             "TODO",
 
-    "NAV_HOME": "Inicio",
-    "NAV_SETTINGS": "Configuración",
-    "NAV_PROFILE": "TODO NAV_PROFILE",
-    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
-    "NAV_FAQ": "TODO NAV_FAQ",
-    "NAV_RULES": "TODO NAV_RULES",
+    "NAV_HOME":         "Inicio",
+    "NAV_SETTINGS":     "Configuración",
+    "NAV_PROFILE":      "Perfil",
+    "NAV_CATEGORIES":   "TODO",
+    "NAV_FAQ":          "TODO",
+    "NAV_RULES":        "TODO",
 
-    "LOGOUT": "TODO LOGOUT",
+    "LOGOUT": "TODO",
+    "LOGIN": "TODO",
 
     "WELCOME": "Bienvenido a nuestro la herramienta museo del ferrocarril",
-    "PROFILE":"Perfil"
+
+    "FORUM_ADD_TOPIC":      "TODO",
+    "FORUM_ADD_COMMENT":    "TODO"
 }

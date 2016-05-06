@@ -1,16 +1,19 @@
 {
-    "ERROR_WRONG_CREDENTIALS": "TODO ERROR_WRONG_CREDENTIALS",
-    "ERROR_STATUS": "TODO ERROR_STATUS",
+    "ERROR_WRONG_CREDENTIALS":  "TODO",
+    "ERROR_STATUS":             "TODO",
 
-    "NAV_HOME": "Accueil",
-    "NAV_SETTINGS": "Paramètres",
-    "NAV_PROFILE": "TODO NAV_PROFILE",
-    "NAV_CATEGORIES": "TODO NAV_CATEGORIES", 
-    "NAV_FAQ": "TODO NAV_FAQ",
-    "NAV_RULES": "TODO NAV_RULES",
-    
-    "LOGOUT": "TODO LOGOUT",
+    "NAV_HOME":         "Accueil",
+    "NAV_SETTINGS":     "Paramètres",
+    "NAV_PROFILE":      "Profil",
+    "NAV_CATEGORIES":   "TODO",
+    "NAV_FAQ":          "TODO",
+    "NAV_RULES":        "TODO",
+
+    "LOGOUT": "TODO",
+    "LOGIN": "TODO",
 
     "WELCOME": "Bienvenue à notre outil de musée ferroviaire!",
-    "PROFILE":"Profil"
+
+    "FORUM_ADD_TOPIC":      "TODO",
+    "FORUM_ADD_COMMENT":    "TODO"
 }

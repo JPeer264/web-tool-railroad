@@ -1,3 +1,19 @@
 <div>
-    This is a topic!
+    <div class="rail-panel">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                Here is the topic name
+            </div>
+            <div class="rail-content">
+                Here is the first comment
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="comment in topic.comment">
+        <div data-comment></div>
+    </div>
+    <div data-ng-if="!topic.comment">
+        <h5>No topics found create one here!</h5>
+    </div>
 </div>
