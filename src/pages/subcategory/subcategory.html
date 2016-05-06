@@ -1,3 +1,19 @@
 <div>
+    <div class="row">
+        <div class="column small-10">
+            <ul class="breadcrumbs">
+                <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
+                <li><a href="#/category">{{ "NAV_CATEGORIES" | translate }}</a></li>
+                <li class="current"><a data-ng-href="#/category/{{ subcategoryId }}">{{ subcategory.title }}</a></li>
+            </ul>
+        </div>
+
+        <div class="column small-2">
+            <div class="flex-end">
+                <div data-add-topic></div>
+            </div>
+        </div>
+        
+    </div>
     <div data-subcategory></div>
 </div>

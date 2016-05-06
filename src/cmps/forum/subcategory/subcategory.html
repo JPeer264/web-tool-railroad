@@ -6,8 +6,18 @@
                     {{subcategory.title}} 
                 </h3>
             </div>
-            <div class="rail-content">
-                
+            <div class="rail-content a-background">
+                <div class="row flex-center" data-ng-repeat="topic in subcategory.topic">
+                    <div class="column small-6">
+                        {{ topic.title }}
+                    </div>
+                    <div class="column small-3">
+                        By <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
+                    </div>
+                </div>
+                <div class="text-center flex-center" data-ng-if="!subcategory.topic[0]">
+                    <h5>No topics found create the first here!</h5>
+                </div>
             </div>
         </div>
     </div>

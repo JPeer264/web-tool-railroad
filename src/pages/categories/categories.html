@@ -1,5 +1,7 @@
-<div class="row small-up-1 medium-up-1 large-up-1">
-    <div class="column" ng-repeat="category in categories">
-        <div data-category></div>
-    </div>
+<ul class="breadcrumbs">
+    <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
+    <li class="current"><a href="#/category">{{ "NAV_CATEGORIES" | translate }}</a></li>
+</ul>
+<div ng-repeat="category in categories">
+    <div data-category></div>
 </div>

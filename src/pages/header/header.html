@@ -14,9 +14,12 @@
             </div>
         </div>
     </div>
-    <div class="row" ng-if="isLoggedIn()">
-        <div data-navbar></div>
-        <div data-slider></div>
+    <div data-ng-if="isLoggedIn()">
+        <div class="row">
+            <div data-navbar></div>
+        </div>
+        <div class="row hide-for-small-only">
+            <div data-slider></div>
+        </div>
     </div>
-
 </div>

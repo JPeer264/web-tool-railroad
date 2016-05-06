@@ -27,6 +27,10 @@ function languageChooserDirective() {
             link: function($scope, iElm, iAttrs, controller) {                
                 var elem = new Foundation.Dropdown($('#btn-langChooser'));
 
+                // todo get cookie of preferred language
+                // todo set cookie of preferred language
+                // todo return to the same page than before
+
                 $('#btn-langChooser a').click(function(){
                     var chosenLanguage = $(this).text();
 
