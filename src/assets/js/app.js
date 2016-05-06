@@ -290,6 +290,7 @@ angular
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
+            auth.check();
             var loggedIn = auth.isAuthorized();
 
             // if you do not want to enable the login

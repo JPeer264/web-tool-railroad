@@ -1,11 +1,12 @@
 /**
- * @ngdoc service 
+ * @ngdoc service
  * @name service.user
  *
  * @requires $rootScope
  * @requires Restangular
  * @requires $httpParamSerializer
  * @requires $cookies
+ * @requires COOKIE
  */
 angular
     .module('service.user')
@@ -15,12 +16,14 @@ user.$inject = [
     '$rootScope',
     'Restangular',
     '$httpParamSerializer',
-    '$cookies'
+    '$cookies',
+    'COOKIE',
 ];
 
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
     // cache all promises - private
+    var currentUserId = $cookies.get(COOKIE.u_i);
     var _promiseCache = {
         get: {}, // saves the id of every saved person
     }
@@ -30,7 +33,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#currentUser
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Data of the current user - run setCurrent() before use
      */
     $rootScope.currentUser = '';
@@ -40,7 +43,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#getCurrent
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Get the ID and Name from the logged in user
      *
      * @returns {Promise} promise for the current user
@@ -48,7 +51,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
     this.getCurrent = function() {
         // todo get userid from JWT token
         if (!_promiseCache.current) {
-            _promiseCache.current = this.get(2);
+            _promiseCache.current = this.get(1);
         }
 
         return _promiseCache.current;
@@ -59,21 +62,25 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#setCurrent
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Set the rootscope of currentUser
      */
     this.setCurrent = function() {
+        if (!currentUserId) {
+            return;
+        }
+
         (this.getCurrent()).then(function(data) {
             $rootScope.currentUser = data.plain();
         });
     }
-    
+
     /**
      * @ngdoc method
      * @name service.user#get
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Get a specific user
      *
      * @param {Object} id - the id from the user
@@ -89,7 +96,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#getAll
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Get all users
      *
      * @returns {Promise} returns promise
@@ -103,7 +110,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#create
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Creates a new user based on the formData
      *
      * @param {Object} formData - the given formData of a form
@@ -119,8 +126,8 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#update
      * @methodOf service.user
      *
-     * @description 
-     * Updates a specific user based on a form with to updated content 
+     * @description
+     * Updates a specific user based on a form with to updated content
      * if the user is hisself
      *
      * @param {Object} id       - the id from the user
@@ -135,7 +142,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies) {
      * @name service.user#delete
      * @methodOf service.user
      *
-     * @description 
+     * @description
      * Deletes a specific user if the user is an superadmin
      *
      * @param {Object} id - the id from the user

@@ -13,4 +13,5 @@ angular.module('service', [
     'service.topic',
     'service.type',
     'service.user',
+    'service.crypt',
 ]);

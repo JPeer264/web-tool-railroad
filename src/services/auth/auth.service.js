@@ -33,7 +33,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * @name service.auth#isAuthorized
      * @methodOf service.auth
      *
-     * @description 
+     * @description
      * Just return the stored _authenticated value.
      *
      * @returns {Boolean} _authenticated
@@ -41,13 +41,13 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
     this.isAuthorized = function() {
         return _authenticated;
     }
-    
+
     /**
      * @ngdoc method
      * @name service.auth#check
      * @methodOf service.auth
      *
-     * @description 
+     * @description
      * Checks if the user is authorized to see a specific page
      * Get the cookie and validate the JWT token
      *
@@ -58,7 +58,10 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
         var payload;
         var timestampNow = Math.floor((new Date()).getTime() / 1000); // divided by 1000 since getTime() gives in ms
 
-        if (!token) return;
+        if (!token) {
+            _authenticated = false;
+            return false;
+        }
 
         payload = this.parseJwt(token);
 
@@ -77,7 +80,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * @name service.auth#login
      * @methodOf service.auth
      *
-     * @description 
+     * @description
      * Request a token and saves into $cookies if the token is valid
      * Redirect on successfully login to home
      *
@@ -86,7 +89,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      */
     this.login = function(formData) {
         delete Restangular.configuration.defaultHeaders.Authorization;
-        
+
         return token.post($httpParamSerializer(formData));
     }
 
@@ -97,7 +100,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      *
      * @methodOf service.auth
      *
-     * @description 
+     * @description
      * Deletes the user token and return to the welcome page
      */
     this.logout = function() {
@@ -110,15 +113,15 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * @name service.auth#parseJwt
      * @methodOf service.auth
      *
-     * @description 
+     * @description
      * Convert the JWT into an object and returns the payload content
      *
-     * @returns {Object} payload content from JWT  
+     * @returns {Object} payload content from JWT
      */
     this.parseJwt = function(token) {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace('-', '+').replace('_', '/');
-    
+
         return JSON.parse($window.atob(base64));
     }
 }
