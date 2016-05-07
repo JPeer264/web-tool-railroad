@@ -105,6 +105,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      */
     this.logout = function() {
         $cookies.remove(COOKIE.TOKEN);
+        $cookies.remove(COOKIE.USER_ID);
         $window.location.assign('/');
     }
 
