@@ -25,3 +25,30 @@
         }
     }
 }
+
+@media only screen and (max-width: 40em) {
+    #menu-hamburger {
+        @include hamburger();
+    }
+
+    #navbar {
+        width: 100%;
+
+        ul {
+            width: 100%;
+
+            li {
+                width: 100%;
+                margin: 0 0 5px;
+                padding: 0;
+                border: 0;
+                text-align: center;
+
+                a {
+                    display: block;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}

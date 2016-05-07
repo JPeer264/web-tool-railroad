@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:navbar
  *
- * @description 
+ * @description
  * Generates a single navbar component
  */
 function navbarDirective() {
@@ -25,7 +25,7 @@ function navbarDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-
+                console.log($('#navbar').menumaker({'title': ''}));
             }
         };
 };
