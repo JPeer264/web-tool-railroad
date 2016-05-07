@@ -23,20 +23,9 @@ user.$inject = [
 
 function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
     // cache all promises - private
-    var currentUserId = $cookies.get(COOKIE.u_i);
     var _promiseCache = {
         get: {}, // saves the id of every saved person
     }
-
-    /**
-     * @ngdoc method
-     * @name service.user#currentUser
-     * @methodOf service.user
-     *
-     * @description
-     * Data of the current user - run setCurrent() before use
-     */
-    $rootScope.currentUser = '';
 
     /**
      * @ngdoc method
@@ -49,14 +38,23 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
      * @returns {Promise} promise for the current user
      */
     this.getCurrent = function() {
-        // todo get userid from JWT token
+        var currentUserId = $cookies.get(COOKIE.USER_ID);
+
         if (!_promiseCache.current) {
-            _promiseCache.current = this.get(1);
+            _promiseCache.current = this.get(currentUserId);
         }
 
         return _promiseCache.current;
     }
 
+    /**
+     * @ngdoc method
+     * @name service.user#currentUser
+     * @methodOf service.user
+     *
+     * @description
+     * Data of the current user - run setCurrent() before use
+     */
     /**
      * @ngdoc method
      * @name service.user#setCurrent
@@ -66,10 +64,6 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
      * Set the rootscope of currentUser
      */
     this.setCurrent = function() {
-        if (!currentUserId) {
-            return;
-        }
-
         (this.getCurrent()).then(function(data) {
             $rootScope.currentUser = data.plain();
         });

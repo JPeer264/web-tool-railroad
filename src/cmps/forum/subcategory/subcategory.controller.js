@@ -21,7 +21,7 @@ function SubcategoryCmpsController($scope, subcategory) {
     /**
      * @ngdoc property
      * @name $scope.subcategory
-     * @propertyOf forum.subcategory:SubcategoryCmpsCtrl
+     * @propertyOf cmps.forum:SubcategoryCmpsCtrl
      *
      * @description
      * Async - Receives one specific subcategory as object

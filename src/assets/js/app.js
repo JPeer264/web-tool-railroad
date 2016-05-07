@@ -49,7 +49,7 @@ angular
         RestangularProvider.setBaseUrl('http://localhost/web-tool-railroad-api/public/api/v1/')
         .setDefaultHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: 'Bearer ' + $cookies.get('tkn_u')
+            Authorization: 'Bearer '+ $cookies.get('tkn_u')
         });
 
         $mdThemingProvider.definePalette('railroad', {
@@ -284,13 +284,16 @@ angular
     ];
 
     function run($rootScope, $location, $http, auth, user, Restangular) {
-        auth.check();
-        // todo put setCurrent into auth service
-        user.setCurrent();
+        // user.setCurrent();
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             auth.check();
+
+            if (auth.check()) {
+                user.setCurrent();
+            }
+
             var loggedIn = auth.isAuthorized();
 
             // if you do not want to enable the login
@@ -306,7 +309,11 @@ angular
         });
 
         Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
-            if(response.status >= 300) {
+            if (response.status === 401) {
+                auth.logout();
+            }
+
+            if (response.status >= 300) {
                 $location.path('/error');
 
                 return false; // error handled

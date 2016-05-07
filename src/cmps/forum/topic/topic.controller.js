@@ -24,7 +24,7 @@ function TopicCmpsController($scope, $state, topic) {
     /**
      * @ngdoc property
      * @name $scope.topicId
-     * @propertyOf forum.subcategory:TopicCmpsCtrl
+     * @propertyOf cmps.forum:TopicCmpsCtrl
      *
      * @description
      * Receives the topic from the url /topic/:id
@@ -34,7 +34,7 @@ function TopicCmpsController($scope, $state, topic) {
     /**
      * @ngdoc property
      * @name $scope.topic
-     * @propertyOf forum.topic:TopicCmpsCtrl
+     * @propertyOf cmps.forum:TopicCmpsCtrl
      *
      * @description
      * Receives the topic from the url /topic/:id
