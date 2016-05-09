@@ -117,6 +117,9 @@ module.exports = {
             bowerOptions: {
                 relative: false
             },
+            exclude: [
+                'angular-i18n'
+            ],
             dependencies: {
                 'angular': 'jquery'
             },
@@ -187,6 +190,12 @@ module.exports = {
                         'i18n/**'
                     ],
                     dest: '<%= paths.tmp.base %>/'
+                },
+                {
+                    expand: true,
+                    cwd: './bower_components/angular-i18n',
+                    src: '*.js',
+                    dest: '<%= paths.tmp.base %>/i18n/angular/'
                 }
             ]
         },
@@ -210,6 +219,12 @@ module.exports = {
                         'i18n/**'
                     ],
                     dest: '<%= paths.dest.base %>'
+                },
+                {
+                    expand: true,
+                    cwd: '/bower_components/angular-i18n',
+                    src: '*.js',
+                    dest: '<%= paths.dist.base %>/i18n/angular/'
                 }
             ]
         },

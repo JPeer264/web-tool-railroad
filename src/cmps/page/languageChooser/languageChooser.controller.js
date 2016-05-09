@@ -18,10 +18,11 @@ LanguageChooserController.$inject = [
     '$scope',
     '$translate',
     '$cookies',
-    'COOKIE'
+    'COOKIE',
+    'tmhDynamicLocale'
 ];
 
-function LanguageChooserController($scope, $translate, $cookies, COOKIE) {
+function LanguageChooserController($scope, $translate, $cookies, COOKIE, tmhDynamicLocale) {
 
     /**
      * @ngdoc method
@@ -36,6 +37,7 @@ function LanguageChooserController($scope, $translate, $cookies, COOKIE) {
      */
     $scope.changeLang = function (langKey) {
         $translate.use(langKey).then(function (langKey) {
+            tmhDynamicLocale.set(langKey);
             $scope.setPreferredLanguage(langKey);
         });
     };

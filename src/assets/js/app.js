@@ -8,7 +8,8 @@ angular.module('railroad', [
     'pascalprecht.translate',
     'restangular',
     'ngCookies',
-    'ngMaterial'
+    'ngMaterial',
+    'tmh.dynamicLocale'
 ]);
 
 angular
@@ -30,10 +31,11 @@ angular
         'localStorageServiceProvider',
         '$translateProvider',
         'RestangularProvider', // restangular
-        '$mdThemingProvider'
+        '$mdThemingProvider',
+        'tmhDynamicLocaleProvider'
     ];
 
-    function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider) {
+    function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider, tmhDynamicLocaleProvider) {
         // workaround to enable cookies in config
         var $cookies;
 
@@ -77,8 +79,9 @@ angular
             suffix: '.json'// suffix, currently- extension of the translations
         });
         $translateProvider.useMissingTranslationHandler(); // log if TRANSLATION_CODE not found
-        $translateProvider.preferredLanguage('en_US');
-        $translateProvider.fallbackLanguage('en_US');
+        $translateProvider.preferredLanguage('en-US');
+        $translateProvider.fallbackLanguage('en-US');
+        tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular/angular-locale_{{ locale }}.js');
 
         $urlRouterProvider.when('', '/');
         $urlRouterProvider.otherwise('/error');
