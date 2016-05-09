@@ -1,6 +1,7 @@
 .languageChooser {
     display: inline-block;
     margin-right: $space-between-links;
+    position: relative;
 
     button {
         color: black !important;
@@ -28,8 +29,9 @@
 
     .dropdown-pane {
         width: auto;
+        position: absolute;
         top: $header-height;
-        right: $space-between-links;
+        right: 0;
         left: initial !important;
     }
 }
