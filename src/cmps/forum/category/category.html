@@ -35,7 +35,7 @@
                                             {{ subcategory.latest_comment.user.firstname }} {{ subcategory.latest_comment.user.lastname }}
                                         </a>
                                     </div>
-                                    <div>{{ subcategory.latest_comment.created_at }}</div>
+                                    <div>{{ getDate(subcategory.latest_comment.created_at) }}</div>
                             </div>
                         </div>
                 </div>

@@ -324,6 +324,10 @@ angular
     function run($rootScope, $location, $http, auth, user, Restangular) {
         // user.setCurrent();
 
+        $rootScope.getDate = function (date) {
+            return date === null ? date : new Date(date);
+        }
+
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
             auth.check();
