@@ -10,7 +10,7 @@
             <a href="#/faq">{{"NAV_FAQ" | translate}}</a>
         </li>
         <li data-ng-class="{active: $state.current.activetab === 'profile'}">
-            <a href="#">{{"NAV_PROFILE" | translate}}</a>
+            <a data-ng-href="#/user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
         </li>
     </ul>
 </div>
