@@ -1,1 +1,40 @@
 
+
+<div>
+    <div class="rail-panel">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <h3>
+                    {{company.name}}
+                </h3>
+            </div>
+            <div class="rail-content a-background">
+                    <div class="column small-6">
+                        {{ company.name}}<br>
+                        {{company.city}}, {{company.country.name}}<br>
+                        {{company.phonenumber}}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="rail-panel">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <h3>
+                    Colleagues
+                </h3>
+            </div>
+            <div class="rail-content a-background">
+                <div class="row flex-center" data-ng-repeat="person in company.user">
+                    <div class="column small-6">
+                        {{ person.firstname}} {{person.lastname}}
+                        <br>
+                        {{person.job.title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
