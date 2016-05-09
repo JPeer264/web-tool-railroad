@@ -254,6 +254,23 @@ angular
                 },
                 activetab: 'faq'
             })
+            .state('secure.admin', {
+                url: '/admin',
+                views: {
+                    header: {
+                        templateUrl: templates.header.template,
+                        controller: templates.header.controller
+                    },
+                    main: {
+                        templateUrl: 'pages/admin/admin.html',
+                        controller: 'AdminCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
+                },
+            })
             .state('landing', {
                 url: '/welcome',
                 views: {
