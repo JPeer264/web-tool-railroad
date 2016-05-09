@@ -4,7 +4,7 @@ angular
 
 /**
  * @ngdoc controller
- * @name pages.profile:ProfileCtrl
+ * @name pages.company:CompanyController
  *
  * @requires $scope
  * @requires $state
@@ -12,16 +12,16 @@ angular
  * @requires service.company
  *
  * @description
- * ProfileCtrl for the profile page
+ * CompanyCtrl for the company profile page
  */
-ProfileController.$inject = [
+CompanyController.$inject = [
 	'$scope',
     '$state',
     'user',
     'company'
 ];
 
-function ProfileController($scope, $state, user, company) {
+function CompanyController($scope, $state, user, company) {
     console.log('company');
 
     company.get($state.params.id).then(function(data) {

@@ -200,6 +200,24 @@ angular
                 },
                 activetab: 'profile'
             })
+            .state('secure.company', {
+                url: '/company/{id}',
+                views: {
+                    header: {
+                        templateUrl: templates.header.template,
+                        controller: templates.header.controller
+                    },
+                    main: {
+                        templateUrl: 'pages/company/company.html',
+                        controller: 'CompanyCtrl'
+                    },
+                    footer: {
+                        templateUrl: templates.footer.template,
+                        controller: templates.footer.controller
+                    },
+                },
+                activetab: 'profile'
+            })
             .state('secure.rules', {
                 url: '/rules',
                 views: {

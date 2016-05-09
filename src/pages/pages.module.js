@@ -19,6 +19,7 @@
         'pages.error',
         'pages.footer',
         'pages.topic',
+        'pages.company',
     ]);
 
 })(window, window.angular);
