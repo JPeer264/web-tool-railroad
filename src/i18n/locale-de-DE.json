@@ -12,6 +12,8 @@
     "LOGOUT": "Ausloggen",
     "LOGIN":  "Einloggen",
 
+    "ADMIN": "Admin",
+
     "WELCOME":  "Willkommen zu unserem Zugmuseumstool!",
 
     "FORUM_ADD_TOPIC":      "Topic hinzufügen",

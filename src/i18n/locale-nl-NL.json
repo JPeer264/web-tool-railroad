@@ -5,12 +5,14 @@
     "NAV_HOME":         "Startpagina",
     "NAV_SETTINGS":     "Instellingen",
     "NAV_PROFILE":      "Profile",
-    "NAV_CATEGORIES":   "TODO",
+    "NAV_CATEGORIES":   "categorieën",
     "NAV_FAQ":          "TODO",
-    "NAV_RULES":        "TODO",
+    "NAV_RULES":        "Regels",
 
-    "LOGOUT": "TODO",
-    "LOGIN": "TODO",
+    "LOGOUT": "Afmelden",
+    "LOGIN": "Aanmelden",
+
+    "ADMIN": "Admin",
 
     "WELCOME": "Welkom bij ons spoorweg museum webtool!",
 
