@@ -20,6 +20,7 @@
         'pages.footer',
         'pages.topic',
         'pages.company',
+        'pages.signup',
     ]);
 
 })(window, window.angular);

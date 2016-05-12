@@ -11,6 +11,7 @@ angular
  * @requires $window
  * @requires $cookies
  * @requires COOKIE
+ * @requires $location
  *
  * @description
  * Hello App controller
@@ -21,9 +22,10 @@ LoginController.$inject = [
     '$window',
     '$cookies',
     'COOKIE',
+    '$location',
 ];
 
-function LoginController($scope, auth, $window, $cookies, COOKIE) {
+function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
 
     /**
      * @ngdoc method
@@ -47,4 +49,17 @@ function LoginController($scope, auth, $window, $cookies, COOKIE) {
             }
         });
     }
+
+    /**
+     * @ngdoc method
+     * @name signup
+     * @methodOf cmps.page:LoginCtrl
+     *
+     * @description
+     * go to signup page
+     */
+    $scope.signup=function(){
+        $location.path( '/signup' );
+    }
+
 }
