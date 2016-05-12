@@ -1,54 +1,85 @@
+<div class="row align-middle align-center">
+    <div class="profile-picure column small-10 medium-4 large-3">
+        <img src="https://www.jpeer.at/railroad/testimage/logo.jpg" alt="Logo">
+    </div>
+    <div class="column small-2 medium-1 large-1 align-left">
+        <div class="social-media">
+            <a href="http://{{user.Twitter}}">
+                <img src="https://pbs.twimg.com/profile_images/666407537084796928/YBGgi9BO_normal.png" alt="Twitter">
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="http://{{user.Facebook}}">
+                <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-128.png" alt="Facebook">
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="http://{{user.LinkedIn}}">
+                <img src="https://static.licdn.com/sc/h/3m4lyvbs6efg8pyhv7kupo6dh" alt="LinkedIn">
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="http://{{user.Xing}}">
+                <img src="http://findicons.com/files/icons/2287/32_pixel_social_media_icons/32/xing.png" alt="Xing">
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="rail-panel column small-12 medium-6 large-4">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                About
+            </div>
+            <div class="rail-content">
+                {{ user.firstname }} {{user.lastname}}<br>
+                {{user.city}}, {{user.country.name}}<br>
+                {{user.email}}<br>
+                {{user.birthday}}
+            </div>
+        </div>
+    </div>
+
+    <div class="rail-panel column small-12 medium-6 large-4">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                Work information
+            </div>
+            <div class="rail-content">
+                {{ company.name}}<br>
+                {{company.city}}, {{company.country.name}}<br>
+                {{company.phonenumber}}
+            </div>
+        </div>
+    </div>
+
+    <div class="rail-panel column small-12 medium-12 large-4">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                Latest Activity
+            </div>
+            <div class="rail-content">
+
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <div>
-    <div class="rail-panel">
+    <div class="rail-panel ">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                <h3>
-                    About
-                </h3>
+                Collegues
             </div>
-            <div class="rail-content a-background">
-                <div class="row flex-center">
-                    <div class="column small-6">
-                        {{ user.firstname }} {{user.lastname}}<br>
-                        {{user.city}}, {{user.country.name}}<br>
-                        {{user.email}}<br>
-                        {{user.birthday}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="rail-panel">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                <h3>
-                    Work information
-                </h3>
-            </div>
-            <div class="rail-content a-background">
-                    <div class="column small-6">
-                        {{ company.name}}<br>
-                        {{company.city}}, {{company.country.name}}<br>
-                        {{company.phonenumber}}
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div>
-    <div class="rail-panel">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                <h3>
-                    Colleagues
-                </h3>
-            </div>
-            <div class="rail-content a-background">
-                <div class="row flex-center" data-ng-repeat="person in company.user">
-                    <div class="column small-6">
+            <div class="row small-up-1 medium-up-2 large-up-3">
+                <div  data-ng-repeat="person in company.user">
+                    <div class="column collegue">
                         {{ person.firstname}} {{person.lastname}}
                         <br>
                         {{person.job.title}}

@@ -50,7 +50,7 @@ body, html {
     align-items: center;
 }
 
-// set the button invisible 
+// set the button invisible
 .btn-neutralize {
     border: none;
     background: none;
@@ -121,4 +121,19 @@ body, html {
             background: lighten($light-gray, 5%);;
         }
     }
+}
+
+.collegue{
+    padding: 20px;
+}
+
+.profile-picure{
+    padding: 20px;
+}
+
+.social-media
+{
+    padding: 5px;
+    height:35px;
+    width:35px;
 }
