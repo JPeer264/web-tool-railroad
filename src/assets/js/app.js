@@ -358,7 +358,14 @@ angular
             // if you do not want to enable the login
             // deavticte the following 2 if
             if (!loggedIn) {
-                $location.path('/welcome');
+                if($location.url() == '/signup')
+                {
+                    $location.path('/signup');
+
+                }
+                else{
+                    $location.path('/welcome');
+                }
             }
 
             // redirect if logged in user wants to /welcome
