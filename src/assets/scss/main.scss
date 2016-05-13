@@ -81,7 +81,6 @@ body, html {
 }
 
 .rail-panel {
-    background: white;
     margin-bottom: 10px;
 
     .rail-header {
@@ -100,6 +99,7 @@ body, html {
 
     .rail-panel-inner {
         border: 1px solid $primary-color;
+        background: white;
     }
 
     .rail-content {

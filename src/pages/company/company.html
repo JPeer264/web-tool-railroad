@@ -1,34 +1,57 @@
+<div class="row align-middle align-center">
+    <div class="profile-picure column small-10 medium-4 large-3">
+        <img src="https://www.jpeer.at/railroad/testimage/logo.jpg" alt="Logo">
+    </div>
+    <div class="column small-2 medium-1 large-1 align-left">
+        <div class="social-media">
+            <a href="http://{{company.Twitter}}">
+                <img src="https://pbs.twimg.com/profile_images/666407537084796928/YBGgi9BO_normal.png" alt="Twitter">
+            </a>
+        </div>
 
+        <div class="social-media">
+            <a href="http://{{company.Facebook}}">
+                <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-128.png" alt="Facebook">
+            </a>
+        </div>
 
-<div>
-    <div class="rail-panel">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                <h3>
-                    {{company.name}}
-                </h3>
-            </div>
-            <div class="rail-content a-background">
-                    <div class="column small-6">
-                        {{ company.name}}<br>
-                        {{company.city}}, {{company.country.name}}<br>
-                        {{company.phonenumber}}
-                    </div>
-            </div>
+        <div class="social-media">
+            <a href="http://{{company.LinkedIn}}">
+                <img src="https://static.licdn.com/sc/h/3m4lyvbs6efg8pyhv7kupo6dh" alt="LinkedIn">
+            </a>
+        </div>
+
+        <div class="social-media">
+            <a href="http://{{company.Xing}}">
+                <img src="http://findicons.com/files/icons/2287/32_pixel_social_media_icons/32/xing.png" alt="Xing">
+            </a>
         </div>
     </div>
-</div>
-<div>
-    <div class="rail-panel">
+
+    <div class="rail-panel column small-12 medium-6 large-4">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                <h3>
-                    Colleagues
-                </h3>
+                {{company.name}}
             </div>
-            <div class="rail-content a-background">
-                <div class="row flex-center" data-ng-repeat="person in company.user">
-                    <div class="column small-6">
+            <div class="rail-content">
+                {{company.city}}, {{company.country.name}}<br>
+                {{company.phonenumber}}<br>
+                Employees: {{company.user.length}}
+            </div>
+        </div>
+
+</div>
+
+
+
+    <div class="rail-panel column align-middle align-center small-12 medium-12 large-12">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                Employees
+            </div>
+            <div class="row ">
+                <div  data-ng-repeat="person in company.user">
+                    <div class="column collegue">
                         {{ person.firstname}} {{person.lastname}}
                         <br>
                         {{person.job.title}}
@@ -37,4 +60,3 @@
             </div>
         </div>
     </div>
-</div>
