@@ -13,14 +13,13 @@
                     </a>
                 </div>
                 <div class="column small-2 hide-for-small-only text-right">
-                    <span>Topics: {{ subcategory.topic_count }}</span><br>
-                    <span>Comments: {{ subcategory.topic_count }}</span>
+                    <span>{{ "FORUM_TOPIC" | translate }}: {{ subcategory.topic_count }}</span>
                 </div>
                 <div class="column small-4 hide-for-small-only">
-                        <div class="row" ng-if="subcategory.latest_comment">
+                        <div class="row flex-center" ng-if="subcategory.latest_comment">
                             <div class="column small-3">
-                                <div class="img">
-                                    <img src="" alt="Type Picture">
+                                <div class="latest-topic-img">
+                                    <img src="https://jpeer.at/railroad/testimage/type-default.png" alt="Type Picture">
                                 </div>
                             </div>
 
@@ -30,12 +29,12 @@
                                             {{ subcategory.latest_comment.topic.title }}
                                         </a>
                                     </div>
-                                    <div>By 
+                                    <div>By
                                         <a data-ng-href="#/user/{{ subcategory.latest_comment.user_id }}">
                                             {{ subcategory.latest_comment.user.firstname }} {{ subcategory.latest_comment.user.lastname }}
                                         </a>
                                     </div>
-                                    <div>{{ getDate(subcategory.latest_comment.created_at) }}</div>
+                                    <div>{{ getDate(subcategory.latest_comment.created_at) | date }}</div>
                             </div>
                         </div>
                 </div>

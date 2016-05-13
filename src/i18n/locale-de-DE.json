@@ -16,6 +16,8 @@
 
     "WELCOME":  "Willkommen zu unserem Zugmuseumstool!",
 
-    "FORUM_ADD_TOPIC":      "Topic hinzufügen",
-    "FORUM_ADD_COMMENT":    "Kommentar hinzufügen"
+    "FORUM_ADD_TOPIC":      "Kategorie hinzufügen",
+    "FORUM_ADD_COMMENT":    "Kommentar hinzufügen",
+    "FORUM_BY":             "Von",
+    "FORUM_TOPIC":          "Kategorie"
 }

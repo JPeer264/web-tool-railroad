@@ -17,5 +17,7 @@
     "WELCOME": "Welcome to our the railroad museum tool!",
 
     "FORUM_ADD_TOPIC":      "Add topic",
-    "FORUM_ADD_COMMENT":    "Add comment"
+    "FORUM_ADD_COMMENT":    "Add comment",
+    "FORUM_BY":             "By",
+    "FORUM_TOPIC":          "Topic"
 }

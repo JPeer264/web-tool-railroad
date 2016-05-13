@@ -14,7 +14,7 @@
                         </a>
                     </div>
                     <div class="column small-3">
-                        By <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
+                        {{ "FORUM_BY" | translate }} <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
                     </div>
                 </div>
                 <div class="text-center flex-center" data-ng-if="!subcategory.topic[0]">
