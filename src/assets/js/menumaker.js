@@ -46,7 +46,7 @@
 
             resizeFix = function() {
                 var em = $(window).width() / 16;
-                console.log(em);
+
                 if (em > 40) {
                     cssmenu.find('ul').show();
                 }
