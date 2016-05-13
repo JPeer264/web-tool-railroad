@@ -7,7 +7,7 @@ angular
  * @ngdoc directive
  * @name cmps.forum:addTopic
  *
- * @description 
+ * @description
  * Should pop up if the button "add topic" is clicked.
  */
 function addFormDirective() {
@@ -26,7 +26,7 @@ function addFormDirective() {
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function($scope, iElm, iAttrs, controller) {
-            
+                var elem = new Foundation.Reveal($('#addTopic'));
         }
     };
 };
