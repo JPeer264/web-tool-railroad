@@ -7,6 +7,7 @@
  * @requires $httpParamSerializer
  * @requires $cookies
  * @requires COOKIE
+ * @requires $q
  */
 angular
     .module('service.user')
@@ -18,13 +19,33 @@ user.$inject = [
     '$httpParamSerializer',
     '$cookies',
     'COOKIE',
+    '$q'
 ];
 
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $q) {
     // cache all promises - private
+    var _identity = undefined;
+    var _authenticated = false;
     var _promiseCache = {
         get: {}, // saves the id of every saved person
+    }
+
+    this.isIdentityResolved = function() {
+        return angular.isDefined(_identity);
+    }
+
+    this.isAuthenticated = function() {
+        return _authenticated;
+    }
+
+    this.isRightRole = function(roleLimit) {
+        if (!_authenticated || !_identity.role_id) return false;
+
+        // should pass if there should be a userrole
+        if (roleLimit === 0) return true;
+
+        return _identity.role_id <= roleLimit;
     }
 
     /**
@@ -64,8 +85,12 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE) {
      * Set the rootscope of currentUser
      */
     this.setCurrent = function() {
-        (this.getCurrent()).then(function(data) {
-            $rootScope.currentUser = data.plain();
+        return (this.getCurrent()).then(function(data) {
+            var userdata = data.plain();
+            userdata.role = 'user';
+            _identity = userdata;
+            _authenticated = true;
+            $rootScope.currentUser = userdata;
         });
     }
 

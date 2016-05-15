@@ -1,15 +1,15 @@
 <div class="navbar-header" id="navbar">
     <ul class="ul-normalize">
-        <li data-ng-class="{active: $state.current.activetab === 'home'}">
+        <li data-ng-class="{active: $state.current.data.activetab === 'home'}">
             <a href="#">{{"NAV_HOME" | translate}}</a>
         </li>
-        <li data-ng-class="{active: $state.current.activetab === 'category'}">
+        <li data-ng-class="{active: $state.current.data.activetab === 'category'}">
             <a href="#/category">{{"NAV_CATEGORIES" | translate}}</a>
         </li>
-        <li data-ng-class="{active: $state.current.activetab === 'faq'}">
+        <li data-ng-class="{active: $state.current.data.activetab === 'faq'}">
             <a href="#/faq">{{"NAV_FAQ" | translate}}</a>
         </li>
-        <li data-ng-class="{active: $state.current.activetab === 'profile'}">
+        <li data-ng-class="{active: $state.current.data.activetab === 'profile'}">
             <a data-ng-href="#/user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
         </li>
     </ul>

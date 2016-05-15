@@ -21,12 +21,54 @@ auth.$inject = [
     '$window',
     '$cookies',
     'COOKIE',
-    '$httpParamSerializer'
+    '$httpParamSerializer',
+    'user',
+    '$location'
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpParamSerializer) {
+function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpParamSerializer, user, $location) {
     var _authenticated = false,
-        token = Restangular.service('auth/token');
+        token = Restangular.service('auth/token'),
+        self = this;
+
+    this.authorize = function() {
+
+        if (!self.check()) {
+            // user is not authenticated. stow the state they wanted before you
+            // send them to the signin state, so you can return them when you're done
+            $rootScope.returnToState = $rootScope.toState;
+            $rootScope.returnToStateParams = $rootScope.toStateParams;
+
+            if ($rootScope.toState && $rootScope.toState.name !== 'secure.index') {
+                $location.path('/error');
+                return;
+            }
+
+            $location.path('/welcome');
+            return;
+        }
+
+
+        return user.setCurrent().then(function() {
+            var isAuthenticated = user.isAuthenticated();
+
+            // console.log($rootScope.toState.data);
+
+            if ($rootScope.toState.data.roleLimit && !user.isRightRole($rootScope.toState.data.roleLimit)) {
+                if (isAuthenticated) {
+                    $state.go('error'); // user is signed in but not authorized for desired state
+                } else {
+                    // user is not authenticated. stow the state they wanted before you
+                    // send them to the signin state, so you can return them when you're done
+                    $rootScope.returnToState = $rootScope.toState;
+                    $rootScope.returnToStateParams = $rootScope.toStateParams;
+
+                    // now, send them to the signin state so they can log in
+                    $state.go('landing');
+                }
+            }
+        });
+    }
 
     /**
      * @ngdoc method
