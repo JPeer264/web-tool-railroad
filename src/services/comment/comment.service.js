@@ -1,5 +1,5 @@
 /**
- * @ngdoc service 
+ * @ngdoc service
  * @name service.comment
  *
  * @requires $rootScope
@@ -23,14 +23,14 @@ function comment($rootScope, Restangular, $httpParamSerializer) {
      * @name service.comment#create
      * @methodOf service.comment
      *
-     * @description 
+     * @description
      * Creates a new comment based on the formData
      *
      * @param {Object} formData - the given formData of a form
      *
      * @returns {Promise} returns promise
      */
-    this.create = function(formData) {
-        return Restangular.one('company').customPOST($httpParamSerializer(formData));
+    this.create = function(id, formData) {
+        return Restangular.one('topic', id).one('comment').customPOST($httpParamSerializer(formData));
     }
 }
