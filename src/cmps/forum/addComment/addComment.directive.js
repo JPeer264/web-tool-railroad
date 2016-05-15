@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.forum:addComment
  *
- * @description 
+ * @description
  * Pop up at the end from the topic to add a new comment.
  */
 function addCommentDirective() {
@@ -25,7 +25,8 @@ function addCommentDirective() {
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function($scope, iElm, iAttrs, controller) {
-            
+            var elem = new Foundation.Reveal($('#addComment'));
+
         }
     };
 };

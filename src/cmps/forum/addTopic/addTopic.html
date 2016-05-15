@@ -1,1 +1,59 @@
-<div class="button">{{ "FORUM_ADD_TOPIC" | translate }}</div>
+<div>
+    <p><a class="button "data-open="addTopic">Add Topic</a></p>
+
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="addTopic" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    Add A Topic
+                </div>
+                <div class="rail-content">
+                    <form>
+                      <div class="row">
+                        <div class="large-12 medium-12 small-12 columns">
+                            <md-input-container>
+                                <label>Title</label>
+                                <input type="title" data-ng-model="topic.title" required/>
+                            </md-input-container>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="large-12 columns">
+                            <md-input-container class="md-block">
+                              <label>Description</label>
+                              <textarea ng-model="topic.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                            </md-input-container>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="large-6 columns">
+                            <div flex="100" ng-repeat="job in jobsVisible">
+                               <md-checkbox class="check" ng-model="job.selected" ng-click="toggleJob(job, selected)" >
+                                {{ job.title }}
+                               </md-checkbox>
+                            </div>
+                        </div>
+                        <div class="large-6 columns">
+                            <div flex="100" ng-repeat="company in companiesVisible">
+                               <md-checkbox class="check" ng-model="company.selected" ng-click="toggleCompany(company, selected)" >
+                                {{ company.name }}
+                               </md-checkbox>
+                            </div>
+                        </div>
+                        <div class="large-6 columns">
+                            <md-checkbox Class="check" ng-model="checkAll.selected" ng-click="checkAll()">
+                              Everyone
+                            </md-checkbox>
+                        </div>
+                      </div>
+                      <md-button class="button"  data-ng-click="addTopic()">Add Topic</md-button>
+
+                </form>
+                </div>
+            </div>
+      <button class="close-button" data-close aria-label="Close modal" ng-click="close()" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+</div>

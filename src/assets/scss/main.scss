@@ -81,7 +81,6 @@ body, html {
 }
 
 .rail-panel {
-    background: white;
     margin-bottom: 10px;
 
     .rail-header {
@@ -100,6 +99,7 @@ body, html {
 
     .rail-panel-inner {
         border: 1px solid $primary-color;
+        background: white;
     }
 
     .rail-content {
@@ -136,4 +136,13 @@ body, html {
     padding: 5px;
     height:35px;
     width:35px;
+}
+
+md-checkbox.check .md-icon{
+    border: 1px solid $primary-color;
+
+}
+md-checkbox.md-checked.check .md-icon {
+ background-color: $primary-color;
+ color: black;
 }
