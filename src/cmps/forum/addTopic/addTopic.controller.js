@@ -7,7 +7,11 @@ angular
  * @name cmps.forum:AddTopicCtrl
  *
  * @requires $scope
- *
+ * @requires service.job
+ * @requires service.company
+ * @requires service.topic
+ * @requires $state
+
  * @description
  * AddTopicCtrl for the addTopic directive
  */
@@ -15,9 +19,11 @@ AddTopicController.$inject = [
     '$scope',
     'job',
     'company',
+    'topic',
+    '$state',
 ];
 
-function AddTopicController($scope, job, company) {
+function AddTopicController($scope, job, company, topic, $state) {
 
     $( "a" ).click(function( event ) {
         event.preventDefault();
@@ -39,7 +45,6 @@ function AddTopicController($scope, job, company) {
                     $scope.jobsVisible=$scope.jobs;
                     $scope.companiesVisible=$scope.companies;
                 }else if($scope.currentUser.role_id==3){
-                    $scope.jobsVisible.push($scope.currentUser.job);
                     $scope.jobsVisible.push($scope.currentUser.job);
                     //$scope.companiesVisible=$scope.currentUser.company;
                 }else {
@@ -90,7 +95,33 @@ function AddTopicController($scope, job, company) {
          };
 
 
+         $scope.addTopic=function(){
+             console.log($state.params.id);
+             topic.create($state.params.id,$scope.topic ).then(function(data) {
+                 console.log("created");
+                 $scope.topic=null;
+                 for(var i=0; i < $scope.jobsVisible.length; i++) {
+                       $scope.jobsVisible[i].selected = false;
+                   }
+                 for(var i=0; i < $scope.companiesVisible.length; i++) {
+                         $scope.companiesVisible[i].selected = false;
+                }
+                $scope.checkAll.selected=false;
 
+             });
+              $('#addTopic').foundation('close');
+         }
+
+         $scope.close=function (){
+             $scope.topic=null;
+             for(var i=0; i < $scope.jobsVisible.length; i++) {
+                   $scope.jobsVisible[i].selected = false;
+               }
+             for(var i=0; i < $scope.companiesVisible.length; i++) {
+                     $scope.companiesVisible[i].selected = false;
+            }
+            $scope.checkAll.selected=false;
+         }
          /*    angular.forEach($scope.jobs, function(job, key) {
                    $scope.listJob.push(job);
                  });

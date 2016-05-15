@@ -28,30 +28,30 @@
                       <div class="row">
                         <div class="large-6 columns">
                             <div flex="100" ng-repeat="job in jobsVisible">
-                               <md-checkbox class="check" ng-click="toggleJob(job, selected)" >
+                               <md-checkbox class="check" ng-model="job.selected" ng-click="toggleJob(job, selected)" >
                                 {{ job.title }}
                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
                             <div flex="100" ng-repeat="company in companiesVisible">
-                               <md-checkbox class="check" ng-click="toggleCompany(company, selected)" >
+                               <md-checkbox class="check" ng-model="company.selected" ng-click="toggleCompany(company, selected)" >
                                 {{ company.name }}
                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
-                            <md-checkbox Class="check" ng-click="checkAll()">
+                            <md-checkbox Class="check" ng-model="checkAll.selected" ng-click="checkAll()">
                               Everyone
                             </md-checkbox>
                         </div>
                       </div>
-                      <button class="button" >Add Topic</button>
+                      <md-button class="button"  data-ng-click="addTopic()">Add Topic</md-button>
 
                 </form>
                 </div>
             </div>
-      <button class="close-button" data-close aria-label="Close modal" type="button">
+      <button class="close-button" data-close aria-label="Close modal" ng-click="close()" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
