@@ -83,6 +83,17 @@ body, html {
 .rail-panel {
     margin-bottom: 10px;
 
+    .row {
+        margin: 0;
+    }
+
+    .rail-meta {
+        padding: 2px 5px;
+        background: $light-gray;
+        color: $dark-gray;
+        font-size: .8rem;
+    }
+
     .rail-header {
         height: auto;
         padding: 5px;

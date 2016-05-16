@@ -1,1 +1,18 @@
-<div>{{comment.content}}</div>
+<div class="rail-panel">
+    <div class="rail-panel-inner">
+        <div class="rail-meta row">
+            <div class="small-12 medium-expand columns">
+                <span># {{ $index + 1 }}</span>
+            </div>
+            <div class="small-12 medium-expand columns">
+                {{ "FORUM_BY" | translate }} <a data-ng-href="#/user/{{ comment.user_id }}">{{ comment.user.firstname }} {{ comment.user.lastname }}</a>
+            </div>
+            <div class="small-12 medium-expand columns">
+                {{ getDate(comment.created_at) | date }}
+            </div>
+        </div>
+        <div class="rail-content">
+            {{ comment.content }}
+        </div>
+    </div>
+</div>
