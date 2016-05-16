@@ -20,5 +20,8 @@
     "FORUM_ADD_TOPIC":      "TODO",
     "FORUM_ADD_COMMENT":    "TODO",
     "FORUM_BY":             "TODO",
-    "FORUM_TOPIC":          "TODO"
+    "FORUM_TOPIC":          "TODO",
+
+    "RULES_NOSPAM": "TODO",
+    "RULES_BEPOLITE": "TODO"
 }
