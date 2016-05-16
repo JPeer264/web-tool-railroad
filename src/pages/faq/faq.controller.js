@@ -16,5 +16,5 @@ FaqController.$inject = [
 ];
 
 function FaqController($scope) {
-    console.log('faq');
+    var elem = new Foundation.Accordion($('#faq'));
 }

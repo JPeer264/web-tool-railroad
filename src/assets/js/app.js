@@ -382,6 +382,11 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         return date === null ? date : new Date(date);
     }
 
+
+    $rootScope.isLoggedIn = function() {
+        return auth.isAuthorized();
+    }
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
         $rootScope.toState = toState;
         $rootScope.toStateParams = toStateParams;

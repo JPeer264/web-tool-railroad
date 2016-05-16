@@ -11,7 +11,6 @@
         <div class="railroad-body">
             <!-- if the user is loggedin -->
             <div data-ui-view></div>
-    
             <!-- if the user is not loggedin -->
             <div class="view-header" data-ui-view="header"></div>
             <div class="row small-up-1 medium-up-1 large-up-1">
@@ -24,7 +23,9 @@
         <script type="text/javascript" src="/assets/js/app.js"></script>
         <script type="text/javascript" src="/assets/js/main.js"></script>
         <script>
-            $(document).foundation();
+            jQuery(document).ready(function($) {
+                $(document).foundation();
+            });
         </script>
     </body>
 </html>
