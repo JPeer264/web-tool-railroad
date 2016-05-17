@@ -46,10 +46,10 @@ function AddTopicController($scope, job, company, topic, $state) {
                     $scope.companiesVisible=$scope.companies;
                 }else if($scope.currentUser.role_id==3){
                     $scope.jobsVisible.push($scope.currentUser.job);
-                    //$scope.companiesVisible=$scope.currentUser.company;
+                    $scope.companiesVisible.push($scope.currentUser.company);
                 }else {
                     $scope.jobsVisible.push($scope.currentUser.job);
-                    //$scope.companiesVisible=$scope.currentUser.company;
+                    $scope.companiesVisible.push($scope.currentUser.company);
                 }
               console.log($scope.jobsVisible);
             });
