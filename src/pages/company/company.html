@@ -51,11 +51,13 @@
             </div>
             <div class="row ">
                 <div  data-ng-repeat="person in company.user">
+                    <a data-ng-href="#/user/{{ person.id }}">
                     <div class="column collegue">
                         {{ person.firstname}} {{person.lastname}}
                         <br>
                         {{person.job.title}}
                     </div>
+                </a>
                 </div>
             </div>
         </div>
