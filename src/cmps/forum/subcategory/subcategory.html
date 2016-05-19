@@ -17,7 +17,7 @@
                         {{ "FORUM_BY" | translate }} <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
                     </div>
                 </div>
-                <div class="text-center flex-center" data-ng-if="!subcategory.topic[0]">
+                <div class="text-center flex-center" data-ng-if="!subcategory.topic">
                     <h5>No topics found create the first here!</h5>
                 </div>
             </div>
