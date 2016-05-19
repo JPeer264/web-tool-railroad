@@ -339,7 +339,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 4
             }
         })
-        .state('error', {
+        .state('secure.error', {
             url: '/error',
             views: {
                 header: {
