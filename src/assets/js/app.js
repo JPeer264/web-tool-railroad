@@ -9,7 +9,9 @@ angular.module('railroad', [
     'restangular',
     'ngCookies',
     'ngMaterial',
-    'tmh.dynamicLocale'
+    'tmh.dynamicLocale',
+    'ui.select',
+    'ngSanitize',
 ]);
 
 angular

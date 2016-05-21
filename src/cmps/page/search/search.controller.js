@@ -7,14 +7,19 @@ angular
  * @name cmps.page:SearchCtrl
  *
  * @requires $scope
+ * @requires user
  *
  * @description
  * SearchCtrl for the search directive
  */
 SearchController.$inject = [
-    '$scope'
+    '$scope',
+    'user',
 ];
 
-function SearchController($scope) {
-
+function SearchController($scope, user) {
+    user.getAll().then(function (data) {
+        $scope.users = data.plain();
+    });
+    
 }
