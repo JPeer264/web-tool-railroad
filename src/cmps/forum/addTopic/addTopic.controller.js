@@ -11,6 +11,7 @@ angular
  * @requires service.company
  * @requires service.topic
  * @requires $state
+ * @requires $httpParamSerializer
 
  * @description
  * AddTopicCtrl for the addTopic directive
@@ -21,9 +22,10 @@ AddTopicController.$inject = [
     'company',
     'topic',
     '$state',
+    '$httpParamSerializer',
 ];
 
-function AddTopicController($scope, job, company, topic, $state) {
+function AddTopicController($scope, job, company, topic, $state,$httpParamSerializer) {
 
     $( "a" ).click(function( event ) {
         event.preventDefault();
@@ -32,30 +34,18 @@ function AddTopicController($scope, job, company, topic, $state) {
     $scope.listJob=[];
     $scope.listCompany=[];
     $scope.everyone=false;
-    $scope.jobsVisible=[];
-    $scope.companiesVisible=[];
+
 
 
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
-
-            company.getAll().then(function(data) {
-                $scope.companies = data.plain();
-                if($scope.currentUser.role_id==1||$scope.currentUser.role_id==2){
-                    $scope.jobsVisible=$scope.jobs;
-                    $scope.companiesVisible=$scope.companies;
-                }else if($scope.currentUser.role_id==3){
-                    $scope.jobsVisible.push($scope.currentUser.job);
-                    $scope.companiesVisible.push($scope.currentUser.company);
-                }else {
-                    $scope.jobsVisible.push($scope.currentUser.job);
-                    $scope.companiesVisible.push($scope.currentUser.company);
-                }
-              console.log($scope.jobsVisible);
-            });
-
     });
 
+    company.getAll().then(function(data) {
+        $scope.companies = data.plain();
+
+      console.log($scope.jobsVisible);
+    });
 
 
 
@@ -97,14 +87,40 @@ function AddTopicController($scope, job, company, topic, $state) {
 
          $scope.addTopic=function(){
              console.log($state.params.id);
-             topic.create($state.params.id,$scope.topic ).then(function(data) {
+             $scope.job=[];
+             $scope.company=[];
+
+             if($scope.everyone){
+                 angular.forEach( $scope.jobs, function(job, key) {
+                         $scope.job.push(job.id);
+                       });
+                 angular.forEach( $scope.companies, function(company, key) {
+                     $scope.company.push(company.id);
+                 });
+             }else{
+                 angular.forEach( $scope.listJob, function(job, key) {
+                         $scope.job.push(job.id);
+                       });
+                 angular.forEach( $scope.listCompany, function(company, key) {
+                     $scope.company.push(company.id);
+                 });
+             }
+
+             $scope.params={"job\[\]": $scope.job,
+                            "company\[\]": $scope.company};
+                 topic.create($state.params.id,$scope.topic , $scope.params ).then(function(data) {
                  console.log("created");
+                 $scope.topic.user = $scope.currentUser;
+                 $scope.topic.user_id=$scope.currentUser.id;
+                 $scope.subcategory.topic.push($scope.topic);
+                 $scope.listJob=[];
+                 $scope.listCompany=[];
                  $scope.topic=null;
-                 for(var i=0; i < $scope.jobsVisible.length; i++) {
-                       $scope.jobsVisible[i].selected = false;
+                 for(var i=0; i < $scope.listJob.length; i++) {
+                       $scope.listJob[i].selected = false;
                    }
-                 for(var i=0; i < $scope.companiesVisible.length; i++) {
-                         $scope.companiesVisible[i].selected = false;
+                 for(var i=0; i < $scope.listCompany.length; i++) {
+                         $scope.listCompany[i].selected = false;
                 }
                 $scope.checkAll.selected=false;
 
@@ -114,22 +130,15 @@ function AddTopicController($scope, job, company, topic, $state) {
 
          $scope.close=function (){
              $scope.topic=null;
-             for(var i=0; i < $scope.jobsVisible.length; i++) {
-                   $scope.jobsVisible[i].selected = false;
+             $scope.listJob=[];
+             $scope.listCompany=[];
+             for(var i=0; i < $scope.jobs.length; i++) {
+                   $scope.jobs[i].selected = false;
                }
-             for(var i=0; i < $scope.companiesVisible.length; i++) {
-                     $scope.companiesVisible[i].selected = false;
+             for(var i=0; i < $scope.companies.length; i++) {
+                     $scope.companies[i].selected = false;
             }
             $scope.checkAll.selected=false;
          }
-         /*    angular.forEach($scope.jobs, function(job, key) {
-                   $scope.listJob.push(job);
-                 });
-                 console.log( $scope.listJob);
 
-                 angular.forEach($scope.companies, function(company, key) {
-                       $scope.listCompany.push(company);
-                     });
-                     console.log( $scope.listCompany);
-                     */
 }

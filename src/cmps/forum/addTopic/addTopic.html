@@ -27,14 +27,14 @@
                       </div>
                       <div class="row">
                         <div class="large-6 columns">
-                            <div flex="100" ng-repeat="job in jobsVisible">
+                            <div flex="100" ng-repeat="job in jobs">
                                <md-checkbox class="check" ng-model="job.selected" ng-click="toggleJob(job, selected)" >
                                 {{ job.title }}
                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
-                            <div flex="100" ng-repeat="company in companiesVisible">
+                            <div flex="100" ng-repeat="company in companies">
                                <md-checkbox class="check" ng-model="company.selected" ng-click="toggleCompany(company, selected)" >
                                 {{ company.name }}
                                </md-checkbox>
