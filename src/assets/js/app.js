@@ -313,6 +313,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 },
                 main: {
                     template: '<admin-user-request>',
+                    controller: 'AdminUserRequestCtrl'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -365,7 +366,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 4
             }
         })
-        .state('secure.error', {
+        .state('error', {
             url: '/error',
             views: {
                 header: {
