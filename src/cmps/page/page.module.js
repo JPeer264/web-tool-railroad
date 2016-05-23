@@ -2,7 +2,6 @@
 * page Module
 */
 angular.module('cmps.page', [
-    'page.adminUserRequest',
     'page.languageChooser',
     'page.login',
     'page.tooltip',
@@ -12,5 +11,4 @@ angular.module('cmps.page', [
     'page.navbar',
     'page.news',
     'page.slider',
-    'page.adminNavbar',
 ]);

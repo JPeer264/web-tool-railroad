@@ -1,10 +1,10 @@
 angular
-    .module('page.adminUserRequest')
+    .module('admin.adminUserRequest')
     .controller('AdminUserRequestCtrl', AurController);
 
 /**
  * @ngdoc controller
- * @name cmps.page:AdminUserRequestCtrl
+ * @name cmps.admin:AdminUserRequestCtrl
  *
  * @requires $scope
  *

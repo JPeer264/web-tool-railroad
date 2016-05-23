@@ -5,4 +5,5 @@ angular.module('cmps', [
     'cmps.forum',
     'cmps.page',
     'cmps.profile',
+    'cmps.admin',
 ]);

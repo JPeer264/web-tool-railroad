@@ -1,10 +1,10 @@
 angular
-    .module('page.adminNavbar')
+    .module('admin.adminNavbar')
     .controller('AdminNavbarCtrl', AdminNavbarController);
 
 /**
  * @ngdoc controller
- * @name cmps.page:AdminNavbarCtrl
+ * @name cmps.admin:AdminNavbarCtrl
  *
  * @requires $scope
  * @requires $cookies
