@@ -53,7 +53,7 @@ function LanguageChooserController($scope, $translate, $cookies, COOKIE, tmhDyna
      * @return {String} Value of prefLanguage cookie
      */
     $scope.getPreferredLanguage = function() {
-        return $cookies.get(COOKIE.PREFLANGUAGE);
+        return $cookies.get(COOKIE.PREFLANGUAGE) || 'en-us';
     }
 
     /**
