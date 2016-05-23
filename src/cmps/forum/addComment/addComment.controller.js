@@ -23,7 +23,12 @@ function AddCommentController($scope, comment, $state) {
 
     $scope.addComment=function(){
         comment.create($state.params.id,$scope.comment).then(function(data) {
-            $scope.comment=null;
+            // added by jpeer
+            // async push and apply to scope
+            $scope.comment.user = $scope.currentUser;
+            $scope.comment.created_at = (new Date());
+
+            $scope.topic.comment.push($scope.comment);
         });
         $('#addComment').foundation('close');
     }

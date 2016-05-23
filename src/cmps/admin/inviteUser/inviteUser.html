@@ -23,6 +23,14 @@
                                     <label>Email</label>
                                     <input type="email" data-ng-model="invite.email" required/>
                                 </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Company</label>
+                                    <md-select ng-model="invite.company_id">
+                                        <md-option ng-repeat="company in companies" value="{{ company.id }}">
+                                            {{ company.name }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
                             </div>
                             <div class="columns small-12">
                                 <md-button class="button"  data-ng-click="inviteUser()">Invite User</md-button>

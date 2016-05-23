@@ -8,21 +8,27 @@ angular
  *
  * @requires $scope
  * @requires service.user
+ * @requires service.company
  *
  * @description
  * InviteUserCtrl for the inviteUser directive
  */
 InviteUserController.$inject = [
     '$scope',
-    'user'
+    'user',
+    'company'
 ];
 
-function InviteUserController($scope, user) {
+function InviteUserController($scope, user, company) {
 
     $scope.inviteUser = function () {
-        user.create({email: $scope.invite.email}).then(function (data) {
+        user.create($scope.invite).then(function (data) {
             console.log(data.plain());
         });
     }
+
+    company.getAll().then(function (data) {
+        $scope.companies = data.plain();
+    });
 
 }
