@@ -27,6 +27,11 @@
             </a>
         </div>
     </div>
+        <div ng-show="currentUser.id==user.id" class="medium-2 small-12 medium-expand columns">
+            <div class="flex-end">
+                <div class="full-width" data-edit-profile></div>
+            </div>
+        </div>
 
 </div>
 
@@ -50,13 +55,13 @@
             <div class="rail-header">
                 Work information
             </div>
-            <a data-ng-href="#/company/{{ company.id }}">
+            <a data-ng-href="#/company/{{ user.company.id }}">
             <div class="rail-content">
 
 
-                {{ company.name}}<br>
-                {{company.city}}, {{company.country.name}}<br>
-                {{company.phonenumber}}
+                {{ user.company.name}}<br>
+                {{user.company.city}}, {{user.company.country.name}}<br>
+                {{user.company.phonenumber}}
             </div>
         </a>
         </div>
@@ -82,10 +87,10 @@
                 Collegues
             </div>
             <div class="row small-up-1 medium-up-2 large-up-3">
-                <div  data-ng-repeat="person in company.user">
+                <div  data-ng-repeat="person in user.company.user">
                     <a data-ng-href="#/user/{{ person.id }}">
                     <div class="column collegue">
-                        {{ person.firstname}} {{person.lastname}}
+                        {{person.firstname}} {{person.lastname}}
                         <br>
                         {{person.job.title}}
                     </div>

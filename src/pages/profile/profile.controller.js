@@ -35,9 +35,6 @@ function ProfileController($scope, $state, user, company) {
      */
     user.get($state.params.id).then(function(data) {
         $scope.user = data.plain();
-        company.get($scope.user.company_id).then(function(data) {
-            $scope.company = data.plain();
-        });
     });
 
 
