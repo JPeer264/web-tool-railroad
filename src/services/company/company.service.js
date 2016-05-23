@@ -1,5 +1,5 @@
 /**
- * @ngdoc service 
+ * @ngdoc service
  * @name service.company
  *
  * @requires $rootScope
@@ -17,13 +17,16 @@ company.$inject = [
 ];
 
 function company($rootScope, Restangular, $httpParamSerializer) {
-    
+    var _promiseCache = {
+        get: {}, // saves the id of every saved person
+    }
+
     /**
      * @ngdoc method
      * @name service.company#get
      * @methodOf service.company
      *
-     * @description 
+     * @description
      * Get a specific company
      *
      * @param {Object} id - the id from the company
@@ -31,7 +34,11 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-        return Restangular.one('company', id).get();
+        if (!_promiseCache.get[id]) {
+            _promiseCache.get[id] = Restangular.one('company', id).get();
+        }
+
+        return _promiseCache.get[id];
     }
 
     /**
@@ -39,13 +46,17 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @name service.company#getAll
      * @methodOf service.company
      *
-     * @description 
+     * @description
      * Get all companies
      *
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-        return Restangular.all('company').getList();
+        if (!_promiseCache.current) {
+            _promiseCache.current = Restangular.all('company').getList();
+        }
+
+        return _promiseCache.current;
     }
 
     /**
@@ -53,7 +64,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @name service.company#create
      * @methodOf service.company
      *
-     * @description 
+     * @description
      * Creates a new company based on the formData
      *
      * @param {Object} formData - the given formData of a form
@@ -69,8 +80,8 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @name service.company#update
      * @methodOf service.company
      *
-     * @description 
-     * Updates a specific company based on a form with to updated content 
+     * @description
+     * Updates a specific company based on a form with to updated content
      * if the company is hisself
      *
      * @param {Object} id       - the id from the company
@@ -85,7 +96,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @name service.company#delete
      * @methodOf service.company
      *
-     * @description 
+     * @description
      * Deletes a specific company if the company is an superadmin
      *
      * @param {Object} id - the id from the company
