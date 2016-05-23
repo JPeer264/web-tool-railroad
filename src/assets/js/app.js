@@ -301,6 +301,28 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 3
             }
         })
+        // todo add admin tabbar
+        .state('secure.adminUsermanagement', {
+            url: '/admin/usermanagement',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    template: '<admin-user-request>',
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                admintab: true,
+                activeadmintab: 'usermanagement',
+                roleLimit: 3
+            }
+        })
         .state('landing', {
             url: '/welcome',
             views: {
