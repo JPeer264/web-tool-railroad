@@ -29,6 +29,7 @@ function AddCommentController($scope, comment, $state) {
             $scope.comment.created_at = (new Date());
 
             $scope.topic.comment.push($scope.comment);
+            $scope.comment = null;
         });
         $('#addComment').foundation('close');
     }
