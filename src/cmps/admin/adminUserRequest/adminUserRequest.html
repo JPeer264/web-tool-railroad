@@ -1,4 +1,9 @@
 <div id="aur">
+    <div class="row flex-end">
+        <div class="medium-2 small-12 columns">
+            <div class="full-width" data-invite-user></div>
+        </div>
+    </div>
     <h1 data-ng-if="pendingUsers.length !== 0">Pending users ({{ pendingUsers.length }})</h1>
     <div data-ng-repeat="pendingUser in pendingUsers">
         <div class="admin-user-request">

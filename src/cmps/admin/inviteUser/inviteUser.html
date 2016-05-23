@@ -1,1 +1,36 @@
-<a class="button" data-open="inviteUser">Invite user</a>
+<div>
+    <a class="button" data-open="inviteUser">Invite user</a>
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="inviteUser" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <div class="flex">
+                        <div class="flex flex-start">
+                            Invite an user
+                        </div>
+                        <div class="flex flex-end">
+                            <button data-close>
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rail-content">
+                    <form>
+                        <div class="row">
+                            <div class="columns small-12">
+                                <md-input-container>
+                                    <label>Email</label>
+                                    <input type="email" data-ng-model="invite.email" required/>
+                                </md-input-container>
+                            </div>
+                            <div class="columns small-12">
+                                <md-button class="button"  data-ng-click="inviteUser()">Invite User</md-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

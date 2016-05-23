@@ -41,4 +41,15 @@ function AurController($scope, user) {
             });
         });
     }
+
+    $scope.decline = function (id) {
+        user.delete(id).then(function (data) {
+            $scope.pendingUsers = $scope.pendingUsers.filter(function (key) {
+                if (key.id === id) {
+                    return false;
+                }
+                return true;
+            });
+        });
+    }
 }
