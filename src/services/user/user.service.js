@@ -107,7 +107,11 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-        return Restangular.one('user', id).get();
+        if (!_promiseCache.get[id]) {
+            _promiseCache.get[id] = Restangular.one('user', id).get()
+        }
+
+        return _promiseCache.get[id];
     }
 
     /**
@@ -121,7 +125,11 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-        return Restangular.all('user').getList();
+        if (!_promiseCache.getAll) {
+            _promiseCache.getAll = Restangular.all('user').getList();
+        }
+
+        return _promiseCache.getAll;
     }
 
     /**
