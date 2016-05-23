@@ -80,6 +80,14 @@ body, html {
     }
 }
 
+.panel-header {
+    background: $primary-color;
+    padding: $global-padding/2;
+    color: $body-font-color;
+    margin-bottom: $global-margin/2;
+    border-radius: $border-radius-standard;
+}
+
 .rail-panel {
     margin-bottom: 10px;
 

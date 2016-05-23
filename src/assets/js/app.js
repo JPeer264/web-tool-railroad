@@ -298,6 +298,8 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 },
             },
             data: {
+                admintab: true,
+                adminactivetab: 'home',
                 roleLimit: 3
             }
         })

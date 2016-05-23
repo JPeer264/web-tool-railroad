@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:adminUserRequest
  *
- * @description 
+ * @description
  * Generates a single adminUserRequest component
  */
 function adminUserRequestDirective() {
@@ -25,7 +25,7 @@ function adminUserRequestDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                
+
             }
         };
 };

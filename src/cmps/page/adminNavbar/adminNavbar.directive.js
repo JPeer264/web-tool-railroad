@@ -25,7 +25,7 @@ function adminNavbarDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                $('#adminNavbar').menumaker({'title': ''});
+
             }
         };
 };

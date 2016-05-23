@@ -1,5 +1,71 @@
-<div>
-    Here you can accept or decline users 
-    <button>accept</button> 
-    <button>decline</button>
+<div id="aur">
+    <h1 data-ng-if="pendingUsers.length !== 0">Pending users ({{ pendingUsers.length }})</h1>
+    <div data-ng-repeat="pendingUser in pendingUsers">
+        <div class="admin-user-request">
+            <div class="panel-header">
+                {{ pendingUser.firstname }} {{ pendingUser.lastname }}
+            </div>
+            <div class="row">
+                <div class="column small-12 medium-5">
+                    <div class="userdata">
+                        <h5>Userdata TODO i18n</h5>
+                        <p>
+                            <span>Email:</span> {{ pendingUser.email }}
+                        </p>
+                        <p>
+                            <span>Museum:</span> {{ pendingUser.company.name }}
+                        </p>
+                        <p>
+                            <span>Job:</span> {{ pendingUser.job.title }}
+                        </p>
+                        <p>
+                            <span>Gender:</span> <i class="fa" data-ng-class="{'fa-female': pendingUser.gender === 'female', 'fa-male': pendingUser.gender === 'male' }"></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="column small-12 medium-5">
+                    <div class="motivation">
+                        <h5>Motivation TODO i18n</h5>
+                        <p>
+                            {{ pendingUser.signup_comment }}
+                        </p>
+                    </div>
+                </div>
+                <div class="column small-12 medium-2">
+                    <div class="row">
+                        <div class="column small-6 medium-12">
+                            <button class="accept" data-ng-click="accept(pendingUser.id)"><i class="fa fa-check"></i></button>
+                        </div>
+                        <div class="column small-6 medium-12">
+                            <button class="decline"  data-ng-click="decline(pendingUser.id)"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>Accepted users ({{ acceptedUsers.length }})</h1>
+    <div data-ng-repeat="user in acceptedUsers">
+        <div class="admin-user-request">
+            <div class="panel-header">
+                {{ user.firstname }} {{ user.lastname }}
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="userdata">
+                        <h5>Userdata TODO i18n</h5>
+                        <p>
+                            <span>Email:</span> {{ user.email }}
+                        </p>
+                        <p>
+                            <span>Museum:</span> {{ user.company.name }}
+                        </p>
+                        <p>
+                            <span>Job:</span> {{ user.job.title }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
