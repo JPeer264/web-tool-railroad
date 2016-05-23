@@ -1,0 +1,122 @@
+
+<div>
+    <p><a class="button "data-open="editProfile">Edit</a></p>
+
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="editProfile" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    Edit Profile
+                </div>
+                <div class="rail-content">
+                    <form name="editForm">
+                      <div class="row">
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>First Name</label>
+                                <input type="text" data-ng-model="user.firstname" required/>
+                            </md-input-container>
+                        </div>
+                         <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>Last Name</label>
+                                <input type="text" data-ng-model="user.lastname" required/>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="small-12 large-6 columns">
+                          <md-input-container>
+                              <label>City</label>
+                              <input type="text" data-ng-model="user.city" required/>
+                          </md-input-container>
+                      </div>
+                       <div class="small-12 large-6 columns">
+                          <md-input-container>
+                              <label>Address</label>
+                              <input type="text" data-ng-model="user.address" required/>
+                          </md-input-container>
+                      </div>
+                  </div>
+                    <div class="row">
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>EmailAddress</label>
+                                <input type="email" data-ng-model="user.email" required/>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>Birthday</label>
+                                <!--<div id="date1" class="datefield">
+                                    <input id="day" type="number" date-ng-model="user.day" maxlength="2" min="1" max="31" placeholder="DD"/> /
+                                    <input id="month" type="number" date-ng-model="user.month" maxlength="2" min="1" max="12" placeholder="MM"/>/
+                                    <input id="year" type="number" date-ng-model="user.year" maxlength="4" min="1900" max="2100" placeholder="YYYY"/>
+                                </div>-->
+                                <input type="date" data-ng-model="user.birthday" max="2100-12-31" min="1900-01-02">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>Twitter</label>
+                                <input type="text" data-ng-model="user.Twitter" required/>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>LinkedIn</label>
+                                <input type="text" data-ng-model="user.LinkedIn" required/>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>Facebook</label>
+                                <input type="text" data-ng-model="user.Facebook" required/>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 large-6 columns">
+                            <md-input-container>
+                                <label>Xing</label>
+                                <input type="text" data-ng-model="user.Xing" required/>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+
+
+                        <!--<div class="row">
+                          <div class="large-12 columns">
+                              <label>Job
+                                <select>
+                                  <option  ng-repeat="job in jobs" value="{{job.id}}">{{job.title}}</option>
+                                </select>
+                              </label>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="large-12 columns">
+                                    <input type="file" ngf-select ng-model="picFile" name="file"
+                                       accept="image/*" ngf-max-size="5MB"
+                                       ngf-model-invalid="errorFile">
+                                <i ng-show="editForm.file.$error.maxSize">File too large
+                                    {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
+                                <img ng-show="editForm.file.$valid" ngf-src="picFile" class="thumb">
+                                <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+                            </div>
+                        </div>
+
+                      <md-button ng-disabled="editForm.$invalid " class="button"  data-ng-click="editProfile()">Save Changes</md-button>
+
+                </form>
+                </div>
+            </div>
+      <button class="close-button" data-close aria-label="Close modal" ng-click="close()" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+</div>

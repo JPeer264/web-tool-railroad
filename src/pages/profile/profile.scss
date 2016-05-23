@@ -1,0 +1,30 @@
+.thumb {
+    width: 50px;
+    height: 50px;
+    float: none;
+    position: relative;
+    padding: 5px 5px 5px 5px;
+}
+
+.datefield {
+    display: inline;
+    padding: 0.3em;
+    background: #FFF;
+    color: #666;
+}
+
+.datefield * {
+    display: inline-block;
+}
+
+.datefield input {
+    width: 4em;
+    padding: 0 0.4em;
+    border: none;
+    font-size: 100%;
+    background: none;
+    color: #000;
+}
+
+.datefield input#year { width:6em; }
+.datefield input:focus { outline:none; }
