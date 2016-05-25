@@ -166,7 +166,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-        return Restangular.one('user', id).customPOST($httpParamSerializer(formData));
+        return Restangular.one('user', id).withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 
     /**

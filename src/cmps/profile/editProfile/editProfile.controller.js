@@ -21,7 +21,6 @@ editProfileController.$inject = [
 
 function editProfileController($scope,user,job) {
 
-    $scope.birthday=[];
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
         console.log($scope.jobs);
@@ -29,9 +28,10 @@ function editProfileController($scope,user,job) {
 
 
     $scope.editProfile=function(){
-        $scope.person=[];
-
-        user.update($scope.currentUser.id, $scope.user).then(function(date){
+        $scope.user.fileUpload=$scope.picFile;
+         var fd = new FormData();
+        fd.append('fileUpload', $scope.picFile);
+        user.update($scope.currentUser.id, fd).then(function(date){
                 console.log("updated");
         });
         $('#editProfile').foundation('close');

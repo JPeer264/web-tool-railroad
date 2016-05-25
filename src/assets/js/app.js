@@ -12,6 +12,7 @@ angular.module('railroad', [
     'tmh.dynamicLocale',
     'ui.select',
     'ngSanitize',
+    'ngFileUpload',
 ]);
 
 angular
