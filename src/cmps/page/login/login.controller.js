@@ -38,7 +38,6 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
     $scope.login = function() {
 
         auth.login($scope.user).then(function (data) {
-
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
             $window.location.assign('/');

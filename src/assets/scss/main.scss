@@ -84,12 +84,8 @@ body, html {
     }
 }
 
-.panel-header {
-    background: $primary-color;
-    padding: $global-padding/2;
-    color: $body-font-color;
-    margin-bottom: $global-margin/2;
-    border-radius: $border-radius-standard;
+.no-padding {
+    padding: 0;
 }
 
 .rail-panel {
@@ -118,6 +114,10 @@ body, html {
             margin: 0;
             padding: 0;
         }
+
+        .flex-end button {
+            padding-right: $global-padding;
+        }
     }
 
     .rail-panel-inner {
@@ -128,6 +128,11 @@ body, html {
     .rail-content {
         padding: 0 5px;
         overflow: hidden;
+
+        md-input-container {
+            display: block;
+            width: 100%;
+        }
 
         .row > .column {
             padding-top: 5px;
@@ -148,7 +153,31 @@ body, html {
     }
 }
 
-a{
+.admin-panel {
+    h5 {
+        margin: 0 0 $global-margin/2;
+        padding: 0;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    .rail-header {
+        background: $primary-color;
+        padding: $global-padding/2;
+        color: $body-font-color;
+        margin-bottom: $global-margin/2;
+        border-radius: $border-radius-standard;
+    }
+}
+
+a {
     color: $body-font-color;
 
 }

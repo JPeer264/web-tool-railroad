@@ -303,7 +303,6 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 3
             }
         })
-        // todo add admin tabbar
         .state('secure.adminUsermanagement', {
             url: '/admin/usermanagement',
             views: {
@@ -312,8 +311,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                     controller: templates.header.controller
                 },
                 main: {
-                    template: '<admin-user-request>',
-                    controller: 'AdminUserRequestCtrl'
+                    template: '<admin-user-request>'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -323,6 +321,27 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
             data: {
                 admintab: true,
                 activeadmintab: 'usermanagement',
+                roleLimit: 3
+            }
+        })
+        .state('secure.companymanagement', {
+            url: '/admin/companymanagement',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    template: '<company-management>'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                admintab: true,
+                activeadmintab: 'companymanagement',
                 roleLimit: 3
             }
         })

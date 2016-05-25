@@ -122,9 +122,14 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @description
      * Get all users
      *
+     * @params {Object} params filter parameters
      * @returns {Promise} returns promise
      */
-    this.getAll = function() {
+    this.getAll = function(params) {
+        if (params) {
+            return Restangular.all('user').customGET('', params);
+        }
+
         if (!_promiseCache.getAll) {
             _promiseCache.getAll = Restangular.all('user').getList();
         }

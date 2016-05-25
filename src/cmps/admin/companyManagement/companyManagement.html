@@ -1,0 +1,110 @@
+<div>
+    <div id="company-management">
+        <div class="row flex-end">
+            <div class="medium-2 small-12 columns">
+                <div class="full-width"><a class="button" data-ng-click="addCompany()" data-open="company-management-edit">Add company</a></div>
+            </div>
+        </div>
+        <h1 data-ng-if="companies.length !== 0">Active companies ({{ companies.length }})</h1>
+        <div data-ng-repeat="company in companies">
+            <div class="company-management rail-panel admin-panel">
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        <div class="row">
+                            <div class="column no-padding">
+                                {{ company.name }}
+                            </div>
+                            <div class="column no-padding flex flex-end">
+                                <button class="edit-company" data-open="company-management-edit" data-ng-click="editCompany(company.id)"><i class="fa fa-gear"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rail-content">
+                        <p>
+                            <span>Email:</span> {{ company.email }}
+                        </p>
+                        <p>
+                            <span>Address:</span> {{ company.address }}
+                        </p>
+                        <p>
+                            <span>Country:</span> {{ company.country.name }}
+                        </p>
+                        <p>
+                            <span>City:</span> {{ company.city }}
+                        </p>
+                        <p>
+                            <span>Phone:</span> {{ company.phone }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="company-management-edit" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <div class="flex">
+                        <div class="flex flex-start">
+                            <span data-ng-if="isChangeCompany">Change company</span>
+                            <span data-ng-if="!isChangeCompany">Add new company</span>
+                        </div>
+                        <div class="flex flex-end">
+                            <button data-close>
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rail-content">
+                    <form data-ng-submit="isChangeCompany ? updateCompany(manageCompany.id) : addNewCompany()">
+                        <!-- add company -->
+                        <div class="row">
+                            <div class="columns small-12">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Name</label>
+                                    <input type="text" data-ng-model="manageCompany.name" required/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Email</label>
+                                    <input type="text" data-ng-model="manageCompany.email" required/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Address</label>
+                                    <input type="text" data-ng-model="manageCompany.address" required/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>City</label>
+                                    <input type="text" data-ng-model="manageCompany.city"/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Administrator</label>
+                                    <md-select ng-model="manageCompany.administrator">
+                                        <md-option ng-repeat="user in users" value="{{ user.id }}">
+                                            {{ user.firstname }} {{ user.lastname }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <!-- todo country route and scope -->
+                                <!-- <md-input-container>
+                                    <label>Country</label>
+                                    <md-select ng-model="manageCompany.company_id">
+                                        <md-option ng-repeat="country in countries" value="{{ country.id }}">
+                                            {{ country.name }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container> -->
+                            </div>
+                            <div class="columns small-12">
+                                <md-button class="button" type="submit">
+                                    <span data-ng-if="isChangeCompany">Change</span>
+                                    <span data-ng-if="!isChangeCompany">Add</span>
+                                </md-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
