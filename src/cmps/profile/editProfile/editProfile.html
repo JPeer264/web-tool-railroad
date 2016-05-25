@@ -11,13 +11,13 @@
             <div class="rail-content">
                 <form name="editForm" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>First Name</label>
                                 <input type="text" data-ng-model="user.firstname" required/>
                             </md-input-container>
                         </div>
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Last Name</label>
                                 <input type="text" data-ng-model="user.lastname" required/>
@@ -25,13 +25,27 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
+                            <md-input-container>
+                                <label>Password</label>
+                                <input type="password" data-ng-model="user.password1" required/>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 medium-6 large-6 columns">
+                            <md-input-container>
+                                <label>Re-type Password</label>
+                                <input type="password" data-ng-model="user.password2" required/>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>City</label>
                                 <input type="text" data-ng-model="user.city" required/>
                             </md-input-container>
                         </div>
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Address</label>
                                 <input type="text" data-ng-model="user.address" required/>
@@ -39,32 +53,27 @@
                       </div>
                     </div>
                     <div class="row">
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>EmailAddress</label>
                                 <input type="email" data-ng-model="user.email" required/>
                             </md-input-container>
                         </div>
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Birthday</label>
-                                <!--<div id="date1" class="datefield">
-                                    <input id="day" type="number" date-ng-model="user.day" maxlength="2" min="1" max="31" placeholder="DD"/> /
-                                    <input id="month" type="number" date-ng-model="user.month" maxlength="2" min="1" max="12" placeholder="MM"/>/
-                                    <input id="year" type="number" date-ng-model="user.year" maxlength="4" min="1900" max="2100" placeholder="YYYY"/>
-                                </div>-->
                                 <input type="date" data-ng-model="user.birthday" max="2100-12-31" min="1900-01-02">
                             </md-input-container>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Twitter</label>
                                 <input type="text" data-ng-model="user.Twitter" required/>
                             </md-input-container>
                         </div>
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>LinkedIn</label>
                                 <input type="text" data-ng-model="user.LinkedIn" required/>
@@ -72,13 +81,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Facebook</label>
                                 <input type="text" data-ng-model="user.Facebook" required/>
                             </md-input-container>
                         </div>
-                        <div class="small-12 large-6 columns">
+                        <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Xing</label>
                                 <input type="text" data-ng-model="user.Xing" required/>

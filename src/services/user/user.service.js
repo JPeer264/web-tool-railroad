@@ -122,14 +122,9 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @description
      * Get all users
      *
-     * @params {Object} params filter parameters
      * @returns {Promise} returns promise
      */
-    this.getAll = function(params) {
-        if (params) {
-            return Restangular.all('user').customGET('', params);
-        }
-
+    this.getAll = function() {
         if (!_promiseCache.getAll) {
             _promiseCache.getAll = Restangular.all('user').getList();
         }
@@ -166,6 +161,8 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
+        delete Restangular.configuration.defaultHeaders['Content-Type'];
+
         return Restangular.one('user', id).withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 
