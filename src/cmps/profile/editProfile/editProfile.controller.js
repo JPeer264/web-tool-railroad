@@ -32,6 +32,7 @@ function editProfileController($scope,user,job) {
         var fd = new FormData();
         fd.append("firstname",$scope.user.firstname);
         fd.append("lastname",$scope.user.lastname);
+        fd.append("password", $scope.user.passwordNew);
         fd.append("city",$scope.user.city);
         fd.append("address",$scope.user.address);
         fd.append("email",$scope.user.email);

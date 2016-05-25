@@ -13,6 +13,7 @@ angular.module('railroad', [
     'ui.select',
     'ngSanitize',
     'ngFileUpload',
+    'ngPassword',
 ]);
 
 angular
