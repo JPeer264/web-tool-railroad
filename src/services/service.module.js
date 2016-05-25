@@ -14,4 +14,5 @@ angular.module('service', [
     'service.type',
     'service.user',
     'service.crypt',
+    'service.country',
 ]);

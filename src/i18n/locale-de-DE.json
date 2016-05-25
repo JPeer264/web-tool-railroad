@@ -13,6 +13,17 @@
     "LOGIN":  "Einloggen",
 
     "ADMIN": "Admin",
+    "ADMIN_ADD_COMPANY": "Firma hinzufügen",
+    "ADMIN_EDIT_COMPANY": "Firma bearbeiten",
+    "ADMIN_PENDING_USERS": "Ausstehende User",
+    "ADMIN_ACCEPTED_USERS": "Akzeptierte User",
+    "ADMIN_USERS_USERDATA": "Userdaten",
+    "ADMIN_USERS_MOTIVATION": "Motivation",
+    "ADMIN_INVITE_USER": "User einladen",
+
+    "ADMIN_NAVBAR_HOME": "Admin Startseite",
+    "ADMIN_NAVBAR_USERMANAGEMENT": "Usermanagement",
+    "ADMIN_NAVBAR_COMPANYMANAGEMENT": "Firmenmanagement",
 
     "WELCOME":  "Willkommen zu unserem Zugmuseumstool!",
 
@@ -22,5 +33,20 @@
     "FORUM_TOPIC":          "Kategorie",
 
     "RULES_NOSPAM": "Spam und unnötige Kommentare sollten vermieden werden.",
-    "RULES_BEPOLITE": "Bleiben Sie stets freundlich und objektiv."
+    "RULES_BEPOLITE": "Bleiben Sie stets freundlich und objektiv.",
+
+    "WORD_ADD": "Hinzufügen",
+    "WORD_EDIT": "Bearbeiten",
+    "WORD_CHANGE": "Verändern",
+    "WORD_COMPANY": "Firma",
+    "WORD_COMPANIES": "Firmen",
+
+    "WORD_NAME": "Name",
+    "WORD_EMAIL": "Email",
+    "WORD_JOB": "Job",
+    "WORD_PHONE": "Telefon",
+    "WORD_COUNTRY": "Land",
+    "WORD_CITY": "Stadt",
+    "WORD_ADDRESS": "Adresse",
+    "WORD_ADMINISTRATOR": "Administrator"
 }

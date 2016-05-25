@@ -13,7 +13,17 @@
     "LOGIN": "TODO",
 
     "ADMIN": "TODO",
+    "ADMIN_ADD_COMPANY": "TODO",
+    "ADMIN_EDIT_COMPANY": "TODO",
+    "ADMIN_PENDING_USERS": "TODO",
+    "ADMIN_ACCEPTED_USERS": "TODO",
+    "ADMIN_USERS_USERDATA": "TODO",
+    "ADMIN_USERS_MOTIVATION": "TODO",
+    "ADMIN_INVITE_USER": "TODO",
 
+    "ADMIN_NAVBAR_HOME": "TODO",
+    "ADMIN_NAVBAR_USERMANAGEMENT": "TODO",
+    "ADMIN_NAVBAR_COMPANYMANAGEMENT": "TODO",
 
     "WELCOME": "Bienvenue à notre outil de musée ferroviaire!",
 
@@ -23,5 +33,20 @@
     "FORUM_TOPIC":          "TODO",
 
     "RULES_NOSPAM": "TODO",
-    "RULES_BEPOLITE": "TODO"
+    "RULES_BEPOLITE": "TODO",
+
+    "WORD_ADD": "TODO",
+    "WORD_EDIT": "TODO",
+    "WORD_CHANGE": "TODO",
+    "WORD_COMPANY": "TODO",
+    "WORD_COMPANIES": "TODO",
+
+    "WORD_NAME": "TODO",
+    "WORD_EMAIL": "TODO",
+    "WORD_JOB": "TODO",
+    "WORD_PHONE": "TODO",
+    "WORD_COUNTRY": "TODO",
+    "WORD_CITY": "TODO",
+    "WORD_ADDRESS": "TODO",
+    "WORD_ADMINISTRATOR": "TODO"
 }

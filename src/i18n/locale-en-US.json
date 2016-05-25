@@ -13,6 +13,17 @@
     "LOGIN":  "Log in",
 
     "ADMIN": "Admin",
+    "ADMIN_ADD_COMPANY": "Add company",
+    "ADMIN_EDIT_COMPANY": "Edit company",
+    "ADMIN_PENDING_USERS": "Pending users",
+    "ADMIN_ACCEPTED_USERS": "Accepted users",
+    "ADMIN_USERS_USERDATA": "Userdata",
+    "ADMIN_USERS_MOTIVATION": "Motivation",
+    "ADMIN_INVITE_USER": "Invite user",
+
+    "ADMIN_NAVBAR_HOME": "Admin Home",
+    "ADMIN_NAVBAR_USERMANAGEMENT": "Usermanagement",
+    "ADMIN_NAVBAR_COMPANYMANAGEMENT": "Companymanagement",
 
     "WELCOME": "Welcome to our the railroad museum tool!",
 
@@ -22,5 +33,20 @@
     "FORUM_TOPIC":          "Topic",
 
     "RULES_NOSPAM": "Spam is not allowed.",
-    "RULES_BEPOLITE": "Be always polite and objectiv."
+    "RULES_BEPOLITE": "Be always polite and objectiv.",
+
+    "WORD_ADD": "Add",
+    "WORD_EDIT": "Edit",
+    "WORD_CHANGE": "Change",
+    "WORD_COMPANY": "Company",
+    "WORD_COMPANIES": "Companies",
+
+    "WORD_NAME": "Name",
+    "WORD_EMAIL": "Email",
+    "WORD_JOB": "Job",
+    "WORD_PHONE": "Phone",
+    "WORD_COUNTRY": "Country",
+    "WORD_CITY": "City",
+    "WORD_ADDRESS": "Address",
+    "WORD_ADMINISTRATOR": "Administrator"
 }

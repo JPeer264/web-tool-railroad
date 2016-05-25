@@ -8,6 +8,7 @@ angular
  *
  * @requires $scope
  * @requires service.company
+ * @requires service.country
  * @requires service.user
  *
  * @description
@@ -16,14 +17,19 @@ angular
 CompanyManagementController.$inject = [
     '$scope',
     'company',
+    'country',
     'user'
 ];
 
-function CompanyManagementController($scope, company, user) {
+function CompanyManagementController($scope, company, country, user) {
     $scope.isChangeCompany = undefined;
 
     company.getAll().then(function (data) {
         $scope.companies = data.plain();
+    });
+
+    country.getAll().then(function (data) {
+        $scope.countries = data.plain();
     });
 
     $scope.editCompany = function(id) {
@@ -55,9 +61,10 @@ function CompanyManagementController($scope, company, user) {
     }
 
     $scope.addCompany = function() {
+        $scope.manageCompany = null;
         user.getAll().then(function (data) {
             $scope.users = data.plain();
-        console.log($scope.users);
+
         });
 
 
@@ -66,10 +73,19 @@ function CompanyManagementController($scope, company, user) {
 
     $scope.addNewCompany = function() {
         company.create($scope.manageCompany).then(function (data) {
+            // find right country and add it
+            $scope.manageCompany.country = $scope.countries.filter(function (value) {
+                if ($scope.manageCompany.country_id == value.id) {
+                    return true;
+                }
+
+                return false;
+            })[0];
+
+            $scope.companies.unshift($scope.manageCompany);
             $scope.manageCompany.id = $scope.companies.length;
-            console.log($scope.companies);
-            console.log($scope.manageCompany);
-            // $scope.companies.push($scope.manageCompany);
+
+            $('#company-management-edit').foundation('close');
         });
     }
 }

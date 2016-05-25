@@ -1,12 +1,12 @@
 <div>
-    <a class="button" data-open="inviteUser">Invite user</a>
+    <a class="button" data-open="inviteUser">{{ "ADMIN_INVITE_USER" | translate }}</a>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="inviteUser" data-reveal>
             <div class="rail-panel-inner">
                 <div class="rail-header">
                     <div class="flex">
                         <div class="flex flex-start">
-                            Invite an user
+                            {{ "ADMIN_INVITE_USER" | translate }}
                         </div>
                         <div class="flex flex-end">
                             <button data-close>
@@ -20,11 +20,11 @@
                         <div class="row">
                             <div class="columns small-12">
                                 <md-input-container>
-                                    <label>Email</label>
+                                    <label>{{ "WORD_EMAIL" | translate }}</label>
                                     <input type="email" data-ng-model="invite.email" required/>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm>
-                                    <label>Company</label>
+                                    <label>{{ "WORD_COMPANY" | translate }}</label>
                                     <md-select ng-model="invite.company_id">
                                         <md-option ng-repeat="company in companies" value="{{ company.id }}">
                                             {{ company.name }}
@@ -33,7 +33,7 @@
                                 </md-input-container>
                             </div>
                             <div class="columns small-12">
-                                <md-button class="button" type="submit">Invite User</md-button>
+                                <md-button class="button" type="submit">{{ "ADMIN_INVITE_USER" | translate }}</md-button>
                             </div>
                         </div>
                     </form>

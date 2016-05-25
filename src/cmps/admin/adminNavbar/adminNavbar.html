@@ -1,13 +1,13 @@
 <div class="admin-navbar-header" id="navbar">
     <ul class="ul-normalize">
         <li data-ng-class="{active: $state.current.data.activeadmintab === 'hom'}">
-            <a href="#/admin">Admin Home</a>
+            <a href="#/admin">{{ "ADMIN_NAVBAR_HOME" | translate }}</a>
         </li>
         <li data-ng-class="{active: $state.current.data.activeadmintab === 'usermanagement'}">
-            <a href="#/admin/usermanagement">Usermanagement</a>
+            <a href="#/admin/usermanagement">{{ "ADMIN_NAVBAR_USERMANAGEMENT" | translate }}</a>
         </li>
         <li data-ng-class="{active: $state.current.data.activeadmintab === 'companymanagement'}">
-            <a href="#/admin/companymanagement">Companymanagement</a>
+            <a href="#/admin/companymanagement">{{ "ADMIN_NAVBAR_COMPANYMANAGEMENT" | translate }}</a>
         </li>
     </ul>
 </div>

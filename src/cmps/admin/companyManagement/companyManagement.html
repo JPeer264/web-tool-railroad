@@ -5,7 +5,7 @@
                 <div class="full-width"><a class="button" data-ng-click="addCompany()" data-open="company-management-edit">Add company</a></div>
             </div>
         </div>
-        <h1 data-ng-if="companies.length !== 0">Active companies ({{ companies.length }})</h1>
+        <h1 data-ng-if="companies.length !== 0">{{ "WORD_COMPANIES" | translate }} ({{ companies.length }})</h1>
         <div data-ng-repeat="company in companies">
             <div class="company-management rail-panel admin-panel">
                 <div class="rail-panel-inner">
@@ -21,19 +21,19 @@
                     </div>
                     <div class="rail-content">
                         <p>
-                            <span>Email:</span> {{ company.email }}
+                            <span>{{ "WORD_EMAIL" | translate }}:</span> {{ company.email }}
                         </p>
                         <p>
-                            <span>Address:</span> {{ company.address }}
+                            <span>{{ "WORD_ADDRESS" | translate }}:</span> {{ company.address }}
                         </p>
                         <p>
-                            <span>Country:</span> {{ company.country.name }}
+                            <span>{{ "WORD_COUNTRY" | translate }}:</span> {{ company.country.name }}
                         </p>
                         <p>
-                            <span>City:</span> {{ company.city }}
+                            <span>{{ "WORD_CITY" | translate }}:</span> {{ company.city }}
                         </p>
                         <p>
-                            <span>Phone:</span> {{ company.phone }}
+                            <span>{{ "WORD_PHONE" | translate }}:</span> {{ company.phonenumber }}
                         </p>
                     </div>
                 </div>
@@ -46,8 +46,8 @@
                 <div class="rail-header">
                     <div class="flex">
                         <div class="flex flex-start">
-                            <span data-ng-if="isChangeCompany">Change company</span>
-                            <span data-ng-if="!isChangeCompany">Add new company</span>
+                            <span data-ng-if="isChangeCompany">{{ "ADMIN_EDIT_COMPANY" | translate }}</span>
+                            <span data-ng-if="!isChangeCompany">{{ "ADMIN_ADD_COMPANY" | translate }}</span>
                         </div>
                         <div class="flex flex-end">
                             <button data-close>
@@ -62,43 +62,46 @@
                         <div class="row">
                             <div class="columns small-12">
                                 <md-input-container class="md-block" flex-gt-sm>
-                                    <label>Name</label>
+                                    <label>{{ "WORD_NAME" | translate }}</label>
                                     <input type="text" data-ng-model="manageCompany.name" required/>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>Email</label>
+                                    <label>{{ "WORD_EMAIl" | translate }}</label>
                                     <input type="text" data-ng-model="manageCompany.email" required/>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>Address</label>
+                                    <label>{{ "WORD_PHONE" | translate }}</label>
+                                    <input type="text" data-ng-model="manageCompany.phonenumber" required/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>{{ "WORD_ADDRESS" | translate }}</label>
                                     <input type="text" data-ng-model="manageCompany.address" required/>
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>City</label>
-                                    <input type="text" data-ng-model="manageCompany.city"/>
+                                    <label>{{ "WORD_CITY" | translate }}</label>
+                                    <input type="text" data-ng-model="manageCompany.city" required />
                                 </md-input-container>
                                 <md-input-container>
-                                    <label>Administrator</label>
-                                    <md-select ng-model="manageCompany.administrator">
-                                        <md-option ng-repeat="user in users" value="{{ user.id }}">
+                                    <label>{{ "WORD_COUNTRY" | translate }}</label>
+                                    <md-select ng-model="manageCompany.country_id" required>
+                                        <md-option ng-repeat="country in countries" value="{{ country.id }}" required>
+                                            {{ country.name }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>{{ "WORD_ADMINISTRATOR" | translate }}</label>
+                                    <md-select ng-model="manageCompany.administrator" required>
+                                        <md-option ng-repeat="user in users" value="{{ user.id }}" required>
                                             {{ user.firstname }} {{ user.lastname }}
                                         </md-option>
                                     </md-select>
                                 </md-input-container>
-                                <!-- todo country route and scope -->
-                                <!-- <md-input-container>
-                                    <label>Country</label>
-                                    <md-select ng-model="manageCompany.company_id">
-                                        <md-option ng-repeat="country in countries" value="{{ country.id }}">
-                                            {{ country.name }}
-                                        </md-option>
-                                    </md-select>
-                                </md-input-container> -->
                             </div>
                             <div class="columns small-12">
                                 <md-button class="button" type="submit">
-                                    <span data-ng-if="isChangeCompany">Change</span>
-                                    <span data-ng-if="!isChangeCompany">Add</span>
+                                    <span data-ng-if="isChangeCompany">{{ "WORD_CHANGE" | translate }}</span>
+                                    <span data-ng-if="!isChangeCompany">{{ "WORD_ADD" | translate }}</span>
                                 </md-button>
                             </div>
                         </div>

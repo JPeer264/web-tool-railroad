@@ -420,10 +420,11 @@ run.$inject = [
     'auth',
     'user',
     'Restangular',
-    '$stateParams'
+    '$stateParams',
+    '$window'
 ];
 
-function run($rootScope, $location, $http, auth, user, Restangular, $stateParams) {
+function run($rootScope, $location, $http, auth, user, Restangular, $stateParams, $window) {
 
     $rootScope.getDate = function (date) {
         return date === null ? date : new Date(date);
@@ -447,11 +448,13 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
 
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {
-            return;
+            $location.path('/error');
+
+            return false;
             // auth.logout();
         }
 
-        if (response.status >= 300) {
+        if (response.status === 404) {
             $location.path('/error');
 
             return false; // error handled
