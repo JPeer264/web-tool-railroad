@@ -72,9 +72,9 @@
                 <div class="small-12 medium-6 large-3 columns">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Country</label>
-                        <md-select ng-model="user.country_id" >
+                        <md-select ng-model="user.country_id" required>
                             <md-option ng-repeat="country in countries" value="{{country.id}}">
-                                {{country.full_name}}
+                                {{country.name}}
                             </md-option>
                         </md-select>
                     </md-input-container>
