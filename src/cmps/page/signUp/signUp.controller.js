@@ -8,10 +8,10 @@ angular
  *
  * @requires $scope
  * @requires $location
- * @requires job
- * @requires company
- * @requires user
- * @requires country
+ * @requires service.job
+ * @requires service.company
+ * @requires service.user
+ * @requires service.country
  *
  * @description
  * SignUpCtrl for the signUp directive
