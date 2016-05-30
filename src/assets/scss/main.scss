@@ -23,10 +23,15 @@ body, html {
 }
 
 .full-width {
-   width: 100%;
-   margin-left: auto;
-   margin-right: auto;
-   max-width: initial;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+}
+
+.center {
+    margin: 0 auto !important;
+    display: inline-block !important;
 }
 
 .flex {
@@ -48,6 +53,10 @@ body, html {
 
 .flex-center {
     align-items: center;
+}
+
+.flex-horizontal-center {
+    justify-content: center;
 }
 
 .reveal {

@@ -4,47 +4,59 @@
             <div class="full-width" data-invite-user></div>
         </div>
     </div>
-    <h1 data-ng-if="pendingUsers.length !== 0">{{ "ADMIN_PENDING_USERS" | translate }} ({{ pendingUsers.length }})</h1>
-    <div data-ng-repeat="pendingUser in pendingUsers">
-        <div class="admin-user-request rail-panel admin-panel">
-            <div class="rail-panel-inner">
-                <div class="rail-header">
-                    {{ pendingUser.firstname }} {{ pendingUser.lastname }}
-                </div>
-                <div class="rail-content">
-                    <div class="row">
-                        <div class="column small-12 medium-5 no-padding">
-                            <div class="userdata">
-                                <h5>{{ "ADMIN_USERS_USERDATA" | translate }}</h5>
-                                <p>
-                                    <span>{{ "WORD_EMAIL" | translate }}:</span> {{ pendingUser.email }}
-                                </p>
-                                <p>
-                                    <span>{{ "WORD_COMPANY" | translate }}:</span> {{ pendingUser.company.name }}
-                                </p>
-                                <p>
-                                    <span>{{ "WORD_JOB" | translate }}:</span> {{ pendingUser.job.title }}
-                                </p>
-                                <p>
-                                    <span>Gender:</span> <i class="fa" data-ng-class="{'fa-female': pendingUser.gender === 'female', 'fa-male': pendingUser.gender === 'male' }"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="column small-12 medium-5 no-padding">
-                            <div class="motivation">
-                                <h5>{{ "ADMIN_USERS_MOTIVATION" | translate }}</h5>
-                                <p>
-                                    {{ pendingUser.signup_comment }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="column small-12 medium-2">
-                            <div class="row">
-                                <div class="column small-6 medium-12">
-                                    <button class="accept" data-ng-click="accept(pendingUser.id)"><i class="fa fa-check"></i></button>
+    <!-- pending users -->
+    <div data-toggle-id="pending-users" data-ng-if="pendingUsers.length !== 0">
+        <div class="row">
+            <div class="column small-10">
+                <h1>{{ "ADMIN_PENDING_USERS" | translate }} ({{ pendingUsers.length }})</h1>
+            </div>
+            <div class="column small-2 flex flex-center flex-horizontal-center">
+                <i class="fa fa-caret-down fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <div id="pending-users">
+        <div data-ng-repeat="pendingUser in pendingUsers">
+            <div class="admin-user-request rail-panel admin-panel">
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        {{ pendingUser.firstname }} {{ pendingUser.lastname }}
+                    </div>
+                    <div class="rail-content">
+                        <div class="row">
+                            <div class="column small-12 medium-5 no-padding">
+                                <div class="userdata">
+                                    <h5>{{ "ADMIN_USERS_USERDATA" | translate }}</h5>
+                                    <p>
+                                        <span>{{ "WORD_EMAIL" | translate }}:</span> {{ pendingUser.email }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_COMPANY" | translate }}:</span> {{ pendingUser.company.name }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_JOB" | translate }}:</span> {{ pendingUser.job.title }}
+                                    </p>
+                                    <p>
+                                        <span>Gender:</span> <i class="fa" data-ng-class="{'fa-female': pendingUser.gender === 'female', 'fa-male': pendingUser.gender === 'male' }"></i>
+                                    </p>
                                 </div>
-                                <div class="column small-6 medium-12">
-                                    <button class="decline"  data-ng-click="decline(pendingUser.id)"><i class="fa fa-times"></i></button>
+                            </div>
+                            <div class="column small-12 medium-5 no-padding">
+                                <div class="motivation">
+                                    <h5>{{ "ADMIN_USERS_MOTIVATION" | translate }}</h5>
+                                    <p>
+                                        {{ pendingUser.signup_comment }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="column small-12 medium-2">
+                                <div class="row">
+                                    <div class="column small-6 medium-12">
+                                        <button class="accept" data-ng-click="accept(pendingUser.id)"><i class="fa fa-check"></i></button>
+                                    </div>
+                                    <div class="column small-6 medium-12">
+                                        <button class="decline"  data-ng-click="decline(pendingUser.id)"><i class="fa fa-times"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -53,25 +65,96 @@
             </div>
         </div>
     </div>
-    <h1>{{ "ADMIN_ACCEPTED_USERS" | translate }} ({{ acceptedUsers.length }})</h1>
-    <div data-ng-repeat="user in acceptedUsers">
-        <div class="admin-user-request rail-panel admin-panel">
-            <div class="rail-header">
-                {{ user.firstname }} {{ user.lastname }}
+
+    <!-- invited users -->
+    <div data-toggle-id="invited-users" data-ng-if="invited.length !== 0">
+        <div class="row">
+            <div class="column small-10">
+                <h1>Invited Users ({{ invitedUsers.length }})</h1>
             </div>
-            <div class="rail-content">
-                <div class="row">
-                    <div class="column no-padding">
-                        <h5>{{ "ADMIN_USERS_USERDATA" | translate }}</h5>
-                        <p>
-                            <span>{{ "WORD_EMAIL" | translate }}:</span> {{ user.email }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_COMPANY" | translate }}:</span> {{ user.company.name }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_JOB" | translate }}:</span> {{ user.job.title }}
-                        </p>
+            <div class="column small-2 flex flex-center flex-horizontal-center">
+                <i class="fa fa-caret-down fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <div id="invited-users">
+        <div data-ng-repeat="invitedUser in invitedUsers">
+            <div class="admin-user-request rail-panel admin-panel">
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        {{ invitedUser.firstname }} {{ invitedUser.lastname }}
+                    </div>
+                    <div class="rail-content">
+                        <div class="row">
+                            <div class="column small-12 medium-10 no-padding">
+                                <div class="userdata">
+                                    <h5>{{ "ADMIN_USERS_USERDATA" | translate }}</h5>
+                                    <p>
+                                        <span>{{ "WORD_EMAIL" | translate }}:</span> {{ invitedUser.email }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_COMPANY" | translate }}:</span> {{ invitedUser.company.name }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_JOB" | translate }}:</span> {{ invitedUser.job.title }}
+                                    </p>
+                                    <p>
+                                        <span>Gender:</span> <i class="fa" data-ng-class="{'fa-female': invitedUser.gender === 'female', 'fa-male': invitedUser.gender === 'male' }"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="column small-12 medium-2">
+                                <div class="row">
+                                    <div class="column small-6 medium-12">
+                                        <button class="refresh" data-ng-click="refresh(invitedUser.id)"><i class="fa fa-refresh"></i></button>
+                                    </div>
+                                    <div class="column small-6 medium-12">
+                                        <button class="decline"  data-ng-click="decline(invitedUser.id)"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- accepted users -->
+    <div data-toggle-id="accepted-users" data-ng-if="accepted.length !== 0">
+        <div class="row">
+            <div class="column small-10">
+                <h1>{{ "ADMIN_ACCEPTED_USERS" | translate }} ({{ acceptedUsers.length }})</h1>
+            </div>
+            <div class="column small-2 flex flex-center flex-horizontal-center">
+                <i class="fa fa-caret-down fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <div id="accepted-users">
+        <div data-ng-repeat="user in acceptedUsers">
+            <div class="admin-user-request rail-panel admin-panel">
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        {{ user.firstname }} {{ user.lastname }}
+                    </div>
+                    <div class="rail-content">
+                        <div class="row">
+                            <div class="column no-padding">
+                                <div class="userdata">
+                                    <h5>{{ "ADMIN_USERS_USERDATA" | translate }}</h5>
+                                    <p>
+                                        <span>{{ "WORD_EMAIL" | translate }}:</span> {{ user.email }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_COMPANY" | translate }}:</span> {{ user.company.name }}
+                                    </p>
+                                    <p>
+                                        <span>{{ "WORD_JOB" | translate }}:</span> {{ user.job.title }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

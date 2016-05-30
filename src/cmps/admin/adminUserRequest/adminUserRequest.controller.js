@@ -21,17 +21,28 @@ function AurController($scope, user) {
     user.getAll().then(function (data) {
         var allUsers = data.plain();
 
+        console.log(allUsers.length);
+
         $scope.pendingUsers = allUsers.filter(function (value) {
             return value.accepted === 0;
         });
 
-        $scope.acceptedUsers = allUsers.filter(function (value, key) {
+        $scope.invitedUsers = allUsers.filter(function (value) {
             return value.accepted === 1;
+        });
+
+        $scope.acceptedUsers = allUsers.filter(function (value, key) {
+            return value.accepted === 2;
         });
     });
 
     $scope.accept = function (id) {
-        user.update(id, {accepted: 1}).then(function (data) {
+        var formData = new FormData();
+        formData.append('accepted', 2);
+
+        user.update(id, formData).then(function (data) {
+            console.log(data.plain());
+
             $scope.pendingUsers = $scope.pendingUsers.filter(function (key) {
                 if (key.id === id) {
                     $scope.acceptedUsers.unshift(key);

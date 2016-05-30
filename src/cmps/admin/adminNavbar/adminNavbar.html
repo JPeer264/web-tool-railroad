@@ -1,13 +1,13 @@
-<div class="admin-navbar-header" id="navbar">
-    <ul class="ul-normalize">
-        <li data-ng-class="{active: $state.current.data.activeadmintab === 'hom'}">
-            <a href="#/admin">{{ "ADMIN_NAVBAR_HOME" | translate }}</a>
+<div class="admin-navbar flex" id="navbar">
+    <ul class="ul-normalize center">
+        <li>
+            <a href="#/admin" data-ng-class="{active: toState.data.activeadmintab === 'home'}">{{ "ADMIN_NAVBAR_HOME" | translate }}</a>
         </li>
-        <li data-ng-class="{active: $state.current.data.activeadmintab === 'usermanagement'}">
-            <a href="#/admin/usermanagement">{{ "ADMIN_NAVBAR_USERMANAGEMENT" | translate }}</a>
+        <li>
+            <a href="#/admin/usermanagement" data-ng-class="{active: toState.data.activeadmintab === 'usermanagement'}">{{ "ADMIN_NAVBAR_USERMANAGEMENT" | translate }}</a>
         </li>
-        <li data-ng-class="{active: $state.current.data.activeadmintab === 'companymanagement'}">
-            <a href="#/admin/companymanagement">{{ "ADMIN_NAVBAR_COMPANYMANAGEMENT" | translate }}</a>
+        <li>
+            <a href="#/admin/companymanagement" data-ng-class="{active: toState.data.activeadmintab === 'companymanagement'}">{{ "ADMIN_NAVBAR_COMPANYMANAGEMENT" | translate }}</a>
         </li>
     </ul>
 </div>

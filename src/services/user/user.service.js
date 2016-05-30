@@ -162,6 +162,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      */
     this.update = function(id, formData) {
         delete Restangular.configuration.defaultHeaders['Content-Type'];
+
         return Restangular.one('user', id).withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 

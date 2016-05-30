@@ -17,6 +17,10 @@
         &.decline {
             background-color: $alert-color;
         }
+
+        &.refresh {
+            background-color: $warning-color;
+        }
     }
 
 

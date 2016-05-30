@@ -26,6 +26,15 @@ function adminUserRequestDirective() {
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
 
+                $(document).on('click', '[data-toggle-id]', function (data) {
+                    var toggleData = $(this).data('toggleId');
+                    var $this = $(this);
+                    var findById = $('#' + toggleData);
+
+                    findById.toggle(500);
+                    $this.find('i.fa').toggleClass('fa-rotate-90');
+                });
+
             }
         };
 };
