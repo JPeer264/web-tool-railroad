@@ -28,21 +28,19 @@ function CompanyManagementController($scope, company, country, user) {
     company.getAll().then(function (data) {
         var companies = data.plain();
 
-        if (cU.role_id <= 3) {
-            if (cU.role_id >= 3) {
-                $scope.companies = companies.filter(function (value, key) {
-                    if (value.id === cU.company_id) {
-                        return true;
-                    }
+        // just return the own company of a companyadmin
+        if (cU.role_id >= 3) {
+            $scope.companies = companies.filter(function (value, key) {
+                if (value.id === cU.company_id) {
+                    return true;
+                }
 
-                    return false;
-                });
-            }
+                return false;
+            });
 
 
             return;
         }
-
         $scope.companies = companies;
     });
 
