@@ -1,4 +1,22 @@
 .admin-user-request {
+    border: 1px solid $primary-color;
+    margin-top: $global-margin;
+    background-color: $white;
+
+    h5 {
+        margin: 0 0 $global-margin/2;
+        padding: 0;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
     .motivation, .userdata {
         padding: $global-padding;
         overflow-x: scroll;
@@ -17,15 +35,10 @@
         &.decline {
             background-color: $alert-color;
         }
-
-        &.refresh {
-            background-color: $warning-color;
-        }
     }
 
 
 }
-
 #aur {
     h1 {
         margin: $global-margin*2 0 0;

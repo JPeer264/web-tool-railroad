@@ -347,6 +347,27 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 3
             }
         })
+        .state('secure.jobmanagement', {
+            url: '/admin/jobmanagement',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    template: '<job-management>'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                admintab: true,
+                activeadmintab: 'jobmanagement',
+                roleLimit: 3
+            }
+        })
         .state('landing', {
             url: '/welcome',
             views: {
