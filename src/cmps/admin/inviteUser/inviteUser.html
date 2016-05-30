@@ -23,11 +23,23 @@
                                     <label>{{ "WORD_EMAIL" | translate }}</label>
                                     <input type="email" data-ng-model="invite.email" required/>
                                 </md-input-container>
-                                <md-input-container class="md-block" flex-gt-sm>
+                                <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id === 3">
                                     <label>{{ "WORD_COMPANY" | translate }}</label>
-                                    <md-select ng-model="invite.company_id">
+                                    <input ng-model="currentUser.company.name" disabled>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id < 3" required>
+                                    <label>{{ "WORD_COMPANY" | translate }}</label>
+                                    <md-select ng-model="invite.company_id" >
                                         <md-option ng-repeat="company in companies" value="{{ company.id }}">
                                             {{ company.name }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm required>
+                                    <label>{{ "WORD_JOB" | translate }}</label>
+                                    <md-select ng-model="invite.job_id" >
+                                        <md-option ng-repeat="job in jobs" value="{{ job.id }}">
+                                            {{ job.title }}
                                         </md-option>
                                     </md-select>
                                 </md-input-container>

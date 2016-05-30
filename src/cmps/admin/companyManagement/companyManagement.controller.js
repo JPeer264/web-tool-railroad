@@ -22,10 +22,28 @@ CompanyManagementController.$inject = [
 ];
 
 function CompanyManagementController($scope, company, country, user) {
+    var cU = $scope.currentUser;
     $scope.isChangeCompany = undefined;
 
     company.getAll().then(function (data) {
-        $scope.companies = data.plain();
+        var companies = data.plain();
+
+        if (cU.role_id <= 3) {
+            if (cU.role_id >= 3) {
+                $scope.companies = companies.filter(function (value, key) {
+                    if (value.id === cU.company_id) {
+                        return true;
+                    }
+
+                    return false;
+                });
+            }
+
+
+            return;
+        }
+
+        $scope.companies = companies;
     });
 
     country.getAll().then(function (data) {

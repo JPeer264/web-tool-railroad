@@ -24,7 +24,7 @@ function inviteUserDirective() {
             replace: true,
             transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function($scope, iElm, iAttrs, controller) {
+            link: function(scope, iElm, iAttrs, controller) {
                 var elem = new Foundation.Reveal($('#inviteUser'));
             }
         };
