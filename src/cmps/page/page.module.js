@@ -11,4 +11,5 @@ angular.module('cmps.page', [
     'page.navbar',
     'page.news',
     'page.slider',
+    'page.forgot',
 ]);
