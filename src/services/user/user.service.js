@@ -134,6 +134,24 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
 
     /**
      * @ngdoc method
+     * @name service.user#getAllLimited
+     * @methodOf service.user
+     *
+     * @description
+     * Get all users (limited info)
+     *
+     * @returns {Promise} returns promise
+     */
+    this.getAllLimited = function() {
+        if (!_promiseCache.getAllLimited) {
+            _promiseCache.getAllLimited = Restangular.all('userAll').getList();
+        }
+
+        return _promiseCache.getAllLimited;
+    }
+
+    /**
+     * @ngdoc method
      * @name service.user#create
      * @methodOf service.user
      *

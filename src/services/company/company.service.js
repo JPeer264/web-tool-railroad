@@ -59,6 +59,24 @@ function company($rootScope, Restangular, $httpParamSerializer) {
         return _promiseCache.current;
     }
 
+        /**
+     * @ngdoc method
+     * @name service.company#getAllLimited
+     * @methodOf service.company
+     *
+     * @description
+     * Get all companies (limited info)
+     *
+     * @returns {Promise} returns promise
+     */
+    this.getAllLimited = function() {
+        if (!_promiseCache.getAllLimited) {
+            _promiseCache.getAllLimited = Restangular.all('companyAll').getList();
+        }
+
+        return _promiseCache.getAllLimited;
+    }
+
     /**
      * @ngdoc method
      * @name service.company#create
