@@ -46,7 +46,6 @@ function editProfileController($scope,user,job, country) {
         fd.append("Facebook",$scope.user.Facebook);
         fd.append("Xing",$scope.user.Xing);
         fd.append('fileUpload', $scope.picFile);
-        console.log(fd);
         user.update($scope.currentUser.id, fd).then(function(date){
                 console.log("updated");
         });
