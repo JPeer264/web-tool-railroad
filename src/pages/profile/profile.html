@@ -3,25 +3,25 @@
         <img src="http://localhost/web-tool-railroad-api/{{user.picture_location}}" alt="{{user.picture_alt}}">
     </div>
     <div class="column small-2 medium-1 large-1 align-left">
-        <div class="social-media">
+        <div class="social-media" ng-show="{{user.Twitter}}">
             <a href="http://{{user.Twitter}}">
                 <img src="https://pbs.twimg.com/profile_images/666407537084796928/YBGgi9BO_normal.png" alt="Twitter">
             </a>
         </div>
 
-        <div class="social-media">
+        <div class="social-media" ng-show="{{user.Facebook}}">
             <a href="http://{{user.Facebook}}">
                 <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-128.png" alt="Facebook">
             </a>
         </div>
 
-        <div class="social-media">
+        <div class="social-media" ng-show="{{user.LinkedIn}}">
             <a href="http://{{user.LinkedIn}}">
                 <img src="https://static.licdn.com/sc/h/3m4lyvbs6efg8pyhv7kupo6dh" alt="LinkedIn">
             </a>
         </div>
 
-        <div class="social-media">
+        <div class="social-media" ng-show="{{user.Xing}}">
             <a href="http://{{user.Xing}}">
                 <img src="http://findicons.com/files/icons/2287/32_pixel_social_media_icons/32/xing.png" alt="Xing">
             </a>
