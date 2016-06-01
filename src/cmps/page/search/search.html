@@ -1,16 +1,12 @@
-<div>
-<!--Search: <input  auto-complete ui-items="users" ng-model="query">
+<div row>
 
-<div class="dropdown-list" ng-show="query">
-      <div ng-repeat="user in users | filter:query">
-        <a data-ng-href="#/user/{{ user.id }}" >{{user.firstname}} {{user.lastname}}</a>
-    </div>
-</div>-->
-<!--<ui-select ng-model="user.selected">
-        <ui-select-match placeholder="Select or search a superhero in the list...">{{$select.selected}}</ui-select-match>
-        <ui-select-choices repeat="user in users | filter: $select.search">
-            <a data-ng-href="#/user/{{ user.id }}" >{{user.firstname}} {{user.lastname}}</a>
-        </ui-select-choices>
-    </ui-select>-->
+
+<ui-select ng-model="selectedItem" on-select="onSelectCallback($item, $model)">
+    <ui-select-match placeholder="Search for people or companies"></ui-select-match>
+    <ui-select-choices repeat="profile in (profiles | filter: $select.search)">
+        <div ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</div>
+        <div ng-show="profile.name">{{profile.name}}</div>
+    </ui-select-choices>
+  </ui-select>
 
 </div>
