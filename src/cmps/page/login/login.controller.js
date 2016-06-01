@@ -43,8 +43,9 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
             $window.location.assign('/');
         }, function (data) {
             // function for errors
-            if (data.status === 401) {
-                $scope.error = 'ERROR_WRONG_CREDENTIALS';
+            if (data.status === 401 || data.status === 403) {
+                $scope.error = data.data.error;
+                $scope.user=null;
             }
         });
     }
