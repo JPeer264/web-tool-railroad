@@ -39,10 +39,10 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
             $rootScope.returnToState = $rootScope.toState;
             $rootScope.returnToStateParams = $rootScope.toStateParams;
 
-            if ($rootScope.toState && $rootScope.toState.name !== 'secure.index') {
-                $location.path('/error');
-                return;
-            }
+            // if ($rootScope.toState && $rootScope.toState.name !== 'secure.index') {
+            //     $location.path('/error');
+            //     return;
+            // }
 
             $location.path('/welcome');
             return;

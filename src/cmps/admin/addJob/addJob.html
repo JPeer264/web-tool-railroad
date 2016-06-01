@@ -1,0 +1,40 @@
+<div>
+    <a class="button full-width" data-open="add-job">{{ "ADMIN_ADD_JOB" | translate }}</a>
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="add-job" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <div class="flex">
+                        <div class="flex flex-start">
+                            {{ "ADMIN_ADD_JOB" | translate }}
+                        </div>
+                        <div class="flex flex-end">
+                            <button data-close>
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rail-content">
+                    <form data-ng-submit="addJob()">
+                        <div class="row">
+                            <div class="columns small-12">
+                                <md-input-container>
+                                    <label>{{ "WORD_JOB" | translate }}</label>
+                                    <input type="text" data-ng-model="addJobForm.title" required/>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{ "WORD_DESCRIPTION" | translate }}</label>
+                                    <input ng-model="addJobForm.description" required>
+                                </md-input-container>
+                            </div>
+                            <div class="columns small-12">
+                                <md-button class="button" type="submit">{{ "WORD_ADD" | translate }}</md-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

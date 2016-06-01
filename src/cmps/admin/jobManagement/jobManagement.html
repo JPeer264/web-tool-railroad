@@ -1,3 +1,72 @@
 <div>
-    job management
+    <div class="row flex-end">
+        <div class="medium-2 small-12 columns">
+            <div data-add-job></div>
+        </div>
+    </div>
+
+    <h1 data-ng-if="jobs.length !== 0">{{ "WORD_JOBS" | translate }} ({{ jobs.length }})</h1>
+    <div class="row">
+        <div data-ng-repeat="job in jobs" class="small-12 medium-6 large-4 columns">
+            <div class="job-management rail-panel admin-panel">
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        <div class="row">
+                            <div class="column no-padding">
+                                {{ job.title }}
+                            </div>
+                            <div class="column no-padding flex flex-end">
+                                <button class="edit-job" data-open="job-management-edit" data-ng-click="editJob(job.id)"><i class="fa fa-gear"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rail-content">
+                        <p>
+                            <span>{{ "WORD_DESCRIPTION" | translate }}:</span> {{ job.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="job-management-edit" data-reveal>
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <div class="flex">
+                        <div class="flex flex-start">
+                            <span>{{ "ADMIN_EDIT_JOB" | translate }}</span>
+                        </div>
+                        <div class="flex flex-end">
+                            <button data-close>
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rail-content">
+                    <form data-ng-submit="updateJob(manageJob.id)">
+                        <!-- edit job -->
+                        <div class="row">
+                            <div class="columns small-12">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>{{ "WORD_JOB" | translate }}</label>
+                                    <input type="text" data-ng-model="manageJob.title" required/>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>{{ "WORD_DESCRIPTION" | translate }}</label>
+                                    <input type="text" data-ng-model="manageJob.description" required/>
+                                </md-input-container>
+                            </div>
+                            <div class="columns small-12">
+                                <md-button class="button" type="submit">
+                                    <span>{{ "WORD_CHANGE" | translate }}</span>
+                                </md-button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

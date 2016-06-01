@@ -39,6 +39,10 @@ body, html {
     justify-content: space-between;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .flex-start {
     display: flex;
     flex: 1 1 auto;

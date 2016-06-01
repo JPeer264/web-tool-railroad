@@ -5,17 +5,17 @@
         </div>
     </div>
     <!-- pending users -->
-    <div data-toggle-id="pending-users" data-ng-if="pendingUsers.length !== 0">
+    <div class="cursor-pointer" data-toggle-id="pending-users" data-ng-if="pendingUsers.length !== 0">
         <div class="row">
             <div class="column small-10">
                 <h1>{{ "ADMIN_PENDING_USERS" | translate }} ({{ pendingUsers.length }})</h1>
             </div>
             <div class="column small-2 flex flex-center flex-horizontal-center">
-                <i class="fa fa-caret-down fa-2x"></i>
+                <i class="fa fa-caret-down fa-2x fa-rotate-90"></i>
             </div>
         </div>
     </div>
-    <div id="pending-users">
+    <div id="pending-users" style="display: none;" class="toggled">
         <div data-ng-repeat="pendingUser in pendingUsers">
             <div class="admin-user-request rail-panel admin-panel">
                 <div class="rail-panel-inner">
@@ -67,17 +67,17 @@
     </div>
 
     <!-- invited users -->
-    <div data-toggle-id="invited-users" data-ng-if="invitedUsers.length !== 0">
+    <div class="cursor-pointer" data-toggle-id="invited-users" data-ng-if="invitedUsers.length !== 0">
         <div class="row">
             <div class="column small-10">
                 <h1>Invited Users ({{ invitedUsers.length }})</h1>
             </div>
             <div class="column small-2 flex flex-center flex-horizontal-center">
-                <i class="fa fa-caret-down fa-2x"></i>
+                <i class="fa fa-caret-down fa-2x fa-rotate-90"></i>
             </div>
         </div>
     </div>
-    <div id="invited-users">
+    <div id="invited-users" style="display: none;" class="toggled">
         <div data-ng-repeat="invitedUser in invitedUsers">
             <div class="admin-user-request rail-panel admin-panel">
                 <div class="rail-panel-inner">
@@ -121,17 +121,17 @@
     </div>
 
     <!-- accepted users -->
-    <div data-toggle-id="accepted-users" data-ng-if="accepted.length !== 0">
+    <div class="cursor-pointer" data-toggle-id="accepted-users" data-ng-if="accepted.length !== 0">
         <div class="row">
             <div class="column small-10">
                 <h1>{{ "ADMIN_ACCEPTED_USERS" | translate }} ({{ acceptedUsers.length }})</h1>
             </div>
             <div class="column small-2 flex flex-center flex-horizontal-center">
-                <i class="fa fa-caret-down fa-2x"></i>
+                <i class="fa fa-caret-down fa-2x fa-rotate-90"></i>
             </div>
         </div>
     </div>
-    <div id="accepted-users">
+    <div id="accepted-users" style="display: none;" class="toggled">
         <div data-ng-repeat="user in acceptedUsers">
             <div class="admin-user-request rail-panel admin-panel">
                 <div class="rail-panel-inner">

@@ -26,6 +26,9 @@ function adminUserRequestDirective() {
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
 
+                console.log($('[data-toggle-id]'));
+
+
                 $(document).on('click', '[data-toggle-id]', function (data) {
                     var toggleData = $(this).data('toggleId');
                     var $this = $(this);
