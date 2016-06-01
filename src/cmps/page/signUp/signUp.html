@@ -108,11 +108,12 @@
                         <label>Comment</label>
                         <textarea ng-model="user.signup_comment" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                     </md-input-container>
+                </div>
             </div>
             <div layout="row" layout-align="center center" style="padding-top:20px;">
                 <md-button class="md-raised md-primary" ng-disabled="signupForm.$invalid " data-ng-click="signup()">Signup</md-button>
                 <div flex="flex"></div>
-                <md-button class="md-flat md-primary" data-ng-click="back()">back</md-button>
+               <md-button class="md-flat md-primary" data-ng-click="back()">back</md-button>
             </div>
         </md-content>
     </div>
