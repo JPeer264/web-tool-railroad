@@ -2,7 +2,7 @@
     <span>{{ error | translate }}</span>
     <div layout="column" class="login md-whiteframe-z1">
         <md-toolbar>
-            <h2 class="md-toolbar-tools"><span>Login</span></h2>
+            <h2 class="md-toolbar-tools"><span>Signup</span></h2>
         </md-toolbar>
         <md-content layout="column" class="md-padding">
             <div class="row">
@@ -49,7 +49,7 @@
                         <input type="password" name="password" data-ng-model="user.password" required/>
                     </md-input-container>
                 </div>
-                <div class="small-12 medium-6 large-6 columns">
+                <div class="small-12 medium-6 large-6 columns" >
                     <md-input-container  class="md-block" flex-gt-xs>
                         <label>Re-type Password</label>
                         <input type="password" match-password="password" data-ng-model="user.passwordConfirm" required/>
@@ -66,7 +66,7 @@
                 <div class="small-12 medium-6 large-3 columns">
                     <md-input-container  class="md-block" flex-gt-xs>
                         <label>City</label>
-                        <input type="text" data-ng-model="user.city" max="2100-12-31" min="1900-01-02">
+                        <input type="text" data-ng-model="user.city" max="2100-12-31" min="1900-01-02" required>
                     </md-input-container>
                 </div>
                 <div class="small-12 medium-6 large-3 columns">
@@ -80,11 +80,11 @@
                     </md-input-container>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide='token'>
                 <div class="small-12 medium-6 large-6 columns">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Job Title</label>
-                        <md-select ng-model="user.job_id" required>
+                        <md-select ng-model="user.job_id" ng-required="{{hide}}">
                             <md-option ng-repeat="job in jobs" value="{{job.id}}" >
                                 {{job.title}}
                             </md-option>
@@ -94,7 +94,7 @@
                 <div class="small-12 medium-6 large-6 columns">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Company</label>
-                        <md-select ng-model="user.company_id" required>
+                        <md-select ng-model="user.company_id" ng-required="{{hide}}">
                             <md-option ng-repeat="company in companies" value="{{company.id}}">
                                 {{company.name}}
                             </md-option>
@@ -102,7 +102,7 @@
                     </md-input-container>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide="token">
                 <div class="small-12 medium-12 large-12 columns">
                     <md-input-container class="md-block">
                         <label>Comment</label>

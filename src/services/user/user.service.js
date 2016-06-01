@@ -168,18 +168,34 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
 
     /**
      * @ngdoc method
-     * @name service.user#forgot
+     * @name service.user#create
      * @methodOf service.user
      *
      * @description
-     * Creates a new password based on the formData
+     * Creates a new user based on the formData
      *
      * @param {Object} formData - the given formData of a form
      *
      * @returns {Promise} returns promise
      */
-    this.forgot = function(formData) {
-        return Restangular.all('forgot').customPOST($httpParamSerializer(formData));
+    this.create = function(formData) {
+        return Restangular.all('register').customPOST($httpParamSerializer(formData));
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.user#createToken
+     * @methodOf service.user
+     *
+     * @description
+     * Updates/Accepts invited user
+     *
+     * @param {Object} formData - the given formData of a form
+     *
+     * @returns {Promise} returns promise
+     */
+    this.createToken = function(formData) {
+        return Restangular.one('invite').customPOST($httpParamSerializer(formData));
     }
 
 

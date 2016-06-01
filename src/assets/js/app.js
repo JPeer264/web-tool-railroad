@@ -408,6 +408,26 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 4
             }
         })
+        .state('signupToken', {
+            url: '/signup/{token}',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/signup/signup.html',
+                    controller: 'SignupCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                roleLimit: 4
+            }
+        })
         .state('error', {
             url: '/error',
             views: {
