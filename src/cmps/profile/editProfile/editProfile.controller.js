@@ -25,12 +25,10 @@ function editProfileController($scope,user,job, country) {
 
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
-        console.log($scope.jobs);
     });
 
     country.getAll().then(function(data) {
         $scope.countries = data.plain();
-        console.log($scope.countries);
     });
 
     $scope.editProfile=function(){

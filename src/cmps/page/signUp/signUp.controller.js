@@ -45,7 +45,9 @@ function SignUpController($scope, $location, job, company, user, country) {
     $scope.signup= function(){
         user.create($scope.user).then( function (data){
             console.log("user created");
-            console.log(data.plain());
+            $scope.user=null;
+            $location.path( '/welcome' );
+
         });
     }
     $scope.back = function(){
