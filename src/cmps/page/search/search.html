@@ -1,12 +1,20 @@
-<div row>
 
 
-<ui-select ng-model="selectedItem" on-select="onSelectCallback($item, $model)">
+<!--<ui-select ng-model="selectedItem" on-select="onSelectCallback($item, $model)">
     <ui-select-match placeholder="Search..."></ui-select-match>
     <ui-select-choices repeat="profile in (profiles | filter: $select.search)">
         <div ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</div>
         <div ng-show="profile.name">{{profile.name}}</div>
     </ui-select-choices>
-  </ui-select>
+  </ui-select>-->
 
-</div>
+     <div class="input-dropdown">
+        <input id="search" type="text" placeholder="Search..." ng-model="query">
+        <input id="search_submit" value="Rechercher" type="submit">
+        <ul ng-show="query" id="results">
+            <li ng-repeat="profile in profiles | filter:query">
+                <a href="#/user/{{profile.id}}" ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</a>
+                <a href="#/company/{{profile.id}}" ng-show="profile.name">{{profile.name}}</a>
+            </li>
+        </ul>
+    </div>

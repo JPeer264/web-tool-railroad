@@ -33,6 +33,11 @@ function SearchController($scope, user, company, $location) {
     });
 
 
+$('body').click(function() {
+      $('#results').hide();
+      $scope.query=null;
+      console.log($scope.query);
+});
 
     $scope.onSelectCallback= function(profile, model){
         if(profile.firstname){
