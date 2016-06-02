@@ -1,0 +1,19 @@
+#signup {
+    position: relative;
+    overflow: hidden;
+    background: $secondary-color;
+    margin-top: -$global-margin;
+    padding-bottom: $global-padding*4;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 58%;
+        top: -200px;
+        left: -50%;
+        z-index: 0;
+        background: $primary-color;
+        transform: rotate(15deg);
+    }
+}

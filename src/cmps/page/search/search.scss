@@ -81,12 +81,7 @@ $search-width: 30px;
         z-index: 1000;
 
         > li {
-            // cursor: pointer;
-            // padding: 10px;
-
-            &.active {
-                // background: #608AEB;
-            }
+            cursor: pointer;
         }
     }
 
