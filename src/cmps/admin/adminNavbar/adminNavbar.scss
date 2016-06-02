@@ -1,18 +1,40 @@
 .admin-navbar {
-    padding: $global-padding;
     margin: $global-margin 0;
     background: $light-gray;
 
-    a {
-        padding: 5px;
-        // background: $light-gray;
+    ul {
     }
 
-    .active {
-        color: $secondary-color;
+    li {
+        padding: $global-padding;
+        display: inline-block;
+        float: left;
+    }
+
+    a {
+        // display: block;
+        // background: $light-gray;
+        li {
+            transition: background .5s;
+        }
+
+        &:hover li {
+            background: $secondary-color;
+            color: $black;
+            transition: background .5s;
+        }
+
+        &.active li {
+            background: $secondary-color;
+        }
     }
 }
 
 @media only screen and (max-width: 40em) {
-// screen only
+    .admin-navbar {
+        ul, a, li {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

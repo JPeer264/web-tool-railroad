@@ -90,8 +90,8 @@ body, html {
 
     li {
         display: inline-block;
-        margin-left: 15px;
-        padding-left: 15px;
+        margin-left: $global-margin;
+        padding-left: $global-padding/2;
         border-left: 1px solid $primary-color;
 
         &:nth-of-type(1) {
@@ -114,7 +114,7 @@ body, html {
     }
 
     .rail-meta {
-        padding: 2px 5px;
+        padding: $global-padding/2;
         background: $light-gray;
         color: $dark-gray;
         font-size: .8rem;
@@ -144,7 +144,7 @@ body, html {
     }
 
     .rail-content {
-        padding: 0 5px;
+        padding: $global-padding;
         overflow: hidden;
 
         md-input-container {
@@ -165,6 +165,10 @@ body, html {
     .a-background {
         padding: 0;
 
+        > div {
+            padding: $global-padding/2;
+        }
+
         > div:nth-of-type(2n) {
             background: lighten($light-gray, 5%);;
         }
@@ -184,14 +188,6 @@ body, html {
         span {
             text-decoration: underline;
         }
-    }
-
-    .rail-header {
-        background: $primary-color;
-        padding: $global-padding/2;
-        color: $body-font-color;
-        margin-bottom: $global-margin/2;
-        border-radius: $border-radius-standard;
     }
 }
 

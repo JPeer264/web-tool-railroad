@@ -29,12 +29,12 @@
                                             {{ subcategory.latest_comment.topic.title }}
                                         </a>
                                     </div>
-                                    <div>By
+                                    <div><i class="fa fa-user"></i>
                                         <a data-ng-href="#/user/{{ subcategory.latest_comment.user_id }}">
                                             {{ subcategory.latest_comment.user.firstname }} {{ subcategory.latest_comment.user.lastname }}
                                         </a>
                                     </div>
-                                    <div>{{ getDate(subcategory.latest_comment.created_at) | date }}</div>
+                                    <div><i class="fa fa-calendar"></i> {{ getDate(subcategory.latest_comment.created_at) | date }}</div>
                             </div>
                         </div>
                 </div>

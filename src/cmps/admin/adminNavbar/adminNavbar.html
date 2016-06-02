@@ -1,16 +1,22 @@
 <div class="admin-navbar flex" id="navbar">
-    <ul class="ul-normalize center">
+    <ul class="center clearfix">
         <!-- <li>
             <a href="#/admin" data-ng-class="{active: toState.data.activeadmintab === 'home'}">{{ "ADMIN_NAVBAR_HOME" | translate }}</a>
         </li> -->
-        <li>
-            <a href="#/admin/usermanagement" data-ng-class="{active: toState.data.activeadmintab === 'usermanagement'}">{{ "ADMIN_NAVBAR_USERMANAGEMENT" | translate }}</a>
-        </li>
-        <li>
-            <a href="#/admin/companymanagement" data-ng-class="{active: toState.data.activeadmintab === 'companymanagement'}">{{ "ADMIN_NAVBAR_COMPANYMANAGEMENT" | translate }}</a>
-        </li>
-        <li>
-            <a href="#/admin/jobmanagement" data-ng-class="{active: toState.data.activeadmintab === 'jobmanagement'}">{{ "ADMIN_NAVBAR_JOBMANAGEMENT" | translate }}</a>
-        </li>
+        <a href="#/admin/usermanagement" data-ng-class="{active: toState.data.activeadmintab === 'usermanagement'}">
+            <li>
+                {{ "ADMIN_NAVBAR_USERMANAGEMENT" | translate }}
+            </li>
+        </a>
+        <a href="#/admin/companymanagement" data-ng-class="{active: toState.data.activeadmintab === 'companymanagement'}">
+            <li>
+                {{ "ADMIN_NAVBAR_COMPANYMANAGEMENT" | translate }}
+            </li>
+        </a>
+        <a href="#/admin/jobmanagement" data-ng-class="{active: toState.data.activeadmintab === 'jobmanagement'}">
+            <li>
+                {{ "ADMIN_NAVBAR_JOBMANAGEMENT" | translate }}
+            </li>
+        </a>
     </ul>
 </div>
