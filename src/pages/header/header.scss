@@ -1,4 +1,8 @@
 #header {
+    margin-bottom: $global-margin;
+}
+
+#header-top {
     background-color: $primary-color;
     height: $header-height;
     position: relative;

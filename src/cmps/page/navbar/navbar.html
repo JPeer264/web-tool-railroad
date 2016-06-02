@@ -1,16 +1,21 @@
 <div class="navbar-header" id="navbar">
-    <ul class="ul-normalize">
-        <li data-ng-class="{active: $state.current.data.activetab === 'home'}">
-            <a href="#">{{"NAV_HOME" | translate}}</a>
-        </li>
-        <li data-ng-class="{active: $state.current.data.activetab === 'category'}">
-            <a href="#/category">{{"NAV_CATEGORIES" | translate}}</a>
-        </li>
-        <li data-ng-class="{active: $state.current.data.activetab === 'faq'}">
-            <a href="#/faq">{{"NAV_FAQ" | translate}}</a>
-        </li>
-        <li data-ng-class="{active: $state.current.data.activetab === 'profile'}">
-            <a data-ng-href="#/user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
-        </li>
-    </ul>
+    <div class="row flex-center">
+        <div class="column small-12 medium-9" id="hamburger">
+            <ul class="ul-normalize">
+                <li data-ng-class="{active: $state.current.data.activetab === 'home'}">
+                    <a href="#">{{"NAV_HOME" | translate}}</a>
+                </li>
+                <li data-ng-class="{active: $state.current.data.activetab === 'category'}">
+                    <a href="#/category">{{"NAV_CATEGORIES" | translate}}</a>
+                </li>
+                <li data-ng-class="{active: $state.current.data.activetab === 'faq'}">
+                    <a href="#/faq">{{"NAV_FAQ" | translate}}</a>
+                </li>
+                <li data-ng-class="{active: $state.current.data.activetab === 'profile'}">
+                    <a data-ng-href="#/user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="column small-12 medium-3" data-search></div>
+    </div>
 </div>

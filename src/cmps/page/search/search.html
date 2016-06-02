@@ -2,7 +2,7 @@
 
 
 <ui-select ng-model="selectedItem" on-select="onSelectCallback($item, $model)">
-    <ui-select-match placeholder="Search for people or companies"></ui-select-match>
+    <ui-select-match placeholder="Search..."></ui-select-match>
     <ui-select-choices repeat="profile in (profiles | filter: $select.search)">
         <div ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</div>
         <div ng-show="profile.name">{{profile.name}}</div>

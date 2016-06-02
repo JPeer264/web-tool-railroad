@@ -5,10 +5,10 @@
                 <span># {{ $index + 1 }}</span>
             </div>
             <div class="small-12 medium-expand columns">
-                {{ "FORUM_BY" | translate }} <a data-ng-href="#/user/{{ comment.user_id }}">{{ comment.user.firstname }} {{ comment.user.lastname }}</a>
+                <i class="fa fa-user"></i> <a data-ng-href="#/user/{{ comment.user_id }}">{{ comment.user.firstname }} {{ comment.user.lastname }}</a>
             </div>
             <div class="small-12 medium-expand columns">
-                {{ getDate(comment.created_at) | date }}
+                <i class="fa fa-calendar"></i> {{ getDate(comment.created_at) | date }}
             </div>
         </div>
         <div class="rail-content">

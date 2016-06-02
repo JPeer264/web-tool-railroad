@@ -4,12 +4,16 @@
     background: $primary-color;
     border-radius: $border-radius-standard;
     padding: 10px $space-between-links;
-    margin-bottom: $header-margin-bottom;
+    width: 100%;
 
     li.active {
         a {
             background: lighten($primary-color, 20%);
         }
+    }
+
+    > .row {
+        width: 100%;
     }
 
     a {
@@ -29,9 +33,10 @@
 @media only screen and (max-width: 40em) {
     #menu-hamburger {
         @include hamburger();
+        margin-bottom: $global-margin;
     }
 
-    #navbar {
+    #hamburger {
         width: 100%;
 
         ul {

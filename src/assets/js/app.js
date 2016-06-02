@@ -469,8 +469,6 @@ run.$inject = [
 function run($rootScope, $location, $http, auth, user, Restangular, $stateParams, $window) {
 
     $rootScope.getDate = function (date) {
-
-        return null;
         return date === null ? date : new Date(date);
     }
 

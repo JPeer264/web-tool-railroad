@@ -13,13 +13,13 @@
                 $(this).toggleClass('menu-opened');
                 var mainmenu = $(this).next('ul');
                 if (mainmenu.hasClass('open')) {
-                    mainmenu.hide().removeClass('open');
+                    mainmenu.slideUp().removeClass('open');
                 }
                 else {
-                    mainmenu.show().addClass('open');
+                    mainmenu.slideDown().addClass('open');
 
                     if (settings.format === "dropdown") {
-                        mainmenu.find('ul').show();
+                        mainmenu.find('ul').slideDown();
                     }
                 }
             });
@@ -31,10 +31,10 @@
                 cssmenu.find('.submenu-button').on('click', function() {
                     $(this).toggleClass('submenu-opened');
                     if ($(this).siblings('ul').hasClass('open')) {
-                        $(this).siblings('ul').removeClass('open').hide();
+                        $(this).siblings('ul').removeClass('open').slideUp();
                     }
                     else {
-                        $(this).siblings('ul').addClass('open').show();
+                        $(this).siblings('ul').addClass('open').slideDown();
                     }
                 });
             };

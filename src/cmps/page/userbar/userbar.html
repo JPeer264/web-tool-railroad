@@ -1,12 +1,12 @@
 <div class="dropdown userbar">
-    <button class="btn-neutralize btn-userbar" type="button" data-toggle="btn-userbar">
-        <div class="img">
+    <button class="btn-neutralize btn-userbar flex flex-center" type="button" data-toggle="btn-userbar">
+        <div class="img flex flex-center">
             <img src="https://jpeer.at/railroad/testimage/person-default-flat.png" alt="Testimage">
         </div>
         <div class="info hide-for-small-only">
             <span>{{ currentUser.firstname }}</span>
-            <p>{{currentUser.job.title}}</p>
-            <p>{{currentUser.country.name}}</p>
+            <p><i class="fa fa-building"></i> {{currentUser.job.title}}</p>
+            <p><i class="fa fa-globe"></i> {{currentUser.country.name}}</p>
         </div>
     </button>
     <div class="dropdown-pane bottom" id="btn-userbar" data-dropdown data-close-on-click="true">
