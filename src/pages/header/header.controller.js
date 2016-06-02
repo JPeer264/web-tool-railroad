@@ -20,6 +20,7 @@ HeaderController.$inject = [
 ];
 
 function HeaderController($scope, user, auth) {
+    var elem = new Foundation.Interchange($('#logo').find('img'));
 
     /**
      * @ngdoc method
