@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:search
  *
- * @description 
+ * @description
  * Generates a single search component
  */
 function searchDirective() {
@@ -25,7 +25,19 @@ function searchDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                
+
+                $(document).on('focus', '#search', function() {
+                    $('#results').show();
+                });
+
+                $(document).on('click', 'body', function() {
+                    if ($(':focus').attr('name') === 'search') {
+                        $('#results').show();
+                    } else {
+                        $('#results').hide();
+                    }
+                });
+
             }
         };
 };

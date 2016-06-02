@@ -7,14 +7,19 @@
         <div ng-show="profile.name">{{profile.name}}</div>
     </ui-select-choices>
   </ui-select>-->
-
-     <div class="input-dropdown">
-        <input id="search" type="text" placeholder="Search..." ng-model="query">
-        <input id="search_submit" value="Rechercher" type="submit">
-        <ul ng-show="query" id="results">
-            <li ng-repeat="profile in profiles | filter:query">
-                <a href="#/user/{{profile.id}}" ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</a>
-                <a href="#/company/{{profile.id}}" ng-show="profile.name">{{profile.name}}</a>
-            </li>
-        </ul>
+<div class="input-dropdown clearfix">
+     <div>
+        <!-- <input id="search" type="text" placeholder="Search..." ng-model="query"> -->
+        <!-- <input id="search_submit" value="Rechercher" type="submit"> -->
+        <input id="search" name="search" type="text" data-ng-model="query">
+        <div id="search_submit" class="search-button" value="Rechercher" type="submit">
+                <i class="fa fa-search fa-2x"></i>
+        </div>
     </div>
+    <ul data-ng-show="query" id="results">
+        <li data-ng-repeat="profile in profiles | filter:query">
+            <a href="#/user/{{profile.id}}" ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</a>
+            <a href="#/company/{{profile.id}}" ng-show="profile.name">{{profile.name}}</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,120 @@
+$search-width: 30px;
+
+.input-dropdown {
+    display: inline-block;
+    position: relative;
+    height:100%;
+    width:100%;
+
+    input {
+        height: $search-width + 5px;
+        width: $search-width;
+        font-size: 1rem;
+        float: right;
+        color: $black;
+        padding-right: $search-width;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: width .8s cubic-bezier(0.000, 0.795, 0.000, 1.000), background .4s .2s cubic-bezier(0.000, 0.795, 0.000, 1.000), margin .0s .8s;
+        cursor: pointer;
+        z-index: 3;
+
+        // // normal state no display
+        border: none;
+        outline: none;
+        background: none;
+
+        &:focus {
+            width: 300%;
+            margin-right: $search-width + 5px;
+            padding-left: $global-padding;
+            z-index: 1;
+            background: rgba($white, .8);
+            border-bottom: 1px solid $black;
+            cursor: text;
+            transition: width .8s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+
+            @media only screen and (max-width: 40em) {
+                width: 100%;
+            }
+        }
+    }
+
+    .search-button {
+        height: $search-width + 5px;
+        width: $search-width;
+        font-size: 1rem;
+        float: right;
+        color: $black;
+        padding-right: $search-width;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: width .8s cubic-bezier(0.000, 0.795, 0.000, 1.000), background .4s .2s cubic-bezier(0.000, 0.795, 0.000, 1.000), margin .0s .8s;
+        cursor: pointer;
+        z-index: 3;
+
+        // normal state no display
+        border: none;
+        outline: none;
+        background: none;
+    }
+
+    .test {
+        &:focus {
+            height: 2000px;
+        }
+    }
+
+    ul {
+        width: 100%;
+        max-height: 230px;
+        padding: 0;
+        position: absolute;
+        top: $search-width + 5px;
+        right: 0;
+        list-style: none;
+        overflow-x: scroll;
+        background: $white;
+        border: none;
+        z-index: 1000;
+
+        > li {
+            // cursor: pointer;
+            // padding: 10px;
+
+            &.active {
+                // background: #608AEB;
+            }
+        }
+    }
+
+    input[type="text"] {
+        padding: $global-padding;
+    }
+
+    .search-button {
+        height: $search-width;
+        width: $search-width;
+        display: inline-block;
+        background-size: cover;
+        border: none;
+        position: relative;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        z-index: 2;
+        transition: opacity .4s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+
+
+
+
+
