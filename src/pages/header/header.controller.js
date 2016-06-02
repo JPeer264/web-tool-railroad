@@ -16,11 +16,57 @@ angular
 HeaderController.$inject = [
     '$scope',
     'user',
-    'auth'
+    'auth',
+    '$timeout'
 ];
 
-function HeaderController($scope, user, auth) {
+function HeaderController($scope, user, auth, $timeout) {
+
+    // dirty but fast - no directive - don't do @ home
     var elem = new Foundation.Interchange($('#logo').find('img'));
+
+    jQuery(document).ready(function($) {
+        $timeout(function() {
+            setHeaderFixed();
+        }, 800);
+
+        $(window).resize(function() {
+            $timeout(function() {
+                setHeaderFixed();
+            }, 500);
+        });
+    });
+
+    function setHeaderFixed() {
+        var $viewheader = $('.view-header');
+        var $header = $('#header');
+        var $main = $('.view-main');
+        var height = $header.outerHeight(true);
+        var em = $(window).width() / 16;
+
+        if (em > 40) {
+            $viewheader.css({
+                'position': 'fixed',
+                'width': '100%'
+            });
+
+            $main.css({
+                'margin-top': height + 'px'
+            });
+        }
+
+        if (em <= 40) {
+            $viewheader.css({
+                'position': 'static',
+                'width': '100%'
+            });
+
+            $main.css({
+                'margin-top': 0
+            });
+        }
+    }
+    // dirty end
 
     /**
      * @ngdoc method
