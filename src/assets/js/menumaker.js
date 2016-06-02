@@ -1,17 +1,18 @@
 (function($) {
     $.fn.menumaker = function(options) {
 
-        var cssmenu = $(this), settings = $.extend({
+        var cssmenu = $(this);
+        var settings = $.extend({
             title: "Menu",
             format: "dropdown",
             sticky: false
         }, options);
 
         return this.each(function() {
-            cssmenu.prepend('<div id="menu-hamburger">' + settings.title + '</div>');
-            $(this).find("#menu-hamburger").on('click', function(){
+            cssmenu.before('<div class="flex flex-start show-for-small-only"><div id="menu-hamburger">' + settings.title + '</div></div>');
+            $("#menu-hamburger").on('click', function(){
                 $(this).toggleClass('menu-opened');
-                var mainmenu = $(this).next('ul');
+                var mainmenu = cssmenu.find('ul');
                 if (mainmenu.hasClass('open')) {
                     mainmenu.slideUp().removeClass('open');
                 }
