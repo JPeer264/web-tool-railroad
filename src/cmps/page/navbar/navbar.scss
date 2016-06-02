@@ -1,14 +1,14 @@
 .navbar-header {
     display: flex;
     align-items: center; //vertical align on flexbox
-    background: $secondary-color;
+    background: $primary-color;
     border-radius: $border-radius-standard;
     padding: 10px $space-between-links;
     margin-bottom: $header-margin-bottom;
 
     li.active {
         a {
-            background: lighten($secondary-color, 20%);
+            background: lighten($primary-color, 20%);
         }
     }
 
@@ -20,7 +20,7 @@
 
         &:hover {
             text-decoration: none;
-            background: lighten($secondary-color, 20%);
+            background: lighten($primary-color, 20%);
             transition: background .2s;
         }
     }

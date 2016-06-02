@@ -1,6 +1,12 @@
 #header {
     background-color: $primary-color;
     height: $header-height;
+    position: relative;
+    z-index: 2;
+
+    > .row {
+        height: 100%;
+    }
 
     .flex-end {
         > div {
@@ -23,7 +29,7 @@
 }
 
 #logo {
-    height: $header-height;
+    height: $header-height/2.5;
 
     img {
         height: 100%;

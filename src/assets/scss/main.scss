@@ -7,6 +7,7 @@
 
 body, html {
     height: auto;
+    min-width: 320px;
     background: #f5f5f5;
     margin: 0;
     padding: 0;
@@ -74,6 +75,10 @@ body, html {
     padding: 0;
     margin: 0;
 
+    span {
+        white-space: nowrap;
+    }
+
     &:hover {
         background: none;
     }
@@ -118,7 +123,7 @@ body, html {
     .rail-header {
         height: auto;
         padding: 5px;
-        background: $primary-color;
+        background: $secondary-color;
         color: $body-font-color;
         // margin-bottom: 10px;
         border-radius: $border-radius-standard;
@@ -134,7 +139,7 @@ body, html {
     }
 
     .rail-panel-inner {
-        border: 1px solid $primary-color;
+        border: 1px solid $secondary-color;
         background: white;
     }
 
@@ -220,7 +225,6 @@ md-checkbox.md-checked.check .md-icon {
 
 .forgot{
     color: grey;
-    
 }
 
   .select2 > .select2-choice.ui-select-match {
