@@ -45,7 +45,7 @@
                 {{ user.firstname }} {{user.lastname}}<br>
                 {{user.city}}, {{user.country.name}}<br>
                 {{user.email}}<br>
-                {{ getDate(user.birthday) | date }}
+                {{ user.birthday | date }}
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
                 Work information
             </div>
             <a data-ng-href="#/company/{{ user.company.id }}">
-            <div class="rail-content">
+            <div class="rail-content align-justify">
                 {{ user.company.name}}<br>
                 {{user.company.city}}, {{user.company.country.name}}<br>
                 {{user.company.phonenumber}}
@@ -76,11 +76,11 @@
                 <div  data-ng-repeat="topic in user.topic">
                     <a data-ng-href="#/topic/{{ topic.id }}">
                         <div class="row align-justify">
-                            <div class="column small-4">
+                            <div class="column no-pad-right no-pad-left">
                                 {{topic.title}}
                             </div>
-                            <div class="column small-4">
-                                {{ getDate(topic.created_at) | date }}
+                            <div class="column no-pad-right no-pad-left">
+                                {{ topic.created_at}}
                             </div>
                         </div>
                     </a>
@@ -97,11 +97,11 @@
                 <div  data-ng-repeat="comment in user.comment">
                     <a data-ng-href="#/topic/{{ comment.topic_id }}">
                         <div class="row align-justify">
-                            <div class="column small-4">
+                            <div class="column no-pad-right no-pad-left">
                                 {{comment.content}}
                             </div>
-                            <div class="column small-4">
-                                {{ getDate(comment.created_at) | date }}
+                            <div class="column no-pad-right no-pad-left">
+                                {{ comment.created_at }}
                             </div>
                         </div>
                     </a>
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="column small-12 medium-3 large-2" data-ng-repeat="person in user.company.user">
                     <a data-ng-href="#/user/{{ person.id }}">
-                        <div class="column collegue">
+                        <div class="column collegue no-pad-right no-pad-left">
                             {{person.firstname}} {{person.lastname}}
                             <br>
                             {{person.job.title}}

@@ -157,9 +157,6 @@ body, html {
             padding-bottom: 5px;
         }
 
-        a {
-            color: $body-font-color;
-        }
     }
 
     .a-background {
@@ -299,4 +296,11 @@ md-checkbox.md-checked.check .md-icon {
 
 .input-dropdown input[type="submit"]:hover {
   opacity: 0.8;
+}
+
+.no-pad-right {
+padding-right: 0;
+}
+.no-pad-left{
+padding-left: 0;
 }
