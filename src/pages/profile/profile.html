@@ -36,75 +36,111 @@
 </div>
 
 <div class="row">
-    <div class="rail-panel column small-12 medium-6 large-6">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                About
-            </div>
-            <div class="rail-content">
-                {{ user.firstname }} {{user.lastname}}<br>
-                {{user.city}}, {{user.country.name}}<br>
-                {{user.email}}<br>
-                {{ user.birthday | date }}
+    <div class="column small-12 medium-6">
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    About
+                </div>
+                <div class="rail-content">
+                    <div class="rail-activity">
+                        <div class="row">
+                            <div class="column small-12">
+                                <i class="fa fa-male" ng-show="user.gender=='male'"></i>
+                                <i class="fa fa-female" ng-show="user.gender=='female'"></i>
+                                {{ user.firstname }} {{user.lastname}}
+                            </div>
+                            <div class="column small-12">
+                                <i class="fa fa-globe"></i> {{user.city}}, {{user.country.name}}
+                            </div>
+                            <div class="column small-12">
+                                <i class="fa fa-envelope"></i> {{user.email}}
+                            </div>
+                            <div class="column small-12">
+                                <i class="fa fa-birthday-cake"></i> {{ user.birthday | date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="rail-panel column small-12 medium-6 large-6">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                Work information
+    <div class="column small-12 medium-6">
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    Work information
+                </div>
+                <div class="rail-content">
+                    <div class="rail-activity">
+                        <a data-ng-href="#/company/{{ user.company.id }}">
+                            <div class="row">
+                                <div class="column small-12">
+                                    <i class="fa fa-building"></i> {{ user.company.name}}
+                                </div>
+                                <div class="column small-12">
+                                    <i class="fa fa-globe"></i> {{user.company.city}}, {{user.company.country.name}}
+                                </div>
+                                <div class=" column small-12">
+                                    <i class="fa fa-phone"></i> {{user.company.phonenumber}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a data-ng-href="#/company/{{ user.company.id }}">
-            <div class="rail-content align-justify">
-                {{ user.company.name}}<br>
-                {{user.company.city}}, {{user.company.country.name}}<br>
-                {{user.company.phonenumber}}
-            </div>
-        </a>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="rail-panel column small-12 medium-6 large-6">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                Latest Topics
-            </div>
-            <div class="rail-content">
-                <div  data-ng-repeat="topic in user.topic">
-                    <a data-ng-href="#/topic/{{ topic.id }}">
-                        <div class="row align-justify">
-                            <div class="column no-pad-right no-pad-left">
-                                {{topic.title}}
-                            </div>
-                            <div class="column no-pad-right no-pad-left">
-                                {{ topic.created_at}}
-                            </div>
+    <div class="column small-12 medium-6 large-6">
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    Latest Topics
+                </div>
+                <div class="rail-content">
+                    <div  data-ng-repeat="topic in user.topic">
+                        <div class="rail-activity">
+                            <a data-ng-href="#/topic/{{ topic.id }}">
+                                <div class="row">
+                                    <div class="column">
+                                        {{topic.title}}
+                                    </div>
+                                    <div class="column">
+                                        <i class="fa fa-calendar"></i> {{getDate(topic.created_at) |date}}
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="rail-panel column small-12 medium-6 large-6">
-        <div class="rail-panel-inner">
-            <div class="rail-header">
-                Latest Comments
-            </div>
-            <div class="rail-content">
-                <div  data-ng-repeat="comment in user.comment">
-                    <a data-ng-href="#/topic/{{ comment.topic_id }}">
-                        <div class="row align-justify">
-                            <div class="column no-pad-right no-pad-left">
-                                {{comment.content}}
-                            </div>
-                            <div class="column no-pad-right no-pad-left">
-                                {{ comment.created_at }}
-                            </div>
+    <div class="column small-12 medium-6 large-6">
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    Latest Comments
+                </div>
+                <div class="rail-content">
+                    <div  data-ng-repeat="comment in user.comment">
+                        <div class="rail-activity">
+                            <a data-ng-href="#/topic/{{ comment.topic_id }}">
+                                <div class="row">
+                                    <div class="column small-12 medium-6">
+                                        {{comment.content}}
+                                    </div>
+                                    <div class="column small-12 medium-expand">
+                                        <i class="fa fa-calendar"></i> {{ getDate(comment.created_at)|date }}
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,7 +157,7 @@
             <div class="row">
                 <div class="column small-12 medium-3 large-2" data-ng-repeat="person in user.company.user">
                     <a data-ng-href="#/user/{{ person.id }}">
-                        <div class="column collegue no-pad-right no-pad-left">
+                        <div class="column collegue">
                             {{person.firstname}} {{person.lastname}}
                             <br>
                             {{person.job.title}}

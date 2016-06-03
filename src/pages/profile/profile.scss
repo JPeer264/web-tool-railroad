@@ -28,3 +28,16 @@
 
 .datefield input#year { width:6em; }
 .datefield input:focus { outline:none; }
+
+.rail-activity{
+    a{
+        color:black;
+        &:hover{
+            div{
+                background-color: lighten($light-gray, 5%);
+
+            }
+        }
+    }
+
+}
