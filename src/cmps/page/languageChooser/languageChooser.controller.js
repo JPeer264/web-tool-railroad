@@ -9,7 +9,7 @@ angular
  * @requires $scope
  * @requires $translate
  * @requires $cookies
- * @requires COOKIE
+ * @requires CONSTANT
  *
  * @description
  * LanguageChooserCtrl for the languageChooser Component
@@ -18,11 +18,11 @@ LanguageChooserController.$inject = [
     '$scope',
     '$translate',
     '$cookies',
-    'COOKIE',
+    'CONSTANT',
     'tmhDynamicLocale'
 ];
 
-function LanguageChooserController($scope, $translate, $cookies, COOKIE, tmhDynamicLocale) {
+function LanguageChooserController($scope, $translate, $cookies, CONSTANT, tmhDynamicLocale) {
 
     /**
      * @ngdoc method
@@ -53,7 +53,7 @@ function LanguageChooserController($scope, $translate, $cookies, COOKIE, tmhDyna
      * @return {String} Value of prefLanguage cookie
      */
     $scope.getPreferredLanguage = function() {
-        return $cookies.get(COOKIE.PREFLANGUAGE) || 'en-us';
+        return $cookies.get(CONSTANT.COOKIE.PREFLANGUAGE) || 'en-us';
     }
 
     /**
@@ -71,7 +71,7 @@ function LanguageChooserController($scope, $translate, $cookies, COOKIE, tmhDyna
         var expireDate = new Date();
         expireDate.setMonth(expireDate.getMonth() + 24);
 
-        $cookies.put(COOKIE.PREFLANGUAGE, langKey, {'expires': expireDate});
+        $cookies.put(CONSTANT.COOKIE.PREFLANGUAGE, langKey, {'expires': expireDate});
     }
 
 }

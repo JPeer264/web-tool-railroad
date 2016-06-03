@@ -10,7 +10,7 @@ angular
  * @requires service.auth
  * @requires $window
  * @requires $cookies
- * @requires COOKIE
+ * @requires CONSTANT
  * @requires $location
  *
  * @description
@@ -21,11 +21,11 @@ LoginController.$inject = [
     'auth',
     '$window',
     '$cookies',
-    'COOKIE',
+    'CONSTANT',
     '$location',
 ];
 
-function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
+function LoginController($scope, auth, $window, $cookies, CONSTANT, $location) {
 
     /**
      * @ngdoc method
@@ -38,8 +38,8 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
     $scope.login = function() {
 
         auth.login($scope.user).then(function (data) {
-            $cookies.put(COOKIE.TOKEN, data.token);
-            $cookies.put(COOKIE.USER_ID, data.user.id);
+            $cookies.put(CONSTANT.COOKIE.TOKEN, data.token);
+            $cookies.put(CONSTANT.COOKIE.USER_ID, data.user.id);
             $window.location.assign('/');
         }, function (data) {
             // function for errors

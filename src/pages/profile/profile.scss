@@ -11,31 +11,37 @@
     padding: 0.3em;
     background: #FFF;
     color: #666;
+
+    * {
+        display: inline-block;
+    }
+
+    input {
+        width: 4em;
+        padding: 0 0.4em;
+        border: none;
+        font-size: 100%;
+        background: none;
+        color: #000;
+
+        &#year {
+            width: 6em;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
-.datefield * {
-    display: inline-block;
-}
+.rail-activity {
+    a {
+        color: black;
 
-.datefield input {
-    width: 4em;
-    padding: 0 0.4em;
-    border: none;
-    font-size: 100%;
-    background: none;
-    color: #000;
-}
-
-.datefield input#year { width:6em; }
-.datefield input:focus { outline:none; }
-
-.rail-activity{
-    a{
-        color:black;
-        &:hover{
-            div{
+        &:hover {
+            div {
                 background-color: lighten($light-gray, 5%);
-
+                transition: background .5s;
             }
         }
     }

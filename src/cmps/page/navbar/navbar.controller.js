@@ -19,13 +19,10 @@ angular
 NavbarController.$inject = [
     '$scope',
     'auth',
-    '$window',
-    '$cookies',
-    'COOKIE',
     '$state',
 ];
 
-function NavbarController($scope, auth, $window, $cookies, COOKIE, $state) {
+function NavbarController($scope, auth, $state) {
 
     /**
      * @ngdoc method

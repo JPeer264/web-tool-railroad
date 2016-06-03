@@ -1,6 +1,6 @@
 <div class="row align-middle align-center">
     <div class="profile-picure column small-10 medium-4 large-3">
-        <img src="http://localhost/web-tool-railroad-api/{{user.picture_location}}" alt="{{user.picture_alt}}">
+        <img data-ng-src="{{ user.picture_location }}" data-ng-alt="{{ user.picture_alt }}">
     </div>
     <div class="column small-2 medium-1 large-1 align-left">
         <div class="social-media" ng-show="user.Twitter">
@@ -132,10 +132,10 @@
                             <a data-ng-href="#/topic/{{ comment.topic_id }}">
                                 <div class="row">
                                     <div class="column small-12 medium-6">
-                                        {{comment.content}}
+                                        {{ comment.content }}
                                     </div>
                                     <div class="column small-12 medium-expand">
-                                        <i class="fa fa-calendar"></i> {{ getDate(comment.created_at)|date }}
+                                        <i class="fa fa-calendar"></i> {{ getDate(comment.created_at) | date }}
                                     </div>
                                 </div>
                             </a>
@@ -158,9 +158,9 @@
                 <div class="column small-12 medium-3 large-2" data-ng-repeat="person in user.company.user">
                     <a data-ng-href="#/user/{{ person.id }}">
                         <div class="column collegue">
-                            {{person.firstname}} {{person.lastname}}
+                            {{ person.firstname }} {{ person.lastname }}
                             <br>
-                            {{person.job.title}}
+                            {{ person.job.title }}
                         </div>
                     </a>
                 </div>

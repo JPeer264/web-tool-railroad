@@ -36,12 +36,13 @@
     flex-direction: row;
 
     .img {
-        padding-right: $userbar-padding;
+        margin-right: $userbar-padding;
         width: $userbar-image;
         height: $userbar-image;
 
         img {
             width: 100%;
+            height: 100%;
             overflow: hidden;
             border-radius: $userbar-image / 2;
             border: 1px solid $border-color;

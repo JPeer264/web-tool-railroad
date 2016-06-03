@@ -7,7 +7,7 @@
  * @requires $state
  * @requires $window
  * @requires $cookies
- * @requires COOKIE
+ * @requires CONSTANT
  * @requires $httpParamSerializer
  */
 angular
@@ -20,13 +20,13 @@ auth.$inject = [
     '$state',
     '$window',
     '$cookies',
-    'COOKIE',
+    'CONSTANT',
     '$httpParamSerializer',
     'user',
     '$location'
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpParamSerializer, user, $location) {
+function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location) {
     var _authenticated = false,
         token = Restangular.service('auth/token'),
         self = this;
@@ -96,7 +96,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * @returns {Boolean} same value as _authenticated
      */
     this.check = function() {
-        var token = $cookies.get(COOKIE.TOKEN);
+        var token = $cookies.get(CONSTANT.COOKIE.TOKEN);
         var payload;
         var timestampNow = Math.floor((new Date()).getTime() / 1000); // divided by 1000 since getTime() gives in ms
 
@@ -112,7 +112,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
             return true;
         }
 
-        $cookies.remove(COOKIE.TOKEN);
+        $cookies.remove(CONSTANT.COOKIE.TOKEN);
         _authenticated = false;
         return false;
     }
@@ -146,8 +146,8 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * Deletes the user token and return to the welcome page
      */
     this.logout = function() {
-        $cookies.remove(COOKIE.TOKEN);
-        $cookies.remove(COOKIE.USER_ID);
+        $cookies.remove(CONSTANT.COOKIE.TOKEN);
+        $cookies.remove(CONSTANT.COOKIE.USER_ID);
         $window.location.assign('/');
     }
 

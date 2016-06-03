@@ -6,7 +6,7 @@
  * @requires Restangular
  * @requires $httpParamSerializer
  * @requires $cookies
- * @requires COOKIE
+ * @requires CONSTANT
  * @requires $q
  */
 angular
@@ -18,12 +18,12 @@ user.$inject = [
     'Restangular',
     '$httpParamSerializer',
     '$cookies',
-    'COOKIE',
+    'CONSTANT',
     '$q'
 ];
 
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $q) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT, $q) {
     // cache all promises - private
     var _identity = undefined;
     var _authenticated = false;
@@ -59,7 +59,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
      * @returns {Promise} promise for the current user
      */
     this.getCurrent = function() {
-        var currentUserId = $cookies.get(COOKIE.USER_ID);
+        var currentUserId = $cookies.get(CONSTANT.COOKIE.USER_ID);
 
         if (!_promiseCache.current) {
             _promiseCache.current = this.get(currentUserId);
@@ -90,7 +90,8 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, COOKIE, $
             userdata.role = 'user';
             _identity = userdata;
             _authenticated = true;
-            $rootScope.currentUser = userdata;
+
+            $rootScope.currentUser = $rootScope.setDefaultPictureLocation(userdata);
         });
     }
 

@@ -18,10 +18,11 @@ ProfileController.$inject = [
 	'$scope',
     '$state',
     'user',
-    'company'
+    'company',
+    'CONSTANT'
 ];
 
-function ProfileController($scope, $state, user, company) {
+function ProfileController($scope, $state, user, company, CONSTANT) {
     console.log('profile');
 
 
@@ -34,7 +35,14 @@ function ProfileController($scope, $state, user, company) {
      * get the user from params
      */
     user.get($state.params.id).then(function(data) {
-        $scope.user = data.plain();
+        data = data.plain();
+
+        // set default picture for every user in the company
+        (data.company.user).map(function (value, key) {
+            return $scope.setDefaultPictureLocation(value);
+        });
+
+        $scope.user = $scope.setDefaultPictureLocation(data);
     });
 
 

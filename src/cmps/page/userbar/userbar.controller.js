@@ -19,13 +19,10 @@ angular
 UserbarController.$inject = [
     '$scope',
     'auth',
-    '$window',
-    '$cookies',
-    'COOKIE',
     '$location',
 ];
 
-function UserbarController($scope, auth, $window, $cookies, COOKIE, $location) {
+function UserbarController($scope, auth, $location) {
 
     /**
      * @ngdoc method

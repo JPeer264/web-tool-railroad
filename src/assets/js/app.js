@@ -16,16 +16,26 @@ angular.module('railroad', [
     'ngPassword',
 ]);
 
+var CONSTANT = {
+    "COOKIE": {
+        "TOKEN": "tkn_u", // tkn_u = token_user
+        "USER_ID": "u_i", // u_i = user_id
+        "PREFLANGUAGE": "p_lang",
+    },
+    // Picture location default
+    "PICTURE_LOCATION_PREFIX": "http://localhost/web-tool-railroad-api",
+
+    // Profile Picture Constants
+    "PROFILE_PICTURE_DEFAULT": "https://jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
+};
+
 angular
     .module('railroad')
     .config(config)
     .run(run)
-    // cosntant COOKIE is used for the tokens
-    .constant("COOKIE", {
-        "TOKEN": "tkn_u", // tkn_u = token_user
-        "USER_ID": "u_i", // u_i = user_id
-        "PREFLANGUAGE": "p_lang",
-    });
+    // cosntant CONSTANT is used for the tokens
+    .constant("CONSTANT", CONSTANT);
 
 // config method
 config.$inject = [
@@ -475,6 +485,17 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
 
     $rootScope.isLoggedIn = function() {
         return auth.isAuthorized();
+    }
+
+    $rootScope.setDefaultPictureLocation = function (data) {
+        if (!data.picture_location || data.picture_location === '/path/to/picture/') {
+            data.picture_location = CONSTANT.PROFILE_PICTURE_DEFAULT;
+            data.picture_alt = CONSTANT.PROFILE_PICTURE_ALT_DEFAULT;
+        } else {
+            data.picture_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.picture_location;
+        }
+
+        return data;
     }
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
