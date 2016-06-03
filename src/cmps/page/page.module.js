@@ -12,4 +12,6 @@ angular.module('cmps.page', [
     'page.news',
     'page.slider',
     'page.forgot',
+    'page.cookieInfo',
+    'page.welcomeNewUser'
 ]);

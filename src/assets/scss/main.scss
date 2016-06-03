@@ -35,6 +35,20 @@ body, html {
     display: inline-block !important;
 }
 
+div.red {
+    background: $alert-color !important;
+    color: $white !important;
+    font-weight: 800;
+}
+
+a.red {
+    color: $alert-color;
+}
+
+.red-border {
+    border-color: $alert-color !important;
+}
+
 .flex {
     display: flex;
     justify-content: space-between;

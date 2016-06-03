@@ -1,0 +1,24 @@
+#cookie-info {
+    padding: $global-padding;
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: $primary-color;
+
+    transition: bottom .5s;
+
+    button {
+        padding: .7rem 1rem;
+        font-weight: 800;
+        color: $white;
+        border: 1px solid $light-gray;
+        border-radius: 7px;
+        transition: background .5s;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+}

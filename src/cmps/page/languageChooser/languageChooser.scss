@@ -28,10 +28,11 @@
     }
 
     .dropdown-pane {
-        width: auto;
+        // width: auto;
         position: absolute;
-        top: $header-height;
+        // top: $header-height;
         right: 0;
         left: initial !important;
+        z-index: 99;
     }
 }

@@ -1,0 +1,24 @@
+<div>
+    <div class="rail-panel" data-ng-if="currentUser.login_count < 5">
+        <div class="rail-panel-inner red-border">
+            <div class="rail-header red">
+                Important introduction! TODO i18n
+            </div>
+            <div class="rail-content">
+                Welcome to our Board. Before you start and add some threads or comment on already existing ones, please read the <a class="red" href="#/rules">Rules</a> first. If you have any questions read our <a class="red" href="#/faq">Frequently Asked Questions</a>. TODO i18n
+            </div>
+        </div>
+    </div>
+    <div class="rail-panel" data-ng-if="currentUser.login_count >= 5">
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                Welcome back! TODO i18n
+            </div>
+            <div class="rail-content">
+                <p>{{ "WELCOME" | translate }}</p>
+
+                <span>Latest login was on {{ getDate(currentUser.last_login) | date }}. TODO i18n</span>
+            </div>
+        </div>
+    </div>
+</div>

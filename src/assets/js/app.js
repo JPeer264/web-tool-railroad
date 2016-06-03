@@ -16,14 +16,17 @@ angular.module('railroad', [
     'ngPassword',
 ]);
 
+var SERVERPATH = 'http://localhost/web-tool-railroad-api';
 var CONSTANT = {
     "COOKIE": {
         "TOKEN": "tkn_u", // tkn_u = token_user
         "USER_ID": "u_i", // u_i = user_id
         "PREFLANGUAGE": "p_lang",
+        "COOKIE_ACCEPT": "c_a",
     },
     // Picture location default
-    "PICTURE_LOCATION_PREFIX": "http://localhost/web-tool-railroad-api",
+    "PICTURE_LOCATION_PREFIX": SERVERPATH,
+    "API_PATH": SERVERPATH + "/public/api/v1",
 
     // Profile Picture Constants
     "PROFILE_PICTURE_DEFAULT": "https://jpeer.at/railroad/testimage/person-default-flat.png",
@@ -62,7 +65,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
     // $locationProvider.html5Mode(true);
 
     // setup restangular basics
-    RestangularProvider.setBaseUrl('http://localhost/web-tool-railroad-api/public/api/v1/')
+    RestangularProvider.setBaseUrl(CONSTANT.API_PATH)
     .setDefaultHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: 'Bearer '+ $cookies.get('tkn_u')
@@ -93,8 +96,8 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
         suffix: '.json'// suffix, currently- extension of the translations
     });
     $translateProvider.useMissingTranslationHandler(); // log if TRANSLATION_CODE not found
-    $translateProvider.preferredLanguage('en-US');
-    $translateProvider.fallbackLanguage('en-US');
+    $translateProvider.preferredLanguage('en-us');
+    $translateProvider.fallbackLanguage('en-us');
     tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular/angular-locale_{{ locale }}.js');
 
     $urlRouterProvider.when('', '/');
@@ -376,6 +379,46 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 admintab: true,
                 activeadmintab: 'jobmanagement',
                 roleLimit: 3
+            }
+        })
+        .state('rules', {
+            url: '/nologin/rules',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/rules/rules.html',
+                    controller: 'RulesCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                breadcrumbs: false
+            }
+        })
+        .state('faq', {
+            url: '/nologin/faq',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/faq/faq.html',
+                    controller: 'FaqCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                breadcrumbs: false
             }
         })
         .state('landing', {

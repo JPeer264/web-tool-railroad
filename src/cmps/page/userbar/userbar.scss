@@ -7,9 +7,14 @@
     background-color: $secondary-color;
     color: $body-font-color;
     text-align: left;
-    border-radius: $border-radius-standard;
+    border-radius: 0 0 5px 5px;
     border: 1px solid $border-color;
     border-top: 0;
+
+    @media only screen and (max-width: 40em) {
+        border: 0;
+        background-color: initial;
+    }
 
     p {
         margin: 0 5px 0 0;

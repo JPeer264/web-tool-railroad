@@ -18,6 +18,7 @@ module.exports = {
             options: {
                 process: function(src, filepath) {
                     return "// Source: " + filepath + "\n" +
+                            "'use strict';\n" +
                             src
                 },
             },
@@ -50,6 +51,7 @@ module.exports = {
             options: {
                 process: function(src, filepath) {
                     return "// Source: " + filepath + "\n" +
+                            "'use strict';\n" +
                                 src;
                 }
             },

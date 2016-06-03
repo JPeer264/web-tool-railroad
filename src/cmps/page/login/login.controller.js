@@ -45,7 +45,7 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location) {
             // function for errors
             if (data.status === 401 || data.status === 403) {
                 $scope.error = data.data.error;
-                $scope.user=null;
+                $scope.user = null;
             }
         });
     }

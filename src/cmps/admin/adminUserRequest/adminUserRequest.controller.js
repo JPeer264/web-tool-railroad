@@ -25,7 +25,7 @@ function AurController($scope, user) {
 
         // just make for admin accessible for all
         // console.log(role_id === 2);
-        if (cU.role_id >= 3) {
+        if (parseInt(cU.role_id) >= 3) {
             fiteredUsers = allUsers.filter(function (value, key) {
                 if (value.company_id === cU.company_id) {
                     return true;
@@ -36,25 +36,23 @@ function AurController($scope, user) {
         }
 
         $scope.pendingUsers = fiteredUsers.filter(function (value) {
-            return value.accepted === 0;
+            return parseInt(value.accepted) === 0;
         });
 
         $scope.invitedUsers = fiteredUsers.filter(function (value) {
-            return value.accepted === 1;
+            return parseInt(value.accepted) === 1;
         });
 
         $scope.acceptedUsers = allUsers.filter(function (value, key) {
-            return value.accepted === 2;
+            return parseInt(value.accepted) === 2;
         });
     });
 
     $scope.accept = function (id) {
         var formData = new FormData();
-        formData.append('accepted', 2);
+        formData.append('accepted', '2');
 
         user.update(id, formData).then(function (data) {
-            console.log(data.plain());
-
             $scope.pendingUsers = $scope.pendingUsers.filter(function (key) {
                 if (key.id === id) {
                     $scope.acceptedUsers.unshift(key);
