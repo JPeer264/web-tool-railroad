@@ -40,7 +40,7 @@
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
-                    About
+                    About TODO i18n
                 </div>
                 <div class="rail-content">
                     <div class="rail-activity">
@@ -70,14 +70,15 @@
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
-                    Work information
+                    Work information TODO i18n
                 </div>
                 <div class="rail-content">
                     <div class="rail-activity">
-                        <a data-ng-href="#/company/{{ user.company.id }}">
                             <div class="row">
                                 <div class="column small-12">
-                                    <i class="fa fa-building"></i> {{ user.company.name}}
+                                    <a data-ng-href="#/company/{{ user.company.id }}">
+                                        <i class="fa fa-building"></i> {{ user.company.name}}
+                                    </a>
                                 </div>
                                 <div class="column small-12">
                                     <i class="fa fa-globe"></i> {{user.company.city}}, {{user.company.country.name}}
@@ -86,7 +87,6 @@
                                     <i class="fa fa-phone"></i> {{user.company.phonenumber}}
                                 </div>
                             </div>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
-                    Latest Topics
+                    Latest Topics TODO i18n
                 </div>
                 <div class="rail-content">
                     <div  data-ng-repeat="topic in user.topic">
@@ -124,7 +124,7 @@
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
-                    Latest Comments
+                    Latest Comments TODO i18n
                 </div>
                 <div class="rail-content">
                     <div  data-ng-repeat="comment in user.comment">
@@ -149,20 +149,14 @@
 </div>
 
 <div>
-    <div class="rail-panel ">
+    <div class="rail-panel">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                Collegues
+                Collegues TODO i18n
             </div>
             <div class="row">
-                <div class="column small-12 medium-3 large-2" data-ng-repeat="person in user.company.user">
-                    <a data-ng-href="#/user/{{ person.id }}">
-                        <div class="column collegue">
-                            {{ person.firstname }} {{ person.lastname }}
-                            <br>
-                            {{ person.job.title }}
-                        </div>
-                    </a>
+                <div class="columns small-12 medium-4 large-3" data-ng-repeat="user in user.company.user">
+                    <div data-person-info></div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,13 @@
+<div class="person-info">
+    <a data-ng-href="#/user/{{ user.id }}">
+        <div class="person-info-panel">
+            <div class="img">
+                <img data-ng-src="{{ user.picture_location }}" data-ng-alt="{{ user.picture_alt }}"/>
+            </div>
+            <div class="person-info-content">
+                <h5>{{ user.firstname }} {{ user.lastname }}</h5>
+                <p>{{ user.job.title }}</p>
+            </div>
+        </div>
+    </a>
+</div>

@@ -25,7 +25,14 @@ function CompanyController($scope, $state, user, company) {
     console.log('company');
 
     company.get($state.params.id).then(function(data) {
-        $scope.company = data.plain();
+        data = data.plain();
+
+        // set default picture for every user in the company
+        (data.user).map(function (value, key) {
+            return $scope.setDefaultPictureLocation(value);
+        });
+
+        $scope.company = data;
     });
 
 }

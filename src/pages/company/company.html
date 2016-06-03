@@ -50,14 +50,8 @@
                 Employees
             </div>
             <div class="row ">
-                <div class="column small-12 medium-3 large-2"   data-ng-repeat="person in company.user">
-                    <a data-ng-href="#/user/{{ person.id }}">
-                    <div class="column collegue no-pad-right no-pad-left">
-                        {{ person.firstname}} {{person.lastname}}
-                        <br>
-                        {{person.job.title}}
-                    </div>
-                </a>
+                <div class="column small-12 medium-3 large-2" data-ng-repeat="user in company.user">
+                    <div data-person-info></div>
                 </div>
             </div>
         </div>

@@ -127,6 +127,7 @@ body, html {
         color: $body-font-color;
         // margin-bottom: 10px;
         border-radius: $border-radius-standard;
+        font-family: $header-font-family;
 
         h3, h4, h5 {
             margin: 0;
@@ -191,9 +192,6 @@ body, html {
 a {
     color: $body-font-color;
 
-}
-.collegue{
-    padding: 20px;
 }
 
 .profile-picure{
