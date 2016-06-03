@@ -9,7 +9,6 @@ angular
  * @requires $scope
  * @requires user
  * @requires company
- * @requires $location
  *
  * @description
  * SearchCtrl for the search directive
@@ -18,7 +17,6 @@ SearchController.$inject = [
     '$scope',
     'user',
     'company',
-    '$location',
 ];
 
 function SearchController($scope, user, company, $location) {
@@ -32,13 +30,4 @@ function SearchController($scope, user, company, $location) {
         });
     });
 
-    $scope.onSelectCallback= function(profile, model){
-        if(profile.firstname){
-            $location.path( '/user/'+profile.id );
-        }
-        if(profile.name){
-            $location.path( '/company/'+profile.id );
-
-        }
-    }
 }

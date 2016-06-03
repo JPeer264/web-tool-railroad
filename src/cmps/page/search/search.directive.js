@@ -35,6 +35,9 @@ function searchDirective() {
                         $('#results').show();
                     } else {
                         $('#results').hide();
+                        $scope.query=null;
+                        $scope.$apply();
+
                     }
                 });
 
