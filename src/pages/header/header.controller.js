@@ -47,7 +47,8 @@ function HeaderController($scope, user, auth, $timeout) {
         if (em > 40) {
             $viewheader.css({
                 'position': 'fixed',
-                'width': '100%'
+                'width': '100%',
+                'z-index': 999
             });
 
             $main.css({

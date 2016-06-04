@@ -26,6 +26,18 @@ function navbarDirective() {
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
                 $('#hamburger').menumaker({'title': ''});
+
+                var scrollTop;
+
+                $(document).on('scroll', function () {
+                    scrollTop = $(document).scrollTop();
+
+                    if (scrollTop > 70) {
+                        $('#navbar').addClass('shadow-navbar');
+                    } else {
+                        $('#navbar').removeClass('shadow-navbar');
+                    }
+                });
             }
         };
 };
