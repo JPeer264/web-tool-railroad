@@ -1,0 +1,21 @@
+#scroll-top {
+    height: 50px;
+    width: 50px;
+    background: $primary-color;
+    position: fixed;
+    right: $global-padding*2;
+    bottom: $global-padding*2;
+    border-radius: 50%;
+    overflow: hidden;
+
+    transform: scale(0);
+    transition: all .5s;
+
+    i {
+        color: $white;
+    }
+
+    &.scale {
+        transform: scale(1);
+    }
+}

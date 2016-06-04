@@ -1,6 +1,7 @@
 #footer {
-    margin: 20px 20px 40px;
-    padding: 10px;
+    margin: $global-margin $global-margin $global-margin*2 $global-margin;
+    padding: $global-padding;
+    padding-right: $global-padding*4;
     color: grey;
     border-top: 1px solid grey;
 

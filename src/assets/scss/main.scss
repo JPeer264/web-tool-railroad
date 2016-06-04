@@ -140,7 +140,6 @@ a.red {
         background: $secondary-color;
         color: $body-font-color;
         // margin-bottom: 10px;
-        border-radius: $border-radius-standard;
         font-family: $header-font-family;
 
         h3, h4, h5 {
@@ -205,27 +204,25 @@ a.red {
 
 a {
     color: $body-font-color;
-
 }
 
-.profile-picure{
+.profile-picure {
     padding: 20px;
 }
 
-.social-media
-{
+.social-media {
     padding: 5px;
     height:35px;
     width:35px;
 }
 
-md-checkbox.check .md-icon{
+md-checkbox.check .md-icon {
     border: 1px solid $primary-color;
-
 }
+
 md-checkbox.md-checked.check .md-icon {
- background-color: $primary-color;
- color: black;
+    background-color: $primary-color;
+    color: black;
 }
 
 .forgot{

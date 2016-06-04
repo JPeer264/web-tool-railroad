@@ -13,5 +13,6 @@ angular.module('cmps.page', [
     'page.slider',
     'page.forgot',
     'page.cookieInfo',
-    'page.welcomeNewUser'
+    'page.welcomeNewUser',
+    'page.scrollTop'
 ]);
