@@ -18,8 +18,10 @@ CategoriesController.$inject = [
 ];
 
 function CategoriesController($scope, category) {
-    
+    $scope.resolvedCategories = false;
+
     category.getAll().then(function(data) {
+        $scope.resolvedCategories = true;
         $scope.categories = data.plain();
     });
 

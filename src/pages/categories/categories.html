@@ -2,6 +2,40 @@
     <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
     <li class="current"><a href="#/category">{{ "NAV_CATEGORIES" | translate }}</a></li>
 </ul>
-<div ng-repeat="category in categories">
+<div class="rail-panel" data-ng-repeat="i in [1,2]" data-ng-if="!resolvedCategories">
+    <div class="rail-panel-inner">
+        <div class="rail-header">
+            <div class="placeholder"></div>
+        </div>
+        <div class="rail-content a-background">
+            <div class="row flex-center" data-ng-repeat="x in [1,2]">
+                <div class="column small-6">
+                    <div class="placeholder">
+                    </div>
+                </div>
+                <div class="column small-2 hide-for-small-only">
+                    <div class="placeholder"></div>
+                </div>
+                <div class="column small-4 hide-for-small-only">
+                        <div class="row flex-center">
+                            <div class="column small-3">
+                            </div>
+                            <div class="column small-9">
+                                <div class="placeholder">
+                                </div>
+                                <div>
+                                    <div class="placeholder"></div>
+                                </div>
+                                <div>
+                                    <div class="placeholder"></div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-repeat="category in categories" data-ng-if="resolvedCategories">
     <div data-category></div>
 </div>

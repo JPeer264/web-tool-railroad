@@ -1,5 +1,6 @@
 @import '_foundation-flex';
 @import '_variables';
+@import '_animations';
 
 * {
     box-sizing: border-box;
@@ -127,6 +128,13 @@ a.red {
 .rail-panel {
     margin-bottom: $global-margin;
 
+    .placeholder {
+        background: rgba($light-gray, .7);
+        width: 80%;
+        height: 1rem;
+        animation: placeholder-blink 2s infinite;
+    }
+
     .row {
         margin: 0;
     }
@@ -140,11 +148,16 @@ a.red {
 
     .rail-header {
         height: auto;
+        width: 100%;
         padding: 5px;
         background: $secondary-color;
         color: $body-font-color;
         // margin-bottom: 10px;
         font-family: $header-font-family;
+
+        .placeholder {
+            height: 2rem;
+        }
 
         h3, h4, h5 {
             margin: 0;
