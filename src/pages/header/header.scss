@@ -6,7 +6,7 @@
     background-color: $primary-color;
     // height: $header-height;
     position: relative;
-    z-index: 2;
+    z-index: 999;
 
     > .row {
         height: 100%;

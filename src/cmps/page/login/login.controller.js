@@ -23,9 +23,12 @@ LoginController.$inject = [
     '$cookies',
     'CONSTANT',
     '$location',
+    '$interval'
 ];
 
-function LoginController($scope, auth, $window, $cookies, CONSTANT, $location) {
+function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $interval) {
+
+    $scope.isInProgress = false;
 
     /**
      * @ngdoc method
@@ -36,17 +39,17 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location) {
      * call the auth.login() service and set token if it not fail
      */
     $scope.login = function() {
+        $scope.wrongPassword = false;
+        $scope.isInProgress = true;
 
         auth.login($scope.user).then(function (data) {
             $cookies.put(CONSTANT.COOKIE.TOKEN, data.token);
             $cookies.put(CONSTANT.COOKIE.USER_ID, data.user.id);
             $window.location.assign('/');
-        }, function (data) {
+        }).catch(function (data) {
             // function for errors
-            if (data.status === 401 || data.status === 403) {
-                $scope.error = data.data.error;
-                $scope.user = null;
-            }
+            $scope.isInProgress = false;
+            $scope.wrongPassword = true;
         });
     }
 

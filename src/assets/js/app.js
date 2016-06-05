@@ -554,9 +554,9 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
 
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {
-            $location.path('/error');
+            // $location.path('/error');
 
-            return false;
+            return true;
             // auth.logout();
         }
 
