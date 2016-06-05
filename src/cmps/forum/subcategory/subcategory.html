@@ -6,7 +6,10 @@
                     {{subcategory.title}}
                 </h3>
             </div>
-            <div class="rail-content a-background">
+            <div data-ng-if="!resolvedSubcategories">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <div class="rail-content a-background" data-ng-if="resolvedSubcategories">
                 <div class="row flex-center" data-ng-repeat="topic in subcategory.topic">
                     <div class="column small-12 medium-6">
                         <a data-ng-href="#/topic/{{ topic.id }}">

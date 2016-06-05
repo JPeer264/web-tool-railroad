@@ -17,6 +17,7 @@ SubcategoryCmpsController.$inject = [
 ];
 
 function SubcategoryCmpsController($scope, subcategory) {
+    $scope.resolvedSubcategories = false;
 
     /**
      * @ngdoc property
@@ -27,6 +28,7 @@ function SubcategoryCmpsController($scope, subcategory) {
      * Async - Receives one specific subcategory as object
      */
     subcategory.get($scope.subcategoryId).then(function (data) {
+        $scope.resolvedSubcategories = true;
         $scope.subcategory = data.plain();
     });
 

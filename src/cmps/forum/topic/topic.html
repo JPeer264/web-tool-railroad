@@ -11,11 +11,15 @@
             </div>
         </div>
     </div>
-
-    <div ng-repeat="comment in topic.comment" class="row">
-        <div data-comment class="column"></div>
+    <div data-ng-if="!resolvedTopics">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
-    <div data-ng-if="!topic.comment">
-        <h5>No topics found create one here!</h5>
+    <div data-ng-if="resolvedTopics">
+        <div ng-repeat="comment in topic.comment" class="row">
+            <div data-comment class="column"></div>
+        </div>
+        <div data-ng-if="!topic.comment">
+            <h5>No topics found create one here!</h5>
+        </div>
     </div>
 </div>

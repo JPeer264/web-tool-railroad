@@ -20,6 +20,7 @@ TopicCmpsController.$inject = [
 ];
 
 function TopicCmpsController($scope, $state, topic) {
+    $scope.resolvedTopics = false;
 
     /**
      * @ngdoc property
@@ -40,6 +41,7 @@ function TopicCmpsController($scope, $state, topic) {
      * Receives the topic from the url /topic/:id
      */
     topic.get($scope.topicId).then(function (data) {
+        $scope.resolvedTopics = true;
         $scope.topic = data.plain();
     });
 
