@@ -1,15 +1,30 @@
 #footer {
-    margin: $global-margin $global-margin $global-margin*2 $global-margin;
-    padding: $global-padding;
-    padding-right: $global-padding*4;
-    color: grey;
-    border-top: 1px solid grey;
+    background: $primary-color;
+    padding: $global-padding*2 $global-padding*5;
+    color: $black;
+
+    > div {
+        padding: $global-padding/4;
+    }
+
+    .img {
+        width: 50px;
+    }
+
+    img {
+        width: 100%;
+    }
 
     a {
-        color: grey;
+        color: lighten($black, 20%);
 
         &:hover {
+            color: $black;
             text-decoration: none;
         }
+    }
+
+    .copyright {
+        color: $white;
     }
 }
