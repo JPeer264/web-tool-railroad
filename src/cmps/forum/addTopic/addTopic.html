@@ -8,7 +8,7 @@
                     Add A Topic
                 </div>
                 <div class="rail-content">
-                    <form>
+                    <form data-ng-submit="addTopic()">
                       <div class="row">
                         <div class="large-12 medium-12 small-12 columns">
                             <md-input-container>
@@ -46,7 +46,7 @@
                             </md-checkbox>
                         </div>
                       </div>
-                      <md-button class="button"  data-ng-click="addTopic()">Add Topic</md-button>
+                      <md-button class="button" type="submit">Add Topic</md-button>
 
                 </form>
                 </div>
