@@ -6,7 +6,7 @@ angular
  * @ngdoc controller
  * @name cmps.forum:AddTopicCtrl
  *
- * @requires $scope
+ * @requires vm
  * @requires service.job
  * @requires service.company
  * @requires service.topic
@@ -26,119 +26,98 @@ AddTopicController.$inject = [
 ];
 
 function AddTopicController($scope, job, company, topic, $state,$httpParamSerializer) {
+    var vm = this;
 
-    $( "a" ).click(function( event ) {
-        event.preventDefault();
-    });
-
-    $scope.listJob=[];
-    $scope.listCompany=[];
-    $scope.everyone=false;
-
-
+    vm.listJob = [];
+    vm.listCompany = [];
+    vm.everyone = false;
+    vm.currentUser = $scope.$root.currentUser;
+    vm.currentId = $state.params.id;
 
     job.getAll().then(function(data) {
-        $scope.jobs = data.plain();
+        vm.jobs = data.plain();
     });
 
     company.getAll().then(function(data) {
-        $scope.companies = data.plain();
-
-      console.log($scope.jobsVisible);
+        vm.companies = data.plain();
     });
 
+    vm.toggleJob = function (job, list) {
+        var idx = vm.listJob.indexOf(job);
 
+        if (idx > -1) {
+            vm.listJob.splice(idx, 1);
+        } else {
+            vm.listJob.push(job);
+        }
+    };
 
+    vm.toggleCompany = function (company, list) {
+        var idx = vm.listCompany.indexOf(company);
 
-      $scope.toggleJob = function (job, list) {
+        if (idx > -1) {
+            vm.listCompany.splice(idx, 1);
+        } else {
+            vm.listCompany.push(company);
+        }
+    };
 
-        var idx = $scope.listJob.indexOf(job);
-            if (idx > -1) {
-              $scope.listJob.splice(idx, 1);
-            }
-            else {
-              $scope.listJob.push(job);
-            }
-            console.log($scope.listJob);
+    vm.checkAll = function () {
+        vm.everyone = vm.everyone ? false : true;
+    };
+
+    vm.addTopic = function(){
+        var subcategory = $scope.$parent.subcategoryCmps.subcategory;
+
+        vm.job = [];
+        vm.company = [];
+
+        if (vm.everyone) {
+            angular.forEach(vm.jobs, function (jobValue, key) {
+                vm.job.push(jobValue.id);
+            });
+
+            angular.forEach(vm.companies, function (companyValue, key) {
+                vm.company.push(companyValue.id);
+            });
+        } else {
+            angular.forEach(vm.listJob, function (jobValue, key) {
+                vm.job.push(jobValue.id);
+            });
+
+            angular.forEach(vm.listCompany, function (companyValue, key) {
+                vm.company.push(companyValue.id);
+            });
+        }
+
+        vm.params={
+            "job\[\]": vm.job,
+            "company\[\]": vm.company
         };
 
-      $scope.toggleCompany = function (company, list) {
-        var idx = $scope.listCompany.indexOf(company);
-            if (idx > -1) {
-              $scope.listCompany.splice(idx, 1);
-            }
-            else {
-              $scope.listCompany.push(company);
-            }
-            console.log($scope.listCompany);
+        topic.create($state.params.id,vm.newTopic , vm.params ).then(function(data) {
+            // prepare and add new subcategory to $scope.subcategory
+            vm.newTopic.topic_id = data.topic_id;
+            vm.newTopic.user    = vm.currentUser;
+            vm.newTopic.user_id = vm.currentUser.id;
 
-        };
+            subcategory.topic.push(vm.newTopic);
 
-        $scope.checkAll = function () {
-            if($scope.everyone){
-                $scope.everyone=false;
-            }else{
-                $scope.everyone=true;
-            }
+            // reset requirements
+            vm.listJob      = [];
+            vm.listCompany  = [];
+            vm.newTopic     = null;
+            vm.checkAll.selected = false;
+        });
 
-            console.log($scope.everyone);
-         };
+        $('#addTopic').foundation('close');
+    };
 
-
-         $scope.addTopic=function(){
-             console.log($state.params.id);
-             $scope.job=[];
-             $scope.company=[];
-
-             if($scope.everyone){
-                 angular.forEach( $scope.jobs, function(job, key) {
-                         $scope.job.push(job.id);
-                       });
-                 angular.forEach( $scope.companies, function(company, key) {
-                     $scope.company.push(company.id);
-                 });
-             }else{
-                 angular.forEach( $scope.listJob, function(job, key) {
-                         $scope.job.push(job.id);
-                       });
-                 angular.forEach( $scope.listCompany, function(company, key) {
-                     $scope.company.push(company.id);
-                 });
-             }
-
-             $scope.params={"job\[\]": $scope.job,
-                            "company\[\]": $scope.company};
-                 topic.create($state.params.id,$scope.topic , $scope.params ).then(function(data) {
-                 console.log("created");
-                 $scope.topic.user = $scope.currentUser;
-                 $scope.topic.user_id=$scope.currentUser.id;
-                 $scope.subcategory.topic.push($scope.topic);
-                 $scope.listJob=[];
-                 $scope.listCompany=[];
-                 $scope.topic=null;
-                 for(var i=0; i < $scope.listJob.length; i++) {
-                       $scope.listJob[i].selected = false;
-                   }
-                 for(var i=0; i < $scope.listCompany.length; i++) {
-                         $scope.listCompany[i].selected = false;
-                }
-                $scope.checkAll.selected=false;
-
-             });
-              $('#addTopic').foundation('close');
-         }
-
-         $scope.close=function (){
-             $scope.topic=null;
-             $scope.listJob=[];
-             $scope.listCompany=[];
-             for(var i=0; i < $scope.jobs.length; i++) {
-                   $scope.jobs[i].selected = false;
-               }
-             for(var i=0; i < $scope.companies.length; i++) {
-                     $scope.companies[i].selected = false;
-            }
-            $scope.checkAll.selected=false;
-         }
-
+    vm.close=function () {
+        // reset requirements
+        vm.newTopic = null;
+        vm.listJob = [];
+        vm.listCompany = [];
+        vm.checkAll.selected=false;
+    }
 }

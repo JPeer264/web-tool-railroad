@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.forum:subcategory
  *
- * @description 
+ * @description
  * Generates a single subcategory component
  */
 function subcategoryDirective() {
@@ -17,6 +17,7 @@ function subcategoryDirective() {
         // terminal: true,
         // scope: {}, // {} = isolate, true = child, false/undefined = no change
         controller: 'SubcategoryCmpsCtrl',
+        controllerAs: 'subcategoryCmps',
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
         // template: '',
@@ -25,7 +26,7 @@ function subcategoryDirective() {
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function($scope, iElm, iAttrs, controller) {
-            
+
         }
     };
 };

@@ -1,18 +1,26 @@
 <div>
+    <div class="row flex-end" data-ng-if="subcategoryCmps.resolvedSubcategories">
+        <div class="medium-12 small-12 medium-expand columns">
+            <div class="flex-end">
+                <div class="full-width" data-add-topic data-this-subcategory="subcategoryCmps" ></div>
+            </div>
+        </div>
+    </div>
+
     <div class="rail-panel">
         <div class="rail-panel-inner">
             <div class="rail-header">
                 <h3>
-                    {{subcategory.title}}
+                    {{subcategoryCmps.subcategory.title}}
                 </h3>
             </div>
-            <div data-ng-if="!resolvedSubcategories">
+            <div data-ng-if="!subcategoryCmps.resolvedSubcategories">
                 <md-progress-circular md-mode="indeterminate"></md-progress-circular>
             </div>
-            <div class="rail-content a-background" data-ng-if="resolvedSubcategories">
-                <div class="row flex-center" data-ng-repeat="topic in subcategory.topic">
+            <div class="rail-content a-background" data-ng-if="subcategoryCmps.resolvedSubcategories">
+                <div class="row flex-center" data-ng-repeat="topic in subcategoryCmps.subcategory.topic">
                     <div class="column small-12 medium-6">
-                        <a data-ng-href="#/topic/{{ topic.id }}">
+                        <a data-ng-href="#/topic/{{ topic.id }}" data-ng-click="subcategoryCmps.updateSubcategoryScope()">
                             {{ topic.title }}
                         </a>
                     </div>
@@ -20,10 +28,10 @@
                         <i class="fa fa-user"></i> <a data-ng-href="#/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
                     </div>
                     <div class="column medium-3 hide-for-small-only">
-                        <i class="fa fa-calendar"></i> {{ getDate(subcategory.latest_comment.created_at) | date }}
+                        <i class="fa fa-calendar"></i> {{ getDate(subcategoryCmps.subcategory.latest_comment.created_at) | date }}
                     </div>
                 </div>
-                <div class="text-center flex-center" data-ng-if="!subcategory.topic">
+                <div class="text-center flex-center" data-ng-if="!subcategoryCmps.subcategory.topic">
                     <h5>No topics found create the first here!</h5>
                 </div>
             </div>

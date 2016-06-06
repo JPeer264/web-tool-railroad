@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.forum:topic
  *
- * @description 
+ * @description
  * Generates a single topic component
  */
 function topicDirective() {
@@ -25,7 +25,6 @@ function topicDirective() {
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function($scope, iElm, iAttrs, controller) {
-
         }
     };
 };

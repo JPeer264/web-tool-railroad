@@ -13,11 +13,14 @@ angular
  */
 SubcategoryCmpsController.$inject = [
     '$scope',
-    'subcategory'
+    '$state',
+    'subcategory',
 ];
 
-function SubcategoryCmpsController($scope, subcategory) {
-    $scope.resolvedSubcategories = false;
+function SubcategoryCmpsController($scope, $state, subcategory) {
+    var vm = this;
+
+    vm.resolvedSubcategories = false;
 
     /**
      * @ngdoc property
@@ -27,9 +30,8 @@ function SubcategoryCmpsController($scope, subcategory) {
      * @description
      * Async - Receives one specific subcategory as object
      */
-    subcategory.get($scope.subcategoryId).then(function (data) {
-        $scope.resolvedSubcategories = true;
-        $scope.subcategory = data.plain();
+    subcategory.get($state.params.id).then(function (data) {
+        vm.resolvedSubcategories = true;
+        vm.subcategory = data.plain();
     });
-
 }

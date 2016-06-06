@@ -4,14 +4,8 @@
             <ul class="breadcrumbs">
                 <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
                 <li><a dhref="#/category">{{ "NAV_CATEGORIES" | translate }}</a></li>
-                <li class="current"><a data-ng-href="#/category/{{ subcategoryId }}">{{ subcategory.title }}</a></li>
+                <li class="current"><a data-ng-href="#/category/{{ subcategoryId }}">{{ subcategoryCmps.subcategory.title }}</a></li>
             </ul>
-        </div>
-
-        <div class="medium-2 small-12 medium-expand columns">
-            <div class="flex-end">
-                <div class="full-width" data-add-topic></div>
-            </div>
         </div>
     </div>
     <div data-subcategory></div>

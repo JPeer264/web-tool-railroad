@@ -8,7 +8,7 @@ angular
  *
  * @replace true
  *
- * @description 
+ * @description
  * Generates a single category component
  */
 function categoryDirective() {
@@ -17,8 +17,9 @@ function categoryDirective() {
         // name: '',
         // priority: 1,
         // terminal: true,
-        // scope: {}, // {} = isolate, true = child, false/undefined = no change
+        scope: {}, // {} = isolate, true = child, false/undefined = no change
         controller: 'CategoryCtrl',
+        controllerAs: 'categoryCtrl',
         // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
         // template: '',
@@ -27,7 +28,7 @@ function categoryDirective() {
         // transclude: true,
         // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
         link: function(scope, iElm, iAttrs, controller) {
-
+            scope.category = JSON.parse(iAttrs.category);
         }
     };
 };

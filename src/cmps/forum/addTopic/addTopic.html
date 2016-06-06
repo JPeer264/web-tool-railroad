@@ -1,6 +1,5 @@
 <div>
-    <p><a class="button "data-open="addTopic">Add Topic</a></p>
-
+    <a class="button full-width add-topic-btn" data-open="addTopic">Add Topic</a>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="addTopic" data-reveal>
             <div class="rail-panel-inner">
@@ -10,19 +9,19 @@
                             ADD A TOPIC TODO i18n
                         </div>
                         <div class="flex flex-end ">
-                            <button  data-close aria-label="Close modal" ng-click="close()" type="button">
+                            <button  data-close aria-label="Close modal" ng-click="addTopicCtrl.close()" type="button">
                                 <i class="fa fa-times fa-lg"></i>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="rail-content">
-                    <form data-ng-submit="addTopic()">
+                    <form data-ng-submit="addTopicCtrl.addTopic()">
                       <div class="row">
                         <div class="large-12 medium-12 small-12 columns">
                             <md-input-container>
                                 <label>Title</label>
-                                <input type="title" data-ng-model="topic.title" required/>
+                                <input type="title" data-ng-model="addTopicCtrl.newTopic.title"/>
                             </md-input-container>
                         </div>
                       </div>
@@ -30,33 +29,32 @@
                         <div class="large-12 columns">
                             <md-input-container class="md-block">
                               <label>Description</label>
-                              <textarea ng-model="topic.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                              <textarea ng-model="addTopicCtrl.newTopic.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
                             </md-input-container>
                         </div>
                       </div>
                       <div class="row">
                         <div class="large-6 columns">
-                            <div flex="100" ng-repeat="job in jobs">
-                               <md-checkbox class="check" ng-model="job.selected" ng-click="toggleJob(job, selected)" >
+                            <div flex="100" ng-repeat="job in addTopicCtrl.jobs">
+                               <md-checkbox class="check" ng-model="job.selected" ng-click="addTopicCtrl.toggleJob(job, selected)" >
                                 {{ job.title }}
                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
-                            <div flex="100" ng-repeat="company in companies">
-                               <md-checkbox class="check" ng-model="company.selected" ng-click="toggleCompany(company, selected)" >
+                            <div flex="100" ng-repeat="company in addTopicCtrl.companies">
+                               <md-checkbox class="check" ng-model="company.selected" ng-click="addTopicCtrl.toggleCompany(company, selected)" >
                                 {{ company.name }}
                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
-                            <md-checkbox Class="check" ng-model="checkAll.selected" ng-click="checkAll()">
+                            <md-checkbox Class="check" ng-model="addTopicCtrl.checkAll.selected" ng-click="addTopicCtrl.checkAll()">
                               Everyone
                             </md-checkbox>
                         </div>
                       </div>
                       <md-button class="button" type="submit">Add Topic</md-button>
-
                 </form>
                 </div>
             </div>
