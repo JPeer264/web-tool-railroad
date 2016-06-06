@@ -36,11 +36,16 @@ function editProfileController($scope,user,job, country) {
         var fd = new FormData();
         fd.append("firstname",$scope.user.firstname);
         fd.append("lastname",$scope.user.lastname);
-        fd.append("password", $scope.user.passwordNew);
+        if($scope.user.passwordNew){
+            fd.append("password", $scope.user.passwordNew);
+            console.log("pw chnged");
+        }
         fd.append("city",$scope.user.city);
         fd.append("address",$scope.user.address);
         fd.append("email",$scope.user.email);
-        fd.append("birthday", (new Date($scope.user.birthday)).toISOString().slice(0,10));
+        if($scope.user.birthdayNew){
+            fd.append("birthday", (new Date($scope.user.birthdayNew)).toISOString().slice(0,10));
+        }
         fd.append("Twitter",$scope.user.Twitter);
         fd.append("LinkedIn",$scope.user.LinkedIn);
         fd.append("Facebook",$scope.user.Facebook);
