@@ -2,25 +2,25 @@
     <span>{{ error | translate }}</span>
     <div layout="column" class="login md-whiteframe-z1">
         <md-toolbar>
-            <h2 class="md-toolbar-tools"><span>Login</span></h2>
+            <h2 class="md-toolbar-tools"><span>{{ "LOGIN" | translate }}</span></h2>
         </md-toolbar>
         <md-content layout="column" class="md-padding">
             <md-input-container>
-                <label>EmailAddress</label>
+                <label>{{ "WORD_EMAIL" | translate }}</label>
                 <input type="email" data-ng-model="user.email" name="email" required/>
                 <div data-ng-messages="loginForm.email.$error" data-ng-if="wrongPassword">
-                    <div data-ng-message="wrong-password">Your email or password is wrong</div>
+                    <div data-ng-message="wrong-password">{{ "ERROR_WRONG_CREDENTIALS" | translate }}</div>
                 </div>
             </md-input-container>
             <md-input-container>
-                <label>Password</label>
+                <label>{{ "WORD_PASSWORD" | translate }}</label>
                 <input type="password" data-ng-model="user.password" required/>
             </md-input-container>
             <div layout="row" layout-align="center center" style="padding-top:20px;">
-                <md-button type="submit" class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || isInProgress">Login</md-button>
+                <md-button type="submit" class="md-raised md-primary" data-ng-disabled="loginForm.$invalid || isInProgress">{{ "LOGIN" | translate }}</md-button>
                 <md-progress-circular md-mode="indeterminate" data-ng-if="isInProgress"></md-progress-circular>
                 <div flex="flex"></div>
-                <md-button class="md-flat md-primary" data-ng-click="signup()">signup</md-button>
+                <md-button class="md-flat md-primary" data-ng-click="signup()">{{ "SIGNUP" | translate}}</md-button>
 
             </div>
             <div layout="row" layout-align="center center" class="full-width" data-forgot></div>

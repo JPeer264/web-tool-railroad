@@ -1,22 +1,22 @@
 <div>
-    <a class="forgot" data-open="changePassword">Forgot Password</a>
+    <a class="forgot" data-open="changePassword">{{ "FORGOT_PASSWORD" | translate }}</a>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="changePassword" data-reveal>
         <div class="rail-panel-inner">
             <div class="rail-header">
-                Forgot Password
+                {{ "FORGOT_PASSWORD" | translate }}
             </div>
             <div class="rail-content">
                 <form>
                     <div class="row">
                         <div class=" columns">
                             <md-input-container class="md-block" flex-gt-sm>
-                                <label>Email</label>
+                                <label>{{ "WORD_EMAIL" | translate }}</label>
                                 <input type="email" data-ng-model="user.email" required/>
                             </md-input-container>
                         </div>
                     </div>
-                    <md-button class="md-flat md-primary" data-ng-click="forgot()">Send Email</md-button>
+                    <md-button class="md-flat md-primary" data-ng-click="forgot()">{{ "SEND_EMAIL" | translate }}</md-button>
                 </form>
             </div>
         </div>

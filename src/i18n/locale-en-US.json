@@ -11,6 +11,7 @@
 
     "LOGOUT": "Log out",
     "LOGIN":  "Log in",
+    "SIGNUP": "Sign up",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "Add company",
@@ -34,6 +35,10 @@
     "FORUM_ADD_COMMENT":    "Add comment",
     "FORUM_BY":             "By",
     "FORUM_TOPIC":          "Topic",
+    "FORUM_NO_TOPIC":       "No topics found create the first here!",
+    "FORUM_NO_COMMENT":     "No comments found create one here!",
+
+    "COOKIE_POLICY": "When you press ok you accept our cookie policy!",
 
     "RULES_NOSPAM": "Spam is not allowed.",
     "RULES_BEPOLITE": "Be always polite and objectiv.",
@@ -48,10 +53,21 @@
 
     "WORD_NAME": "Name",
     "WORD_EMAIL": "Email",
+    "WORD_PASSWORD": "Password",
     "WORD_DESCRIPTION": "Description",
     "WORD_PHONE": "Phone",
     "WORD_COUNTRY": "Country",
     "WORD_CITY": "City",
     "WORD_ADDRESS": "Address",
-    "WORD_ADMINISTRATOR": "Administrator"
+    "WORD_ADMINISTRATOR": "Administrator",
+
+    "WORD_COMMENT": "Comment",
+    "WORD_TITLE": "Title",
+    "WORD_EVERYONE": "Everyone",
+
+    "WORD_OK": "OK",
+    "WORD_SEARCH": "Search...",
+
+    "FORGOT_PASSWORD": "Forgot Password",
+    "SEND_EMAIL": "Send Email"
 }

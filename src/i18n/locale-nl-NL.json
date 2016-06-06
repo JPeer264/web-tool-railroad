@@ -11,6 +11,7 @@
 
     "LOGOUT": "Afmelden",
     "LOGIN": "Aanmelden",
+    "SIGNUP": "Registreer",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "TODO",
@@ -34,6 +35,11 @@
     "FORUM_ADD_COMMENT":    "TODO",
     "FORUM_BY":             "TODO",
     "FORUM_TOPIC":          "TODO",
+    "FORUM_NO_TOPIC":       "TODO",
+    "FORUM_NO_COMMENT":     "TODO",
+
+    "COOKIE_POLICY": "TODO",
+
 
     "RULES_NOSPAM": "TODO",
     "RULES_BEPOLITE": "TODO",
@@ -48,10 +54,22 @@
 
     "WORD_NAME": "TODO",
     "WORD_EMAIL": "TODO",
+    "WORD_PASSWORD": "TODO",
     "WORD_DESCRIPTION": "TODO",
     "WORD_PHONE": "TODO",
     "WORD_COUNTRY": "TODO",
     "WORD_CITY": "TODO",
     "WORD_ADDRESS": "TODO",
-    "WORD_ADMINISTRATOR": "TODO"
+    "WORD_ADMINISTRATOR": "TODO",
+
+    "WORD_COMMENT": "TODO",
+    "WORD_TITLE": "TODO",
+    "WORD_EVERYONE": "TODO",
+
+    "WORD_OK": "TODO",
+    "WORD_SEARCH": "TODO",
+
+    "FORGOT_PASSWORD": "TODO",
+    "SEND_EMAIL": "TODO"
+
 }

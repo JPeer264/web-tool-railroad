@@ -11,6 +11,7 @@
 
     "LOGOUT": "Ausloggen",
     "LOGIN":  "Einloggen",
+    "SIGNUP": "TODO",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "Firma hinzufügen",
@@ -34,6 +35,11 @@
     "FORUM_ADD_COMMENT":    "Kommentar hinzufügen",
     "FORUM_BY":             "Von",
     "FORUM_TOPIC":          "Kategorie",
+    "FORUM_NO_TOPIC":       "TODO",
+    "FORUM_NO_COMMENT":     "TODO",
+
+    "COOKIE_POLICY": "TODO",
+
 
     "RULES_NOSPAM": "Spam und unnötige Kommentare sollten vermieden werden.",
     "RULES_BEPOLITE": "Bleiben Sie stets freundlich und objektiv.",
@@ -48,10 +54,22 @@
 
     "WORD_NAME": "Name",
     "WORD_EMAIL": "Email",
+    "WORD_PASSWORD": "TODO",
     "WORD_DESCRIPTION": "Beschreibung",
     "WORD_PHONE": "Telefon",
     "WORD_COUNTRY": "Land",
     "WORD_CITY": "Stadt",
     "WORD_ADDRESS": "Adresse",
-    "WORD_ADMINISTRATOR": "Administrator"
+    "WORD_ADMINISTRATOR": "Administrator",
+
+    "WORD_COMMENT": "TODO",
+    "WORD_TITLE": "TODO",
+    "WORD_EVERYONE": "TODO",
+
+    "WORD_OK": "TODO",
+    "WORD_SEARCH": "TODO",
+
+    "FORGOT_PASSWORD": "TODO",
+    "SEND_EMAIL": "TODO"
+
 }

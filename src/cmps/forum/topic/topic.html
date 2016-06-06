@@ -25,8 +25,8 @@
         <div ng-repeat="comment in topic.comment" class="row">
             <div data-comment class="column"></div>
         </div>
-        <div data-ng-if="!topic.comment">
-            <h5>No topics found create one here!</h5>
+        <div >
+            <h5>{{ "FORUM_NO_COMMENT" | translate }}</h5>
         </div>
     </div>
     <div class="row flex-end">

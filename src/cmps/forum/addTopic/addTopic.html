@@ -1,12 +1,12 @@
 <div>
-    <a class="button full-width add-topic-btn" data-open="addTopic">Add Topic</a>
+    <a class="button full-width add-topic-btn" data-open="addTopic">{{ "FORUM_ADD_TOPIC" | translate }}</a>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="addTopic" data-reveal>
         <div class="rail-panel-inner">
             <div class="rail-header">
                 <div class="flex">
                     <div class="flex flex-start">
-                        ADD A TOPIC TODO i18n
+                        {{ "FORUM_ADD_TOPIC" | translate }}
                     </div>
                     <div class="flex flex-end">
                         <button  data-close aria-label="Close modal" ng-click="addTopicCtrl.close()" type="button">
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="large-12 medium-12 small-12 columns">
                             <md-input-container>
-                                <label>Title</label>
+                                <label>{{ "WORD_TITLE" | translate }}</label>
                                 <input type="title" data-ng-model="addTopicCtrl.newTopic.title" required/>
                             </md-input-container>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <md-input-container class="md-block">
-                                <label>Description</label>
+                                <label>{{ "WORD_DESCRIPTION" | translate }}</label>
                                 <textarea ng-model="addTopicCtrl.newTopic.description" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
                             </md-input-container>
                         </div>
@@ -50,13 +50,13 @@
                         </div>
                         <div class="large-6 columns">
                             <md-checkbox Class="check" ng-model="addTopicCtrl.checkAll.selected" ng-click="addTopicCtrl.checkAll()">
-                                Everyone
+                                {{ "WORD_EVERYONE" | translate }}
                             </md-checkbox>
                         </div>
                     </div>
                     <div class="flex flex-center">
                         <md-button class="button" type="submit" data-ng-disabled="addTopicCtrl.triggeredTopic">
-                            Add Topic
+                            {{ "FORUM_ADD_TOPIC" | translate }}
                         </md-button>
                         <div class="inline flex-start" data-ng-if="addTopicCtrl.triggeredTopic">
                             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
