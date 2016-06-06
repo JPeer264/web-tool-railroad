@@ -125,15 +125,15 @@ a.red {
     margin: 0 !important;
 }
 
+.placeholder {
+    background: rgba($light-gray, .7);
+    width: 80%;
+    height: .8rem;
+    animation: placeholder-blink 2s infinite;
+}
+
 .rail-panel {
     margin-bottom: $global-margin;
-
-    .placeholder {
-        background: rgba($light-gray, .7);
-        width: 80%;
-        height: 1rem;
-        animation: placeholder-blink 2s infinite;
-    }
 
     .row {
         margin: 0;
@@ -152,7 +152,6 @@ a.red {
         padding: 5px;
         background: $secondary-color;
         color: $body-font-color;
-        // margin-bottom: 10px;
         font-family: $header-font-family;
 
         .placeholder {

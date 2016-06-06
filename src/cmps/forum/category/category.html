@@ -1,14 +1,16 @@
 <div class="rail-panel">
     <div class="rail-panel-inner">
         <div class="rail-header">
-            <h4>{{ category.title }}</h4>
+            <h4>
+                {{ category.title }}
+            </h4>
         </div>
         <div class="rail-content a-background">
             <div class="row flex-center" data-ng-repeat="subcategory in category.subcategory">
                 <div class="column small-6">
                     <a data-ng-href="#/category/{{ subcategory.id }}">
                         <div>
-                        {{ subcategory.title }}
+                            {{ subcategory.title }}
                         </div>
                     </a>
                 </div>

@@ -2,62 +2,68 @@
     <a class="button full-width add-topic-btn" data-open="addTopic">Add Topic</a>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="addTopic" data-reveal>
-            <div class="rail-panel-inner">
-                <div class="rail-header">
-                    <div class="flex">
-                        <div class="flex flex-start">
-                            ADD A TOPIC TODO i18n
-                        </div>
-                        <div class="flex flex-end ">
-                            <button  data-close aria-label="Close modal" ng-click="addTopicCtrl.close()" type="button">
-                                <i class="fa fa-times fa-lg"></i>
-                            </button>
-                        </div>
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <div class="flex">
+                    <div class="flex flex-start">
+                        ADD A TOPIC TODO i18n
+                    </div>
+                    <div class="flex flex-end">
+                        <button  data-close aria-label="Close modal" ng-click="addTopicCtrl.close()" type="button">
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="rail-content">
-                    <form data-ng-submit="addTopicCtrl.addTopic()">
-                      <div class="row">
+            </div>
+            <div class="rail-content">
+                <form data-ng-submit="addTopicCtrl.addTopic()">
+                    <div class="row">
                         <div class="large-12 medium-12 small-12 columns">
                             <md-input-container>
                                 <label>Title</label>
-                                <input type="title" data-ng-model="addTopicCtrl.newTopic.title"/>
+                                <input type="title" data-ng-model="addTopicCtrl.newTopic.title" required/>
                             </md-input-container>
                         </div>
-                      </div>
-                      <div class="row">
+                    </div>
+                    <div class="row">
                         <div class="large-12 columns">
                             <md-input-container class="md-block">
-                              <label>Description</label>
-                              <textarea ng-model="addTopicCtrl.newTopic.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <label>Description</label>
+                                <textarea ng-model="addTopicCtrl.newTopic.description" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
                             </md-input-container>
                         </div>
-                      </div>
-                      <div class="row">
+                    </div>
+                    <div class="row">
                         <div class="large-6 columns">
                             <div flex="100" ng-repeat="job in addTopicCtrl.jobs">
-                               <md-checkbox class="check" ng-model="job.selected" ng-click="addTopicCtrl.toggleJob(job, selected)" >
-                                {{ job.title }}
-                               </md-checkbox>
+                                <md-checkbox class="check" ng-model="job.selected" ng-click="addTopicCtrl.toggleJob(job, selected)">
+                                    {{ job.title }}
+                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
                             <div flex="100" ng-repeat="company in addTopicCtrl.companies">
-                               <md-checkbox class="check" ng-model="company.selected" ng-click="addTopicCtrl.toggleCompany(company, selected)" >
-                                {{ company.name }}
-                               </md-checkbox>
+                                <md-checkbox class="check" ng-model="company.selected" ng-click="addTopicCtrl.toggleCompany(company, selected)" >
+                                    {{ company.name }}
+                                </md-checkbox>
                             </div>
                         </div>
                         <div class="large-6 columns">
                             <md-checkbox Class="check" ng-model="addTopicCtrl.checkAll.selected" ng-click="addTopicCtrl.checkAll()">
-                              Everyone
+                                Everyone
                             </md-checkbox>
                         </div>
-                      </div>
-                      <md-button class="button" type="submit">Add Topic</md-button>
+                    </div>
+                    <div class="flex flex-center">
+                        <md-button class="button" type="submit" data-ng-disabled="addTopicCtrl.triggeredTopic">
+                            Add Topic
+                        </md-button>
+                        <div class="inline flex-start" data-ng-if="addTopicCtrl.triggeredTopic">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
                 </form>
-                </div>
             </div>
+        </div>
     </div>
-
 </div>

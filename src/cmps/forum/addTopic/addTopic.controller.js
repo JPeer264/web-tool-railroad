@@ -33,6 +33,7 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
     vm.everyone = false;
     vm.currentUser = $scope.$root.currentUser;
     vm.currentId = $state.params.id;
+    vm.triggeredTopic = false;
 
     job.getAll().then(function(data) {
         vm.jobs = data.plain();
@@ -108,9 +109,10 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
             vm.listCompany  = [];
             vm.newTopic     = null;
             vm.checkAll.selected = false;
-        });
 
-        $('#addTopic').foundation('close');
+            vm.triggeredTopic = false;
+            $('#addTopic').foundation('close');
+        });
     };
 
     vm.close=function () {

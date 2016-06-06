@@ -72,12 +72,12 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
     });
 
     $mdThemingProvider.definePalette('railroad', {
-        '50': 'FFA74F',
+        '50': 'FFCA57',
         '100': 'ffffff',
         '200': 'ffffff',
         '300': 'ffffff',
         '400': 'ffffff',
-        '500': 'FFA74F',
+        '500': 'FFCA57',
         '600': 'e53935',
         '700': 'd32f2f',
         '800': 'c62828',
