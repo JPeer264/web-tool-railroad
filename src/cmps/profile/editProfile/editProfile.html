@@ -1,12 +1,21 @@
 
 <div>
-     <button data-open="editProfile"><i class="fa fa-gear"></i></button>
+     <button data-open="editProfile"><i class="fa fa-gear fa-lg"></i></button>
 
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="editProfile" data-reveal>
         <div class="rail-panel-inner">
             <div class="rail-header">
-                Edit Profile
+                <div class="flex">
+                    <div class="flex flex-start">
+                        Edit Profile TODO i18n
+                    </div>
+                    <div class="flex flex-end">
+                        <button  data-close aria-label="Close modal" ng-click="close()" type="button">
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="rail-content">
                 <form name="editForm" enctype="multipart/form-data">
@@ -133,8 +142,6 @@
                 </form>
             </div>
         </div>
-        <button class="close-button" data-close aria-label="Close modal" ng-click="close()" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
+      
     </div>
 </div>
