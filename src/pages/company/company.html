@@ -1,6 +1,6 @@
 <div class="row align-middle align-center">
     <div class="profile-picure column small-10 medium-4 large-3">
-        <img src="https://www.jpeer.at/railroad/testimage/logo.jpg" alt="Logo">
+        <img data-ng-src="{{company.picture_location}}" data-ng-alt="{{company.picture_alt}}">
     </div>
     <div class="column small-2 medium-1 large-1 align-left">
         <div class="social-media" ng-show="company.Twitter">
@@ -34,9 +34,17 @@
                 {{company.name}}
             </div>
             <div class="rail-content">
-                {{company.city}}, {{company.country.name}}<br>
-                {{company.phonenumber}}<br>
-                Employees: {{company.user.length}}
+                <div class="row">
+                    <div class="column small-12">
+                        <i class="fa fa-globe"></i> {{company.city}}, {{company.country.name}}
+                    </div>
+                    <div class=" column small-12">
+                        <i class="fa fa-phone"></i> {{company.phonenumber}}
+                    </div>
+                    <div class=" column small-12">
+                        <i class="fa fa-users"></i> Employees: {{company.user.length}}
+                    </div>
+                </div>
             </div>
         </div>
 
