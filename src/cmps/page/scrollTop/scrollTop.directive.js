@@ -35,13 +35,20 @@ function scrollTopDirective() {
                 });
 
                 $(document).on('scroll', function () {
-                    scrollTop = $(document).scrollTop();
+                    setTimeout(function() {
+                        // check if the cookie mode is activated
+                        if ($('#cookie-info').length !== 0) {
+                            return;
+                        }
 
-                    if (scrollTop > 70) {
-                        $('#scroll-top').addClass('scale');
-                    } else {
-                        $('#scroll-top').removeClass('scale');
-                    }
+                        scrollTop = $(document).scrollTop();
+
+                        if (scrollTop > 70) {
+                            $('#scroll-top').addClass('scale');
+                        } else {
+                            $('#scroll-top').removeClass('scale');
+                        }
+                    }, 500);
                 });
             }
         };
