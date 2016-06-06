@@ -1,0 +1,12 @@
+ <div class="rail-activity">
+    <a data-ng-href="#/topic/{{ comment.topic_id }}">
+        <div class="rail-activity-panel">
+            <div class="column date">
+                <i class="fa fa-calendar"></i> {{ getDate(comment.created_at) | date }}
+            </div>
+            <div class="column">
+                {{ comment.content}}
+            </div>
+        </div>
+    </a>
+</div>
