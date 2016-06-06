@@ -20,21 +20,27 @@ AddCommentController.$inject = [
 ];
 
 function AddCommentController($scope, comment, $state) {
+    var vm = this;
+    vm.currentUser = $scope.$root.currentUser;
+    vm.triggeredComment = false;
 
-    $scope.addComment=function(){
-        comment.create($state.params.id,$scope.comment).then(function(data) {
-            // added by jpeer
+    vm.addComment=function(){
+        vm.triggeredComment = true;
+
+        comment.create($state.params.id,vm.comment).then(function(data) {
             // async push and apply to scope
-            $scope.comment.user = $scope.currentUser;
-            $scope.comment.created_at = (new Date());
+            vm.comment.user = vm.currentUser;
+            vm.comment.created_at = (new Date());
 
-            $scope.topic.comment.push($scope.comment);
-            $scope.comment = null;
+            $scope.$parent.topic.comment.push(vm.comment);
+            vm.comment = null;
+
+            vm.triggeredComment = false;
+            $('#addComment').foundation('close');
         });
-        $('#addComment').foundation('close');
     }
 
-     $scope.close=function (){
-         $scope.comment=null;
-     }
+    vm.close = function () {
+        vm.comment = null;
+    }
 }

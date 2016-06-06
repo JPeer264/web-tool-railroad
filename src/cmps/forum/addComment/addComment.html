@@ -1,38 +1,40 @@
-
 <div>
     <a class="button full-width" data-open="addComment">{{ "FORUM_ADD_COMMENT" | translate }}</a>
 
-
     <div class="reveal rail-panel small-10 medium-10 large-10" id="addComment" data-reveal>
-            <div class="rail-panel-inner">
-                <div class="rail-header">
-                    <div class="flex">
-                        <div class="flex flex-start">
-                            ADD A COMMENT TODO i18n
-                        </div>
-                        <div class="flex flex-end">
-                            <button  data-close aria-label="Close modal" ng-click="close()" type="button">
-                                <i class="fa fa-times fa-lg"></i>
-                            </button>
-                        </div>
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <div class="flex">
+                    <div class="flex flex-start">
+                    ADD A COMMENT TODO i18n
+                    </div>
+                    <div class="flex flex-end">
+                        <button  data-close aria-label="Close modal" ng-click="addCommentCtrl.close()" type="button">
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="rail-content">
-                    <form>
-                      <div class="row">
+            </div>
+            <div class="rail-content">
+                <form data-ng-submit="addCommentCtrl.addComment()">
+                    <div class="row">
                         <div class="large-12 columns">
                             <md-input-container class="md-block">
-                              <label>Comment</label>
-                              <textarea ng-model="comment.content" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                                <label>Comment</label>
+                                <textarea ng-model="addCommentCtrl.comment.content" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
                             </md-input-container>
                         </div>
-                      </div>
-
-                      <md-button class="button"  data-ng-click="addComment()">Add Comment</md-button>
-
+                    </div>
+                    <div class="flex flex-center">
+                        <md-button type="submit" class="button no-margin" data-ng-disabled="addCommentCtrl.triggeredComment">
+                            Add Comment
+                        </md-button>
+                        <div class="inline flex-start" data-ng-if="addCommentCtrl.triggeredComment">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
                 </form>
-                </div>
             </div>
+        </div>
     </div>
-
 </div>
