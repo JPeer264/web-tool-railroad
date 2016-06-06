@@ -16,5 +16,7 @@ CategoryController.$inject = [
 ];
 
 function CategoryController($scope) {
+    var vm = this;
 
+    vm.getDate = $scope.$root.getDate;
 }

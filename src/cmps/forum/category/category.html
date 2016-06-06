@@ -37,7 +37,7 @@
                                         {{ subcategory.latest_comment.user.firstname }} {{ subcategory.latest_comment.user.lastname }}
                                     </a>
                                 </div>
-                                <div><i class="fa fa-calendar"></i> {{ getDate(subcategory.latest_comment.created_at) | date }}</div>
+                                <div><i class="fa fa-calendar"></i> {{ categoryCtrl.getDate(subcategory.latest_comment.created_at) | date }}</div>
                             </div>
 
                             <!-- if latest_topic -->
@@ -52,7 +52,7 @@
                                         {{ subcategory.latest_topic.user.firstname }} {{ subcategory.latest_topic.user.lastname }}
                                     </a>
                                 </div>
-                                <div><i class="fa fa-calendar"></i> {{ getDate(subcategory.latest_topic.created_at) | date }}</div>
+                                <div><i class="fa fa-calendar"></i> {{ categoryCtrl.getDate(subcategory.latest_topic.created_at) | date }}</div>
                             </div>
                         </div>
                 </div>
