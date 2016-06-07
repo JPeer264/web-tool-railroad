@@ -25,6 +25,7 @@ function forgotDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
+                $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#changePassword'));
 
             }

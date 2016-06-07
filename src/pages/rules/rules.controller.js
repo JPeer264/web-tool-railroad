@@ -12,9 +12,14 @@ angular
  * RulesCtrl for the rules page
  */
 RulesController.$inject = [
-	'$scope'
+	'$scope',
+    '$translate',
 ];
 
-function RulesController($scope) {
-    console.log('rules');
+function RulesController($scope, $translate) {
+
+    $translate('TEST_2.NUMMER_1').then(function (translation) {
+        console.log('works');
+        console.log(translation);
+    });
 }
