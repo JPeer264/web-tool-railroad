@@ -13,7 +13,7 @@
                     {{ topic.title }}
                 </h5>
             </div>
-            <div class="rail-content">
+            <div class="rail-content line-breaks">
                 {{ topic.description }}
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div ng-repeat="comment in topic.comment" class="row">
             <div data-comment class="column"></div>
         </div>
-        <div >
+        <div data-ng-if="!topic.comment">
             <h5>{{ "FORUM_NO_COMMENT" | translate }}</h5>
         </div>
     </div>
