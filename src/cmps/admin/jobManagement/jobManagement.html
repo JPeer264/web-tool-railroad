@@ -45,21 +45,28 @@
                     </div>
                 </div>
                 <div class="rail-content">
-                    <form data-ng-submit="updateJob(manageJob.id)">
+                    <form data-ng-submit="updateJob(manageJob.id)" name="jobManageForm">
                         <!-- edit job -->
                         <div class="row">
                             <div class="columns small-12">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>{{ "WORD_JOB" | translate }}</label>
-                                    <input type="text" data-ng-model="manageJob.title" required/>
+                                    <input type="text" data-ng-model="manageJob.title" name="title" required/>
+                                    <div ng-messages="jobManageForm.title.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_DESCRIPTION" | translate }}</label>
-                                    <input type="text" data-ng-model="manageJob.description" required/>
+                                    <textarea ng-model="manageJob.description" name="content" md-maxlength="400" rows="5" md-select-on-focus required></textarea>
+                                    <div ng-messages="jobManageForm.content.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        <div ng-message="md-maxlength" data-translate="FORM_MAX_LENGTH" data-translate-value-max="{{ 400 }}"></div>
+                                    </div>
                                 </md-input-container>
                             </div>
                             <div class="columns small-12">
-                                <md-button class="button" type="submit">
+                                <md-button ng-disabled="jobManageForm.$invalid" class="button" type="submit">
                                     <span>{{ "WORD_CHANGE" | translate }}</span>
                                 </md-button>
                             </div>

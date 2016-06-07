@@ -14,6 +14,7 @@ angular.module('railroad', [
     'ngSanitize',
     'ngFileUpload',
     'ngPassword',
+    'ngMessages',
 ]);
 
 var SERVERPATH = 'http://localhost/web-tool-railroad-api';

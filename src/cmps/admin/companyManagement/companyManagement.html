@@ -57,49 +57,71 @@
                     </div>
                 </div>
                 <div class="rail-content">
-                    <form data-ng-submit="isChangeCompany ? updateCompany(manageCompany.id) : addNewCompany()">
+                    <form data-ng-submit="isChangeCompany ? updateCompany(manageCompany.id) : addNewCompany()" name="companyForm">
                         <!-- add company -->
                         <div class="row">
                             <div class="columns small-12">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>{{ "WORD_NAME" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.name" required/>
+                                    <input type="text" data-ng-model="manageCompany.name" name="name" required/>
+                                    <div ng-messages="companyForm.name.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_EMAIL" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.email" required/>
+                                    <input type="email" data-ng-model="manageCompany.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                    <div ng-messages="companyForm.email.$error" multiple md-auto-hide="false">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_PHONE" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.phonenumber" required/>
+                                    <input type="text" data-ng-model="manageCompany.phonenumber" name="phone" required/>
+                                    <div ng-messages="companyForm.phone.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_ADDRESS" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.address" required/>
+                                    <input type="text" data-ng-model="manageCompany.address" name="address" required/>
+                                    <div ng-messages="companyForm.address.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_CITY" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.city" required />
+                                    <input type="text" data-ng-model="manageCompany.city" name="city" required />
+                                    <div ng-messages="companyForm.city.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_COUNTRY" | translate }}</label>
-                                    <md-select ng-model="manageCompany.country_id" required>
+                                    <md-select ng-model="manageCompany.country_id" name="country" required>
                                         <md-option ng-repeat="country in countries" value="{{ country.id }}" required>
                                             {{ country.name }}
                                         </md-option>
                                     </md-select>
+                                    <div ng-messages="companyForm.country.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container>
                                     <label>{{ "WORD_ADMINISTRATOR" | translate }}</label>
-                                    <md-select ng-model="manageCompany.administrator" required>
+                                    <md-select ng-model="manageCompany.administrator" name="admin" required>
                                         <md-option ng-repeat="user in users" value="{{ user.id }}" required>
                                             {{ user.firstname }} {{ user.lastname }}
                                         </md-option>
                                     </md-select>
+                                    <div ng-messages="companyForm.admin.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                             </div>
                             <div class="columns small-12">
-                                <md-button class="button" type="submit">
+                                <md-button ng-disabled="companyForm.$invalid"  class="button" type="submit">
                                     <span data-ng-if="isChangeCompany">{{ "WORD_CHANGE" | translate }}</span>
                                     <span data-ng-if="!isChangeCompany">{{ "WORD_ADD" | translate }}</span>
                                 </md-button>

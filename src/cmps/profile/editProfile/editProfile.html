@@ -23,13 +23,19 @@
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>{{ "WORD_FIRST_NAME" | translate }}</label>
-                                <input type="text" data-ng-model="user.firstname" required/>
+                                <input type="text" data-ng-model="user.firstname" name="firstname" required/>
+                                <div ng-messages="editForm.firstname.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>{{ "WORD_LAST_NAME" | translate }}</label>
-                                <input type="text" data-ng-model="user.lastname" required/>
+                                <input type="text" data-ng-model="user.lastname" name="lastname" required>
+                                <div ng-messages="editForm.lastname.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                     </div>
@@ -44,6 +50,9 @@
                             <md-input-container>
                                 <label>{{ "PASSWORD_RETYPE" | translate }}</label>
                                 <input type="password" match-password="newPassword" name="confirmPassword" data-ng-model="user.passwordConfirm" />
+                                <div ng-messages="editForm.confirmPassword.$error">
+                                    <div ng-message="passwordMatch">{{ "FORM_MATCH_PASSWORD" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                     </div>
@@ -51,23 +60,29 @@
                         <div class="small-12 medium-12 large-6 columns">
                             <md-input-container  class="md-block" flex-gt-xs>
                                 <label>{{ "WORD_ADDRESS" | translate }}</label>
-                                <input type="text" data-ng-model="user.address" required/>
+                                <input type="text" data-ng-model="user.address" name="address"/>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-3 columns">
                             <md-input-container  class="md-block" flex-gt-xs>
                                 <label>{{ "WORD_CITY" | translate }}</label>
-                                <input type="text" data-ng-model="user.city" max="2100-12-31" min="1900-01-02">
+                                <input type="text" data-ng-model="user.city" name="city" required>
+                                <div ng-messages="editForm.city.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-3 columns">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>{{ "WORD_COUNTRY" | translate }}</label>
-                                <md-select ng-model="user.country_id" required>
+                                <md-select ng-model="user.country_id" name="country" required>
                                     <md-option ng-repeat="country in countries" value="{{country.id}}">
                                         {{country.name}}
                                     </md-option>
                                 </md-select>
+                                <div ng-messages="editForm.country.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                     </div>
@@ -75,7 +90,11 @@
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>{{ "WORD_EMAIL" | translate }}</label>
-                                <input type="email" data-ng-model="user.email" required/>
+                                <input type="email" data-ng-model="user.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                <div ng-messages="editForm.email.$error" multiple md-auto-hide="false">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
@@ -116,14 +135,27 @@
 
 
 
-                        <!--<div class="row">
-                          <div class="large-12 columns">
-                              <label>{{ "WORD_JOB" | translate }}
-                                <select>
-                                  <option  ng-repeat="job in jobs" value="{{job.id}}">{{job.title}}</option>
-                                </select>
-                              </label>
-                            </div>
+                    <!--<div class="row">
+                        <div class="small-12 medium-6 large-3 columns" ng-show="user.job_id==1">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_JOB" | translate }}</label>
+                                <md-select ng-model="user.job_id" required>
+                                    <md-option ng-repeat="job in jobs" value="{{job.id}}">
+                                        {{job.title}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 medium-6 large-3 columns" ng-show="user.company_id==1">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_COMPANY" | translate }}</label>
+                                <md-select ng-model="user.company_id" required>
+                                    <md-option ng-repeat="company in companies" value="{{company.id}}">
+                                        {{company.title}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
                         </div>-->
                     <div class="row">
                         <div class="large-12 columns">

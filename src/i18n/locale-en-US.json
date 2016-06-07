@@ -57,6 +57,11 @@
     "FORUM_LATEST_COMMENTS": "Latest comments",
     "FORUM_LATEST_TOPICS": "Latest Topics",
 
+    "FORM_REQUIRED": "This is required.",
+    "FORM_MAX_LENGTH": "It has to be less than {{max}} characters long.",
+    "FORM_MATCH_PASSWORD": "Both passwords should match.",
+    "FORM_EMAIL_ERROR": "Input must be an email address.",
+
     "COOKIE_POLICY": "When you press ok you accept our cookie policy!",
 
     "RULES_NOSPAM": "Spam is not allowed.",

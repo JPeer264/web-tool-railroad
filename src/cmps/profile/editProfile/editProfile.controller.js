@@ -10,6 +10,7 @@ angular
  * @requires service.user
  * @requires service.job
  * @requires service.country
+ * @requires service.company
  *
  * @description
  * editProfileCtrl for the editProfile directive
@@ -19,12 +20,17 @@ editProfileController.$inject = [
     'user',
     'job',
     'country',
+    'company',
 ];
 
-function editProfileController($scope,user,job, country) {
+function editProfileController($scope,user,job, country, company) {
 
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
+    });
+
+    company.getAll().then(function(data) {
+        $scope.companies = data.plain();
     });
 
     country.getAll().then(function(data) {

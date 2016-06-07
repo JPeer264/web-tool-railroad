@@ -4,24 +4,34 @@
     <div class="reveal rail-panel small-10 medium-10 large-10" id="changePassword" data-reveal>
         <div class="rail-panel-inner">
             <div class="rail-header">
-                {{ "FORGOT_PASSWORD" | translate }}
+                <div class="flex">
+                    <div class="flex flex-start">
+                        {{ "FORGOT_PASSWORD" | translate }}
+                    </div>
+                    <div class="flex flex-end">
+                        <button  data-close aria-label="Close modal" ng-click="close()" type="button">
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="rail-content">
-                <form>
+                <form name="forgotForm">
                     <div class="row">
                         <div class=" columns">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>{{ "WORD_EMAIL" | translate }}</label>
-                                <input type="email" data-ng-model="user.email" required/>
+                                <input type="email" data-ng-model="user.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                <div ng-messages="forgotForm.email.$error" multiple md-auto-hide="false">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                </div>
                             </md-input-container>
                         </div>
                     </div>
-                    <md-button class="md-flat md-primary" data-ng-click="forgot()">{{ "SEND_EMAIL" | translate }}</md-button>
+                    <md-button class="md-flat md-primary" ng-disabled="forgotForm.$invalid" data-ng-click="forgot()">{{ "SEND_EMAIL" | translate }}</md-button>
                 </form>
             </div>
         </div>
-        <button class="close-button" data-close aria-label="Close modal" ng-click="close()" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
     </div>
 </div>

@@ -16,36 +16,46 @@
                     </div>
                 </div>
                 <div class="rail-content">
-                    <form data-ng-submit="inviteUser()">
+                    <form data-ng-submit="inviteUser()" name="inviteForm">
                         <div class="row">
                             <div class="columns small-12">
                                 <md-input-container>
                                     <label>{{ "WORD_EMAIL" | translate }}</label>
-                                    <input type="email" data-ng-model="invite.email" required/>
+                                    <input type="email" data-ng-model="invite.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                    <div ng-messages="inviteForm.email.$error" multiple md-auto-hide="false">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id === 3">
                                     <label>{{ "WORD_COMPANY" | translate }}</label>
                                     <input ng-model="currentUser.company.name" disabled>
                                 </md-input-container>
-                                <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id < 3" required>
+                                <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id < 3" >
                                     <label>{{ "WORD_COMPANY" | translate }}</label>
-                                    <md-select ng-model="invite.company_id" >
+                                    <md-select ng-model="invite.company_id" name="companyAll" required>
                                         <md-option ng-repeat="company in companies" value="{{ company.id }}">
                                             {{ company.name }}
                                         </md-option>
                                     </md-select>
+                                    <div ng-messages="inviteForm.companyAll.$error">
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
-                                <md-input-container class="md-block" flex-gt-sm required>
+                                <md-input-container class="md-block" flex-gt-sm >
                                     <label>{{ "WORD_JOB" | translate }}</label>
-                                    <md-select ng-model="invite.job_id" >
+                                    <md-select ng-model="invite.job_id" name="job" required>
                                         <md-option ng-repeat="job in jobs" value="{{ job.id }}">
                                             {{ job.title }}
                                         </md-option>
                                     </md-select>
+                                    <div ng-messages="inviteForm.job.$error>
+                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    </div>
                                 </md-input-container>
                             </div>
                             <div class="columns small-12">
-                                <md-button class="button" type="submit">{{ "ADMIN_INVITE_USER" | translate }}</md-button>
+                                <md-button class="button" ng-disabled="inviteForm.$invalid" type="submit">{{ "ADMIN_INVITE_USER" | translate }}</md-button>
                             </div>
                         </div>
                     </form>
