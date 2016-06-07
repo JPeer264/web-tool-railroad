@@ -1,17 +1,20 @@
 {
     "ERROR_WRONG_CREDENTIALS":  "TODO",
     "ERROR_STATUS":             "TODO",
+    "ERROR_FILE_SIZE": "Bestand is te groot",
 
     "NAV_HOME":         "Startpagina",
     "NAV_SETTINGS":     "Instellingen",
     "NAV_PROFILE":      "Profile",
-    "NAV_CATEGORIES":   "categorieën",
+    "NAV_CATEGORIES":   "Categorieën",
     "NAV_FAQ":          "TODO",
     "NAV_RULES":        "Regels",
 
     "LOGOUT": "Afmelden",
     "LOGIN": "Aanmelden",
     "SIGNUP": "Registreer",
+    "SAVE": "TODO",
+    "REMOVE": "TODO",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "TODO",
@@ -30,6 +33,20 @@
     "ADMIN_NAVBAR_JOBMANAGEMENT": "TODO",
 
     "WELCOME": "Welkom bij ons spoorweg museum webtool!",
+    "IMPORTANT_INTRODUCTION": "TODO",
+    "INTRODUCTION": "TODO<a class='red' href='{{ rules }}'>TODO</a> TODO <a class='red' href='{{ faq }}'> TODO </a>.",
+    "WELCOM_BACK": "TODO",
+    "LATEST_LOGIN": "Je laatste login was op {{ date }}.",
+
+    "LANDING_QUOTE_1": "TODO",
+    "LANDING_QUOTE_2": "TODO",
+    "LANDING_QUOTE_2": "TODO",
+    "LANDING_SHARE_THOUGHTS": "TODO",
+    "LANDING_THOUGHTS": "TODO",
+    "LANDING_PRIVATE_COMM": "TODO",
+    "LANDING_PRIVATE": "TODO",
+    "LANDING_JOIN_TODAY": "TODO",
+    "LANDING_JOIN": "TODO",
 
     "FORUM_ADD_TOPIC":      "TODO",
     "FORUM_ADD_COMMENT":    "TODO",
@@ -37,6 +54,8 @@
     "FORUM_TOPIC":          "TODO",
     "FORUM_NO_TOPIC":       "TODO",
     "FORUM_NO_COMMENT":     "TODO",
+    "FORUM_LATEST_COMMENTS": "TODO",
+    "FORUM_LATEST_TOPICS": "TODO",
 
     "COOKIE_POLICY": "TODO",
 
@@ -45,31 +64,45 @@
     "RULES_BEPOLITE": "TODO",
 
     "WORD_ADD": "TODO",
-    "WORD_EDIT": "TODO",
+    "EDIT": "TODO",
     "WORD_CHANGE": "TODO",
     "WORD_JOB": "TODO",
     "WORD_JOBS": "TODO",
-    "WORD_COMPANY": "TODO",
-    "WORD_COMPANIES": "TODO",
+    "WORD_COMPANY": "Bedrijf",
+    "WORD_COMPANIES": "Bedrijven",
 
-    "WORD_NAME": "TODO",
+    "WORD_NAME": "Naam",
     "WORD_EMAIL": "TODO",
-    "WORD_PASSWORD": "TODO",
-    "WORD_DESCRIPTION": "TODO",
+    "WORD_PASSWORD": "Wachtwoord",
+    "WORD_DESCRIPTION": "Beschrijving",
     "WORD_PHONE": "TODO",
-    "WORD_COUNTRY": "TODO",
-    "WORD_CITY": "TODO",
+    "WORD_COUNTRY": "Land",
+    "WORD_CITY": "Stad",
     "WORD_ADDRESS": "TODO",
     "WORD_ADMINISTRATOR": "TODO",
 
+    "WORD_FIRST_NAME": "Voornaam",
+    "WORD_LAST_NAME": "Achternaam",
+    "WORD_BIRTHDAY": "Geboortedatum",
+    "WORD_GENDER": "Geslacht",
+    "WORD_MALE": "Man",
+    "WORD_FEMALE": "Vrouw",
+    "PASSWORD_RETYPE": "Wachtwoord opnieuw invoeren",
+
     "WORD_COMMENT": "TODO",
-    "WORD_TITLE": "TODO",
-    "WORD_EVERYONE": "TODO",
+    "WORD_TITLE": "Titel",
+    "WORD_EVERYONE": "Iedereen",
+    "WORD_EMPLOYEES": "Werknemers",
+    "WORD_ABOUT": "TODO",
+    "WORK_INFO": "TODO",
+    "WORD_COLLEGUES": "Collega's",
 
     "WORD_OK": "TODO",
     "WORD_SEARCH": "TODO",
+    "WORD_BACK": "Terug",
+    "EDIT_PROFILE": "TODO",
 
-    "FORGOT_PASSWORD": "TODO",
-    "SEND_EMAIL": "TODO"
+    "FORGOT_PASSWORD": "Wachtwoord vergeten",
+    "SEND_EMAIL": "Stuur email"
 
 }

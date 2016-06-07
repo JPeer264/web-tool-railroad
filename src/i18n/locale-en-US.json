@@ -1,6 +1,7 @@
 {
     "ERROR_WRONG_CREDENTIALS":  "Wrong email or password.",
     "ERROR_STATUS":             "Sorry! Page not found. Back to the <a href='/'>home</a> page.",
+    "ERROR_FILE_SIZE": "File too large",
 
     "NAV_HOME":         "Home",
     "NAV_SETTINGS":     "Settings",
@@ -12,6 +13,8 @@
     "LOGOUT": "Log out",
     "LOGIN":  "Log in",
     "SIGNUP": "Sign up",
+    "SAVE": "Save changes",
+    "REMOVE": "Remove",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "Add company",
@@ -30,6 +33,20 @@
     "ADMIN_NAVBAR_JOBMANAGEMENT": "Jobmanagement",
 
     "WELCOME": "Welcome to our the railroad museum tool!",
+    "IMPORTANT_INTRODUCTION": "Important introduction!",
+    "INTRODUCTION": "Welcome to our Board. Before you start and add some threads or comment on already existing ones, please read the <a class='red' href='{{ rules }}'>Rules</a> first. If you have any questions read our <a class='red' href='{{ faq }}'>Frequently Asked Questions</a>.",
+    "WELCOM_BACK": "Welcome back!",
+    "LATEST_LOGIN": "Latest login was on {{ date }}.",
+
+    "LANDING_QUOTE_1": "The mission is to provide an online meeting spot where we can get in touch with one another, learn from each other and much more! Our features include fast and easy communication, private or public publications, overview of the museums our members represent, discussion boards with relevant topics and media sharing.",
+    "LANDING_QUOTE_2": "We are here to connect the railway museum community as the railway once connected the whole world! The mission is to provide an online meeting spot where we can get in touch with one another, learn from each other and much more!",
+    "LANDING_QUOTE_2": "The mission is to provide an online meeting spot where we can get in touch with one another, learn from each other and much more! Our features include fast and easy communication, private or public publications, overview of the museums our members represent, discussion boards with relevant topics and media sharing.",
+    "LANDING_SHARE_THOUGHTS": "Share your thoughts",
+    "LANDING_THOUGHTS": "Do you have some questions about a specific topic? Or do you have any suggestions to how to improve the drift of a railway museum? Elephorum makes it easier than ever before to share ideas or questions with your colleagues worldwide. You can share your thoughts and ideas by either joining an already existing topic/thread or create a new one and invite others to share their.",
+    "LANDING_PRIVATE_COMM": "Private communication",
+    "LANDING_PRIVATE": "Elephorum is a discussion site for railway museum personnel only. We have made this forum private so that we easily can filter out unwanted guests. The goal is to connect with each other online and have a private meeting place.",
+    "LANDING_JOIN_TODAY": "Join today",
+    "LANDING_JOIN": "There are hundreds of railway museums worldwide. Our goal is to identify each one of them and make them a part of our global railway family. This will help us to find and get in touch with each other much faster and easier than before.",
 
     "FORUM_ADD_TOPIC":      "Add topic",
     "FORUM_ADD_COMMENT":    "Add comment",
@@ -37,6 +54,8 @@
     "FORUM_TOPIC":          "Topic",
     "FORUM_NO_TOPIC":       "No topics found create the first here!",
     "FORUM_NO_COMMENT":     "No comments found create one here!",
+    "FORUM_LATEST_COMMENTS": "Latest comments",
+    "FORUM_LATEST_TOPICS": "Latest Topics",
 
     "COOKIE_POLICY": "When you press ok you accept our cookie policy!",
 
@@ -44,7 +63,7 @@
     "RULES_BEPOLITE": "Be always polite and objectiv.",
 
     "WORD_ADD": "Add",
-    "WORD_EDIT": "Edit",
+    "EDIT": "Edit",
     "WORD_CHANGE": "Change",
     "WORD_JOB": "Job",
     "WORD_JOBS": "Jobs",
@@ -61,12 +80,26 @@
     "WORD_ADDRESS": "Address",
     "WORD_ADMINISTRATOR": "Administrator",
 
+    "WORD_FIRST_NAME": "First Name",
+    "WORD_LAST_NAME": "Last Name",
+    "WORD_BIRTHDAY": "Birthday",
+    "WORD_GENDER": "Gender",
+    "WORD_MALE": "Male",
+    "WORD_FEMALE": "Female",
+    "PASSWORD_RETYPE": "Re-type Password",
+
     "WORD_COMMENT": "Comment",
     "WORD_TITLE": "Title",
     "WORD_EVERYONE": "Everyone",
+    "WORD_EMPLOYEES": "Employees",
+    "WORD_ABOUT": "About",
+    "WORK_INFO": "Work information",
+    "WORD_COLLEGUES": "Collegues",
 
     "WORD_OK": "OK",
     "WORD_SEARCH": "Search...",
+    "WORD_BACK": "Back",
+    "EDIT_PROFILE": "Edit profile",
 
     "FORGOT_PASSWORD": "Forgot Password",
     "SEND_EMAIL": "Send Email"

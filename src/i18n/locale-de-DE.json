@@ -1,6 +1,7 @@
 {
     "ERROR_WRONG_CREDENTIALS":  "Falsche email oder falsches password.",
     "ERROR_STATUS":             "Entschuldigung! Diese Seite konnte nicht gefunden werden. Zurück zur <a href='/'>Startseite</a>.",
+    "ERROR_FILE_SIZE": "TODO",
 
     "NAV_HOME":         "Startseite",
     "NAV_SETTINGS":     "Einstellungen",
@@ -12,6 +13,8 @@
     "LOGOUT": "Ausloggen",
     "LOGIN":  "Einloggen",
     "SIGNUP": "TODO",
+    "SAVE": "TODO",
+    "REMOVE": "TODO",
 
     "ADMIN": "Admin",
     "ADMIN_ADD_COMPANY": "Firma hinzufügen",
@@ -30,6 +33,21 @@
     "ADMIN_NAVBAR_JOBMANAGEMENT": "Jobmanagement",
 
     "WELCOME":  "Willkommen zu unserem Zugmuseumstool!",
+    "IMPORTANT_INTRODUCTION": "TODO",
+    "INTRODUCTION": "TODO<a class='red' href='{{ rules }}'>TODO</a> TODO <a class='red' href='{{ faq }}'> TODO </a>.",
+    "WELCOM_BACK": "TODO",
+    "LATEST_LOGIN": "TODO {{ date }}.",
+
+    "LANDING_QUOTE_1": "TODO",
+    "LANDING_QUOTE_2": "TODO",
+    "LANDING_QUOTE_2": "TODO",
+    "LANDING_SHARE_THOUGHTS": "TODO",
+    "LANDING_THOUGHTS": "TODO",
+    "LANDING_PRIVATE_COMM": "TODO",
+    "LANDING_PRIVATE": "TODO",
+    "LANDING_JOIN_TODAY": "TODO",
+    "LANDING_JOIN": "TODO",
+
 
     "FORUM_ADD_TOPIC":      "Kategorie hinzufügen",
     "FORUM_ADD_COMMENT":    "Kommentar hinzufügen",
@@ -37,6 +55,8 @@
     "FORUM_TOPIC":          "Kategorie",
     "FORUM_NO_TOPIC":       "TODO",
     "FORUM_NO_COMMENT":     "TODO",
+    "FORUM_LATEST_COMMENTS": "TODO",
+    "FORUM_LATEST_TOPICS": "TODO",
 
     "COOKIE_POLICY": "TODO",
 
@@ -45,7 +65,7 @@
     "RULES_BEPOLITE": "Bleiben Sie stets freundlich und objektiv.",
 
     "WORD_ADD": "Hinzufügen",
-    "WORD_EDIT": "Bearbeiten",
+    "EDIT": "Bearbeiten",
     "WORD_CHANGE": "Verändern",
     "WORD_JOB": "Job",
     "WORD_JOBS": "Jobs",
@@ -62,12 +82,26 @@
     "WORD_ADDRESS": "Adresse",
     "WORD_ADMINISTRATOR": "Administrator",
 
+    "WORD_FIRST_NAME": "TODO",
+    "WORD_LAST_NAME": "TODO",
+    "WORD_BIRTHDAY": "TODO",
+    "WORD_GENDER": "TODO",
+    "WORD_MALE": "TODO",
+    "WORD_FEMALE": "TODO",
+    "PASSWORD_RETYPE": "TODO",
+
     "WORD_COMMENT": "TODO",
     "WORD_TITLE": "TODO",
     "WORD_EVERYONE": "TODO",
+    "WORD_EMPLOYEES": "TODO",
+    "WORD_ABOUT": "TODO",
+    "WORK_INFO": "TODO",
+    "WORD_COLLEGUES": "TODO",
 
     "WORD_OK": "TODO",
     "WORD_SEARCH": "TODO",
+    "WORD_BACK": "TODO",
+    "EDIT_PROFILE": "TODO",
 
     "FORGOT_PASSWORD": "TODO",
     "SEND_EMAIL": "TODO"

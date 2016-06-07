@@ -45,7 +45,7 @@
                             <i class="fa fa-envelope"></i> {{company.email}}
                         </div>
                     <div class=" column small-12">
-                        <i class="fa fa-users"></i> Employees: {{company.user.length}}
+                        <i class="fa fa-users"></i> {{ "WORD_EMPLOYEES" | translate }}: {{company.user.length}}
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
     <div class="rail-panel column align-middle align-center small-12 medium-12 large-12">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                Employees
+                {{ "WORD_EMPLOYEES" | translate }}
             </div>
             <div class="row ">
                 <div class="column small-12 medium-3 large-2" data-ng-repeat="user in company.user">

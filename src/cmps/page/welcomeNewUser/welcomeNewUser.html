@@ -2,22 +2,22 @@
     <div class="rail-panel" data-ng-if="currentUser.login_count < 5">
         <div class="rail-panel-inner red-border">
             <div class="rail-header red">
-                Important introduction! TODO i18n
+                {{ "IMPORTANT_INTRODUCTION" | translate }}
             </div>
             <div class="rail-content">
-                Welcome to our Board. Before you start and add some threads or comment on already existing ones, please read the <a class="red" href="#/rules">Rules</a> first. If you have any questions read our <a class="red" href="#/faq">Frequently Asked Questions</a>. TODO i18n
+                <div data-translate="INTRODUCTION" data-translate-value-rules="#/rules" data-translate-value-faq="#/faq"></div>
             </div>
         </div>
     </div>
     <div class="rail-panel" data-ng-if="currentUser.login_count >= 5">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                Welcome back! TODO i18n
+                {{ "WELCOME_BACK" | translate }}
             </div>
             <div class="rail-content">
                 <p>{{ "WELCOME" | translate }}</p>
 
-                <span>Latest login was on {{ getDate(currentUser.last_login) | date }}. TODO i18n</span>
+                <span data-translate="LATEST_LOGIN" data-translate-value-date="{{ getDate(currentUser.last_login) | date }}"></span>
             </div>
         </div>
     </div>

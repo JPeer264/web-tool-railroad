@@ -8,7 +8,7 @@
             <div class="rail-header">
                 <div class="flex">
                     <div class="flex flex-start">
-                        Edit Profile TODO i18n
+                        {{ "EDIT_PROFILE" | translate }}
                     </div>
                     <div class="flex flex-end">
                         <button  data-close aria-label="Close modal" ng-click="close()" type="button">
@@ -22,13 +22,13 @@
                     <div class="row">
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>First Name</label>
+                                <label>{{ "WORD_FIRST_NAME" | translate }}</label>
                                 <input type="text" data-ng-model="user.firstname" required/>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>Last Name</label>
+                                <label>{{ "WORD_LAST_NAME" | translate }}</label>
                                 <input type="text" data-ng-model="user.lastname" required/>
                             </md-input-container>
                         </div>
@@ -36,13 +36,13 @@
                     <div class="row">
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>Password</label>
+                                <label>{{ "WORD_PASSWORD" | translate }}</label>
                                 <input type="password" name="newPassword" data-ng-model="user.passwordNew" />
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>Re-type Password</label>
+                                <label>{{ "PASSWORD_RETYPE" | translate }}</label>
                                 <input type="password" match-password="newPassword" name="confirmPassword" data-ng-model="user.passwordConfirm" />
                             </md-input-container>
                         </div>
@@ -50,19 +50,19 @@
                      <div class="row">
                         <div class="small-12 medium-12 large-6 columns">
                             <md-input-container  class="md-block" flex-gt-xs>
-                                <label>Address</label>
+                                <label>{{ "WORD_ADDRESS" | translate }}</label>
                                 <input type="text" data-ng-model="user.address" required/>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-3 columns">
                             <md-input-container  class="md-block" flex-gt-xs>
-                                <label>City</label>
+                                <label>{{ "WORD_CITY" | translate }}</label>
                                 <input type="text" data-ng-model="user.city" max="2100-12-31" min="1900-01-02">
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-3 columns">
                             <md-input-container class="md-block" flex-gt-sm>
-                                <label>Country</label>
+                                <label>{{ "WORD_COUNTRY" | translate }}</label>
                                 <md-select ng-model="user.country_id" required>
                                     <md-option ng-repeat="country in countries" value="{{country.id}}">
                                         {{country.name}}
@@ -74,13 +74,13 @@
                     <div class="row">
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>EmailAddress</label>
+                                <label>{{ "WORD_EMAIL" | translate }}</label>
                                 <input type="email" data-ng-model="user.email" required/>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
-                                <label>Birthday</label>
+                                <label>{{ "WORD_BIRTHDAY" | translate }}</label>
                                 <input type="date" data-ng-model="user.birthdayNew" max="2100-12-31" min="1900-01-02">
                             </md-input-container>
                         </div>
@@ -118,7 +118,7 @@
 
                         <!--<div class="row">
                           <div class="large-12 columns">
-                              <label>Job
+                              <label>{{ "WORD_JOB" | translate }}
                                 <select>
                                   <option  ng-repeat="job in jobs" value="{{job.id}}">{{job.title}}</option>
                                 </select>
@@ -130,14 +130,14 @@
                             <input type="file" ngf-select ng-model="picFile" name="file"
                                        accept="image/*" ngf-max-size="5MB"
                                        ngf-model-invalid="errorFile">
-                            <i ng-show="editForm.file.$error.maxSize">File too large
+                            <i ng-show="editForm.file.$error.maxSize"> {{ "ERROR_FILE_SIZE" | translate }}
                                     {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
                             <img ng-show="editForm.file.$valid" ngf-src="picFile" class="thumb">
-                            <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+                            <button ng-click="picFile = null" ng-show="picFile">{{ "REMOVE" | translate }}</button>
                         </div>
                     </div>
 
-                    <md-button ng-disabled="editForm.$invalid " class="button"  data-ng-click="editProfile()">Save Changes</md-button>
+                    <md-button ng-disabled="editForm.$invalid " class="button"  data-ng-click="editProfile()">{{ "SAVE" | translate }}</md-button>
 
                 </form>
             </div>
