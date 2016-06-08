@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:login
  *
- * @description 
+ * @description
  * Generates a single login component
  */
 function loginDirective() {
@@ -25,7 +25,13 @@ function loginDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                
+                $("#password").click(function(){
+                    if($scope.loginForm.password.$dirty==true){
+                        $scope.loginForm.password.$setValidity("correctPassword", true);
+                        $scope.$apply();
+                    }
+
+                });
             }
         };
 };

@@ -14,8 +14,8 @@
             </md-input-container>
             <md-input-container>
                 <label>{{ "WORD_PASSWORD" | translate }}</label>
-                <input type="password" data-ng-model="user.password" name="password" required/>
-                <div ng-messages="loginForm.password.$error">
+                <input type="password" id="password" data-ng-model="user.password" name="password" required/>
+                <div ng-messages="loginForm.password.$error" >
                     <div ng-message="correctPassword">{{ "ERROR_WRONG_CREDENTIALS" | translate }}</div>
                 </div>
             </md-input-container>

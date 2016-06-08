@@ -39,7 +39,6 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $
      * call the auth.login() service and set token if it not fail
      */
     $scope.login = function() {
-        $scope.wrongPassword = false;
         $scope.isInProgress = true;
 
         auth.login($scope.user).then(function (data) {
