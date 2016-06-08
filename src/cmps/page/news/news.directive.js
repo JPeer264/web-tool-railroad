@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:news
  *
- * @description 
+ * @description
  * Generates a single news component
  */
 function news() {
@@ -15,7 +15,11 @@ function news() {
             // name: '',
             // priority: 1,
             // terminal: true,
-            // scope: {}, // {} = isolate, true = child, false/undefined = no change
+            scope: {
+                'header': '@newsHeader',
+                'content': '@newsContent',
+                'url': '@newsHref'
+            }, // {} = isolate, true = child, false/undefined = no change
             controller: 'NewsCtrl',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
@@ -25,7 +29,7 @@ function news() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                
+                console.log(iAttrs);
             }
         };
 };

@@ -46,6 +46,15 @@ a.red {
     color: $alert-color;
 }
 
+a.no-highlight {
+    text-decoration: none;
+
+    &:hover, &:hover * {
+        text-decoration: none;
+        color: initial;
+    }
+}
+
 .red-border {
     border-color: $alert-color !important;
 }

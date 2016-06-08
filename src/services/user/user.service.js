@@ -95,6 +95,10 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
         });
     }
 
+    this.latestActivity = function () {
+        return Restangular.one('latest').get();
+    }
+
     /**
      * @ngdoc method
      * @name service.user#get

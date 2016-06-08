@@ -7,25 +7,23 @@ angular
  * @name pages.home:HomeCtrl
  *
  * @requires $scope
+ * @requires service.user
  *
  * @description
  * HomeCtrl for the home page
  */
 HomeController.$inject = [
     '$scope',
+    'user'
 ];
 
-function HomeController($scope) {
+function HomeController($scope, user) {
 
-    /**
-     * @ngdoc property
-     * @name $scope.getUser
-     * @propertyOf pages.home:HomeCtrl
-     *
-     * @description
-     * example of a property
-     */
-    $scope.getUser = 'users';
+    user.latestActivity().then(function (data) {
+        data = data.plain();
 
-    $scope.testData = ['soda','beer','water','milk','wine','cognac'];
+        $scope.latestComments = (data.latest_comments).slice(0,3);
+        $scope.latestTopics = data.latest_topics;
+    });
+
 }
