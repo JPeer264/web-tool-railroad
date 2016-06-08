@@ -4,6 +4,8 @@
     "ERROR_FILE_SIZE": "File too large",
     "ERROR_NOT_ACCEPTED":  "You have not been accepted yet.",
     "ERROR_EXISTS": "This {{val}} already exists",
+    "ERROR_NOT_ALLOWED":  "You are not allowed to make this request",
+    "ERROR_NOT_EXIST":  "User does not exist.",
 
     "NAV_HOME":         "Home",
     "NAV_SETTINGS":     "Settings",

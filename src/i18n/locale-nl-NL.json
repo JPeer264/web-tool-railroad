@@ -1,9 +1,11 @@
 {
-    "ERROR_WRONG_CREDENTIALS":  "TODO",
+    "ERROR_WRONG_CREDENTIALS":  "Je email of paswoord is verkeerd.",
     "ERROR_STATUS":             "TODO",
     "ERROR_FILE_SIZE": "Bestand is te groot",
     "ERROR_NOT_ACCEPTED":  "Je bent nog niet geaccepteerd",
     "ERROR_EXISTS": "TODO {{val}} TODO",
+    "ERROR_NOT_ALLOWED":  "TODO",
+    "ERROR_NOT_EXIST":  "Deze gebruiker bestaat niet",
 
     "NAV_HOME":         "Startpagina",
     "NAV_SETTINGS":     "Instellingen",

@@ -26,9 +26,16 @@ function addTopicDirective() {
         replace: true,
         // transclude: true,
         // compile: function(tElement, tAttrs) {},
-        link: function(scope, iElm, iAttrs, controller) {
+        link: function($scope, iElm, iAttrs, controller) {
             $('.reveal-overlay').remove();
             var elem = new Foundation.Reveal($('#addTopic'));
+
+            $("#title").click(function(){
+                    if($scope.addTopicForm.title.$dirty==true){
+                        $scope.addTopicForm.title.$setValidity("exists", true);
+                        $scope.$apply();
+                    }
+                })
         }
     };
 };

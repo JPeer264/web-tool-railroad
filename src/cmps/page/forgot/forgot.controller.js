@@ -30,10 +30,21 @@ function ForgotController($scope, user) {
      */
     $scope.forgot=function(){
         user.forgot($scope.user).then( function (data){
-            console.log("password changed");
             $scope.user=null;
+            $('#changePassword').foundation('close');
+
+        }).catch(function (data) {
+            // function for errors
+            console.log(data);
+            if(data.status==403){
+                $scope.forgotForm.email.$setValidity("allowed", false);
+            }
+            if(data.status==404){
+                $scope.forgotForm.email.$setValidity("notExist", false);
+            }
+            $scope.isInProgress = false;
+
         });
-        $('#changePassword').foundation('close');
 
     }
 

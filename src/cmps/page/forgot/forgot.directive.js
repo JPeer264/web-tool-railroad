@@ -28,6 +28,14 @@ function forgotDirective() {
                 $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#changePassword'));
 
+                $("#email").click(function(){
+                    if($scope.forgotForm.email.$dirty==true){
+                        $scope.forgotForm.email.$setValidity("notExist", true);
+                        $scope.forgotForm.email.$setValidity("allowed", true);
+                        $scope.$apply();
+                    }
+                });
+
             }
         };
 };

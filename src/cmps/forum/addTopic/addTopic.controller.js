@@ -112,6 +112,10 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
 
             vm.triggeredTopic = false;
             $('#addTopic').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.addTopicForm.title.$setValidity("exists", false);
+            }
         });
     };
 

@@ -21,9 +21,10 @@
                         <div class="large-12 medium-12 small-12 columns">
                             <md-input-container>
                                 <label>{{ "WORD_TITLE" | translate }}</label>
-                                <input type="title" data-ng-model="addTopicCtrl.newTopic.title" name="title" required/>
+                                <input type="title" data-ng-model="addTopicCtrl.newTopic.title" id="title" name="title" required/>
                                 <div ng-messages="addTopicForm.title.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="topic"></div>
                                 </div>
                             </md-input-container>
                         </div>

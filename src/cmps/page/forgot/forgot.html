@@ -21,10 +21,13 @@
                         <div class=" columns">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>{{ "WORD_EMAIL" | translate }}</label>
-                                <input type="email" data-ng-model="user.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                <input type="email" data-ng-model="user.email" id="email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
                                 <div ng-messages="forgotForm.email.$error" multiple md-auto-hide="false">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                    <div ng-message="allowed">{{ "ERROR_NOT_ALLOWED" | translate }}</div>
+                                    <div ng-message="notExist">{{ "ERROR_NOT_EXIST" | translate }}</div>
+
                                 </div>
                             </md-input-container>
                         </div>

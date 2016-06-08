@@ -4,6 +4,8 @@
     "ERROR_FILE_SIZE": "TODO",
     "ERROR_NOT_ACCEPTED":  "TODO",
     "ERROR_EXISTS": "TODO {{val}} TODO",
+    "ERROR_NOT_ALLOWED":  "TODO",
+    "ERROR_NOT_EXIST":  "TODO",
 
     "NAV_HOME":         "Startseite",
     "NAV_SETTINGS":     "Einstellungen",
