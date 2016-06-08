@@ -49,20 +49,44 @@ function SignUpController($scope, $location, $state, job, company, user, country
     }else{
         $scope.hide=true;
     }
-    console.log($scope.token);
     $scope.signup= function(){
         if($scope.token){
-            console.log('init');
             user.createToken($scope.user).then( function (data){
-                console.log("user updated");
+                $scope.user=null;
+                $location.path( '/welcome' );
+            }).catch(function (data) {
+                // function for errors
+                if(data.status==403){
+                    if(data.data.error=="The token has expired")
+                    {
+                        $scope.signupForm.email.$setValidity("tokenExpired", false);
+                    }else{
+                        $scope.signupForm.email.$setValidity("allowed", false);
+                    }
+                }
+                if(data.status==401){
+                        $scope.signupForm.email.$setValidity("correctPassword", false);
+                }
+                if(data.status==400){
+                    $scope.signupForm.email.$setValidity("token", false);
+                }
+                $scope.isInProgress = false;
             });
         }else{
             user.create($scope.user).then( function (data){
-                console.log("user created");
+                $scope.user=null;
+                $location.path( '/welcome' );
+            }).catch(function (data) {
+                // function for errors
+                if(data.status==409){
+                    $scope.signupForm.email.$setValidity("exists", false);
+                }
+
+                $scope.isInProgress = false;
+
             });
         }
-        $scope.user=null;
-        $location.path( '/welcome' );
+       
 
     }
     $scope.back = function(){

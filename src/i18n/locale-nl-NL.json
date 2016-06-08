@@ -6,6 +6,8 @@
     "ERROR_EXISTS": "TODO {{val}} TODO",
     "ERROR_NOT_ALLOWED":  "TODO",
     "ERROR_NOT_EXIST":  "Deze gebruiker bestaat niet",
+    "ERROR_TOKEN_EXPIRED":  "Het token is verlopen.",
+    "ERROR_TOKEN_INVALID":  "TODO",
 
     "NAV_HOME":         "Startpagina",
     "NAV_SETTINGS":     "Instellingen",
