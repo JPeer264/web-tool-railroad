@@ -24,9 +24,16 @@ function addJobDirective() {
             replace: true,
             transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function(scope, iElm, iAttrs, controller) {
+            link: function($scope, iElm, iAttrs, controller) {
                 $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#add-job'));
+
+                $("#title").click(function(){
+                    if($scope.jobForm.title.$dirty==true){
+                        $scope.jobForm.title.$setValidity("exists", true);
+                        $scope.$apply();
+                    }
+                })
             }
         };
 };

@@ -21,9 +21,10 @@
                             <div class="columns small-12">
                                 <md-input-container>
                                     <label>{{ "WORD_JOB" | translate }}</label>
-                                    <input type="text" data-ng-model="addJobForm.title" name="title" required/>
+                                    <input type="text" data-ng-model="addJobForm.title" id="title" name="title" required/>
                                     <div ng-messages="jobForm.title.$error">
                                         <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="job"></div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm>

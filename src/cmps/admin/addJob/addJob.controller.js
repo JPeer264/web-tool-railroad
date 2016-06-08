@@ -26,6 +26,10 @@ function AddJobController($scope, job) {
             $scope.addJobForm.id = $scope.jobs.length;
 
             $('#add-job').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.jobForm.title.$setValidity("exists", false);
+            }
         });
     }
 }
