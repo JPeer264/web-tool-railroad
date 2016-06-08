@@ -2,6 +2,8 @@
     "ERROR_WRONG_CREDENTIALS":  "TODO",
     "ERROR_STATUS":             "TODO",
     "ERROR_FILE_SIZE": "Bestand is te groot",
+    "ERROR_NOT_ACCEPTED":  "Je bent nog niet geaccepteerd",
+    "ERROR_EXISTS": "TODO {{val}} TODO",
 
     "NAV_HOME":         "Startpagina",
     "NAV_SETTINGS":     "Instellingen",
@@ -57,8 +59,12 @@
     "FORUM_LATEST_COMMENTS": "TODO",
     "FORUM_LATEST_TOPICS": "TODO",
 
-    "COOKIE_POLICY": "TODO",
+    "FORM_REQUIRED": "TODO",
+    "FORM_MAX_LENGTH": "TODO{{max}} TODO.",
+    "FORM_MATCH_PASSWORD": "TODO.",
+    "FORM_EMAIL_ERROR": "TODO",
 
+    "COOKIE_POLICY": "TODO",
 
     "RULES_NOSPAM": "TODO",
     "RULES_BEPOLITE": "TODO",
@@ -104,5 +110,4 @@
 
     "FORGOT_PASSWORD": "Wachtwoord vergeten",
     "SEND_EMAIL": "Stuur email"
-
 }

@@ -2,6 +2,8 @@
     "ERROR_WRONG_CREDENTIALS":  "Wrong email or password.",
     "ERROR_STATUS":             "Sorry! Page not found. Back to the <a href='/'>home</a> page.",
     "ERROR_FILE_SIZE": "File too large",
+    "ERROR_NOT_ACCEPTED":  "You have not been accepted yet.",
+    "ERROR_EXISTS": "This {{val}} already exists",
 
     "NAV_HOME":         "Home",
     "NAV_SETTINGS":     "Settings",

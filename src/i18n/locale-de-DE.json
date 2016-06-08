@@ -2,6 +2,8 @@
     "ERROR_WRONG_CREDENTIALS":  "Falsche email oder falsches password.",
     "ERROR_STATUS":             "Entschuldigung! Diese Seite konnte nicht gefunden werden. Zurück zur <a href='/'>Startseite</a>.",
     "ERROR_FILE_SIZE": "TODO",
+    "ERROR_NOT_ACCEPTED":  "TODO",
+    "ERROR_EXISTS": "TODO {{val}} TODO",
 
     "NAV_HOME":         "Startseite",
     "NAV_SETTINGS":     "Einstellungen",
@@ -48,7 +50,6 @@
     "LANDING_JOIN_TODAY": "TODO",
     "LANDING_JOIN": "TODO",
 
-
     "FORUM_ADD_TOPIC":      "Kategorie hinzufügen",
     "FORUM_ADD_COMMENT":    "Kommentar hinzufügen",
     "FORUM_BY":             "Von",
@@ -58,8 +59,12 @@
     "FORUM_LATEST_COMMENTS": "TODO",
     "FORUM_LATEST_TOPICS": "TODO",
 
-    "COOKIE_POLICY": "TODO",
+    "FORM_REQUIRED": "TODO",
+    "FORM_MAX_LENGTH": "TODO{{max}} TODO.",
+    "FORM_MATCH_PASSWORD": "TODO.",
+    "FORM_EMAIL_ERROR": "TODO",
 
+    "COOKIE_POLICY": "TODO",
 
     "RULES_NOSPAM": "Spam und unnötige Kommentare sollten vermieden werden.",
     "RULES_BEPOLITE": "Bleiben Sie stets freundlich und objektiv.",
@@ -105,5 +110,4 @@
 
     "FORGOT_PASSWORD": "TODO",
     "SEND_EMAIL": "TODO"
-
 }

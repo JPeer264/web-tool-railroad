@@ -2,6 +2,8 @@
     "ERROR_WRONG_CREDENTIALS":  "TODO",
     "ERROR_STATUS":             "TODO",
     "ERROR_FILE_SIZE": "TODO",
+    "ERROR_NOT_ACCEPTED":  "TODO",
+    "ERROR_EXISTS": "TODO {{val}} TODO",
 
     "NAV_HOME":         "Accueil",
     "NAV_SETTINGS":     "Paramètres",
@@ -57,8 +59,12 @@
     "FORUM_LATEST_COMMENTS": "TODO",
     "FORUM_LATEST_TOPICS": "TODO",
 
-    "COOKIE_POLICY": "TODO",
+    "FORM_REQUIRED": "TODO",
+    "FORM_MAX_LENGTH": "TODO{{max}} TODO.",
+    "FORM_MATCH_PASSWORD": "TODO.",
+    "FORM_EMAIL_ERROR": "TODO",
 
+    "COOKIE_POLICY": "TODO",
 
     "RULES_NOSPAM": "TODO",
     "RULES_BEPOLITE": "TODO",
