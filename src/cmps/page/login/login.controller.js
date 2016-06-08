@@ -47,8 +47,14 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $
             $window.location.assign('/');
         }).catch(function (data) {
             // function for errors
+            console.log(data);
+            if(data.status==403){
+                $scope.loginForm.password.$setValidity("accepted", false);
+            }
+            if(data.status==401){
+                $scope.loginForm.password.$setValidity("correctPassword", false);
+            }
             $scope.isInProgress = false;
-            $scope.loginForm.password.$setValidity("correctPassword", false);
 
         });
     }

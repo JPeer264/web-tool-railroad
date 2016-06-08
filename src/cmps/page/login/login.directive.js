@@ -28,6 +28,7 @@ function loginDirective() {
                 $("#password").click(function(){
                     if($scope.loginForm.password.$dirty==true){
                         $scope.loginForm.password.$setValidity("correctPassword", true);
+                        $scope.loginForm.password.$setValidity("accepted", true);
                         $scope.$apply();
                     }
 

@@ -17,6 +17,7 @@
                 <input type="password" id="password" data-ng-model="user.password" name="password" required/>
                 <div ng-messages="loginForm.password.$error" >
                     <div ng-message="correctPassword">{{ "ERROR_WRONG_CREDENTIALS" | translate }}</div>
+                    <div ng-message="accepted">{{ "ERROR_NOT_ACCEPTED" | translate }}</div>
                 </div>
             </md-input-container>
             <div layout="row" layout-align="center center" style="padding-top:20px;">
