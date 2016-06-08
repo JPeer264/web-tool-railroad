@@ -1,29 +1,31 @@
 <div>
-    <div class="row flex-end">
-        <div class="medium-2 small-12 columns">
-            <div data-add-job></div>
+    <div>
+        <div class="row flex-end">
+            <div class="medium-2 small-12 columns">
+                <a class="button full-width" data-ng-click="addJob()" data-open="job-management-edit">{{ "ADMIN_ADD_JOB" | translate }}</a>
+            </div>
         </div>
-    </div>
 
-    <h1 data-ng-if="jobs.length !== 0">{{ "WORD_JOBS" | translate }} ({{ jobs.length }})</h1>
-    <div class="row">
-        <div data-ng-repeat="job in jobs" class="small-12 medium-6 large-4 columns">
-            <div class="job-management rail-panel admin-panel">
-                <div class="rail-panel-inner">
-                    <div class="rail-header">
-                        <div class="row">
-                            <div class="column no-padding">
-                                {{ job.title }}
-                            </div>
-                            <div class="column no-padding flex flex-end">
-                                <button class="edit-job" data-open="job-management-edit" data-ng-click="editJob(job.id)"><i class="fa fa-gear fa-lg"></i></button>
+        <h1 data-ng-if="jobs.length !== 0">{{ "WORD_JOBS" | translate }} ({{ jobs.length }})</h1>
+        <div class="row">
+            <div data-ng-repeat="job in jobs" class="small-12 medium-6 large-4 columns">
+                <div class="job-management rail-panel admin-panel">
+                    <div class="rail-panel-inner">
+                        <div class="rail-header">
+                            <div class="row">
+                                <div class="column no-padding">
+                                    {{ job.title }}
+                                </div>
+                                <div class="column no-padding flex flex-end">
+                                    <button class="edit-job" data-open="job-management-edit" data-ng-click="editJob(job.id)"><i class="fa fa-gear fa-lg"></i></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="rail-content">
-                        <p>
-                            <span>{{ "WORD_DESCRIPTION" | translate }}:</span> {{ job.description }}
-                        </p>
+                        <div class="rail-content">
+                            <p>
+                                <span>{{ "WORD_DESCRIPTION" | translate }}:</span> {{ job.description }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,48 +33,50 @@
     </div>
 
     <div class="reveal rail-panel small-10 medium-10 large-10" id="job-management-edit" data-reveal>
-            <div class="rail-panel-inner">
-                <div class="rail-header">
-                    <div class="flex">
-                        <div class="flex flex-start">
-                            <span>{{ "ADMIN_EDIT_JOB" | translate }}</span>
-                        </div>
-                        <div class="flex flex-end">
-                            <button data-close>
-                                <i class="fa fa-times fa-lg"></i>
-                            </button>
-                        </div>
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <div class="flex">
+                    <div class="flex flex-start">
+                        <span data-ng-if="isChangeJob">{{ "ADMIN_EDIT_JOB" | translate }}</span>
+                        <span data-ng-if="!isChangeJob">{{ "ADMIN_ADD_JOB" | translate }}</span>
+                    </div>
+                    <div class="flex flex-end">
+                        <button data-close>
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="rail-content">
-                    <form data-ng-submit="updateJob(manageJob.id)" name="jobManageForm">
-                        <!-- edit job -->
-                        <div class="row">
-                            <div class="columns small-12">
-                                <md-input-container class="md-block" flex-gt-sm>
-                                    <label>{{ "WORD_JOB" | translate }}</label>
-                                    <input type="text" data-ng-model="manageJob.title" name="title" required/>
-                                    <div ng-messages="jobManageForm.title.$error">
-                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
-                                    </div>
-                                </md-input-container>
-                                <md-input-container>
-                                    <label>{{ "WORD_DESCRIPTION" | translate }}</label>
-                                    <textarea ng-model="manageJob.description" name="content" md-maxlength="400" rows="5" md-select-on-focus required></textarea>
-                                    <div ng-messages="jobManageForm.content.$error">
-                                        <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
-                                        <div ng-message="md-maxlength" data-translate="FORM_MAX_LENGTH" data-translate-value-max="{{ 400 }}"></div>
-                                    </div>
-                                </md-input-container>
-                            </div>
-                            <div class="columns small-12">
-                                <md-button ng-disabled="jobManageForm.$invalid" class="button" type="submit">
-                                    <span>{{ "WORD_CHANGE" | translate }}</span>
-                                </md-button>
-                            </div>
+            </div>
+            <div class="rail-content">
+                <form data-ng-submit="isChangeJob ? updateJob(manageJob.id) : addNewJob()" name="manageJobForm">
+                    <!-- edit job -->
+                    <div class="row">
+                        <div class="columns small-12">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_JOB" | translate }}</label>
+                                <input type="text" data-ng-model="manageJob.title" id="title" name="title" required/>
+                                <div ng-messages="manageJobForm.title.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="job"></div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>{{ "WORD_DESCRIPTION" | translate }}</label>
+                                <textarea ng-model="manageJob.description" name="content" md-maxlength="400" rows="5" md-select-on-focus required></textarea>
+                                <div ng-messages="manageJobForm.content.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                    <div ng-message="md-maxlength" data-translate="FORM_MAX_LENGTH" data-translate-value-max="{{ 400 }}"></div>
+                                </div>
+                            </md-input-container>
                         </div>
-                    </form>
-                </div>
+                        <div class="columns small-12">
+                            <md-button ng-disabled="manageJobForm.$invalid" class="button" type="submit">
+                                <span data-ng-if="isChangeJob">{{ "WORD_CHANGE" | translate }}</span>
+                                <span data-ng-if="!isChangeJob">{{ "WORD_ADD" | translate }}</span>
+                            </md-button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

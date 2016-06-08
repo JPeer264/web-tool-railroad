@@ -23,6 +23,11 @@ function JobManagementController($scope, job) {
         $scope.jobs = data.plain();
     });
 
+    $scope.addJob = function() {
+        $scope.manageJob = null;
+        $scope.isChangeJob = false;
+    }
+
     $scope.editJob = function (id) {
         $scope.manageJob = $scope.jobs.filter(function (value) {
             if (value.id === id) {
@@ -31,6 +36,7 @@ function JobManagementController($scope, job) {
 
             return false;
         })[0];
+        $scope.isChangeJob = true;
     }
 
     $scope.updateJob = function (id) {
@@ -42,8 +48,26 @@ function JobManagementController($scope, job) {
             });
 
             $('#job-management-edit').foundation('close');
-        }, function (err) {
-            console.log('Job Management', err);
+        }).catch(function (data) {
+            console.log(data);
+            if(data.status==409){
+                console.log('init');
+                $scope.manageJobForm.title.$setValidity("exists", false);
+            }
+        });
+    }
+
+      $scope.addNewJob = function() {
+        job.create($scope.manageJob).then(function (data) {
+
+            $scope.jobs.push($scope.manageJob);
+            $scope.manageJob.id = $scope.jobs.length;
+
+            $('#job-management-edit').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.manageJobForm.title.$setValidity("exists", false);
+            }
         });
     }
 }

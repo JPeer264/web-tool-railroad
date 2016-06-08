@@ -1,3 +1,1 @@
-angular.module('admin.jobManagement', [
-    'admin.addJob'
-]);
+angular.module('admin.jobManagement', []);

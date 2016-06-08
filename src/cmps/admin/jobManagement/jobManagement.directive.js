@@ -27,6 +27,13 @@ function jobManagementDirective() {
             link: function($scope, iElm, iAttrs, controller) {
                 $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#job-management-edit'));
+
+                $("#title").click(function(){
+                    if($scope.manageJobForm.title.$dirty==true){
+                        $scope.manageJobForm.title.$setValidity("exists", true);
+                        $scope.$apply();
+                    }
+                })
             }
         };
 };
