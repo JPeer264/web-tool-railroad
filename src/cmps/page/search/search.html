@@ -9,8 +9,8 @@
     </div>
     <ul data-ng-show="query" id="results">
         <li data-ng-repeat="profile in profiles | filter:query">
-            <a href="#/user/{{profile.id}}" ng-show="profile.firstname">{{profile.firstname}} {{profile.lastname}}</a>
-            <a href="#/company/{{profile.id}}" ng-show="profile.name">{{profile.name}}</a>
+            <a href="#/user/{{profile.id}}" ng-if="profile.firstname">{{profile.firstname}} {{profile.lastname}}</a>
+            <a href="#/company/{{profile.id}}" ng-if="profile.name">{{profile.name}}</a>
         </li>
     </ul>
 </div>
