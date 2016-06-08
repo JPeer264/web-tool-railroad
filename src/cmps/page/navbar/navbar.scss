@@ -48,6 +48,14 @@
     #menu-hamburger {
         @include hamburger();
         margin: $global-margin;
+
+        &:before {
+            content: 'MENU';
+            display: block;
+            position: absolute;
+            left: 25px;
+            top: -3px;
+        }
     }
 
     #hamburger {
