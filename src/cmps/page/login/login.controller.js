@@ -49,7 +49,8 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $
         }).catch(function (data) {
             // function for errors
             $scope.isInProgress = false;
-            $scope.wrongPassword = true;
+            $scope.loginForm.password.$setValidity("correctPassword", false);
+
         });
     }
 
