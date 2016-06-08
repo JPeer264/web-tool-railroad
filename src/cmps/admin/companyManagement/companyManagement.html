@@ -63,9 +63,10 @@
                             <div class="columns small-12">
                                 <md-input-container class="md-block" flex-gt-sm>
                                     <label>{{ "WORD_NAME" | translate }}</label>
-                                    <input type="text" data-ng-model="manageCompany.name" name="name" required/>
+                                    <input type="text" data-ng-model="manageCompany.name" id="name" name="name" required/>
                                     <div ng-messages="companyForm.name.$error">
                                         <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="company"></div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container>

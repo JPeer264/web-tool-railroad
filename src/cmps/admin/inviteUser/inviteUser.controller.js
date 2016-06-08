@@ -36,6 +36,10 @@ function InviteUserController($scope, user, company, job) {
             $scope.invite.id = data.user_id;
             $scope.invitedUsers.push($scope.invite);
             $('#inviteUser').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.inviteForm.email.$setValidity("exists", false);
+            }
         });
     }
 

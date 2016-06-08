@@ -21,10 +21,11 @@
                             <div class="columns small-12">
                                 <md-input-container>
                                     <label>{{ "WORD_EMAIL" | translate }}</label>
-                                    <input type="email" data-ng-model="invite.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                    <input type="email" data-ng-model="invite.email" id="email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
                                     <div ng-messages="inviteForm.email.$error" multiple md-auto-hide="false">
                                         <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                         <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                                        <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="email"></div>
                                     </div>
                                 </md-input-container>
                                 <md-input-container class="md-block" flex-gt-sm data-ng-if="currentUser.role_id === 3">
@@ -49,7 +50,7 @@
                                             {{ job.title }}
                                         </md-option>
                                     </md-select>
-                                    <div ng-messages="inviteForm.job.$error>
+                                    <div ng-messages="inviteForm.job.$error">
                                         <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     </div>
                                 </md-input-container>

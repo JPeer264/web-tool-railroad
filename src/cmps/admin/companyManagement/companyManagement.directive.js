@@ -27,6 +27,13 @@ function companyManagementDirective() {
             link: function($scope, iElm, iAttrs, controller) {
                 $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#company-management-edit'));
+
+                $("#name").click(function(){
+                    if($scope.companyForm.name.$dirty==true){
+                        $scope.companyForm.name.$setValidity("exists", true);
+                        $scope.$apply();
+                    }
+                })
             }
         };
 };

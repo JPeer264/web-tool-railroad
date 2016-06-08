@@ -73,6 +73,10 @@ function CompanyManagementController($scope, company, country, user) {
             });
 
             $('#company-management-edit').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.companyForm.name.$setValidity("exists", false);
+            }
         });
     }
 
@@ -102,6 +106,10 @@ function CompanyManagementController($scope, company, country, user) {
             $scope.manageCompany.id = $scope.companies.length;
 
             $('#company-management-edit').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.companyForm.name.$setValidity("exists", false);
+            }
         });
     }
 }

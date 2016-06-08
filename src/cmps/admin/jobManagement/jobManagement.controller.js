@@ -49,9 +49,7 @@ function JobManagementController($scope, job) {
 
             $('#job-management-edit').foundation('close');
         }).catch(function (data) {
-            console.log(data);
             if(data.status==409){
-                console.log('init');
                 $scope.manageJobForm.title.$setValidity("exists", false);
             }
         });

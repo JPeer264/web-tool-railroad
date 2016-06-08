@@ -24,9 +24,17 @@ function inviteUserDirective() {
             replace: true,
             transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-            link: function(scope, iElm, iAttrs, controller) {
+            link: function($scope, iElm, iAttrs, controller) {
                 $('.reveal-overlay').remove();
                 var elem = new Foundation.Reveal($('#inviteUser'));
+
+                $("#email").click(function(){
+                    if($scope.inviteForm.email.$dirty==true){
+                        $scope.inviteForm.email.$setValidity("exists", true);
+                        $scope.$apply();
+                    }
+                })
+
             }
         };
 };
