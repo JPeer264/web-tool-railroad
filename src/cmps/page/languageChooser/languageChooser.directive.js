@@ -33,7 +33,7 @@ function languageChooserDirective() {
 
                 $('#btn-langChooser a').click(function(e){
                     e.preventDefault();
-                    var chosenLanguage = $(this).text();
+                    var chosenLanguage = $(this).find('li').text();
                     var langKey = $(this).data('lang');
 
                     scope.setPreferredLanguage(langKey);
