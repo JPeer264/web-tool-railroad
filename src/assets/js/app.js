@@ -1,3 +1,27 @@
+// put in your new server here!
+// example: http://api.elephorum.com
+var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
+
+// here you have to fill in the path where the api is called
+// usually it runs on "public/api/v1"
+var APIPATH = 'public/api/v1';
+
+var CONSTANT = {
+    "COOKIE": {
+        "TOKEN": "tkn_u", // tkn_u = token_user
+        "USER_ID": "u_i", // u_i = user_id
+        "PREFLANGUAGE": "p_lang",
+        "COOKIE_ACCEPT": "c_a",
+    },
+    // Picture location default
+    "PICTURE_LOCATION_PREFIX": SERVERPATH,
+    "API_PATH": SERVERPATH + APIPATH,
+
+    // Profile Picture Constants
+    "PROFILE_PICTURE_DEFAULT": "https://jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
+};
+
 angular.module('railroad', [
     'ui.router',
     'LocalStorageModule',
@@ -16,23 +40,6 @@ angular.module('railroad', [
     'ngPassword',
     'ngMessages',
 ]);
-
-var SERVERPATH = 'http://localhost/web-tool-railroad-api';
-var CONSTANT = {
-    "COOKIE": {
-        "TOKEN": "tkn_u", // tkn_u = token_user
-        "USER_ID": "u_i", // u_i = user_id
-        "PREFLANGUAGE": "p_lang",
-        "COOKIE_ACCEPT": "c_a",
-    },
-    // Picture location default
-    "PICTURE_LOCATION_PREFIX": SERVERPATH,
-    "API_PATH": SERVERPATH + "/public/api/v1",
-
-    // Profile Picture Constants
-    "PROFILE_PICTURE_DEFAULT": "https://jpeer.at/railroad/testimage/person-default-flat.png",
-    "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
-};
 
 angular
     .module('railroad')

@@ -25,21 +25,52 @@ function languageChooserDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
-                var elem = new Foundation.Dropdown($('#btn-langChooser'));
-                var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
+                var $gw; //google widget
 
-                $('#chosenLanguage').text(preferredLanguage);
-                scope.changeLang(scope.getPreferredLanguage());
+                // var elem = new Foundation.Dropdown($('#btn-langChooser'));
+                // var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
 
-                $('#btn-langChooser a').click(function(e){
-                    e.preventDefault();
-                    var chosenLanguage = $(this).find('li').text();
-                    var langKey = $(this).data('lang');
+                // $('#chosenLanguage').text(preferredLanguage);
+                // scope.changeLang(scope.getPreferredLanguage());
 
-                    scope.setPreferredLanguage(langKey);
-                    $('#chosenLanguage').text(chosenLanguage);
-                    $('#btn-langChooser').foundation('close');
-                });
+                // $('#btn-langChooser a').click(function(e){
+                //     e.preventDefault();
+                //     var chosenLanguage = $(this).find('li').text();
+                //     var langKey = $(this).data('lang');
+
+                //     scope.setPreferredLanguage(langKey);
+                //     $('#chosenLanguage').text(chosenLanguage);
+                //     $('#btn-langChooser').foundation('close');
+                // });
+
+                var googleTWidgetExist =  setInterval(function() {
+                    $gw = $('.goog-te-combo');
+
+                    // reset interval if google translate widget exist
+                    if ($gw.length > 0) {
+                        transformGoogleTWIdget();
+                        clearInterval(googleTWidgetExist);
+                    }
+                }, 500);
+
+                function transformGoogleTWIdget() {
+                    var $targetLanguage = $gw.parent();
+                    var $gWidget = $('#google_translate_element .goog-te-gadget');
+                    var $span = $gWidget.find('span');
+
+                    $gw
+                        .addClass('cursor-pointer')
+                        .parent()
+                        .addClass('clearfix');
+
+                    // rewrite the translate widget
+                    $gWidget.html('');
+
+                    $gWidget
+                        .append($targetLanguage)
+                        .append('Powered by <br>')
+                        .append($span);
+                }
             }
         };
 };
