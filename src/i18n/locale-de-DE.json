@@ -108,9 +108,10 @@
     "WORD_COLLEGUES": "TODO",
 
     "WORD_OK": "TODO",
-    "WORD_SEARCH": "TODO",
+    "SEARCH": "TODO",
     "WORD_BACK": "TODO",
     "EDIT_PROFILE": "TODO",
+    "EDIT_WORK_INFO" : "TODO",
 
     "FORGOT_PASSWORD": "TODO",
     "SEND_EMAIL": "TODO"

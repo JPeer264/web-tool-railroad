@@ -108,9 +108,10 @@
     "WORD_COLLEGUES": "Collegues",
 
     "WORD_OK": "OK",
-    "WORD_SEARCH": "Search...",
+    "SEARCH": "Search for people or companies",
     "WORD_BACK": "Back",
     "EDIT_PROFILE": "Edit profile",
+    "EDIT_WORK_INFO" : "Edit work information",
 
     "FORGOT_PASSWORD": "Forgot Password",
     "SEND_EMAIL": "Send Email"

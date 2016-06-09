@@ -1,0 +1,53 @@
+
+<div>
+     <button data-open="editWork" ><i class="fa fa-gear fa-lg"></i></button>
+
+
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="editWork" data-reveal>
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <div class="flex">
+                    <div class="flex flex-start">
+                        {{ "EDIT_WORK_INFO" | translate }}
+                    </div>
+                    <div class="flex flex-end">
+                        <button  data-close aria-label="Close modal" ng-click="close()" type="button">
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="rail-content">
+                <form name="editWorkForm" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="small-12 medium-6 large-6 columns" ng-show="canChangeJob">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_JOB" | translate }}</label>
+                                <md-select ng-model="user.job_id" required>
+                                    <md-option ng-repeat="job in jobs" value="{{job.id}}">
+                                        {{job.title}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="small-12 medium-6 large-6 columns" ng-show="canChangeCompany">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_COMPANY" | translate }}</label>
+                                <md-select ng-model="user.company_id" required>
+                                    <md-option ng-repeat="company in companies" value="{{company.id}}">
+                                        {{company.name}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+
+                    <md-button ng-disabled="editWorkForm.$invalid " class="button"  data-ng-click="editWork()">{{ "SAVE" | translate }}</md-button>
+
+                </form>
+            </div>
+        </div>
+      
+    </div>
+</div>

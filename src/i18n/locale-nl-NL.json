@@ -108,9 +108,10 @@
     "WORD_COLLEGUES": "Collega's",
 
     "WORD_OK": "TODO",
-    "WORD_SEARCH": "TODO",
+    "SEARCH": "TODO",
     "WORD_BACK": "Terug",
-    "EDIT_PROFILE": "TODO",
+    "EDIT_PROFILE": "Bewerk profiel",
+    "EDIT_WORK_INFO" : "Bewerk werk informatie",
 
     "FORGOT_PASSWORD": "Wachtwoord vergeten",
     "SEND_EMAIL": "Stuur email"
