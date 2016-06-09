@@ -50,6 +50,9 @@ function adminUserRequestDirective() {
                         });
                     }
                 });
+
+                $('.reveal-overlay').remove();
+                var elem = new Foundation.Reveal($('#editUser'));
             }
         };
 };

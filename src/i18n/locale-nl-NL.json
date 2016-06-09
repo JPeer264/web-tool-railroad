@@ -32,6 +32,7 @@
     "ADMIN_USERS_USERDATA": "TODO",
     "ADMIN_USERS_MOTIVATION": "TODO",
     "ADMIN_INVITE_USER": "TODO",
+    "ADMIN_EDIT_USER": "Bewerk gebruiker",
 
     "ADMIN_NAVBAR_HOME": "TODO",
     "ADMIN_NAVBAR_USERMANAGEMENT": "TODO",
@@ -80,6 +81,7 @@
     "WORD_JOBS": "TODO",
     "WORD_COMPANY": "Bedrijf",
     "WORD_COMPANIES": "Bedrijven",
+    "WORD_ROLE": "TODO",
 
     "WORD_NAME": "Naam",
     "WORD_EMAIL": "TODO",

@@ -32,6 +32,7 @@
     "ADMIN_USERS_USERDATA": "Userdata",
     "ADMIN_USERS_MOTIVATION": "Motivation",
     "ADMIN_INVITE_USER": "Invite user",
+    "ADMIN_EDIT_USER": "Edit user",
 
     "ADMIN_NAVBAR_HOME": "Admin Home",
     "ADMIN_NAVBAR_USERMANAGEMENT": "Usermanagement",
@@ -80,6 +81,7 @@
     "WORD_JOBS": "Jobs",
     "WORD_COMPANY": "Company",
     "WORD_COMPANIES": "Companies",
+    "WORD_ROLE": "Role",
 
     "WORD_NAME": "Name",
     "WORD_EMAIL": "Email",
