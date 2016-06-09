@@ -120,6 +120,26 @@
                                         <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     </div>
                                 </md-input-container>
+                                <md-input-container>
+                                    <label>Twitter</label>
+                                    <input type="text" data-ng-model="manageCompany.Twitter" />
+                                    <div class="hint">Please enter a valid url</div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>LinkedIn</label>
+                                    <input type="text" data-ng-model="manageCompany.LinkedIn" />
+                                    <div class="hint">Please enter a valid url</div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Facebook</label>
+                                    <input type="text" data-ng-model="manageCompany.Facebook" />
+                                    <div class="hint">Please enter a valid url</div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Xing</label>
+                                    <input type="text" data-ng-model="manageCompany.Xing" />
+                                    <div class="hint">Please enter a valid url</div>
+                                </md-input-container>
                             </div>
                             <div class="columns small-12">
                                 <md-button ng-disabled="companyForm.$invalid"  class="button" type="submit">
