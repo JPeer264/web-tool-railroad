@@ -22,15 +22,22 @@
         <script type="text/javascript" src="/assets/js/app.js"></script>
         <script type="text/javascript" src="/assets/js/main.js"></script>
         <script>
+
             jQuery(document).ready(function($) {
                 $(document).foundation();
             });
+
         </script>
-        <!-- <script type="text/javascript">
+        <script>
             function googleTranslateElementInit() {
-                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-            }
+                    new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: true, multilanguagePage: true}, 'google_translate_element');
+                }
+                var googleTranslateScript = document.createElement('script');
+                googleTranslateScript.type = 'text/javascript';
+                googleTranslateScript.async = true;
+                googleTranslateScript.src = 'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild(googleTranslateScript);
         </script>
-    <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+        <!-- <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     </body>
 </html>

@@ -96,7 +96,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
     }
 
     this.latestActivity = function () {
-        return Restangular.one('latest').get();
+        return Restangular.one('latest/missed').get();
     }
 
     /**

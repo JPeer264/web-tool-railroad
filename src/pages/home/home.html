@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <div class="column small-12"  data-ng-if="latestComments.length !== 0">
-        <h3>Latest missed 3 comments</h3>
+        <h3>Latest missed comments ({{ latestComments.length }})</h3>
     </div>
     <div class="columns small-12 medium-4" ng-repeat="comment in latestComments" data-ng-if="latestComments.length !== 0">
         <div data-news data-news-header="#{{ $index+1 }}" data-news-content="{{ comment.content }}" data-news-href="#/topic/{{ comment.topic.id }}"></div>
