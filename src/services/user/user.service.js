@@ -149,7 +149,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
      */
     this.getAllLimited = function() {
         if (!_promiseCache.getAllLimited) {
-            _promiseCache.getAllLimited = Restangular.all('userAll').getList();
+            _promiseCache.getAllLimited = Restangular.all('userall').getList();
         }
 
         return _promiseCache.getAllLimited;
