@@ -40,7 +40,7 @@
                             {{ "WORD_ABOUT" | translate }}
                         </div>
                         <div class="column no-padding flex flex-end" ng-show="currentUser.id==user.id" >
-                            <div data-edit-profile></div>
+                            <!--<div data-edit-profile></div>-->
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,14 @@
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
-                    {{ "WORK_INFO" | translate }}
+                    <div class="row">
+                        <div class="column no-padding">
+                            {{ "WORK_INFO" | translate }}
+                        </div>
+                        <div class="column no-padding flex flex-end" ng-show="canChangeJob || canChangeCompany" >
+                            <div data-edit-work></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="rail-content">
                     <div class="row">
@@ -85,6 +92,10 @@
                         <div class=" column small-12">
                             <i class="fa fa-phone"></i> {{user.company.phonenumber}}
                         </div>
+                        <div class=" column small-12">
+                            <i class="fa fa-briefcase"></i> {{user.job.title}}
+                        </div>
+
                     </div>
                 </div>
             </div>

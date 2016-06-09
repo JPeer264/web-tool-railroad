@@ -6,6 +6,8 @@
     "ERROR_EXISTS": "TODO {{val}} TODO",
     "ERROR_NOT_ALLOWED":  "TODO",
     "ERROR_NOT_EXIST":  "TODO",
+    "ERROR_TOKEN_EXPIRED":  "TODO",
+    "ERROR_TOKEN_INVALID":  "TODO",
 
     "NAV_HOME":         "Inicio",
     "NAV_SETTINGS":     "Configuración",
@@ -106,9 +108,10 @@
     "WORD_COLLEGUES": "TODO",
 
     "WORD_OK": "TODO",
-    "WORD_SEARCH": "TODO",
+    "SEARCH": "TODO",
     "WORD_BACK": "TODO",
     "EDIT_PROFILE": "TODO",
+    "EDIT_WORK_INFO" : "TODO",
 
     "FORGOT_PASSWORD": "TODO",
     "SEND_EMAIL": "TODO"

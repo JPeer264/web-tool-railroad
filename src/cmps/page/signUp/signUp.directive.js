@@ -25,7 +25,16 @@ function signUpDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                
+                $("#email").click(function(){
+                    if($scope.signupForm.email.$dirty==true){
+                        $scope.signupForm.email.$setValidity("exists", true);
+                        $scope.signupForm.email.$setValidity("allowed", true);
+                        $scope.signupForm.email.$setValidity("correctPassword", true);
+                        $scope.signupForm.email.$setValidity("tokenExpired", true);
+                        $scope.signupForm.email.$setValidity("token", true);
+                        $scope.$apply();
+                    }
+                });
             }
         };
 };

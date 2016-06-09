@@ -6,6 +6,8 @@
     "ERROR_EXISTS": "This {{val}} already exists",
     "ERROR_NOT_ALLOWED":  "You are not allowed to make this request",
     "ERROR_NOT_EXIST":  "User does not exist.",
+    "ERROR_TOKEN_EXPIRED":  "The token has expired.",
+    "ERROR_TOKEN_INVALID":  "The token is invalid.",
 
     "NAV_HOME":         "Home",
     "NAV_SETTINGS":     "Settings",
@@ -106,9 +108,10 @@
     "WORD_COLLEGUES": "Collegues",
 
     "WORD_OK": "OK",
-    "WORD_SEARCH": "Search...",
+    "SEARCH": "Search for people or companies",
     "WORD_BACK": "Back",
     "EDIT_PROFILE": "Edit profile",
+    "EDIT_WORK_INFO" : "Edit work information",
 
     "FORGOT_PASSWORD": "Forgot Password",
     "SEND_EMAIL": "Send Email"

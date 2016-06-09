@@ -29,10 +29,15 @@
                 <div class="small-12 medium-12 large-6 columns">
                     <md-input-container  class="md-block" flex-gt-xs>
                         <label>{{ "WORD_EMAIL" | translate }}</label>
-                        <input type="email" data-ng-model="user.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                        <input type="email" data-ng-model="user.email" id="email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
                         <div ng-messages="signupForm.email.$error" multiple md-auto-hide="false">
                             <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                             <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
+                            <div ng-message="correctPassword">{{ "ERROR_WRONG_CREDENTIALS" | translate }}</div>
+                            <div ng-message="allowed">{{ "ERROR_NOT_ALLOWED" | translate }}</div>
+                            <div ng-message="tokenExpired">{{ "ERROR_TOKEN_EXPIRED" | translate }}</div>
+                            <div ng-message="token">{{ "ERROR_TOKEN_INVALID" | translate }}</div>
+                            <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="email"></div>
                         </div>
                     </md-input-container>
                 </div>
@@ -132,9 +137,10 @@
                 <div class="small-12 medium-12 large-12 columns">
                     <md-input-container class="md-block">
                         <label>{{ "WORD_COMMENT" | translate }}</label>
-                        <textarea ng-model="user.signup_comment" md-maxlength="300" name="comment" rows="5" md-select-on-focus></textarea>
-                        <div ng-messages="signupForm.comment.$error" >
+                        <textarea ng-model="user.signup_comment" md-maxlength="300" name="comment" rows="5" md-select-on-focus ng-required="{{hide}}"></textarea>
+                        <div ng-messages="signupForm.comment.$error" multiple md-auto-hide="false">
                             <div ng-message="md-maxlength" data-translate="FORM_MAX_LENGTH" data-translate-value-max="{{ 300 }}"></div>
+                            <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                         </div>
                     </md-input-container>
                 </div>
