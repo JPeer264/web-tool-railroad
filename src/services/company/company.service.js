@@ -71,7 +71,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      */
     this.getAllLimited = function() {
         if (!_promiseCache.getAllLimited) {
-            _promiseCache.getAllLimited = Restangular.all('companyAll').getList();
+            _promiseCache.getAllLimited = Restangular.all('companyall').getList();
         }
 
         return _promiseCache.getAllLimited;
