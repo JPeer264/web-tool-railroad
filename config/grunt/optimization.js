@@ -60,7 +60,7 @@ module.exports = {
 			files: [{
 				expand: true,
 				cwd: '<%= paths.tmp.folder.assets.js %>',
-				src: ['*.js', '!vendor.js'],
+				src: ['*.js'],
 				dest: '<%= paths.dest.folder.assets.js %>',
 				ext: '.min.js'
 			}]

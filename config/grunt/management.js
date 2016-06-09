@@ -35,6 +35,12 @@ module.exports = {
 
         // concat all vendor files
         vendor: {
+            options: {
+                // add the sourcefile as comment
+                process: function(src, filepath) {
+                    return '/* Source: ' + filepath + '*/\n' + src
+                }
+            },
             files: [{
                 src: [
                     '<%= paths.tmp.folder.assets.js %>/bower.js',
@@ -125,8 +131,8 @@ module.exports = {
             dependencies: {
                 'angular': 'jquery'
             },
-            process: function(src) {
-                return src;
+            process: function(src, filepath) {
+                return '/* Bower_Source: ' + filepath + '*/\n' + src
             } ,
             callback: function(file, comp) {
                 return file;
@@ -224,9 +230,9 @@ module.exports = {
                 },
                 {
                     expand: true,
-                    cwd: '/bower_components/angular-i18n',
+                    cwd: './bower_components/angular-i18n',
                     src: '*.js',
-                    dest: '<%= paths.dist.base %>/i18n/angular/'
+                    dest: '<%= paths.dest.base %>/i18n/angular/'
                 }
             ]
         },

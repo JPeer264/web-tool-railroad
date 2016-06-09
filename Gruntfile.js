@@ -530,9 +530,6 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 			default: [
 				'minify:css',
 				'minify:js',
-				// notlösung: vendors können minifierten code enthalten
-				// 'uglify' kann minifierten code nicht erneut uglifien
-				'copy:vendor'
 			],
 			css: [
 				'manage:sass',
@@ -634,6 +631,11 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 				'connect:dev',
 				'browserSync:dev',
 				'watch',
+			],
+			prod: [
+				'build:dev',
+				'build:prod',
+				'connect:prod',
 			],
 			devphp: [
 				'build:dev',

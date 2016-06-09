@@ -88,6 +88,8 @@ module.exports = {
 				hostname: '<%= connect.dev.options.hostname %>',
 				port: '<%= connect.dev.options.port %>',
 				base: '<%= hstn.names.dest %>',
+				keepalive: true,
+				open: true,
 			}
 		},
 		ngdocs: {
