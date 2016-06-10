@@ -625,7 +625,7 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 		 * -, :dev, :prod
 		 */
 		serve: {
-			default: ['serve:dev'],
+			default: ['serve:devphp'],
 			dev: [
 				'build:dev',
 				'connect:dev',
