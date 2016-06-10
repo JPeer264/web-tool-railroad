@@ -6,8 +6,9 @@
     </div>
     <div class="flex flex-horizontal-center">
         <ul class="ul-normalize">
-            <li><a href="/faq">{{ "NAV_FAQ" | translate }}</a></li>
-            <li><a href="/rules">{{ "NAV_RULES" | translate }}</a></li>
+            <li data-ng-if="isLoggedIn()"><a href="/faq">{{ "NAV_FAQ" | translate }}</a></li>
+            <li data-ng-if="isLoggedIn()"><a href="/rules">{{ "NAV_RULES" | translate }}</a></li>
+            <li><a href="/legal">Legal policy</a></li>
         </ul>
     </div>
     <div class="flex flex-horizontal-center copyright">

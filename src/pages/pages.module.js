@@ -21,6 +21,7 @@
         'pages.topic',
         'pages.company',
         'pages.signup',
+        'pages.legalpolicy',
     ]);
 
 })(window, window.angular);

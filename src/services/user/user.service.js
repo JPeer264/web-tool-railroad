@@ -19,7 +19,7 @@ user.$inject = [
     '$httpParamSerializer',
     '$cookies',
     'CONSTANT',
-    '$q'
+    '$q',
 ];
 
 
@@ -33,6 +33,10 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
 
     this.isIdentityResolved = function() {
         return angular.isDefined(_identity);
+    }
+
+    this.setIdentity = function(identity) {
+        _identity = identity;
     }
 
     this.isAuthenticated = function() {

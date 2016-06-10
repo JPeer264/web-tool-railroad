@@ -16,5 +16,5 @@ LandingController.$inject = [
 ];
 
 function LandingController($scope) {
-    console.log('landing');
+
 }

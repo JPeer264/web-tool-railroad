@@ -28,7 +28,7 @@ function languageChooserDirective() {
                 var $gw; //google widget
 
                 $(window).resize(function() {
-                    $timeout(function() {
+                    setTimeout(function() {
                         setHeaderFixed();
                     }, 500);
                 });
@@ -51,7 +51,7 @@ function languageChooserDirective() {
                 //     $('#btn-langChooser').foundation('close');
                 // });
                 // the i18n button end
-
+                var reset = false;
                 var googleTWidgetExist =  setInterval(function() {
                     $gw = $('.goog-te-combo');
 
@@ -66,6 +66,10 @@ function languageChooserDirective() {
                 }, 500);
 
                 function transformGoogleTWIdget() {
+
+                    if (reset) return;
+
+                    console.log('languageChooserDir', 'transformGoogleTWIdget()');
                     var $targetLanguage = $gw.parent();
                     var $gWidget = $('#google_translate_element .goog-te-gadget');
                     var $span = $gWidget.find('span');
@@ -82,6 +86,8 @@ function languageChooserDirective() {
                         .append($targetLanguage)
                         .append('Powered by <br>')
                         .append($span);
+
+                    reset = true;
                 }
 
                 function setHeaderFixed() {

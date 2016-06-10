@@ -1,5 +1,5 @@
 /**
- * @ngdoc service 
+ * @ngdoc service
  * @name service.auth
  *
  * @requires $rootScope
@@ -23,16 +23,17 @@ auth.$inject = [
     'CONSTANT',
     '$httpParamSerializer',
     'user',
-    '$location'
+    '$location',
+    '$q'
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location) {
+function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location, $q) {
     var _authenticated = false,
         token = Restangular.service('auth/token'),
         self = this;
 
     this.authorize = function() {
-
+        console.log('auth.service', 'aufruf');
         if (!self.check()) {
             // user is not authenticated. stow the state they wanted before you
             // send them to the signin state, so you can return them when you're done
@@ -45,7 +46,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
             // }
 
             $location.path('/welcome');
-            return;
+            return false;
         }
 
 

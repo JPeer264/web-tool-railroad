@@ -23,7 +23,7 @@ LanguageChooserController.$inject = [
 ];
 
 function LanguageChooserController($scope, $translate, $cookies, CONSTANT, tmhDynamicLocale) {
-
+    console.log('languageChooserCtrl', 'aufruf');
     /**
      * @ngdoc method
      * @name changeLang

@@ -1,10 +1,10 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://railroad-api.jpeer.at';
+var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
-var APIPATH = '/api/v1';
+var APIPATH = 'public/api/v1';
 
 var CONSTANT = {
     "COOKIE": {
@@ -108,7 +108,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
     $translateProvider.fallbackLanguage('en-us');
     tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular/angular-locale_{{ locale }}.js');
 
-    $urlRouterProvider.when('', '/');
+    $urlRouterProvider.when('', '/welcome');
     $urlRouterProvider.otherwise('/error');
 
     // setup header and footer templates
@@ -466,7 +466,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 },
             },
             data: {
-                roleLimit: 4
+                roleLimit: 0
             }
         })
         .state('signupToken', {
@@ -486,7 +486,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 },
             },
             data: {
-                roleLimit: 4
+                roleLimit: 0
             }
         })
         .state('error', {
@@ -499,6 +499,26 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 main: {
                     templateUrl: 'pages/error/error.html',
                     controller: 'ErrorCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                roleLimit: 0
+            }
+        })
+        .state('legal', {
+            url: '/legal',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/legalpolicy/legalpolicy.html',
+                    controller: 'LegalpolicyCtrl'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -533,9 +553,8 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         return date === null ? date : new Date(date);
     }
 
-
     $rootScope.isLoggedIn = function() {
-        return auth.isAuthorized();
+        return user.isAuthenticated();
     }
 
     $rootScope.setDefaultPictureLocation = function (data) {
@@ -552,7 +571,6 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
         $rootScope.toState = toState;
         $rootScope.toStateParams = toStateParams;
-
         // redirect to login page if not logged in and trying to access a restricted page
         if (user.isIdentityResolved()) {
             auth.authorize();
@@ -562,10 +580,15 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
 
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {
-            // $location.path('/error');
+
+            if (user.isIdentityResolved()) {
+                auth.logout();
+                $location.path('/error');
+                return false;
+            }
 
             return true;
-            // auth.logout();
+
         }
 
         if (response.status === 404) {
