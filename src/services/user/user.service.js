@@ -43,6 +43,10 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
         return _authenticated;
     }
 
+    this.setAuthenticated = function(boo) {
+        _authenticated = boo;
+    }
+
     this.isRightRole = function(roleLimit) {
         if (!_authenticated || !_identity.role_id) return false;
 

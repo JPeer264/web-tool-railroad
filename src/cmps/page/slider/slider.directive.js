@@ -25,7 +25,6 @@ function sliderDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                console.log($('#slider').find('img'));
                 var elem = new Foundation.Interchange($('#slider').find('img'));
             }
         };

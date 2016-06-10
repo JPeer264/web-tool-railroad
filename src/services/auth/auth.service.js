@@ -147,6 +147,9 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
      * Deletes the user token and return to the welcome page
      */
     this.logout = function() {
+        _authenticated = false;
+        user.setIdentity(undefined);
+        user.setAuthenticated(false);
         $cookies.remove(CONSTANT.COOKIE.TOKEN);
         $cookies.remove(CONSTANT.COOKIE.USER_ID);
         $window.location.assign('/');

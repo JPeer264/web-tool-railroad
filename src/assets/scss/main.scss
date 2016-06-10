@@ -13,7 +13,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    position: static !important;
+    // position: static !important;
 }
 
 /*****************************
@@ -24,7 +24,8 @@ body, html {
 }
 
 .goog-te-banner-frame {
-    display: none;
+    // display: none;
+    overflow: scroll;
 }
 
 .goog-te-combo {

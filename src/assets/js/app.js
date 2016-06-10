@@ -557,6 +557,10 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         return user.isAuthenticated();
     }
 
+    $rootScope.logout = function() {
+        auth.logout();
+    }
+
     $rootScope.setDefaultPictureLocation = function (data) {
         if (!data.picture_location || data.picture_location === '/path/to/picture/') {
             data.picture_location = CONSTANT.PROFILE_PICTURE_DEFAULT;

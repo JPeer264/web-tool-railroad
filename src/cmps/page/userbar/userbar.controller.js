@@ -23,19 +23,6 @@ UserbarController.$inject = [
 ];
 
 function UserbarController($scope, auth, $location) {
-
-    /**
-     * @ngdoc method
-     * @name logout
-     * @methodOf cmps.page:UserbarCtrl
-     *
-     * @description
-     * call the auth.logout() service
-     */
-    $scope.logout = function() {
-        auth.logout();
-    }
-
     /**
      * @ngdoc method
      * @name admin
@@ -46,19 +33,5 @@ function UserbarController($scope, auth, $location) {
      */
     $scope.admin=function(){
         $location.path( '/admin' );
-    }
-
-    /**
-     * @ngdoc method
-     * @name isLoggedIn
-     * @methodOf cmps.page:UserbarCtrl
-     *
-     * @description
-     * call the auth.logout() service and check logged in status
-     *
-     * @return {Boolean} auth.isAuthorized()
-     */
-    $scope.isLoggedIn = function() {
-        return auth.isAuthorized();
     }
 }
