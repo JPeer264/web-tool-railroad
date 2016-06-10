@@ -96,9 +96,11 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
             "company\[\]": vm.company
         };
 
+        vm.newTopic.description = (vm.newTopic.description).replace(/^\n+/, '').replace(/\n+/g,'\n\n');
+
         topic.create($state.params.id,vm.newTopic , vm.params ).then(function(data) {
             // prepare and add new subcategory to $scope.subcategory
-            vm.newTopic.topic_id = data.topic_id;
+            vm.newTopic.id = data.topic_id;
             vm.newTopic.user    = vm.currentUser;
             vm.newTopic.user_id = vm.currentUser.id;
 

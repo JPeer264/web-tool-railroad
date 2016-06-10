@@ -26,8 +26,9 @@ function AddCommentController($scope, comment, $state) {
 
     vm.addComment=function(){
         vm.triggeredComment = true;
+        vm.comment.content = (vm.comment.content).replace(/^\n+/, '').replace(/\n+/g,'\n\n');
 
-        comment.create($state.params.id,vm.comment).then(function(data) {
+        comment.create($state.params.id, vm.comment).then(function(data) {
             // async push and apply to scope
             vm.comment.user = vm.currentUser;
             vm.comment.created_at = (new Date());
