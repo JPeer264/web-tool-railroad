@@ -1,0 +1,70 @@
+.standard{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $secondary-color;
+    margin-bottom:10px;
+
+    .legend{
+        color: grey;
+        font-size: 12px;
+        width:auto;
+        margin-left: 5%;
+        padding-left:1%;
+        padding-right:1%;
+        background:white;
+            }
+}
+
+.info{
+        color: grey;
+        font-size: 12px;
+}
+
+ .selectTarget{
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom:10px;
+ }
+
+/*****************************
+ ** Angular Material Switch **
+ *****************************/
+
+/* 
+ * The bar:
+ */
+
+md-switch .md-bar {
+    background-color: light-grey; /* set not selected bar color */
+}
+
+md-switch.md-checked .md-bar {
+    background-color: $primary-color; /* set selected bar color */
+}
+
+
+/* 
+ * The switch:
+ */
+
+md-switch .md-thumb {
+    color: rgb(158,158,158); /* not selected switch color */
+}
+
+md-switch.md-checked .md-thumb {
+    background-color: $secondary-color; /* selected switch color */
+
+}
+md-switch.md-checked .md-thumb-container {
+    background-color: blue; /* selected switch color */
+}
+
+
+
+md-switch{
+    display: inline-block;
+}
+
+/*********************************
+ ** Angular Material Switch End **
+ ********************************/

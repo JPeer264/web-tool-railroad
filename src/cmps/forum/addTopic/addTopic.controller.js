@@ -28,44 +28,44 @@ AddTopicController.$inject = [
 function AddTopicController($scope, job, company, topic, $state,$httpParamSerializer) {
     var vm = this;
 
-    vm.listJob = [];
-    vm.listCompany = [];
+    vm.jobs = [];
+    vm.companies = [];
     vm.everyone = false;
     vm.currentUser = $scope.$root.currentUser;
     vm.currentId = $state.params.id;
     vm.triggeredTopic = false;
 
     job.getAll().then(function(data) {
-        vm.jobs = data.plain();
+        angular.forEach(data.plain(), function (jobValue, key) {
+            if(jobValue.id!=1)
+                vm.jobs.push(jobValue);
+            });
     });
 
     company.getAll().then(function(data) {
-        vm.companies = data.plain();
+        angular.forEach(data.plain(), function (companyValue, key) {
+            if(companyValue.id!=1)
+                vm.companies.push(companyValue);
+            });
     });
 
-    vm.toggleJob = function (job, list) {
-        var idx = vm.listJob.indexOf(job);
-
-        if (idx > -1) {
-            vm.listJob.splice(idx, 1);
-        } else {
-            vm.listJob.push(job);
+    vm.onChange= function(all){
+        if(all){
+            angular.forEach(vm.companies, function (companyValue, key) {
+                companyValue.selected=true;
+            })
+            angular.forEach(vm.jobs, function (jobValue, key) {
+                jobValue.selected=true;
+            })
+        }else{
+            angular.forEach(vm.jobs, function (jobValue, key) {
+                jobValue.selected=false;
+            })
+            angular.forEach(vm.companies, function (companyValue, key) {
+                companyValue.selected=false;
+            })
         }
-    };
-
-    vm.toggleCompany = function (company, list) {
-        var idx = vm.listCompany.indexOf(company);
-
-        if (idx > -1) {
-            vm.listCompany.splice(idx, 1);
-        } else {
-            vm.listCompany.push(company);
-        }
-    };
-
-    vm.checkAll = function () {
-        vm.everyone = vm.everyone ? false : true;
-    };
+    }
 
     vm.addTopic = function(){
         var subcategory = $scope.$parent.subcategoryCmps.subcategory;
@@ -73,24 +73,18 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
         vm.job = [];
         vm.company = [];
 
-        if (vm.everyone) {
-            angular.forEach(vm.jobs, function (jobValue, key) {
-                vm.job.push(jobValue.id);
-            });
-
-            angular.forEach(vm.companies, function (companyValue, key) {
+        angular.forEach(vm.companies, function (companyValue, key) {
+            if(companyValue.selected){
                 vm.company.push(companyValue.id);
-            });
-        } else {
-            angular.forEach(vm.listJob, function (jobValue, key) {
+            }
+        })
+        angular.forEach(vm.jobs, function (jobValue, key) {
+            if(jobValue.selected){
                 vm.job.push(jobValue.id);
-            });
-
-            angular.forEach(vm.listCompany, function (companyValue, key) {
-                vm.company.push(companyValue.id);
-            });
-        }
-
+            }
+        })
+        console.log(vm.job);
+        console.log(vm.company);
         vm.params={
             "job\[\]": vm.job,
             "company\[\]": vm.company
@@ -107,10 +101,8 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
             subcategory.topic.push(vm.newTopic);
 
             // reset requirements
-            vm.listJob      = [];
-            vm.listCompany  = [];
             vm.newTopic     = null;
-            vm.checkAll.selected = false;
+            vm.onChange(false);
 
             vm.triggeredTopic = false;
             $('#addTopic').foundation('close');

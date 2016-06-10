@@ -41,27 +41,41 @@
                             </md-input-container>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="large-6 columns">
-                            <div flex="100" ng-repeat="job in addTopicCtrl.jobs">
-                                <md-checkbox class="check" ng-model="job.selected" ng-click="addTopicCtrl.toggleJob(job, selected)">
-                                    {{ job.title }}
-                                </md-checkbox>
+                    <fieldset class="standard">
+                        <legend class="legend">Who is allowed to view this?</legend>
+                        <div class="row align-middle">
+                            <div class="column info">
+                                If you do not select anybody, everyone will be able to access your topic.
+                            </div>
+                            <div class="column flex flex-end">
+                                <md-switch ng-model="addTopicCtrl.checkAll" ng-change="addTopicCtrl.onChange(addTopicCtrl.checkAll)">
+                                    {{ "WORD_EVERYONE" | translate }}
+                                </md-swicth>
                             </div>
                         </div>
-                        <div class="large-6 columns">
-                            <div flex="100" ng-repeat="company in addTopicCtrl.companies">
-                                <md-checkbox class="check" ng-model="company.selected" ng-click="addTopicCtrl.toggleCompany(company, selected)" >
-                                    {{ company.name }}
-                                </md-checkbox>
+                        <div class="row">
+                            <div class="small-12 large-6 columns ">
+                                <label class="info">Select Jobs</label>
+                                <div class="selectTarget">
+                                    <div flex="100" ng-repeat="job in addTopicCtrl.jobs">
+                                    <md-checkbox class="check" ng-model="job.selected" ng-click="addTopicCtrl.toggleJob(job, selected)">
+                                        {{ job.title }}
+                                    </md-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="small-12 large-6 columns selectTarget">
+                                <label class="info">Select Companies</label>
+                                <div class="selectTarget">
+                                    <div flex="100" ng-repeat="company in addTopicCtrl.companies">
+                                        <md-checkbox class="check" ng-model="company.selected" ng-click="addTopicCtrl.toggleCompany(company, selected)" >
+                                            {{ company.name }}
+                                        </md-checkbox>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="large-6 columns">
-                            <md-checkbox Class="check" ng-model="addTopicCtrl.checkAll.selected" ng-click="addTopicCtrl.checkAll()">
-                                {{ "WORD_EVERYONE" | translate }}
-                            </md-checkbox>
-                        </div>
-                    </div>
+                    </fieldset>
                     <div class="flex flex-center">
                         <md-button class="button" type="submit" ng-disabled="addTopicForm.$invalid" data-ng-disabled="addTopicCtrl.triggeredTopic">
                             {{ "FORUM_ADD_TOPIC" | translate }}
