@@ -100,6 +100,7 @@ function HeaderController($scope, user, auth, $timeout) {
         // check if the another or a new language isset
         // and set the header to a new fixed position
         $(document).on('change', 'select.goog-te-combo', function () {
+            closeGoogleBar();
             waitGoogleBarLoad(function() {
                 var bodyTop = $('body').css('top');
 
@@ -111,20 +112,46 @@ function HeaderController($scope, user, auth, $timeout) {
             });
         });
 
+        closeGoogleBar();
+
         // set the header new if the google bar gets removed
         // also set the $googleBanner to overflow scroll - for mobile
-        waitGoogleBarLoad(function() {
-            var $iframe = $googleBanner.contents();
-            var $closeButton = $iframe.find('.goog-close-link');
+        function closeGoogleBar() {
+            waitGoogleBarLoad(function() {
+                var $iframe = $googleBanner.contents();
+                var $closeButton = $iframe.find('.goog-close-link');
 
-            $closeButton.click(function() {
-                setHeaderFixed();
-            });
+                $closeButton.click(function() {
+                    setHeaderFixed();
+                });
 
-            $iframe.find('.goog-te-banner').css({
-                'overflow-x': 'scroll'
+                $iframe.find('.goog-te-banner').css({
+                    'overflow-x': 'scroll'
+                });
             });
-        });
+        }
+
+        function transformGoogleTWIdget() {
+            var $targetLanguage = $gw.parent();
+            var $button = $('.goog-te-combo')[0];
+            var $gWidgetInner = $('#google_translate_element .goog-te-gadget');
+            var $gWidget = $('#google_translate_element');
+            var $span = $gWidgetInner.find('span');
+
+            if ($gWidgetInner.length > 1) {
+                for (var i = 1; i < $gWidgetInner.length; i++) {
+                    $gWidget.children().first().remove();
+                }
+            }
+
+            $gw
+                .addClass('cursor-pointer')
+                .parent()
+                .addClass('clearfix');
+
+            // rewrite the translate widget
+            $gWidgetInner.html('').append($button)
+        }
 
         /**
          * function to wait until the google frame bar is opened and laoded
@@ -151,28 +178,6 @@ function HeaderController($scope, user, auth, $timeout) {
 
                 wait += interval;
             }, interval);
-        }
-
-        function transformGoogleTWIdget() {
-            var $targetLanguage = $gw.parent();
-            var $button = $('.goog-te-combo')[0];
-            var $gWidgetInner = $('#google_translate_element .goog-te-gadget');
-            var $gWidget = $('#google_translate_element');
-            var $span = $gWidgetInner.find('span');
-
-            if ($gWidgetInner.length > 1) {
-                for (var i = 1; i < $gWidgetInner.length; i++) {
-                    $gWidget.children().first().remove();
-                }
-            }
-
-            $gw
-                .addClass('cursor-pointer')
-                .parent()
-                .addClass('clearfix');
-
-            // rewrite the translate widget
-            $gWidgetInner.html('').append($button)
         }
     }
     // dirty end - should be in directive
