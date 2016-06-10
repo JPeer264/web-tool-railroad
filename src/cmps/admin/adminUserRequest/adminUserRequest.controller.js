@@ -7,17 +7,29 @@ angular
  * @name cmps.admin:AdminUserRequestCtrl
  *
  * @requires $scope
+ * @requires service.user
+ * @requires service.role
  *
  * @description
  * AdminUserRequestCtrl for the adminUserRequest directive
  */
 AurController.$inject = [
     '$scope',
-    'user'
+    'user',
+    'role'
 ];
 
-function AurController($scope, user) {
+function AurController($scope, user, role) {
     var cU = $scope.currentUser;
+ 
+    if($scope.currentUser.role_id==1){
+        $scope.superAdmin=true;
+    }
+
+
+    role.getAll().then(function(data){
+        $scope.roles=data.plain();
+    });
 
     user.getAll().then(function (data) {
         var allUsers = data.plain();
@@ -47,6 +59,28 @@ function AurController($scope, user) {
             return parseInt(value.accepted) === 2;
         });
     });
+
+    $scope.changeUser= function(id){
+        $scope.userToEdit = $scope.acceptedUsers.filter(function (value) {
+            if (value.id === id) {
+                return true;
+            }
+
+            return false;
+        })[0];
+    }
+
+    $scope.editUser = function () {
+        var fd = new FormData();
+        fd.append("role_id", $scope.userToEdit.role_id);
+
+        user.update($scope.userToEdit.id, fd).then(function (data) {
+            $('#editUser').foundation('close');
+
+        }).catch(function (data) {
+        });
+    }
+
 
     $scope.accept = function (id) {
         var formData = new FormData();

@@ -1,7 +1,7 @@
 <div id="aur">
     <div class="row flex-end">
         <div class="medium-2 small-12 columns">
-            <div class="full-width" data-invite-user></div>
+          <!--  <div class="full-width" data-invite-user></div>-->
         </div>
     </div>
     <!-- pending users -->
@@ -136,7 +136,14 @@
             <div class="admin-user-request rail-panel admin-panel">
                 <div class="rail-panel-inner">
                     <div class="rail-header">
-                        {{ user.firstname }} {{ user.lastname }}
+                        <div class="row">
+                            <div class="column no-padding">
+                                {{ user.firstname }} {{ user.lastname }}
+                            </div>
+                            <div class="column no-padding flex flex-end" ng-if="superAdmin" >
+                                    <button data-open="editUser" data-ng-click="changeUser(user.id)"><i class="fa fa-gear fa-lg"></i></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="rail-content">
                         <div class="row">
@@ -152,6 +159,9 @@
                                     <p>
                                         <span>{{ "WORD_JOB" | translate }}:</span> {{ user.job.title }}
                                     </p>
+                                    <p>
+                                        <span>{{ "WORD_ROLE" | translate }}:</span> {{ user.role.name }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -160,4 +170,43 @@
             </div>
         </div>
     </div>
+
+        <div class="reveal rail-panel small-10 medium-10 large-10" id="editUser" data-reveal>
+                <div class="rail-panel-inner">
+                    <div class="rail-header">
+                        <div class="flex">
+                            <div class="flex flex-start">
+                                {{ "EDIT" | translate }} {{userToEdit.firstname}} {{userToEdit.lastname}} {{me}}
+                            </div>
+                            <div class="flex flex-end">
+                                <button data-close>
+                                    <i class="fa fa-times fa-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rail-content">
+                        <form data-ng-submit="editUser()" name="editUserForm">
+                            <div class="row">
+                                <div class="columns small-12">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>{{ "WORD_ROLE" | translate }}</label>
+                                        <md-select ng-model="userToEdit.role_id" name="roleAll" required>
+                                            <md-option ng-repeat="role in roles" value="{{ role.id }}">
+                                                {{ role.name }}
+                                            </md-option>
+                                        </md-select>
+                                        <div ng-messages="editUserForm.roleAll.$error">
+                                            <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                                <div class="columns small-12">
+                                    <md-button class="button" ng-disabled="editUserForm.$invalid" type="submit">{{ "ADMIN_EDIT_USER" | translate }}</md-button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 </div>

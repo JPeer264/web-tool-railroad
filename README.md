@@ -4,11 +4,11 @@
 
 ## Installation
 
-> **Note:** make sure NodeJS and NPM (v3+) is installed. You can find further information [here](https://docs.npmjs.com/getting-started/installing-node)
+> **Note:** make sure NodeJS and NPM (v3+) are installed. You can find further information [here](https://docs.npmjs.com/getting-started/installing-node)
 
 > **Note:** make sure `bower` is globally installed. You can find further information [here](http://bower.io/#install-bower)
 
-Go in the terminal into the project root and run following command `npm install`, this will automatically execute `bower install`.
+Go in the terminal, navigate to the project root and run following command `npm install`, this will automatically execute `bower install`.
 
 ## Prepare for publish
 
@@ -18,13 +18,13 @@ To make sure the frontend will get all the information from the right server, yo
 
 **SERVERPATH**. The variable `SERVERPATH` is for the URL where the backend (Lumen) is placed. It will be used for getting the uploaded pictures or extending the variable `APIPATH`
 
-**APIPATH**. The variable `APIPATH` is for the folder where frontend has to make the API requests. With the used Lumen framework it is usually in the `public/api/v1` folder
+**APIPATH**. The variable `APIPATH` is for the folder where the frontend has to make the API requests. With the used Lumen framework it is usually in the `public/api/v1` folder
 
 ### Make the application production ready
 
 > **Note:** make sure `grunt-cli` is globally installed. You can find further information [here](https://www.npmjs.com/package/grunt-cli)
 
-In order to make the application production ready, you have to go in the terminal into the project root. In the project root execute following command: `grunt build:prod`
+In order to make the application production ready, you have to go in the terminal and navigate to the project root. In the project root execute following command: `grunt build:prod`
 
 This will generate new directives. The most important one is `./dist`, where the optimized code is ready for production. Do not delete it... **yet**
 
