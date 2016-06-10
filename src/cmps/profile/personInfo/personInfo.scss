@@ -26,7 +26,7 @@ $person-info: 1rem;
     border: 1px solid $light-gray;
     margin: 1.5rem 0 $person-info;
     padding: $person-info;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: $box-shadow;
     transition: box-shadow .5s;
 
     .img {
