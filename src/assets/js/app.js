@@ -1,10 +1,10 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
+var SERVERPATH = 'http://railroad-api.jpeer.at';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
-var APIPATH = 'public/api/v1';
+var APIPATH = '/api/v1';
 
 var CONSTANT = {
     "COOKIE": {
@@ -70,7 +70,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
 
     // redirect to home state when we call the page without route information
     // activate in proudction and set mod_rewrite to index.html
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
     // setup restangular basics
     RestangularProvider.setBaseUrl(CONSTANT.API_PATH)

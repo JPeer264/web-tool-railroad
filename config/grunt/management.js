@@ -194,7 +194,7 @@ module.exports = {
                     expand: true,
                     cwd: '<%= paths.src.base %>',
                     src: [
-                        'index.html',
+                        'index.php',
                         'i18n/**'
                     ],
                     dest: '<%= paths.tmp.base %>/'
@@ -204,6 +204,12 @@ module.exports = {
                     cwd: './bower_components/angular-i18n',
                     src: '*.js',
                     dest: '<%= paths.tmp.base %>/i18n/angular/'
+                },
+                {
+                    expand: true,
+                    cwd: '<%= paths.src.base %>',
+                    src: '.htaccess',
+                    dest: '<%= paths.tmp.base %>'
                 }
             ]
         },
@@ -223,7 +229,7 @@ module.exports = {
                     expand: true,
                     cwd: '<%= paths.src.base %>',
                     src: [
-                        'index.html',
+                        'index.php',
                         'i18n/**'
                     ],
                     dest: '<%= paths.dest.base %>'
@@ -233,6 +239,12 @@ module.exports = {
                     cwd: './bower_components/angular-i18n',
                     src: '*.js',
                     dest: '<%= paths.dest.base %>/i18n/angular/'
+                },
+                {
+                    expand: true,
+                    cwd: '<%= paths.src.base %>',
+                    src: '.htaccess',
+                    dest: '<%= paths.dest.base %>'
                 }
             ]
         },

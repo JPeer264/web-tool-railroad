@@ -19,6 +19,10 @@ body, html {
 /*****************************
  ** Google Translate Widget **
  *****************************/
+#google_translate_element {
+    min-width: 150px;
+}
+
 .goog-te-banner-frame {
     display: none;
 }

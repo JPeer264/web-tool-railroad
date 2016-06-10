@@ -56,6 +56,10 @@ module.exports = {
 		json: {
 			files: '<%= paths.src.base %>/i18n/**/*',
 			tasks: 'copy:dev'
+		},
+		htaccess: {
+			files: '<%= paths.src.base %>/.htaccess',
+			tasks: 'copy:dev'
 		}
 	},
 
@@ -79,7 +83,7 @@ module.exports = {
 		dev: {
 			options: {
 				hostname: '127.0.0.1',
-				port: 1337,
+				port: 1387,
 				base: 'tmp',
 			}
 		},
@@ -132,7 +136,7 @@ module.exports = {
 			},
 			options: {
 				proxy: '<%= connect.dev.options.hostname %>:<%= connect.dev.options.port %>',
-				port: 1338,
+				port: 1397,
 				open: true,
 				watchTask: true,
 				notify: true,
