@@ -26,22 +26,21 @@ function languageChooserDirective() {
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
                 // the i18n button (instead of google widget)
-                // var elem = new Foundation.Dropdown($('#btn-langChooser'));
-                // var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
+                var elem = new Foundation.Dropdown($('#btn-langChooser'));
+                var preferredLanguage = $('#btn-langChooser [data-lang="' + scope.getPreferredLanguage() + '"]')[0].innerHTML;
 
-                // $('#chosenLanguage').text(preferredLanguage);
-                // scope.changeLang(scope.getPreferredLanguage());
+                $('#chosenLanguage').text(preferredLanguage);
+                scope.changeLang(scope.getPreferredLanguage());
 
-                // $('#btn-langChooser a').click(function(e){
-                //     e.preventDefault();
-                //     var chosenLanguage = $(this).find('li').text();
-                //     var langKey = $(this).data('lang');
+                $('#btn-langChooser a').click(function(e){
+                    e.preventDefault();
+                    var chosenLanguage = $(this).find('li').text();
+                    var langKey = $(this).data('lang');
 
-                //     scope.setPreferredLanguage(langKey);
-                //     $('#chosenLanguage').text(chosenLanguage);
-                //     $('#btn-langChooser').foundation('close');
-                // });
-                // the i18n button end
+                    scope.setPreferredLanguage(langKey);
+                    $('#chosenLanguage').text(chosenLanguage);
+                    $('#btn-langChooser').foundation('close');
+                });
             }
         };
 };
