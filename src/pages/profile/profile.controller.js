@@ -23,8 +23,6 @@ ProfileController.$inject = [
 ];
 
 function ProfileController($scope, $state, user, company, CONSTANT) {
-    console.log('profile');
-
 
     /**
      * @ngdoc property
@@ -44,14 +42,12 @@ function ProfileController($scope, $state, user, company, CONSTANT) {
 
         $scope.user = $scope.setDefaultPictureLocation(data);
 
-        if($scope.user.job_id==1)
-        {
-            $scope.canChangeJob=true;
+        if ($scope.user.job_id == 1) {
+            $scope.canChangeJob = true;
         }
 
-        if($scope.user.company_id==1)
-        {
-            $scope.canChangeCompany=true;
+        if ($scope.user.company_id === 1) {
+            $scope.canChangeCompany = true;
         }
     });
 

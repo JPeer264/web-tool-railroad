@@ -16,5 +16,15 @@ activityTopicController.$inject = [
 ];
 
 function activityTopicController($scope) {
+    var em;
+
+    shortenText();
+
+    function shortenText() {
+        em = $(window).width() / 16;
+        var text = $scope.topic.title;
+
+        // todo shorten text
+    }
 
 }
