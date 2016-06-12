@@ -103,8 +103,36 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
         });
     }
 
+    /**
+     * @ngdoc method
+     * @name service.user#latestActivity
+     * @methodOf service.user
+     *
+     * @description
+     * Get the latest activity
+     *
+     *
+     * @returns {Promise} returns promise
+     */
     this.latestActivity = function () {
         return Restangular.one('latest/missed').get();
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.user#latestActivityUser
+     * @methodOf service.user
+     *
+     * @description
+     * Get the latest activity by user
+     *
+     * @param {Object} id - the id from the user
+     *
+     * @returns {Promise} returns promise
+     */
+    this.latestActivityUser = function (id) {
+        console.log(Restangular.one('latest', id).get());
+        return Restangular.one('latest', id).get();
     }
 
     /**

@@ -111,7 +111,7 @@
                     {{ "FORUM_LATEST_TOPICS" | translate }}
                 </div>
                 <div class="row">
-                    <div class="columns small-12" data-ng-repeat="topic in user.topic">
+                    <div class="columns small-12" data-ng-repeat="topic in latestTopics">
                        <div data-activity-topic></div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                     {{ "FORUM_LATEST_COMMENTS" | translate }}
                 </div>
                 <div class="row">
-                    <div class="columns small-12" data-ng-repeat="comment in user.comment">
+                    <div class="columns small-12" data-ng-repeat="comment in latestComments">
                        <div data-activity-comment></div>
                     </div>
                 </div>
