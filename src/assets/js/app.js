@@ -131,11 +131,6 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
         })
         .state('secure.index', {
             url: '/',
-            data: {
-                activetab: 'home',
-                roles: ['user'],
-                roleLimit: 4
-            },
             views: {
                 header: {
                     templateUrl: templates.header.template,
@@ -149,6 +144,10 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                     templateUrl: templates.footer.template,
                     controller: templates.footer.controller
                 },
+            },
+            data: {
+                activetab: 'home',
+                roleLimit: 4
             },
         })
         .state('secure.categories', {
@@ -298,6 +297,27 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 roleLimit: 4
             }
         })
+        .state('secure.legal', {
+            url: '/legal',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/legalpolicy/legalpolicy.html',
+                    controller: 'LegalpolicyCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                roleLimit: 4
+            }
+        })
+        // start with userrole companyadmin +
         .state('secure.admin', {
             url: '/admin',
             views: {
@@ -381,6 +401,27 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 admintab: true,
                 activeadmintab: 'jobmanagement',
                 roleLimit: 3
+            }
+        })
+        // start with no login
+        .state('legal', {
+            url: '/nologin/legal',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/legalpolicy/legalpolicy.html',
+                    controller: 'LegalpolicyCtrl'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                },
+            },
+            data: {
+                roleLimit: 0
             }
         })
         .state('rules', {
@@ -493,26 +534,6 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 main: {
                     templateUrl: 'pages/error/error.html',
                     controller: 'ErrorCtrl'
-                },
-                footer: {
-                    templateUrl: templates.footer.template,
-                    controller: templates.footer.controller
-                },
-            },
-            data: {
-                roleLimit: 0
-            }
-        })
-        .state('legal', {
-            url: '/legal',
-            views: {
-                header: {
-                    templateUrl: templates.header.template,
-                    controller: templates.header.controller
-                },
-                main: {
-                    templateUrl: 'pages/legalpolicy/legalpolicy.html',
-                    controller: 'LegalpolicyCtrl'
                 },
                 footer: {
                     templateUrl: templates.footer.template,

@@ -1,18 +1,24 @@
-<ul class="breadcrumbs">
-    <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
-    <li class="current"><a href="/faq">{{ "NAV_FAQ" | translate }}</a></li>
-</ul>
-<ul class="accordion" data-accordion id="faq" data-allow-all-closed="true">
-    <li class="accordion-item" data-accordion-item>
-        <a class="accordion-title">{{ "FAQ_SIGNUP_TITLE" | translate }}</a>
-        <div class="accordion-content" data-tab-content>
-            {{ "FAQ_SIGNUP" | translate }}
-        </div>
-    </li>
-    <li class="accordion-item" data-accordion-item>
-        <a class="accordion-title">{{ "FAQ_PRIVATE_POST_TITLE" | translate}}</a>
-        <div class="accordion-content" data-tab-content>
-            {{ "FAQ_PRIVATE_POST" | translate }}
-        </div>
-    </li>
-</ul>
+<div data-ng-class="{row: !isLoggedIn()}">
+    <div data-ng-class="{'column small-12': !isLoggedIn()}">
+        <ul class="breadcrumbs">
+            <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
+            <li class="current"><a href="/faq">{{ "NAV_FAQ" | translate }}</a></li>
+        </ul>
+    </div>
+    <div data-ng-class="{'column small-12': !isLoggedIn()}">
+        <ul class="accordion" data-accordion id="faq" data-allow-all-closed="true">
+            <li class="accordion-item" data-accordion-item>
+                <a class="accordion-title">{{ "FAQ_SIGNUP_TITLE" | translate }}</a>
+                <div class="accordion-content" data-tab-content>
+                    {{ "FAQ_SIGNUP" | translate }}
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a class="accordion-title">{{ "FAQ_PRIVATE_POST_TITLE" | translate}}</a>
+                <div class="accordion-content" data-tab-content>
+                    {{ "FAQ_PRIVATE_POST" | translate }}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
