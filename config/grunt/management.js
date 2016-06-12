@@ -208,7 +208,7 @@ module.exports = {
                 {
                     expand: true,
                     cwd: '<%= paths.src.base %>',
-                    src: '.htaccess',
+                    src: ['.htaccess', 'favicon.ico'],
                     dest: '<%= paths.tmp.base %>'
                 }
             ]
@@ -243,7 +243,7 @@ module.exports = {
                 {
                     expand: true,
                     cwd: '<%= paths.src.base %>',
-                    src: '.htaccess',
+                    src: ['.htaccess', 'favicon.ico'],
                     dest: '<%= paths.dest.base %>'
                 }
             ]
