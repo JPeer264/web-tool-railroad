@@ -131,7 +131,6 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
      * @returns {Promise} returns promise
      */
     this.latestActivityUser = function (id) {
-        console.log(Restangular.one('latest', id).get());
         return Restangular.one('latest', id).get();
     }
 

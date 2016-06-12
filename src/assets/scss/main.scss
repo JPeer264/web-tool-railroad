@@ -283,8 +283,13 @@ a {
     color: $body-font-color;
 }
 
-.profile-picure {
+.profile-picture {
     padding: 20px;
+    img {
+        max-height: 200px;
+        display: block;
+        margin: auto;
+    }
 }
 
 .social-media {
@@ -321,4 +326,5 @@ md-checkbox.md-checked.check .md-icon {
     line-height: 14px;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     /* Set our own color */
-    color: grey; }
+    color: grey;
+}

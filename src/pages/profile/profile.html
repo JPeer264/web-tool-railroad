@@ -1,6 +1,8 @@
 <div class="row align-middle">
-    <div class="profile-picure column small-10 medium-4 large-3">
-        <img data-ng-src="{{ user.picture_location }}" data-ng-alt="{{ user.picture_alt }}">
+    <div class="column small-10 medium-4 large-3">
+        <div class="profile-picture">
+            <img data-ng-src="{{ user.picture_location }}" data-ng-alt="{{ user.picture_alt }}">
+        </div>
     </div>
     <div class="column small-2 medium-1 large-1 align-left">
         <div class="social-media" ng-show="user.Twitter">

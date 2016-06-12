@@ -42,7 +42,7 @@ function ProfileController($scope, $state, user, company, CONSTANT) {
 
         $scope.user = $scope.setDefaultPictureLocation(data);
 
-        if ($scope.user.job_id == 1) {
+        if ($scope.user.job_id === 1) {
             $scope.canChangeJob = true;
         }
 
