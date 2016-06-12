@@ -24,17 +24,16 @@ auth.$inject = [
     '$httpParamSerializer',
     'user',
     '$location',
-    '$q'
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location, $q) {
+function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location) {
     var _authenticated = false,
         token = Restangular.service('auth/token'),
         self = this;
 
     this.authorize = function() {
-        console.log('auth.service', 'aufruf');
         if (!self.check()) {
+            var add;
             // user is not authenticated. stow the state they wanted before you
             // send them to the signin state, so you can return them when you're done
             $rootScope.returnToState = $rootScope.toState;
@@ -45,7 +44,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
             //     return;
             // }
 
-            $location.path('/welcome');
+            $window.location.assign('/welcome?ref=' + $location.path());
             return false;
         }
 
@@ -146,9 +145,15 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
      * @description
      * Deletes the user token and return to the welcome page
      */
-    this.logout = function() {
+    this.logout = function(redirect) {
         $cookies.remove(CONSTANT.COOKIE.TOKEN);
         $cookies.remove(CONSTANT.COOKIE.USER_ID);
+
+        if (redirect) {
+            add = '?ref=' + $location.path();
+            $window.location.assign('/welcome?ref=' + $location.path());
+        }
+
         $window.location.assign('/');
     }
 

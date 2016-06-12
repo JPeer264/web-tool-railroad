@@ -441,6 +441,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 },
             },
             data: {
+                roleLimit: 0,
                 breadcrumbs: false
             }
         })
@@ -461,6 +462,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 },
             },
             data: {
+                roleLimit: 0,
                 breadcrumbs: false
             }
         })
@@ -559,13 +561,12 @@ run.$inject = [
 ];
 
 function run($rootScope, $location, $http, auth, user, Restangular, $stateParams, $window) {
+    $rootScope.isLoggedIn = function() {
+        return user.isAuthenticated();
+    }
 
     $rootScope.getDate = function (date) {
         return date === null ? date : new Date(date);
-    }
-
-    $rootScope.isLoggedIn = function() {
-        return user.isAuthenticated();
     }
 
     $rootScope.logout = function() {
@@ -586,6 +587,7 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
         $rootScope.toState = toState;
         $rootScope.toStateParams = toStateParams;
+
         // redirect to login page if not logged in and trying to access a restricted page
         if (user.isIdentityResolved()) {
             auth.authorize();
@@ -596,10 +598,15 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {
         if (response.status === 401) {
 
-            if (user.isIdentityResolved()) {
+            if (user.isIdentityResolved() && !user.isRightRole($rootScope.toState.data.roleLimit)) {
                 auth.logout();
                 $location.path('/error');
                 return false;
+            }
+
+            if (auth.check()) {
+                // todo return to webpage with ?ref=
+                console.log('please login again');
             }
 
             return true;

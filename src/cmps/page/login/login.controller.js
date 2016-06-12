@@ -23,10 +23,11 @@ LoginController.$inject = [
     '$cookies',
     'CONSTANT',
     '$location',
-    '$interval'
+    '$interval',
+    '$state',
 ];
 
-function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $interval) {
+function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $interval, $state) {
 
     $scope.isInProgress = false;
 
@@ -44,16 +45,23 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $
         auth.login($scope.user).then(function (data) {
             $cookies.put(CONSTANT.COOKIE.TOKEN, data.token);
             $cookies.put(CONSTANT.COOKIE.USER_ID, data.user.id);
+
+            if ($location.search().ref) {
+                $window.location.assign($location.search().ref);
+                return;
+            }
+
             $window.location.assign('/');
         }).catch(function (data) {
             // function for errors
-            console.log(data);
-            if(data.status==403){
+            if (data.status === 403) {
                 $scope.loginForm.password.$setValidity("accepted", false);
             }
-            if(data.status==401){
+
+            if (data.status === 401) {
                 $scope.loginForm.password.$setValidity("correctPassword", false);
             }
+
             $scope.isInProgress = false;
 
         });
