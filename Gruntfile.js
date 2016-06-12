@@ -607,6 +607,7 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 		build: {
 			default: ['build:prod'],
 			prod: [
+				'build:dev',
 				'minify',
 				// 'lint:dev',
 				'copy:prod',
@@ -633,7 +634,6 @@ grunt.config.merge(loadConfig('./config/grunt/'));
 				'watch',
 			],
 			prod: [
-				'build:dev',
 				'build:prod',
 				'connect:prod',
 			],

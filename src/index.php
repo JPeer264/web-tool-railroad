@@ -18,9 +18,9 @@
             <div data-ui-view="footer"></div>
         </div>
 
-        <script type="text/javascript" src="/assets/js/vendor.js?20160610"></script>
-        <script type="text/javascript" src="/assets/js/app.js?20160610"></script>
-        <script type="text/javascript" src="/assets/js/main.js?20160610"></script>
+        <script type="text/javascript" src="/assets/js/vendor.js"></script>
+        <script type="text/javascript" src="/assets/js/app.js"></script>
+        <script type="text/javascript" src="/assets/js/main.js"></script>
         <script>
 
             jQuery(document).ready(function($) {

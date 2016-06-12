@@ -56,11 +56,10 @@ config.$inject = [
     'localStorageServiceProvider',
     '$translateProvider',
     'RestangularProvider', // restangular
-    '$mdThemingProvider',
-    'tmhDynamicLocaleProvider'
+    '$mdThemingProvider'
 ];
 
-function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider, tmhDynamicLocaleProvider) {
+function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider) {
     // workaround to enable cookies in config
     var $cookies;
 
@@ -106,7 +105,6 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
     $translateProvider.useMissingTranslationHandler(); // log if TRANSLATION_CODE not found
     $translateProvider.preferredLanguage('en-us');
     $translateProvider.fallbackLanguage('en-us');
-    tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular/angular-locale_{{ locale }}.js');
 
     $urlRouterProvider.when('', '/welcome');
     $urlRouterProvider.otherwise('/error');

@@ -284,18 +284,30 @@ module.exports = {
         prod: {
             options: {
                 rewriter: function (url) {
-
                     var arr = url.split('.');
+
+                    // small hack for google fonts or cdn's with http requests
+                    for (var value of arr) {
+                        if (value.indexOf('google') === 0) {
+                            return;
+                        }
+
+                        if (value.indexOf('http') === 0) {
+                            return;
+                        }
+                    }
+
                     if (arr[arr.length - 2] !== 'min') {
                         arr.splice((arr.length - 1), 0, 'min');
                     }
+
                     return arr.join('.');
                 },
                 css: false,
                 html: {
                     'img[src]': false,
                     'video[poster]': false,
-                    'source[src]': false
+                    'source[src]': false,
                 }
             },
             files: [{
