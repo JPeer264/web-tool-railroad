@@ -1,12 +1,14 @@
 <div class="dropdown userbar">
     <button class="btn-neutralize btn-userbar flex flex-center" type="button" data-toggle="btn-userbar">
-        <div class="img flex flex-center">
-            <img data-ng-src="{{ currentUser.picture_location }}" data-ng-alt="{{ currentUser.picture_alt }}">
-        </div>
-        <div class="info hide-for-small-only">
-            <span>{{ currentUser.firstname }}</span>
-            <p><i class="fa fa-building"></i> {{currentUser.job.title}}</p>
-            <p><i class="fa fa-globe"></i> {{currentUser.country.name}}</p>
+        <div class="row no-margin">
+            <div class="img flex flex-center">
+                <img data-ng-src="{{ currentUser.picture_location }}" data-ng-alt="{{ currentUser.picture_alt }}">
+            </div>
+            <div class="hide-for-small-only">
+                <span>{{ currentUser.firstname }}</span>
+                <p><i class="fa fa-building"></i> {{currentUser.job.title}}</p>
+                <p><i class="fa fa-globe"></i> {{currentUser.country.name}}</p>
+            </div>
         </div>
     </button>
     <div class="dropdown-pane bottom" id="btn-userbar" data-dropdown data-close-on-click="true">
