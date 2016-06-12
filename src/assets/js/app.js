@@ -35,6 +35,7 @@ angular.module('railroad', [
     'ui.select',
     'ngSanitize',
     'ngPassword',
+    'ngFileUpload',
     'ngMessages',
 ]);
 
