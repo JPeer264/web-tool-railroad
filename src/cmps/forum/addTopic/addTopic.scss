@@ -1,36 +1,36 @@
-.standard{
+.standard {
     border-style: solid;
     border-width: 1px;
     border-color: $secondary-color;
     margin-bottom:10px;
 
-    .legend{
+    .legend {
         color: grey;
-        font-size: 12px;
+        font-size: .7rem;
         width:auto;
         margin-left: 5%;
         padding-left:1%;
         padding-right:1%;
         background:white;
-            }
+    }
 }
 
-.info{
-        color: grey;
-        font-size: 12px;
+.info {
+    color: grey;
+    font-size: .8rem;
 }
 
- .selectTarget{
+ .selectTarget {
     max-height: 200px;
     overflow-y: auto;
-    margin-bottom:10px;
+    margin-bottom: .6rem;
  }
 
 /*****************************
  ** Angular Material Switch **
  *****************************/
 
-/* 
+/*
  * The bar:
  */
 
