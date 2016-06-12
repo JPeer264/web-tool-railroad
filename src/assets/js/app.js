@@ -24,7 +24,6 @@ var CONSTANT = {
 
 angular.module('railroad', [
     'ui.router',
-    'LocalStorageModule',
     'railroad.templates',
     'pages',
     'service',
@@ -33,10 +32,8 @@ angular.module('railroad', [
     'restangular',
     'ngCookies',
     'ngMaterial',
-    'tmh.dynamicLocale',
     'ui.select',
     'ngSanitize',
-    'ngFileUpload',
     'ngPassword',
     'ngMessages',
 ]);
@@ -53,13 +50,12 @@ config.$inject = [
     '$stateProvider',
     '$locationProvider',
     '$urlRouterProvider',
-    'localStorageServiceProvider',
     '$translateProvider',
     'RestangularProvider', // restangular
     '$mdThemingProvider'
 ];
 
-function config ($stateProvider, $locationProvider, $urlRouterProvider, localStorageServiceProvider, $translateProvider, RestangularProvider, $mdThemingProvider) {
+function config ($stateProvider, $locationProvider, $urlRouterProvider, $translateProvider, RestangularProvider, $mdThemingProvider) {
     // workaround to enable cookies in config
     var $cookies;
 
@@ -527,10 +523,6 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, localSto
                 roleLimit: 0
             }
         });
-
-    localStorageServiceProvider
-        .setPrefix('railroad')
-        .setStorageType('localStorage');
 };
 
 // run method
