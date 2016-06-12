@@ -39,8 +39,8 @@
                         <div class="column no-padding">
                             {{ "WORD_ABOUT" | translate }}
                         </div>
-                        <div class="column no-padding flex flex-end" ng-show="currentUser.id==user.id" >
-                            <!--<div data-edit-profile></div>-->
+                        <div class="column no-padding flex flex-end" ng-if="currentUser.id==user.id" >
+                            <div data-edit-profile></div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="column no-padding">
                             {{ "WORK_INFO" | translate }}
                         </div>
-                        <div class="column no-padding flex flex-end" ng-show="canChangeJob || canChangeCompany" >
+                        <div class="column no-padding flex flex-end" ng-if="canChangeJob || canChangeCompany" >
                             <div data-edit-work></div>
                         </div>
                     </div>

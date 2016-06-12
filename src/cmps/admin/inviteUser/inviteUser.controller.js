@@ -35,7 +35,7 @@ function InviteUserController($scope, user, company, job) {
             // also get the created id and add it for deleting without reloading
             $scope.invite.id = data.user_id;
             $scope.invitedUsers.push($scope.invite);
-            $('#inviteUser').foundation('close');
+            $('#invite-user').foundation('close');
         }).catch(function (data) {
             if(data.status==409){
                 $scope.inviteForm.email.$setValidity("exists", false);

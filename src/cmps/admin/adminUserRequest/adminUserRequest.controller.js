@@ -75,7 +75,7 @@ function AurController($scope, user, role) {
         fd.append("role_id", $scope.userToEdit.role_id);
 
         user.update($scope.userToEdit.id, fd).then(function (data) {
-            $('#editUser').foundation('close');
+            $('#edit-user-admin').foundation('close');
 
         }).catch(function (data) {
         });

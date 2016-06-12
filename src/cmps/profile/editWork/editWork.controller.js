@@ -47,7 +47,7 @@ function editWorkController($scope,user,job, company) {
                 $scope.canChangeCompany=true;
             }
         });
-        $('#editWork').foundation('close');
+        $('#edit-work').foundation('close');
         $scope.picFile=null;
 
     }

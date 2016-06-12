@@ -51,8 +51,8 @@ function adminUserRequestDirective() {
                     }
                 });
 
-                $('.reveal-overlay').remove();
-                var elem = new Foundation.Reveal($('#editUser'));
+                $('.reveal-overlay').find('#edit-user-admin').parent().remove();
+                var elem = new Foundation.Reveal($('#edit-user-admin'));
             }
         };
 };

@@ -44,7 +44,6 @@ function editProfileController($scope,user,job, country, company) {
         fd.append("lastname",$scope.user.lastname);
         if($scope.user.passwordNew){
             fd.append("password", $scope.user.passwordNew);
-            console.log("pw chnged");
         }
         fd.append("city",$scope.user.city);
         fd.append("address",$scope.user.address);
@@ -58,9 +57,8 @@ function editProfileController($scope,user,job, country, company) {
         fd.append("Xing",$scope.user.Xing);
         fd.append('fileUpload', $scope.picFile);
         user.update($scope.currentUser.id, fd).then(function(date){
-                console.log("updated");
         });
-        $('#editProfile').foundation('close');
+        $('#edit-profile').foundation('close');
         $scope.picFile=null;
 
     }

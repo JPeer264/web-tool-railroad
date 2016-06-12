@@ -1,7 +1,7 @@
 <div id="aur">
     <div class="row flex-end">
         <div class="medium-2 small-12 columns">
-          <!--  <div class="full-width" data-invite-user></div>-->
+          <div class="full-width" data-invite-user></div>
         </div>
     </div>
     <!-- pending users -->
@@ -141,7 +141,7 @@
                                 {{ user.firstname }} {{ user.lastname }}
                             </div>
                             <div class="column no-padding flex flex-end" ng-if="superAdmin" >
-                                    <button data-open="editUser" data-ng-click="changeUser(user.id)"><i class="fa fa-gear fa-lg"></i></button>
+                                    <button data-open="edit-user-admin" data-ng-click="changeUser(user.id)"><i class="fa fa-gear fa-lg"></i></button>
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
         </div>
     </div>
 
-        <div class="reveal rail-panel small-10 medium-10 large-10" id="editUser" data-reveal>
+        <div class="reveal rail-panel small-10 medium-10 large-10" id="edit-user-admin" data-reveal>
                 <div class="rail-panel-inner">
                     <div class="rail-header">
                         <div class="flex">

@@ -25,8 +25,8 @@ function inviteUserDirective() {
             transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                $('.reveal-overlay').remove();
-                var elem = new Foundation.Reveal($('#inviteUser'));
+                $('.reveal-overlay').find('#invite-user').parent().remove();
+                var elem = new Foundation.Reveal($('#invite-user'));
 
                 $("#email").click(function(){
                     if($scope.inviteForm.email.$dirty==true){
