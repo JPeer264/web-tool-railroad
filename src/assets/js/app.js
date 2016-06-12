@@ -578,7 +578,7 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         if (!data.picture_location || data.picture_location === '/path/to/picture/') {
             data.picture_location = CONSTANT.PROFILE_PICTURE_DEFAULT;
             data.picture_alt = CONSTANT.PROFILE_PICTURE_ALT_DEFAULT;
-        } else if ((data.picture_location).indexOf('data.picture_location') > 0) {
+        } else  {
             data.picture_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.picture_location;
         }
 
