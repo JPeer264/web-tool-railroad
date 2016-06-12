@@ -48,21 +48,19 @@ function searchDirective() {
 
                 $("#search").keydown(function(e) {
                     if (e.keyCode == 40) { // down
-                        console.log('in down');
                         if(chosen === "") {
                             chosen = 0;
                         } else if((chosen+1) < $('#results li').length) {
-                            chosen++; 
+                            chosen++;
                         }
                         $('#results li').removeClass('selected');
                         $('#results li:eq('+chosen+')').addClass('selected');
                         $('#results').animate({
                             scrollTop: $('#results li:eq('+chosen+')').position().top + $("#results").scrollTop()
-                        }, 'slow');
+                        }, 10);
                         return false;
                     }
                     if (e.keyCode == 38) { // up
-                        console.log('in up');
                         if(chosen === "") {
                             chosen = 0;
                         } else if(chosen > 0) {
@@ -73,7 +71,7 @@ function searchDirective() {
                         $('#results li:eq('+chosen+')').addClass('selected');
                         $('#results').animate({
                             scrollTop: $('#results li:eq('+chosen+')').position().top + $("#results").scrollTop()
-                        }, 'slow');
+                        }, 10);
                         return false;
                     }
                     if(e.keyCode==13){
