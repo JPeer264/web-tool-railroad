@@ -52,14 +52,10 @@ function ProfileController($scope, $state, user, company, CONSTANT) {
     });
 
     user.latestActivityUser($state.params.id).then(function (data) {
-        console.log('ini')
         data = data.plain();
-        console.log(data);
         $scope.latestComments = (data.latest_comments).slice(0,3);
         $scope.latestTopics = data.latest_topics;
-    }).catch(function (data) {
-            console.log(data);
-        });
+    });
 
 
 }
