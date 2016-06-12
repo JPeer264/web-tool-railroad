@@ -6,7 +6,7 @@ angular
  * @ngdoc directive
  * @name cmps.page:login
  *
- * @description 
+ * @description
  * Generates a single login component
  */
 function forgotDirective() {
@@ -25,11 +25,11 @@ function forgotDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                $('.reveal-overlay').remove();
+                $('.reveal-overlay').find('#changePassword').parent().remove();
                 var elem = new Foundation.Reveal($('#changePassword'));
 
                 $("#email").click(function(){
-                    if($scope.forgotForm.email.$dirty==true){
+                    if ($scope.forgotForm.email.$dirty === true) {
                         $scope.forgotForm.email.$setValidity("notExist", true);
                         $scope.forgotForm.email.$setValidity("allowed", true);
                         $scope.$apply();

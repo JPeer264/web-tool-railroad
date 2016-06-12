@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="rail-content">
-                <form name="forgotForm">
+                <form name="forgotForm" data-ng-submit="forgot()">
                     <div class="row">
                         <div class=" columns">
                             <md-input-container class="md-block" flex-gt-sm>
@@ -32,7 +32,7 @@
                             </md-input-container>
                         </div>
                     </div>
-                    <md-button class="md-flat md-primary" ng-disabled="forgotForm.$invalid" data-ng-click="forgot()">{{ "SEND_EMAIL" | translate }}</md-button>
+                    <md-button type="submit" class="md-flat md-primary" ng-disabled="forgotForm.$invalid">{{ "SEND_EMAIL" | translate }}</md-button>
                 </form>
             </div>
         </div>

@@ -28,28 +28,29 @@ function ForgotController($scope, user) {
      * @description
      * send email to get new password
      */
-    $scope.forgot=function(){
-        user.forgot($scope.user).then( function (data){
-            $scope.user=null;
+    $scope.forgot = function() {
+        user.forgot($scope.user).then(function(data) {
+            $scope.user = null;
             $('#changePassword').foundation('close');
 
-        }).catch(function (data) {
+        }, function (data) {
             // function for errors
-            console.log(data);
-            if(data.status==403){
+            if (data.status === 403) {
                 $scope.forgotForm.email.$setValidity("allowed", false);
             }
-            if(data.status==404){
+
+            if (data.status === 404) {
                 $scope.forgotForm.email.$setValidity("notExist", false);
             }
+
             $scope.isInProgress = false;
 
         });
 
     }
 
-    $scope.close=function (){
-        $scope.user=null;
+    $scope.close = function() {
+        $scope.user = null;
     }
 
 }
