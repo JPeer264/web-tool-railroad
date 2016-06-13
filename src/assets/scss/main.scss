@@ -9,7 +9,7 @@
 body, html {
     height: auto !important;
     min-width: 320px;
-    background: #f5f5f5;
+    background: #f2f2f2;
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -43,6 +43,22 @@ body, html {
 /*********************************
  ** Google Translate Widget END **
  *********************************/
+
+ .table {
+    background: $white;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+
+    .table-header {
+        padding: $global-padding*2 $global-padding;
+        background: $light-gray;
+    }
+
+    .table-body {
+        padding: $global-padding;
+        border-top: 1px solid $medium-gray;
+    }
+ }
 
 .inline {
     display: inline-block;

@@ -1,5 +1,8 @@
-#rules {
-    .accordion-content {
-        display: block;
+.legalpolicy {
+    section {
+        padding: $global-padding;
+        margin-bottom: $global-margin;
+        box-shadow: $box-shadow;
+        background: $white;
     }
 }

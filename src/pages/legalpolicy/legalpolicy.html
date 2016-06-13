@@ -1,4 +1,4 @@
-<div data-ng-class="{row: !isLoggedIn()}">
+<div data-ng-class="{row: !isLoggedIn()}" class="legalpolicy">
     <div data-ng-class="{'column small-12': !isLoggedIn()}">
         <ul class="breadcrumbs">
             <li><a href="/">{{ "NAV_HOME" | translate }}</a></li>
@@ -7,16 +7,160 @@
     </div>
 
     <div data-ng-class="{'column small-12': !isLoggedIn()}">
-        <h1>Legal policy</h1>
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header"><h3>Table of contents</h3></div>
+                <div class="rail-content">
+                    <ol>
+                        <li>
+                            <a ng-click="gotoAnchor('contact')"><strong>Contact</strong></a><br />
+                        </li>
+                        <li>
+                            <a ng-click="gotoAnchor('legal')"><strong>Legal policy</strong></a><br />
+                        </li>
+                        <li>
+                            <a ng-click="gotoAnchor('cookie')"><strong>Cookie Policy</strong></a>
+                        </li>
+                        <li>
+                            <a ng-click="gotoAnchor('translation')"><strong>Translations</strong></a><br />
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
 
-        Put in who is the creator<br>
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <h3 id="contact">Contact</h3>
+                </div>
+                <div class="rail-content">
+                    <h3>Owners</h3>
 
-        Put in the Railway Museum<br>
+                    <div class="row">
+                        <div class="column">
+                            <h5>Company:</h5> Catalunya Railway Museum
+                        </div>
+                    </div>
 
-        Put in the University<br>
+                    <h3>Praticipants</h3>
+                </div>
+            </div>
 
-        Put it that we use Google translate<br>
+        </div>
 
-        Put in that we use cookies<br>
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <h3 id="legal">Legal policy</h3>
+                </div>
+                <div class="rail-content">
+                    todo
+                </div>
+            </div>
+        </div>
+
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <h3 id="cookie">Cookie policy</h3>
+                </div>
+                <div class="rail-content">
+                    <h3>Overview</h3>
+
+                    <p>Cookies are small text files placed on your computer by Websites you visit. On 25 May 2011, Directive 2009/136/EC, (the "Cookies Directive"), which amends Directive 2002/58/EC, came into force in the European Union (EU).</p>
+
+                    <p>Among other things, this Directive states that "the storing of information or the gaining of access to information already stored, in the terminal equipment of a subscriber or user is only allowed on condition that the subscriber or user concerned has given his or her consent, having been provided with clear and comprehensive information".</p>
+
+                    <p>This document contains a description of the cookies used on the 'Elephorum' Website. You can manage these cookies through your web browser setting or through this site’s cookie preference settings.</p>
+
+                    <p>Our Website is evolving as we continue to take steps to implement the relevant measures set out in the Cookies Directive. Consequently, this web page and the information here will be reviewed and updated from time to time.</p>
+
+                    <h3>Cookies Used On This Website</h3>
+
+                    <p>Below, you will find a list cookies created and read when browsing the 'Elephorum' Website. We have grouped these cookies based on the International Chamber of Commerce (ICC) cookie guide, which currently identifies four categories:</p>
+
+                    <ol>
+                        <li><strong>Strictly necessary cookies</strong></li>
+                        <li><strong>Performance cookies</strong></li>
+                    </ol>
+
+                    <h3>Strictly necessary cookies</h3>
+                    <p>Strictly necessary cookies are those whose storage is necessary to provide the services explicitly requested. We use them to remember you as having logged into this Website, enabling you to use shopping cart checkout, as well as other Website applications you have requested.</p>
+
+                    <p>These cookies are "strictly necessary" to provide services "explicitly requested" by you; allowing these cookies is a condition of using this Website.</p>
+
+                    <p>The following list includes strictly necessary cookies:</p>
+
+                    <div class="table">
+                        <div class="row table-header no-margin">
+                            <div class="column">
+                                Cookie Name
+                            </div>
+                            <div class="column small-6">
+                                Description
+                            </div>
+                            <div class="column">
+                                Type
+                            </div>
+                        </div>
+                        <div class="row table-body no-margin" data-ng-repeat="cookies in cookiesNecessary">
+                            <div class="column">
+                                {{ cookies.name }}
+                            </div>
+                            <div class="column small-6">
+                                {{ cookies.description }}
+                            </div>
+                            <div class="column">
+                                {{ cookies.type }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Perfomance cookies</h3>
+                    <p>Performance cookies collect anonymous information on the pages visited. We use performance cookies to collect information about how visitors use our Website. All information these cookies collect is aggregated and therefore anonymous; the information these cookies collect is only used to improve how our Website works.</p>
+
+                    <p>The following Performance cookies are used by our Website:</p>
+
+                    <div class="table">
+                        <div class="row table-header no-margin">
+                            <div class="column">
+                                Cookie Name
+                            </div>
+                            <div class="column small-6">
+                                Description
+                            </div>
+                            <div class="column">
+                                Type
+                            </div>
+                        </div>
+                        <div class="row table-body no-margin" data-ng-repeat="cookies in cookiesPerformance">
+                            <div class="column">
+                                {{ cookies.name }}
+                            </div>
+                            <div class="column small-6">
+                                {{ cookies.description }}
+                            </div>
+                            <div class="column">
+                                {{ cookies.type }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rail-panel">
+            <div class="rail-panel-inner">
+                <div class="rail-header">
+                    <h3 id="translation">Translations</h3>
+                </div>
+                <div class="rail-content">
+                    <p>All the translations are powered and provided by Google Inc. ("Google")</p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>

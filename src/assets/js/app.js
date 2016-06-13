@@ -1,10 +1,10 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
+var SERVERPATH = 'http://railroad-api.jpeer.at';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
-var APIPATH = 'public/api/v1';
+var APIPATH = '/public/api/v1';
 
 var CONSTANT = {
     "COOKIE": {
