@@ -4,10 +4,10 @@
             <div class="small-12 medium-expand columns">
                 <span># {{ $index + 1 }}</span>
             </div>
-            <div class="small-12 medium-expand columns">
+            <div class="small-12 medium-expand columns text-center">
                 <i class="fa fa-user"></i> <a data-ng-href="/user/{{ comment.user_id }}">{{ comment.user.firstname }} {{ comment.user.lastname }}</a>
             </div>
-            <div class="small-12 medium-expand columns">
+            <div class="small-12 medium-expand columns text-right">
                 <i class="fa fa-calendar"></i> {{ getDate(comment.created_at) | date }}
             </div>
         </div>

@@ -44,6 +44,11 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
             //     return;
             // }
 
+            if ($location.path() === '/') {
+                $window.location.assign('/welcome');
+                return false;
+            }
+
             $window.location.assign('/welcome?ref=' + $location.path());
             return false;
         }
