@@ -19,14 +19,8 @@
                 </div>
                 <div class="column small-4 hide-for-small-only">
                         <div class="row flex-center">
-                            <div class="column small-3">
-                                <div class="latest-topic-img">
-                                    <img src="https://jpeer.at/railroad/testimage/type-default.png" alt="Type Picture">
-                                </div>
-                            </div>
-
                             <!-- if latest_comment -->
-                            <div class="column small-9"  data-ng-if="subcategory.latest_comment">
+                            <div class="column small-12"  data-ng-if="subcategory.latest_comment">
                                 <div>
                                     <a data-ng-href="/topic/{{ subcategory.latest_comment.topic_id }}#comment-{{ subcategory.latest_comment.id }}">
                                         {{ subcategory.latest_comment.topic.title }}
@@ -41,7 +35,7 @@
                             </div>
 
                             <!-- if latest_topic -->
-                            <div class="column small-9"  data-ng-if="subcategory.latest_topic">
+                            <div class="column small-12"  data-ng-if="subcategory.latest_topic">
                                 <div>
                                     <a data-ng-href="/topic/{{ subcategory.latest_topic.id }}">
                                         {{ subcategory.latest_topic.title }}

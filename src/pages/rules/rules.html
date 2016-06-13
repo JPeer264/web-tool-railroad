@@ -6,11 +6,8 @@
         </ul>
         <div id="rules">
             <ul class="accordion">
-                <li class="accordion-item" data-accordion-item>
-                    <div class="accordion-content">{{ "RULES_NOSPAM" | translate }}</div>
-                </li>
-                <li class="accordion-item" data-accordion-item>
-                    <div class="accordion-content">{{ "RULES_BEPOLITE" | translate}}</div>
+                <li class="accordion-item" data-accordion-item data-ng-repeat="rule in rules">
+                    <div class="accordion-content">{{ rule }}</div>
                 </li>
             </ul>
         </div>

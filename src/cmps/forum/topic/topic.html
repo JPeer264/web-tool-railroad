@@ -13,6 +13,14 @@
                     {{ topic.title }}
                 </h5>
             </div>
+            <div class="rail-meta row">
+                <div class="small-12 medium-expand columns">
+                    <i class="fa fa-user"></i> <a data-ng-href="/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
+                </div>
+                <div class="small-12 medium-expand columns text-right">
+                    <i class="fa fa-calendar"></i> {{ getDate(topic.created_at) | date }}
+                </div>
+            </div>
             <div class="rail-content line-breaks">
                 {{ topic.description }}
             </div>

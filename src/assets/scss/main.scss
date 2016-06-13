@@ -331,6 +331,14 @@ md-checkbox.md-checked.check .md-icon {
     white-space:pre-wrap;
 }
 
+.text-right {
+    text-align: right;
+
+    @media only screen and (max-width: 40em) {
+        text-align: initial;
+    }
+}
+
 .hint {
     /* Position the hint */
     position: absolute;

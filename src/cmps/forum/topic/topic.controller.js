@@ -43,6 +43,7 @@ function TopicCmpsController($scope, $state, topic) {
     topic.get($scope.topicId).then(function (data) {
         $scope.resolvedTopics = true;
         $scope.topic = data.plain();
+        console.log(data.plain());
     });
 
 }
