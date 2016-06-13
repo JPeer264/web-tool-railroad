@@ -24,9 +24,10 @@ auth.$inject = [
     '$httpParamSerializer',
     'user',
     '$location',
+    '$q',
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location) {
+function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location, $q) {
     var _authenticated = false,
         token = Restangular.service('auth/token'),
         self = this;
@@ -46,11 +47,11 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
 
             if ($location.path() === '/') {
                 $window.location.assign('/welcome');
-                return false;
+                return $q.reject();
             }
 
             $window.location.assign('/welcome?ref=' + $location.path());
-            return false;
+            return $q.reject();
         }
 
 
