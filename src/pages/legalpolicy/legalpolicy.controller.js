@@ -43,6 +43,10 @@ function LegalpolicyController($scope, $location, $anchorScroll) {
         name: 'googtrans',
         description: 'Saved by the Google Translate Widget to save the previous used language.',
         type: types.third
+    }, {
+        name: '__utma<br /><br />__utmb<br /><br />__utmc<br /><br />__utmZ<br /><br />_ga<br /><br />_gat_UA-34876862-1',
+        description: 'These cookies are set by Google Analytics to collect anonymous traffic data as described in the <a href="http://www.google.com/analytics/terms/gb.html" target="_blanket">Google Analytics Terms of Service</a>. They contain a random unique visitor ID, timestamps and information about the visit, including referrals. The actual visit data is logged server-side by Google. Google provides \'Elephorum\' aggregated reports that help us analyze how visitors use our Websites and where they were referred from, in order to improve user experience and measure the impact of search engine optimization and advertising. We do not track or collect personally identifiable information, or associate any Google Analytics data with any personally identifying information from other sources.',
+        type: types.third
     }];
 
     $scope.gotoAnchor = function(hash) {

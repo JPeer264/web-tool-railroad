@@ -38,12 +38,40 @@
                     <h3>Owners</h3>
 
                     <div class="row">
-                        <div class="column">
-                            <h5>Company:</h5> Catalunya Railway Museum
+                        <div class="column small-6">
+                            <h5>Address:</h5>
+                            <p>
+                                <a href="http://museudelferrocarril.org/">Museu del Ferrocarril de Catalunya</a><br />
+                                Plaza de Eduard Maristany, s/n<br />
+                                Vilanova i la Geltrú
+                            </p>
+                        </div>
+                        <div class="column small-6">
+                            <h5>Email:</h5>
+                            <p><a href="mailto:museuferrocarril@ffe.es"></a>museuferrocarril@ffe.es</p>
+                        </div>
+                        <div class="column small-6">
+                            <h5>Telephone:</h5>
+                            <p>+34 93 815 84 91</p>
                         </div>
                     </div>
 
                     <h3>Praticipants</h3>
+
+                    <p>This website is the outcome of the European Project Semester (EPS) 2016 of the Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú (EPSEVG).</p>
+                    <h5>Programmers:</h5>
+                    <p><a href="//www.jpeer.at" target="_blanket">Jan Peer Stöcklmair</a><br>
+                    Hannelore Hauquier</p>
+
+                    <h5>Designers and Prototypes:</h5>
+                    <p>
+                        Jorge Landaeta<br />
+                        Gijs Kleine Schaars<br />
+                        Milan Jakovic
+                    </p>
+
+
+                    <div class="row"></div>
                 </div>
             </div>
 
@@ -105,15 +133,9 @@
                             </div>
                         </div>
                         <div class="row table-body no-margin" data-ng-repeat="cookies in cookiesNecessary">
-                            <div class="column">
-                                {{ cookies.name }}
-                            </div>
-                            <div class="column small-6">
-                                {{ cookies.description }}
-                            </div>
-                            <div class="column">
-                                {{ cookies.type }}
-                            </div>
+                            <div class="column flex flex-center" ng-bind-html="cookies.name"></div>
+                            <div class="column small-6" ng-bind-html="cookies.description"></div>
+                            <div class="column flex flex-center" ng-bind-html="cookies.type"></div>
                         </div>
                     </div>
 
@@ -135,15 +157,9 @@
                             </div>
                         </div>
                         <div class="row table-body no-margin" data-ng-repeat="cookies in cookiesPerformance">
-                            <div class="column">
-                                {{ cookies.name }}
-                            </div>
-                            <div class="column small-6">
-                                {{ cookies.description }}
-                            </div>
-                            <div class="column">
-                                {{ cookies.type }}
-                            </div>
+                            <div class="column flex flex-center" ng-bind-html="cookies.name"></div>
+                            <div class="column small-6" ng-bind-html="cookies.description"></div>
+                            <div class="column flex flex-center" ng-bind-html="cookies.type"></div>
                         </div>
                     </div>
                 </div>

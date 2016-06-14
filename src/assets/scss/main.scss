@@ -49,6 +49,11 @@ body, html {
     box-shadow: $box-shadow;
     border-radius: $border-radius;
 
+    a {
+        color: $secondary-color;
+        transition: all .2s;
+    }
+
     .table-header {
         padding: $global-padding*2 $global-padding;
         background: $light-gray;
