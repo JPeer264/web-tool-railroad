@@ -13,6 +13,19 @@
         </div>
         <div class="rail-content line-breaks" >
             {{ comment.content }}
+            <div class="row">
+                <div ng-repeat="file in comment.file">
+                    <div class=" small-6 medium-3 large-2 column">
+                        <img data-ng-src="http://localhost/web-tool-railroad-api/{{ file.filepath }}" data-ng-alt="{{ file.filename }}" ng-if="file.isimage">
+                        <div ng-if="!file.isimage">
+                            <i class="fa fa-file-text" ></i>  {{ file.filename }}
+                        </div>
+                        <a href="http://localhost/web-tool-railroad-api/{{ file.filepath }}" download>
+                            <i class="fa fa-download flex flex-end" ></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

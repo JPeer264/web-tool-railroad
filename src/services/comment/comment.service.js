@@ -31,6 +31,8 @@ function comment($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.create = function(id, formData) {
-        return Restangular.one('topic', id).one('comment').customPOST($httpParamSerializer(formData));
+        delete Restangular.configuration.defaultHeaders['Content-Type'];
+
+        return Restangular.one('topic', id).one('comment').withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 }

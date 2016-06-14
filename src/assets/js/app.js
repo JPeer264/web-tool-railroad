@@ -1,6 +1,6 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://localhost/web-tool-railroad-api';
+var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
@@ -578,7 +578,7 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         if (!data.picture_location || data.picture_location === '/path/to/picture/') {
             data.picture_location = CONSTANT.PROFILE_PICTURE_DEFAULT;
             data.picture_alt = CONSTANT.PROFILE_PICTURE_ALT_DEFAULT;
-        } else  {
+        } else if ((data.picture_location).indexOf(CONSTANT.PICTURE_LOCATION_PREFIX) < 0) {
             data.picture_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.picture_location;
         }
 
