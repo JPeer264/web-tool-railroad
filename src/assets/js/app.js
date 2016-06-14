@@ -1,6 +1,6 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://railroad-api.jpeer.at';
+var SERVERPATH = 'http://localhost/web-tool-railroad-api';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
