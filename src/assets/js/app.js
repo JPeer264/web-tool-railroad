@@ -15,6 +15,7 @@ var CONSTANT = {
     },
     // Picture location default
     "PICTURE_LOCATION_PREFIX": SERVERPATH,
+    "FILE_LOCATION_PREFIX" : SERVERPATH,
     "API_PATH": SERVERPATH + APIPATH,
 
     // Profile Picture Constants
@@ -580,6 +581,14 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
             data.picture_alt = CONSTANT.PROFILE_PICTURE_ALT_DEFAULT;
         } else if ((data.picture_location).indexOf(CONSTANT.PICTURE_LOCATION_PREFIX) < 0) {
             data.picture_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.picture_location;
+        }
+
+        return data;
+    }
+
+    $rootScope.setFileLocation = function (data) {
+         if ((data.filepath).indexOf(CONSTANT.FILE_LOCATION_PREFIX) < 0) {
+            data.filepath = CONSTANT.PICTURE_LOCATION_PREFIX + data.filepath;
         }
 
         return data;

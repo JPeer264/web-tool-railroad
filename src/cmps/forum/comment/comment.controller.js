@@ -24,5 +24,7 @@ function CommentController($scope) {
                 console.log($scope.name, $scope.extension);
                 file.filename = $scope.name + "..." + $scope.extension;
              }
+                file = $scope.setFileLocation(file);
+
         });
 }

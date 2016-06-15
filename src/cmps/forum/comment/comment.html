@@ -19,7 +19,7 @@
                 <div ng-repeat="file in comment.file" class=" small-12 column">
                     <i class="fa fa-picture-o" ng-if="file.isimage"></i>
                     <i class="fa fa-file-text" ng-if="!file.isimage" ></i>  {{ file.filename }}
-                    <a href="http://localhost/web-tool-railroad-api/{{ file.filepath }}" download>
+                    <a href="{{ file.filepath }}" download>
                         <i class="fa fa-download" ></i>
                     </a>
                 </div>
