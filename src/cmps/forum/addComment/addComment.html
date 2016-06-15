@@ -34,7 +34,7 @@
                         <div class="small-6 medium-4 large-4 columns">
                             <md-button type="file" ngf-select="addCommentCtrl.addFiles($files, $invalidFiles)" name="file" multiple
                                        ngf-max-files="3" accept="application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.ms-powerpoint,
-                                        text/plain, application/pdf, image/*" ngf-pattern="'.xlsx,.xls,.doc,.docx,.ppt,.pptx,.txt,.pdf,image/*'" ngf-max-size="6MB"
+                                        text/plain, application/pdf, image/*" ngf-pattern="'.xlsx,.xls,.doc,.docx,.ppt,.pptx,.txt,.pdf,image/*'" ngf-max-size="2MB"
                                        ngf-model-invalid="errorFile">select files</md-button>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <div class="errors" ng-repeat="errfile in addCommentCtrl.errfiles">
                                 <i ng-show="errfile.$error=='maxFiles'"> You can only upload 3 files</i>
                                 <i ng-show="errfile.$error=='maxSize'"> {{ "ERROR_FILE_SIZE" | translate }}
-                                    {{errorFile.size / 1000000|number:1}}MB: max 6MB</i>
+                                    {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
                                 <i ng-show="errfile.$error=='pattern'"> The file format is not allowed</i>
                             </div>
                         </div>
