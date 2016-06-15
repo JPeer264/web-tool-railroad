@@ -45,6 +45,11 @@ function AddCommentController($scope, comment, $state) {
 
             vm.triggeredComment = false;
             $('#addComment').foundation('close');
+        }).catch(function (data) {
+            if(data.status==409){
+                $scope.commentForm.content.$setValidity("exists", false);
+            }
+            vm.triggeredComment = false;
         });
     }
 

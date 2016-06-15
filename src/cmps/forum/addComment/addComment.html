@@ -21,10 +21,11 @@
                         <div class="large-12 columns">
                             <md-input-container class="md-block">
                                 <label>{{ "WORD_COMMENT" | translate }}</label>
-                                <textarea ng-model="addCommentCtrl.comment.content" name="content" md-maxlength="400" rows="5" md-select-on-focus required></textarea>
+                                <textarea ng-model="addCommentCtrl.comment.content" name="content" md-maxlength="400" id="content" rows="5" md-select-on-focus required></textarea>
                                 <div ng-messages="commentForm.content.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     <div ng-message="md-maxlength" data-translate="FORM_MAX_LENGTH" data-translate-value-max="{{ 400 }}"></div>
+                                    <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="file"></div>
                                 </div>
                             </md-input-container>
                         </div>

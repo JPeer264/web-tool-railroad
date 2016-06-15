@@ -28,6 +28,13 @@ function addCommentDirective() {
         link: function($scope, iElm, iAttrs, controller) {
             $('.reveal-overlay').remove();
             var elem = new Foundation.Reveal($('#addComment'));
+
+            $("#content").click(function(){
+                if($scope.commentForm.content.$dirty==true){
+                    $scope.commentForm.content.$setValidity("exists", true);
+                    $scope.$apply();
+                }
+            })
         }
     };
 };
