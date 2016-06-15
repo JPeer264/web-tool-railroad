@@ -134,12 +134,19 @@
                     </div>
 
                     <div class="row">
+                        <div class="small-8 medium-6 large-6 columns">
+                            <md-button type="file" ngf-select ng-model="picFile" name="file"
+                                       accept="image/*" ngf-max-size="2MB" ngf-pattern="'image/*'"
+                                       ngf-model-invalid="errorFile">select profile picture</md-button>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="large-12 columns">
-                            <input type="file" ngf-select ng-model="picFile" name="file"
-                                       accept="image/*" ngf-max-size="5MB"
-                                       ngf-model-invalid="errorFile">
-                            <i ng-show="editForm.file.$error.maxSize"> {{ "ERROR_FILE_SIZE" | translate }}
-                                    {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
+                            <div class="errors">
+                                <i ng-show="editForm.file.$error.maxSize"> {{ "ERROR_FILE_SIZE" | translate }}
+                                        {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
+                                <i ng-show="editForm.file.$error.pattern"> The file format is not allowed</i>
+                            </div>
                             <img ng-show="editForm.file.$valid" ngf-src="picFile" class="thumb">
                             <button ng-click="picFile = null" ng-show="picFile">{{ "REMOVE" | translate }}</button>
                         </div>
