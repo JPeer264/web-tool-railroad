@@ -43,11 +43,16 @@
                         </div>
                     </div>
 
-                    <md-button ng-disabled="editWorkForm.$invalid " class="button"  data-ng-click="editWork()">{{ "SAVE" | translate }}</md-button>
-
+                    <div class="flex flex-center">
+                        <md-button ng-disabled="editWorkForm.$invalid " class="button"  data-ng-disabled="triggeredWork" data-ng-click="editWork()">
+                            {{ "SAVE" | translate }}
+                        </md-button>
+                        <div class="inline flex-start" data-ng-if="triggeredWork">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-      
     </div>
 </div>

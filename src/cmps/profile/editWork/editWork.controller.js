@@ -22,6 +22,7 @@ editWorkController.$inject = [
 ];
 
 function editWorkController($scope,user,job, company) {
+    $scope.triggeredWork = false;
 
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
@@ -32,7 +33,8 @@ function editWorkController($scope,user,job, company) {
     })
 
     $scope.editWork=function(){
-        //$scope.user.fileUpload=$scope.picFile;
+        $scope.triggeredWork = true;
+
         var fd = new FormData();
         fd.append("company_id",$scope.user.company_id);
         fd.append("job_id",$scope.user.job_id);
@@ -46,9 +48,14 @@ function editWorkController($scope,user,job, company) {
             {
                 $scope.canChangeCompany=true;
             }
+
+            $scope.triggeredWork = false;
+            $('#edit-work').foundation('close');
+            $scope.picFile=null;
+        },function (data){
+            $scope.triggeredWork = false;
+
         });
-        $('#edit-work').foundation('close');
-        $scope.picFile=null;
 
     }
 

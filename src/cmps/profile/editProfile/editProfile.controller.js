@@ -25,6 +25,8 @@ editProfileController.$inject = [
 
 function editProfileController($scope,user,job, country, company) {
 
+    $scope.triggeredProfile = false;
+
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
     });
@@ -38,7 +40,8 @@ function editProfileController($scope,user,job, country, company) {
     });
 
     $scope.editProfile=function(){
-        //$scope.user.fileUpload=$scope.picFile;
+        $scope.triggeredProfile = true;
+
         var fd = new FormData();
         fd.append("firstname",$scope.user.firstname);
         fd.append("lastname",$scope.user.lastname);
@@ -56,10 +59,15 @@ function editProfileController($scope,user,job, country, company) {
         fd.append("Facebook",$scope.user.Facebook);
         fd.append("Xing",$scope.user.Xing);
         fd.append('fileUpload', $scope.picFile);
-        user.update($scope.currentUser.id, fd).then(function(date){
+
+        user.update($scope.currentUser.id, fd).then(function(data){
+            $scope.triggeredProfile = false;
+            $('#edit-profile').foundation('close');
+            $scope.picFile=null;
+        }, function (data) {
+            $scope.triggeredProfile = false;
         });
-        $('#edit-profile').foundation('close');
-        $scope.picFile=null;
+
 
     }
 

@@ -109,12 +109,14 @@
                             <md-input-container>
                                 <label>Twitter</label>
                                 <input type="text" data-ng-model="user.Twitter" />
+                                <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>LinkedIn</label>
                                 <input type="text" data-ng-model="user.LinkedIn" />
+                                <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
                     </div>
@@ -123,12 +125,14 @@
                             <md-input-container>
                                 <label>Facebook</label>
                                 <input type="text" data-ng-model="user.Facebook" />
+                                <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
                         <div class="small-12 medium-6 large-6 columns">
                             <md-input-container>
                                 <label>Xing</label>
                                 <input type="text" data-ng-model="user.Xing" />
+                                <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
                     </div>
@@ -152,8 +156,14 @@
                         </div>
                     </div>
 
-                    <md-button ng-disabled="editForm.$invalid " class="button"  data-ng-click="editProfile()">{{ "SAVE" | translate }}</md-button>
-
+                    <div class="flex flex-center">
+                        <md-button ng-disabled="editForm.$invalid " class="button" data-ng-disabled="triggeredProfile" data-ng-click="editProfile()">
+                            {{ "SAVE" | translate }}
+                        </md-button>
+                        <div class="inline flex-start" data-ng-if="triggeredProfile">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

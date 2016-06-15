@@ -68,6 +68,7 @@ function AddTopicController($scope, job, company, topic, $state,$httpParamSerial
     }
 
     vm.addTopic = function(){
+        vm.triggeredTopic = true;
         var subcategory = $scope.$parent.subcategoryCmps.subcategory;
 
         vm.job = [];
