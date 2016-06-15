@@ -53,7 +53,7 @@ function SignUpController($scope, $location, $state, job, company, user, country
         if($scope.token){
             user.createToken($scope.user).then( function (data){
                 $scope.user=null;
-                $location.path( '/welcome' );
+                $location.path( '/' );
             }).catch(function (data) {
                 // function for errors
                 if(data.status==403){
@@ -75,7 +75,7 @@ function SignUpController($scope, $location, $state, job, company, user, country
         }else{
             user.create($scope.user).then( function (data){
                 $scope.user=null;
-                $location.path( '/welcome' );
+                $location.path( '/' );
             }).catch(function (data) {
                 // function for errors
                 if(data.status==409){
@@ -90,6 +90,6 @@ function SignUpController($scope, $location, $state, job, company, user, country
 
     }
     $scope.back = function(){
-        $location.path( '/welcome' );
+        $location.path( '/' );
     }
 }

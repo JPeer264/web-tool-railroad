@@ -1,6 +1,8 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
+var SERVERPATH = 'http://railroad-api.jpeer.at';
+// example: http://storage.elephorum.com or "SERVERPATH + '/storage'" must point to the "storage" folder in the backend with Lumen
+var STORAGESERVERPATH = SERVERPATH;
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
@@ -15,11 +17,10 @@ var CONSTANT = {
     },
     // Picture location default
     "PICTURE_LOCATION_PREFIX": SERVERPATH,
-    "FILE_LOCATION_PREFIX" : SERVERPATH,
     "API_PATH": SERVERPATH + APIPATH,
 
     // Profile Picture Constants
-    "PROFILE_PICTURE_DEFAULT": "https://jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_PICTURE_DEFAULT": "http://www.jpeer.at/railroad/testimage/person-default-flat.png",
     "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
 };
 
@@ -104,7 +105,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
     $translateProvider.preferredLanguage('en-us');
     $translateProvider.fallbackLanguage('en-us');
 
-    $urlRouterProvider.when('', '/welcome');
+    $urlRouterProvider.when('', '/');
     $urlRouterProvider.otherwise('/error');
 
     // setup header and footer templates
@@ -426,7 +427,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 roleLimit: 0
             }
         })
-        .state('rules', {
+        .state('nologin-rules', {
             url: '/nologin/rules',
             views: {
                 header: {
@@ -447,7 +448,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 breadcrumbs: false
             }
         })
-        .state('faq', {
+        .state('nologin-faq', {
             url: '/nologin/faq',
             views: {
                 header: {
@@ -468,8 +469,8 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 breadcrumbs: false
             }
         })
-        .state('landing', {
-            url: '/welcome',
+        .state('nologin-landing', {
+            url: '/',
             views: {
                 header: {
                     templateUrl: templates.header.template,
@@ -486,9 +487,12 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
             },
             data: {
                 roleLimit: 0
+            },
+            params: {
+                'ref': null
             }
         })
-        .state('signup', {
+        .state('nologin-signup', {
             url: '/signup',
             views: {
                 header: {
@@ -508,7 +512,7 @@ function config ($stateProvider, $locationProvider, $urlRouterProvider, $transla
                 roleLimit: 0
             }
         })
-        .state('signupToken', {
+        .state('nologin-signupToken', {
             url: '/signup/{token}',
             views: {
                 header: {
@@ -559,10 +563,11 @@ run.$inject = [
     'user',
     'Restangular',
     '$stateParams',
-    '$window'
+    '$window',
+    '$state'
 ];
 
-function run($rootScope, $location, $http, auth, user, Restangular, $stateParams, $window) {
+function run($rootScope, $location, $http, auth, user, Restangular, $stateParams, $window, $state) {
     $rootScope.isLoggedIn = function() {
         return user.isAuthenticated();
     }
@@ -587,7 +592,7 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
     }
 
     $rootScope.setFileLocation = function (data) {
-         if ((data.filepath).indexOf(CONSTANT.FILE_LOCATION_PREFIX) < 0) {
+        if ((data.filepath).indexOf(CONSTANT.FILE_LOCATION_PREFIX) < 0) {
             data.filepath = CONSTANT.PICTURE_LOCATION_PREFIX + data.filepath;
         }
 
@@ -602,7 +607,22 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         if (user.isIdentityResolved()) {
             auth.authorize();
         }
+    });
 
+    $rootScope.$on('$stateChangeSuccess', function(e, newUrl, oldUrl) {
+        e.preventDefault();
+
+        if (($state.current.name).indexOf('nologin') === 0 && !$rootScope.isLoggedIn()) {
+            if ($state.params.ref) {
+
+                if ($state.params.ref === '/') {
+                    return;
+                }
+
+                $location.url('?ref=' + $state.params.ref);
+                return;
+            }
+        }
     });
 
     Restangular.setErrorInterceptor(function(response, deferred, responseHandler) {

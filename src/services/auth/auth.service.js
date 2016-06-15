@@ -25,12 +25,14 @@ auth.$inject = [
     'user',
     '$location',
     '$q',
+    '$timeout',
 ];
 
-function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location, $q) {
+function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $httpParamSerializer, user, $location, $q, $timeout) {
     var _authenticated = false,
         token = Restangular.service('auth/token'),
         self = this;
+    var deferred = $q.defer();
 
     this.authorize = function() {
         if (!self.check()) {
@@ -44,14 +46,18 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
             //     $location.path('/error');
             //     return;
             // }
+            deferred.resolve(_authenticated);
 
-            if ($location.path() === '/') {
-                $window.location.assign('/welcome');
-                return $q.reject();
-            }
+            return deferred.promise.then(function() {
 
-            $window.location.assign('/welcome?ref=' + $location.path());
-            return $q.reject();
+                // if ($location.path() === '/') {
+                //     $state.go('landing');
+                // } else {
+                    $state.go('nologin-landing', {ref: $location.path()});
+                // }
+            });
+
+            // $window.location.assign('/welcome?ref=' + $location.path());
         }
 
 
@@ -70,7 +76,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
                     $rootScope.returnToStateParams = $rootScope.toStateParams;
 
                     // now, send them to the signin state so they can log in
-                    $state.go('landing');
+                    $state.go('nologin-landing');
                 }
             }
         });
@@ -108,6 +114,8 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
 
         if (!token) {
             _authenticated = false;
+            user.setIdentity(undefined);
+            user.setAuthenticated(false);
             return false;
         }
 
@@ -120,6 +128,8 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
 
         $cookies.remove(CONSTANT.COOKIE.TOKEN);
         _authenticated = false;
+        user.setIdentity(undefined);
+        user.setAuthenticated(false);
         return false;
     }
 
