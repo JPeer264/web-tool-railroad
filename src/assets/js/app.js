@@ -613,6 +613,7 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
         e.preventDefault();
 
         $('.goog-te-banner-frame').parent().remove();
+        $('#goog-gt-tt').remove();
 
         if (($state.current.name).indexOf('nologin') === 0 && !$rootScope.isLoggedIn()) {
             if ($state.params.ref) {

@@ -36,7 +36,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="column small-12 medium-6">
         <div class="rail-panel">
@@ -78,9 +77,6 @@
                         <div class="column no-padding">
                             {{ "WORK_INFO" | translate }}
                         </div>
-                        <div class="column no-padding flex flex-end" ng-if="canChangeJob || canChangeCompany" >
-                            <div data-edit-work></div>
-                        </div>
                     </div>
                 </div>
                 <div class="rail-content">
@@ -108,7 +104,7 @@
 </div>
 
 <div class="row">
-    <div class="column small-12 medium-6" ng-show="user.topic.length">
+    <div class="column small-12" data-ng-class="{'medium-12': user.comment.length <= 0, 'medium-6': user.comment.length > 0,}" ng-if="user.topic.length > 0">
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
@@ -122,7 +118,7 @@
             </div>
         </div>
     </div>
-    <div class="column small-12 medium-6" ng-show="user.comment.length">
+    <div class="column small-12" data-ng-class="{'medium-12': user.topic.length <= 0, 'medium-6': user.topic.length > 0,}" data-ng-if="user.comment.length > 0">
         <div class="rail-panel">
             <div class="rail-panel-inner">
                 <div class="rail-header">
