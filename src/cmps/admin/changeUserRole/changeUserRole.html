@@ -1,0 +1,42 @@
+<div>
+    <a class="button" data-open="change-user-role"><i class="fa fa-gear"></i> Edit user role</a>
+
+    <div class="reveal rail-panel" id="change-user-role" data-reveal>
+        <div class="rail-panel-inner">
+            <div class="rail-header">
+                <div class="flex">
+                    <div class="flex flex-start">
+                        {{ "EDIT" | translate }} {{userToEdit.firstname}} {{userToEdit.lastname}} {{me}}
+                    </div>
+                    <div class="flex flex-end">
+                        <button data-close>
+                            <i class="fa fa-times fa-lg"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="rail-content">
+                <form data-ng-submit="editUser()" name="editUserForm">
+                    <div class="row">
+                        <div class="columns small-12">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>{{ "WORD_ROLE" | translate }}</label>
+                                <md-select ng-model="userToEdit.role_id" name="roleAll" required>
+                                    <md-option ng-repeat="role in roles" value="{{ role.id }}">
+                                        {{ role.name }}
+                                    </md-option>
+                                </md-select>
+                                <div ng-messages="editUserForm.roleAll.$error">
+                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <div class="columns small-12">
+                            <md-button class="button" ng-disabled="editUserForm.$invalid" type="submit">{{ "ADMIN_EDIT_USER" | translate }}</md-button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

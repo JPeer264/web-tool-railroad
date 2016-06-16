@@ -38,21 +38,24 @@ function editWorkController($scope,user,job, company) {
         var fd = new FormData();
         fd.append("company_id",$scope.user.company_id);
         fd.append("job_id",$scope.user.job_id);
-        user.update($scope.currentUser.id, fd).then(function(date){
-            if($scope.user.job_id==1)
-            {
-                $scope.canChangeJob=true;
+        user.update($scope.currentUser.id, fd).then(function(data){
+
+            if($scope.user.job_id === 1) {
+                $scope.canChangeJob = true;
+            } else {
+                $scope.canChangeJob = false;
             }
 
-            if($scope.user.company_id==1)
-            {
-                $scope.canChangeCompany=true;
+            if($scope.user.company_id === 1) {
+                $scope.canChangeCompany = true;
+            } else {
+                $scope.canChangeCompany = false;
             }
 
             $scope.triggeredWork = false;
             $('#edit-work').foundation('close');
-            $scope.picFile=null;
-        },function (data){
+            $scope.picFile = null;
+        },function (data) {
             $scope.triggeredWork = false;
 
         });

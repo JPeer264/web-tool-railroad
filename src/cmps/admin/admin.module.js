@@ -8,4 +8,5 @@ angular.module('cmps.admin', [
     'admin.companyManagement',
     'admin.jobManagement',
     'admin.editCompany',
+    'admin.changeUserRole'
 ]);

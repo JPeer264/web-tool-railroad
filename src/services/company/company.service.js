@@ -34,11 +34,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-        if (!_promiseCache.get[id]) {
-            _promiseCache.get[id] = Restangular.one('company', id).get();
-        }
-
-        return _promiseCache.get[id];
+        return Restangular.one('company', id).get();
     }
 
     /**
@@ -52,11 +48,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-        if (!_promiseCache.current) {
-            _promiseCache.current = Restangular.all('company').getList();
-        }
-
-        return _promiseCache.current;
+        return Restangular.all('company').getList();
     }
 
         /**

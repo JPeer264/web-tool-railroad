@@ -32,6 +32,10 @@
         right: 0;
         top: $userbar-height + $userbar-padding !important;
         left: initial !important;
+
+        button {
+            white-space: nowrap;
+        }
     }
 
 }
