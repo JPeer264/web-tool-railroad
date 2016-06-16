@@ -7,4 +7,5 @@ angular.module('cmps.admin', [
     'admin.inviteUser',
     'admin.companyManagement',
     'admin.jobManagement',
+    'admin.editCompany',
 ]);

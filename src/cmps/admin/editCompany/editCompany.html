@@ -1,53 +1,12 @@
 <div>
-    <div id="company-management">
-        <div class="row flex-end">
-            <div class="medium-2 small-12 columns">
-                <a class="button full-width" data-ng-click="addCompany()" data-open="company-management-edit">{{ "ADMIN_ADD_COMPANY" | translate }}</a>
-            </div>
-        </div>
-        <h1 data-ng-if="companies.length !== 0">{{ "WORD_COMPANIES" | translate }} ({{ companies.length }})</h1>
-        <div data-ng-repeat="company in companies">
-            <div class="company-management rail-panel admin-panel">
-                <div class="rail-panel-inner">
-                    <div class="rail-header">
-                        <div class="row">
-                            <div class="column no-padding">
-                                {{ company.name }}
-                            </div>
-                            <div class="column no-padding flex flex-end">
-                                <button class="edit-company" data-open="company-management-edit" data-ng-click="editCompany(company.id)"><i class="fa fa-gear fa-lg"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rail-content">
-                        <p>
-                            <span>{{ "WORD_EMAIL" | translate }}:</span> {{ company.email }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_ADDRESS" | translate }}:</span> {{ company.address }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_COUNTRY" | translate }}:</span> {{ company.country.name }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_CITY" | translate }}:</span> {{ company.city }}
-                        </p>
-                        <p>
-                            <span>{{ "WORD_PHONE" | translate }}:</span> {{ company.phonenumber }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a class="button" data-open="company-edit"><i class="fa fa-gear"></i> Edit company</a>
 
-    <div class="reveal rail-panel small-10 medium-10 large-10" id="company-management-edit" data-reveal>
+    <div class="reveal rail-panel small-10 medium-10 large-10" id="company-edit" data-reveal>
         <div class="rail-panel-inner">
             <div class="rail-header">
                 <div class="flex">
                     <div class="flex flex-start">
-                        <span data-ng-if="isChangeCompany">{{ "ADMIN_EDIT_COMPANY" | translate }}</span>
-                        <span data-ng-if="!isChangeCompany">{{ "ADMIN_ADD_COMPANY" | translate }}</span>
+                        <span>{{ "ADMIN_EDIT_COMPANY" | translate }}</span>
                     </div>
                     <div class="flex flex-end">
                         <button data-close>
@@ -57,13 +16,13 @@
                 </div>
             </div>
             <div class="rail-content">
-                <form data-ng-submit="isChangeCompany ? updateCompany(manageCompany.id) : addNewCompany()" name="companyForm">
-                    <!-- add company -->
+                <form data-ng-submit="updateCompany(company.id)" name="companyForm">
+                    <!-- edit company -->
                     <div class="row">
                         <div class="columns small-12">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>{{ "WORD_NAME" | translate }}</label>
-                                <input type="text" data-ng-model="manageCompany.name" id="name" name="name" required/>
+                                <input type="text" data-ng-model="company.name" id="name" name="name" required/>
                                 <div ng-messages="companyForm.name.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     <div ng-message="exists" data-translate="ERROR_EXISTS" data-translate-value-val="company"></div>
@@ -71,7 +30,7 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_EMAIL" | translate }}</label>
-                                <input type="email" data-ng-model="manageCompany.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
+                                <input type="email" data-ng-model="company.email" name="email" ng-pattern="/^.+@.+\..+$/" required/>
                                 <div ng-messages="companyForm.email.$error" multiple md-auto-hide="false">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                     <div ng-message="pattern">{{ "FORM_EMAIL_ERROR" | translate }}</div>
@@ -79,28 +38,28 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_PHONE" | translate }}</label>
-                                <input type="text" data-ng-model="manageCompany.phonenumber" name="phone" required/>
+                                <input type="text" data-ng-model="company.phonenumber" name="phone" required/>
                                 <div ng-messages="companyForm.phone.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                 </div>
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_ADDRESS" | translate }}</label>
-                                <input type="text" data-ng-model="manageCompany.address" name="address" required/>
+                                <input type="text" data-ng-model="company.address" name="address" required/>
                                 <div ng-messages="companyForm.address.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                 </div>
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_CITY" | translate }}</label>
-                                <input type="text" data-ng-model="manageCompany.city" name="city" required />
+                                <input type="text" data-ng-model="company.city" name="city" required />
                                 <div ng-messages="companyForm.city.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                 </div>
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_COUNTRY" | translate }}</label>
-                                <md-select ng-model="manageCompany.country_id" name="country" required>
+                                <md-select ng-model="company.country_id" name="country" required>
                                     <md-option ng-repeat="country in countries" value="{{ country.id }}" required>
                                         {{ country.name }}
                                     </md-option>
@@ -111,7 +70,7 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_ADMINISTRATOR" | translate }}</label>
-                                <md-select ng-model="manageCompany.administrator" name="admin" required>
+                                <md-select ng-model="company.administrator" name="admin" required>
                                     <md-option ng-repeat="user in users" value="{{ user.id }}" required>
                                         {{ user.firstname }} {{ user.lastname }}
                                     </md-option>
@@ -122,29 +81,43 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>Twitter</label>
-                                <input type="text" data-ng-model="manageCompany.Twitter" />
-                                <div class="hint">Please enter a valid url</div>
-                            </md-input-container>
-                            <md-input-container>
-                                <label>LinkedIn</label>
-                                <input type="text" data-ng-model="manageCompany.LinkedIn" />
+                                <input type="text" data-ng-model="company.Twitter" />
                                 <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                             <md-input-container>
                                 <label>Facebook</label>
-                                <input type="text" data-ng-model="manageCompany.Facebook" />
+                                <input type="text" data-ng-model="company.Facebook" />
                                 <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                             <md-input-container>
-                                <label>Xing</label>
-                                <input type="text" data-ng-model="manageCompany.Xing" />
+                                <label>LinkedIn</label>
+                                <input type="text" data-ng-model="company.LinkedIn" />
+                                <div class="hint">Please enter a valid url</div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Pinterest</label>
+                                <input type="text" data-ng-model="company.pinterest" />
+                                <div class="hint">Please enter a valid url</div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>YouTube</label>
+                                <input type="text" data-ng-model="company.youtube" />
+                                <div class="hint">Please enter a valid url</div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Flickr</label>
+                                <input type="text" data-ng-model="company.flickr" />
+                                <div class="hint">Please enter a valid url</div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Instagram</label>
+                                <input type="text" data-ng-model="company.instagram" />
                                 <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
                         <div class="columns small-12">
                             <md-button ng-disabled="companyForm.$invalid"  class="button" type="submit">
-                                <span data-ng-if="isChangeCompany">{{ "WORD_CHANGE" | translate }}</span>
-                                <span data-ng-if="!isChangeCompany">{{ "WORD_ADD" | translate }}</span>
+                                <span>{{ "WORD_CHANGE" | translate }}</span>
                             </md-button>
                         </div>
                     </div>

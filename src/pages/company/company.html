@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row margin-bottom">
+    <div class="column small-12">
+        <div data-ng-if="company && currentUser.role_id <= 2 || (currentUser.role_id === 3 && currentUser.company_id === company.id)" data-edit-company class="flex flex-end"></div>
+    </div>
     <div class="column small-12">
         <div class="profile-picture">
             <img data-ng-src="{{company.picture_location}}" data-ng-alt="{{company.picture_alt}}">
@@ -47,8 +50,9 @@
             </div>
         </a>
     </div>
-
-    <div class="rail-panel column small-12">
+</div>
+<div class="row"></div>
+    <div class="rail-panel">
         <div class="rail-panel-inner">
             <div class="rail-header">
                 {{company.name}}
@@ -72,13 +76,13 @@
         </div>
     </div>
 
-    <div class="rail-panel column small-12">
+    <div class="rail-panel">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                {{ "WORD_EMPLOYEES" | translate }}
+                {{ "WORD_COLLEGUES" | translate }}
             </div>
-            <div class="row ">
-                <div class="column small-12 medium-3 large-2" data-ng-repeat="user in company.user">
+            <div class="row">
+                <div class="columns small-12 medium-4 large-3" data-ng-repeat="user in company.user">
                     <div data-person-info></div>
                 </div>
             </div>

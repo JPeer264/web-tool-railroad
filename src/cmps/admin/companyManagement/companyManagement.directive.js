@@ -25,15 +25,15 @@ function companyManagementDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function($scope, iElm, iAttrs, controller) {
-                $('.reveal-overlay').remove();
+                $('.reveal-overlay').find('#company-management-edit').parent().remove();
                 var elem = new Foundation.Reveal($('#company-management-edit'));
 
                 $("#name").click(function(){
-                    if($scope.companyForm.name.$dirty==true){
+                    if ($scope.companyForm.name.$dirty) {
                         $scope.companyForm.name.$setValidity("exists", true);
                         $scope.$apply();
                     }
-                })
+                });
             }
         };
 };
