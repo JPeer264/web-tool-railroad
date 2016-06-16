@@ -19,10 +19,31 @@ ProfileController.$inject = [
     '$state',
     'user',
     'company',
-    'CONSTANT'
+    'CONSTANT',
+    '$timeout',
 ];
 
-function ProfileController($scope, $state, user, company, CONSTANT) {
+function ProfileController($scope, $state, user, company, CONSTANT, $timeout) {
+
+    var em = $(window).width() / 16;
+
+    $scope.isMobile = em > 40 ? true : false;
+
+    $(window).resize(function() {
+        $timeout(function() {
+            em = $(window).width() / 16;
+
+            if (em > 40) {
+                $scope.isMobile = true;
+            }
+
+            if (em <= 40) {
+                $scope.isMobile = false;
+            }
+
+            $scope.$apply();
+        }, 500);
+    });
 
     /**
      * @ngdoc property

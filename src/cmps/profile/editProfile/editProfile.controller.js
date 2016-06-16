@@ -57,7 +57,10 @@ function editProfileController($scope,user,job, country, company) {
         fd.append("Twitter",$scope.user.Twitter);
         fd.append("LinkedIn",$scope.user.LinkedIn);
         fd.append("Facebook",$scope.user.Facebook);
-        fd.append("Xing",$scope.user.Xing);
+        fd.append("pinterest",$scope.user.pinterest);
+        fd.append("flickr",$scope.user.flickr);
+        fd.append("youtube",$scope.user.youtube);
+        fd.append("instagram",$scope.user.instagram);
         fd.append('fileUpload', $scope.picFile);
 
         user.update($scope.currentUser.id, fd).then(function(data){

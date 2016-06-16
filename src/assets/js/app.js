@@ -1,6 +1,6 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://railroad-api.jpeer.at';
+var SERVERPATH = 'http://localhost/web-tool-railroad-api';
 // example: http://storage.elephorum.com or "SERVERPATH + '/storage'" must point to the "storage" folder in the backend with Lumen
 var STORAGESERVERPATH = SERVERPATH;
 

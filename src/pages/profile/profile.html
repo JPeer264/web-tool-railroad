@@ -1,39 +1,59 @@
-<div class="row align-middle">
-    <div class="column small-10 medium-4 large-3">
+<div class="row margin-bottom">
+    <div class="column small-12">
+        <div class="flex flex-end child-margin">
+            <div><a data-ng-click="logout()" class="button"><i class="fa fa-power-off"></i> Logout</a></div>
+            <div data-edit-profile data-ng-if="currentUser.id==user.id"></div>
+            <div data-edit-work data-ng-if="canChangeJob || canChangeCompany"></div>
+        </div>
+    </div>
+    <div class="column small-12">
         <div class="profile-picture">
             <img data-ng-src="{{ user.picture_location }}" data-ng-alt="{{ user.picture_alt }}">
         </div>
     </div>
-    <div class="column small-2 medium-1 large-1 align-left">
-        <div class="social-media" ng-show="user.Twitter">
-            <a href="http://{{user.Twitter}}"  target="_blank">
-                <img src="https://pbs.twimg.com/profile_images/666407537084796928/YBGgi9BO_normal.png" alt="Twitter">
-            </a>
-        </div>
 
-        <div class="social-media" ng-show="user.Facebook">
-            <a href="http://{{user.Facebook}}"  target="_blank">
-                <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-128.png" alt="Facebook">
-            </a>
-        </div>
+    <div class="column small-12 flex flex-center flex-horizontal-center">
+        <a href="http://{{user.Twitter}}" class="nounderline"  target="_blank">
+            <div class="social-media twitter flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.Twitter">
+                <i class="fa fa-twitter" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
 
-        <div class="social-media" ng-show="user.LinkedIn">
-            <a href="http://{{user.LinkedIn}}"  target="_blank">
-                <img src="https://static.licdn.com/sc/h/3m4lyvbs6efg8pyhv7kupo6dh" alt="LinkedIn">
-            </a>
-        </div>
+        <a href="http://{{user.Facebook}}" class="nounderline"  target="_blank">
+            <div class="social-media facebook flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.Facebook">
+                <i class="fa fa-facebook" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
 
-        <div class="social-media" ng-show="user.Xing">
-            <a href="http://{{user.Xing}}"  target="_blank">
-                <img src="http://findicons.com/files/icons/2287/32_pixel_social_media_icons/32/xing.png" alt="Xing">
-            </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class="flex flex-end child-margin">
-            <div><a data-ng-click="logout()" class="button"><i class="fa fa-power-off"></i> Logout</a></div>
-            <div data-edit-profile data-ng-if="currentUser.id==user.id"></div>
-        </div>
+        <a href="http://{{user.LinkedIn}}" class="nounderline"  target="_blank">
+            <div class="social-media linkedin flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.LinkedIn">
+                <i class="fa fa-linkedin" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
+
+        <a href="http://{{user.pinterest}}" class="nounderline"  target="_blank">
+            <div class="social-media pinterest flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.pinterest">
+                <i class="fa fa-pinterest" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
+
+        <a href="http://{{user.youtube}}" class="nounderline"  target="_blank">
+            <div class="social-media youtube flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.youtube">
+                <i class="fa fa-youtube" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
+
+        <a href="http://{{user.flickr}}" class="nounderline"  target="_blank">
+            <div class="social-media flickr flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.flickr">
+                <i class="fa fa-flickr" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
+
+        <a href="http://{{user.instagram}}" class="nounderline"  target="_blank">
+            <div class="social-media instagram flex flex-center flex-horizontal-center" data-ng-class="{bigger: isMobile}" ng-show="user.instagram">
+                <i class="fa fa-instagram" data-ng-class="{'fa-2x': isMobile}"></i>
+            </div>
+        </a>
     </div>
 </div>
 <div class="row">

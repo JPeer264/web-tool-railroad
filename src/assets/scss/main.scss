@@ -302,6 +302,11 @@ a.no-highlight {
 
 a {
     color: $body-font-color;
+
+    &.nounderline:hover {
+        color: initial;
+        text-decoration: none;
+    }
 }
 
 .profile-picture {
@@ -313,10 +318,68 @@ a {
     }
 }
 
+.margin-bottom {
+    margin-bottom: 1rem;
+}
+
 .social-media {
     padding: 5px;
-    height:35px;
-    width:35px;
+    height: 35px;
+    width: 35px;
+
+    &.bigger {
+        height: 50px;
+        width: 50px;
+    }
+
+    &:hover {
+        background: $black;
+
+        i {
+            color: white;
+            text-decoration: none;
+        }
+
+    }
+
+    &.facebook {
+        &:hover {
+            background: #3b5998;
+        }
+    }
+
+    &.twitter {
+        &:hover {
+            background: #1da1f2;
+        }
+    }
+
+    &.pinterest {
+        &:hover {
+            background: #bd081c;
+        }
+    }
+
+    &.youtube {
+        &:hover {
+            background: #cc181e;
+        }
+    }
+
+    &.flickr {
+        &:hover {
+            background: #128fdc;
+        }
+    }
+
+    &.linkedin {
+        &:hover {
+            background: #007bb6;
+        }
+    }
+
+
+    transition: all .5s;
 }
 
 md-checkbox.check .md-icon {
