@@ -12,7 +12,7 @@
         </div>
     </button>
     <div class="dropdown-pane bottom" id="btn-userbar" data-dropdown data-close-on-click="true">
-        <button class="btn-neutralize" ng-click="logout()"><span ng-bind="'LOGOUT' | translate"></span></button><br>
-        <button ng-click="admin()" ng-if="currentUser.role_id<=3" ><span ng-bind="'ADMIN' | translate"></span></a>
+        <button ng-click="admin()" ng-if="currentUser.role_id<=3" ><i class="fa fa-shield"></i> <span ng-bind="'ADMIN' | translate"></span></a>
+        <button class="btn-neutralize" ng-click="logout()"><i class="fa fa-power-off"></i> <span ng-bind="'LOGOUT' | translate"></span></button><br>
     </div>
 </div>

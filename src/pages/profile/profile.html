@@ -29,7 +29,12 @@
             </a>
         </div>
     </div>
-
+    <div class="column">
+        <div class="flex flex-end child-margin">
+            <div><a data-ng-click="logout()" class="button"><i class="fa fa-power-off"></i> Logout</a></div>
+            <div data-edit-profile data-ng-if="currentUser.id==user.id"></div>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -40,9 +45,6 @@
                     <div class="row">
                         <div class="column no-padding">
                             {{ "WORD_ABOUT" | translate }}
-                        </div>
-                        <div class="column no-padding flex flex-end" ng-if="currentUser.id==user.id" >
-                            <div data-edit-profile></div>
                         </div>
                     </div>
                 </div>
