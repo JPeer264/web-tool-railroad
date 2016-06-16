@@ -118,7 +118,7 @@ function HeaderController($scope, user, auth, $timeout) {
         // also set the $googleBanner to overflow scroll - for mobile
         function closeGoogleBar() {
             waitGoogleBarLoad(function() {
-                var $iframe = $googleBanner.contents();
+                var $iframe = $('.goog-te-banner-frame').contents();
                 var $closeButton = $iframe.find('.goog-close-link');
 
                 $closeButton.click(function() {

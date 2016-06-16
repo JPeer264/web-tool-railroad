@@ -612,6 +612,8 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
     $rootScope.$on('$stateChangeSuccess', function(e, newUrl, oldUrl) {
         e.preventDefault();
 
+        $('.goog-te-banner-frame').parent().remove();
+
         if (($state.current.name).indexOf('nologin') === 0 && !$rootScope.isLoggedIn()) {
             if ($state.params.ref) {
 
