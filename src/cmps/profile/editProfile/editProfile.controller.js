@@ -66,7 +66,7 @@ function editProfileController($scope,user,job, country, company) {
         user.update($scope.currentUser.id, fd).then(function(data){
             $scope.triggeredProfile = false;
             $('#edit-profile').foundation('close');
-            $scope.picFile=null;
+            $scope.picFile = null;
         }, function (data) {
             $scope.triggeredProfile = false;
         });

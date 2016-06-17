@@ -24,6 +24,7 @@ CompanyManagementController.$inject = [
 function CompanyManagementController($scope, company, country, user) {
     var cU = $scope.currentUser;
     $scope.isChangeCompany = undefined;
+    $scope.triggeredCompany = false;
 
     company.getAll().then(function (data) {
         var companies = data.plain();
@@ -65,18 +66,41 @@ function CompanyManagementController($scope, company, country, user) {
     }
 
     $scope.updateCompany = function(id) {
-        company.update(id, $scope.manageCompany).then(function (data) {
+        $scope.triggeredCompany = true;
+
+        var fd = new FormData();
+        fd.append("name",$scope.manageCompany.firstname);
+        fd.append("website",$scope.manageCompany.website);
+        fd.append("phonenumber",$scope.manageCompany.phonenumber);
+        fd.append("country_id",$scope.manageCompany.country_id);
+        fd.append("city",$scope.manageCompany.city);
+        fd.append("address",$scope.manageCompany.address);
+        fd.append("email",$scope.manageCompany.email);
+        fd.append("administrator",$scope.manageCompany.administrator);
+        fd.append("Twitter",$scope.manageCompany.Twitter);
+        fd.append("LinkedIn",$scope.manageCompany.LinkedIn);
+        fd.append("Facebook",$scope.manageCompany.Facebook);
+        fd.append("pinterest",$scope.manageCompany.pinterest);
+        fd.append("flickr",$scope.manageCompany.flickr);
+        fd.append("youtube",$scope.manageCompany.youtube);
+        fd.append("instagram",$scope.manageCompany.instagram);
+        fd.append('fileUpload', $scope.picFile);
+        company.update(id, fd).then(function (data) {
             angular.forEach($scope.companies, function (key, value) {
                 if (value.id === $scope.manageCompany.id) {
                     $scope.companies[key] = $scope.manageCompany;
                 }
             });
 
+            $scope.triggeredCompany = false;
             $('#company-management-edit').foundation('close');
+            $scope.picFile = null;
         }).catch(function (data) {
             if(data.status==409){
                 $scope.companyForm.name.$setValidity("exists", false);
             }
+            $scope.triggeredCompany = false;
+
         });
     }
 
@@ -92,7 +116,27 @@ function CompanyManagementController($scope, company, country, user) {
     }
 
     $scope.addNewCompany = function() {
-        company.create($scope.manageCompany).then(function (data) {
+        $scope.triggeredCompany = true;
+
+        var fd = new FormData();
+        fd.append("name",$scope.manageCompany.firstname);
+        fd.append("website",$scope.manageCompany.website);
+        fd.append("phonenumber",$scope.manageCompany.phonenumber);
+        fd.append("country_id",$scope.manageCompany.country_id);
+        fd.append("city",$scope.manageCompany.city);
+        fd.append("address",$scope.manageCompany.address);
+        fd.append("email",$scope.manageCompany.email);
+        fd.append("administrator",$scope.manageCompany.administrator);
+        fd.append("Twitter",$scope.manageCompany.Twitter);
+        fd.append("LinkedIn",$scope.manageCompany.LinkedIn);
+        fd.append("Facebook",$scope.manageCompany.Facebook);
+        fd.append("pinterest",$scope.manageCompany.pinterest);
+        fd.append("flickr",$scope.manageCompany.flickr);
+        fd.append("youtube",$scope.manageCompany.youtube);
+        fd.append("instagram",$scope.manageCompany.instagram);
+        fd.append('fileUpload', $scope.picFile);
+
+        company.create(fd).then(function (data) {
             // find right country and add it
             $scope.manageCompany.country = $scope.countries.filter(function (value) {
                 if ($scope.manageCompany.country_id == value.id) {
@@ -104,12 +148,15 @@ function CompanyManagementController($scope, company, country, user) {
 
             $scope.companies.unshift($scope.manageCompany);
             $scope.manageCompany.id = $scope.companies.length;
+            $scope.triggeredCompany = false;
 
             $('#company-management-edit').foundation('close');
         }).catch(function (data) {
             if(data.status==409){
                 $scope.companyForm.name.$setValidity("exists", false);
             }
+            $scope.triggeredCompany = false;
+
         });
     }
 }

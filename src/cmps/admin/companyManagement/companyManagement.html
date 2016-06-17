@@ -86,10 +86,7 @@
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_ADDRESS" | translate }}</label>
-                                <input type="text" data-ng-model="manageCompany.address" name="address" required/>
-                                <div ng-messages="companyForm.address.$error">
-                                    <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
-                                </div>
+                                <input type="text" data-ng-model="manageCompany.address" name="address" />
                             </md-input-container>
                             <md-input-container>
                                 <label>{{ "WORD_CITY" | translate }}</label>
@@ -119,6 +116,11 @@
                                 <div ng-messages="companyForm.admin.$error">
                                     <div ng-message="required">{{ "FORM_REQUIRED" | translate }}</div>
                                 </div>
+                            </md-input-container>
+                            <md-input-container>
+                                <label>Company website</label>
+                                <input type="text" data-ng-model="manageCompany.website" />
+                                <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                             <md-input-container>
                                 <label>Twitter</label>
@@ -156,11 +158,30 @@
                                 <div class="hint">Please enter a valid url</div>
                             </md-input-container>
                         </div>
+                        <div class="small-12 columns">
+                            <md-button type="file" ngf-select ng-model="picFile" name="file"
+                                       accept="image/*" ngf-max-size="2MB" ngf-pattern="'image/*'"
+                                       ngf-model-invalid="errorFile">
+                                       <span>select company logo</span>
+                            </md-button>
+                        </div>
+                        <div class="small-12 columns">
+                            <div class="errors">
+                                <i ng-show="companyForm.file.$error.maxSize"> {{ "ERROR_FILE_SIZE" | translate }}
+                                        {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
+                                <i ng-show="companyForm.file.$error.pattern"> The file format is not allowed</i>
+                            </div>
+                            <img ng-show="companyForm.file.$valid" ngf-src="picFile" class="thumb">
+                            <button ng-click="picFile = null" ng-show="picFile">{{ "REMOVE" | translate }}</button>
+                        </div>
                         <div class="columns small-12">
-                            <md-button ng-disabled="companyForm.$invalid"  class="button" type="submit">
+                            <md-button class="button" type="submit">
                                 <span data-ng-if="isChangeCompany">{{ "WORD_CHANGE" | translate }}</span>
                                 <span data-ng-if="!isChangeCompany">{{ "WORD_ADD" | translate }}</span>
                             </md-button>
+                            <div class="inline flex-start" data-ng-if="triggeredCompany">
+                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                            </div>
                         </div>
                     </div>
                 </form>

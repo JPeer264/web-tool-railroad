@@ -82,7 +82,9 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-        return Restangular.one('company').customPOST($httpParamSerializer(formData));
+         delete Restangular.configuration.defaultHeaders['Content-Type'];
+
+        return Restangular.one('company').withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 
     /**
@@ -98,7 +100,9 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-        return Restangular.one('company', id).customPOST($httpParamSerializer(formData));
+         delete Restangular.configuration.defaultHeaders['Content-Type'];
+
+        return Restangular.one('company', id).withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
 
     /**
