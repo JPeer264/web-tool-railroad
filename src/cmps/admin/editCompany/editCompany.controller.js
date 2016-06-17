@@ -33,6 +33,8 @@ function EditCompanyController($scope, user, company, job, country) {
 
     $scope.updateCompany = function(id) {
         company.update(id, $scope.company).then(function (data) {
+            company.resetCache('get', id);
+            company.resetCache('getAll');
 
             $('#company-edit').foundation('close');
         }).catch(function (data) {

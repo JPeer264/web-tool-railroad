@@ -201,8 +201,11 @@
                                 </div>
                             </md-input-container>
                         </div>
-                        <div class="columns small-12">
-                            <md-button class="button" ng-disabled="editUserForm.$invalid" type="submit">{{ "ADMIN_EDIT_USER" | translate }}</md-button>
+                        <div class="columns small-12 flex flex-center">
+                            <md-button class="button no-margin" data-ng-disabled="triggeredAdminEditUser" ng-disabled="editUserForm.$invalid" type="submit">{{ "ADMIN_EDIT_USER" | translate }}</md-button>
+                            <div class="inline flex-start" data-ng-if="triggeredAdminEditUser">
+                                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                            </div>
                         </div>
                     </div>
                 </form>

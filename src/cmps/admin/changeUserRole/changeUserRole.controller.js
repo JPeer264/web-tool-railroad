@@ -21,7 +21,7 @@ ChangeUserRoleController.$inject = [
 ];
 
 function ChangeUserRoleController($scope, user, role) {
-
+    $scope.triggeredUserToEdit = false;
     $scope.userToEdit = $scope.user;
 
     role.getAll().then(function(data){
@@ -30,11 +30,16 @@ function ChangeUserRoleController($scope, user, role) {
 
     $scope.editUser = function () {
         var fd = new FormData();
+        $scope.triggeredUserToEdit = true;
         fd.append("role_id", $scope.userToEdit.role_id);
 
         user.update($scope.userToEdit.id, fd).then(function (data) {
-            $('#change-user-role').foundation('close');
+            user.resetCache('get', $scope.userToEdit.id);
 
+            $('#change-user-role').foundation('close');
+            $scope.triggeredUserToEdit = false;
+        }, function () {
+            $scope.triggeredUserToEdit = false;
         });
     }
 }

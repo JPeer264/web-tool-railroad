@@ -25,7 +25,7 @@ editProfileController.$inject = [
 
 function editProfileController($scope,user,job, country, company) {
 
-    $scope.triggeredProfile = false;
+    $scope.triggeredEditProfile = false;
 
     job.getAll().then(function(data) {
         $scope.jobs = data.plain();
@@ -40,7 +40,7 @@ function editProfileController($scope,user,job, country, company) {
     });
 
     $scope.editProfile=function(){
-        $scope.triggeredProfile = true;
+        $scope.triggeredEditProfile = true;
 
         var fd = new FormData();
         fd.append("firstname",$scope.user.firstname);
@@ -64,11 +64,15 @@ function editProfileController($scope,user,job, country, company) {
         fd.append('fileUpload', $scope.picFile);
 
         user.update($scope.currentUser.id, fd).then(function(data){
-            $scope.triggeredProfile = false;
+            user.resetCache('get', id);
+            user.resetCache('getAll');
+            user.resetCache('getAllLimited');
+
+            $scope.triggeredEditProfile = false;
             $('#edit-profile').foundation('close');
-            $scope.picFile = null;
+            $scope.picFile=null;
         }, function (data) {
-            $scope.triggeredProfile = false;
+            $scope.triggeredEditProfile = false;
         });
 
 

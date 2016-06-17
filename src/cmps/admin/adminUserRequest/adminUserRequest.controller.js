@@ -21,7 +21,8 @@ AurController.$inject = [
 
 function AurController($scope, user, role) {
     var cU = $scope.currentUser;
- 
+    $scope.triggeredAdminEditUser = false;
+
     if($scope.currentUser.role_id==1){
         $scope.superAdmin=true;
     }
@@ -71,13 +72,18 @@ function AurController($scope, user, role) {
     }
 
     $scope.editUser = function () {
+        $scope.triggeredAdminEditUser = true;
         var fd = new FormData();
         fd.append("role_id", $scope.userToEdit.role_id);
 
         user.update($scope.userToEdit.id, fd).then(function (data) {
+            user.resetCache('getAll');
+            user.resetCache('getAllLimited');
             $('#edit-user-admin').foundation('close');
+            $scope.triggeredAdminEditUser = false;
 
-        }).catch(function (data) {
+        }, function () {
+            $scope.triggeredUserToEdit = false;
         });
     }
 

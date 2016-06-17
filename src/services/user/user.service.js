@@ -271,4 +271,32 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, CONSTANT,
     this.delete = function(id) {
         return Restangular.one('user', id).customDELETE();
     }
+
+    /**
+     * @ngdoc method
+     * @name service.user#resetCache
+     * @methodOf service.user
+     *
+     * @description
+     * Reset the cache to perform a new request
+     *
+     * @param {Object} key   - the key of the promiseCache
+     * @param {Object} value - the value if the key is an object
+     */
+    this.resetCache = function (key, value) {
+        if (!key) {
+            _promiseCache = {
+                get: {},
+            };
+            return;
+        }
+
+        if (value) {
+            _promiseCache[key][value] = undefined;
+            return;
+        }
+
+        _promiseCache[key] = undefined;
+        return;
+    }
 }

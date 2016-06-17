@@ -176,10 +176,10 @@
                     </div>
 
                     <div class="flex flex-center">
-                        <md-button ng-disabled="editForm.$invalid " class="button" data-ng-disabled="triggeredProfile" data-ng-click="editProfile()">
+                        <md-button ng-disabled="editForm.$invalid || triggeredEditProfile" class="button no-margin" data-ng-click="editProfile()">
                             {{ "SAVE" | translate }}
                         </md-button>
-                        <div class="inline flex-start" data-ng-if="triggeredProfile">
+                        <div class="inline flex-start" data-ng-if="triggeredEditProfile">
                             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
                         </div>
                     </div>

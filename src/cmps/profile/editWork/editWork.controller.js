@@ -52,8 +52,8 @@ function editWorkController($scope,user,job, company) {
                 $scope.canChangeCompany = false;
             }
 
-            $scope.triggeredWork = false;
             $('#edit-work').foundation('close');
+            $scope.triggeredWork = false;
             $scope.picFile = null;
         },function (data) {
             $scope.triggeredWork = false;

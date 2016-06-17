@@ -34,7 +34,11 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.get = function(id) {
-        return Restangular.one('company', id).get();
+        if (!_promiseCache.get[id]) {
+             _promiseCache.get[id] = Restangular.one('company', id).get();
+        }
+
+        return _promiseCache.get[id];
     }
 
     /**
@@ -48,7 +52,11 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.getAll = function() {
-        return Restangular.all('company').getList();
+        if (!_promiseCache.getAll) {
+            _promiseCache.getAll = Restangular.all('company').getList();
+        }
+
+        return _promiseCache.getAll;
     }
 
         /**
@@ -82,7 +90,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @returns {Promise} returns promise
      */
     this.create = function(formData) {
-         delete Restangular.configuration.defaultHeaders['Content-Type'];
+        delete Restangular.configuration.defaultHeaders['Content-Type'];
 
         return Restangular.one('company').withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
@@ -100,7 +108,7 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      * @param {Object} formData - the given formData of a form
      */
     this.update = function(id, formData) {
-         delete Restangular.configuration.defaultHeaders['Content-Type'];
+        delete Restangular.configuration.defaultHeaders['Content-Type'];
 
         return Restangular.one('company', id).withHttpConfig({transformRequest: angular.identity}).customPOST(formData, '', undefined, {'Content-Type': undefined});
     }
@@ -117,5 +125,27 @@ function company($rootScope, Restangular, $httpParamSerializer) {
      */
     this.delete = function(id) {
         return Restangular.one('company', id).customDELETE();
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.company#resetCache
+     * @methodOf service.company
+     *
+     * @description
+     * Reset the cache to perform a new request
+     *
+     * @param {Object} key   - the key of the promiseCache
+     * @param {Object} value - the value if the key is an object
+     */
+    this.resetCache = function (key, value) {
+
+        if (value) {
+            _promiseCache[key][value] = undefined;
+            return;
+        }
+
+        _promiseCache[key] = undefined;
+        return;
     }
 }

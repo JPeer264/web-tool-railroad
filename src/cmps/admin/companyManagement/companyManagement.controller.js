@@ -86,6 +86,9 @@ function CompanyManagementController($scope, company, country, user) {
         fd.append("instagram",$scope.manageCompany.instagram);
         fd.append('fileUpload', $scope.picFile);
         company.update(id, fd).then(function (data) {
+            company.resetCache('get', id);
+            company.resetCache('getAll');
+
             angular.forEach($scope.companies, function (key, value) {
                 if (value.id === $scope.manageCompany.id) {
                     $scope.companies[key] = $scope.manageCompany;
