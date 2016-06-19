@@ -38,7 +38,7 @@ function editWorkController($scope,user,job, company) {
         var fd = new FormData();
         fd.append("company_id",$scope.user.company_id);
         fd.append("job_id",$scope.user.job_id);
-        user.update($scope.currentUser.id, fd).then(function(data){
+        user.update($scope.user.id, fd).then(function(data){
 
             if($scope.user.job_id === 1) {
                 $scope.canChangeJob = true;

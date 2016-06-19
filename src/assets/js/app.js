@@ -2,7 +2,7 @@
 // example: http://api.elephorum.com
 var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
 // example: http://storage.elephorum.com or "SERVERPATH + '/storage'" must point to the "storage" folder in the backend with Lumen
-var STORAGESERVERPATH = SERVERPATH;
+var STORAGESERVERPATH = SERVERPATH + '/storage';
 
 // here you have to fill in the path where the api is called
 // usually it runs on "public/api/v1"
@@ -16,13 +16,13 @@ var CONSTANT = {
         "COOKIE_ACCEPT": "c_a",
     },
     // Picture location default
-    "PICTURE_LOCATION_PREFIX": SERVERPATH,
+    "PICTURE_LOCATION_PREFIX": STORAGESERVERPATH + "/pictures",
     "API_PATH": SERVERPATH + APIPATH,
 
     // Profile Picture Constants
-    "PROFILE_PICTURE_DEFAULT": "http://www.jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_PICTURE_DEFAULT": STORAGESERVERPATH + "/pictures/webtool/person-default-flat.png",
     "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
-    "PROFILE_LOGO_DEFAULT": "http://www.jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_LOGO_DEFAULT": STORAGESERVERPATH + "/pictures/webtool/person-default-flat.png",
     "PROFILE_LOGO_ALT_DEFAULT": "Default logo",
 
 };
