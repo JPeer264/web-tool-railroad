@@ -69,7 +69,7 @@ function CompanyManagementController($scope, company, country, user) {
         $scope.triggeredCompany = true;
 
         var fd = new FormData();
-        fd.append("name",$scope.manageCompany.firstname);
+        fd.append("name",$scope.manageCompany.name);
         fd.append("website",$scope.manageCompany.website);
         fd.append("phonenumber",$scope.manageCompany.phonenumber);
         fd.append("country_id",$scope.manageCompany.country_id);
@@ -122,7 +122,7 @@ function CompanyManagementController($scope, company, country, user) {
         $scope.triggeredCompany = true;
 
         var fd = new FormData();
-        fd.append("name",$scope.manageCompany.firstname);
+        fd.append("name",$scope.manageCompany.name);
         fd.append("website",$scope.manageCompany.website);
         fd.append("phonenumber",$scope.manageCompany.phonenumber);
         fd.append("country_id",$scope.manageCompany.country_id);

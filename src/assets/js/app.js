@@ -1,6 +1,6 @@
 // put in your new server here!
 // example: http://api.elephorum.com
-var SERVERPATH = 'http://localhost/web-tool-railroad-api';
+var SERVERPATH = 'http://localhost/web-tool-railroad-api/';
 // example: http://storage.elephorum.com or "SERVERPATH + '/storage'" must point to the "storage" folder in the backend with Lumen
 var STORAGESERVERPATH = SERVERPATH;
 
@@ -22,6 +22,9 @@ var CONSTANT = {
     // Profile Picture Constants
     "PROFILE_PICTURE_DEFAULT": "http://www.jpeer.at/railroad/testimage/person-default-flat.png",
     "PROFILE_PICTURE_ALT_DEFAULT": "Default profile picture",
+    "PROFILE_LOGO_DEFAULT": "http://www.jpeer.at/railroad/testimage/person-default-flat.png",
+    "PROFILE_LOGO_ALT_DEFAULT": "Default logo",
+
 };
 
 angular.module('railroad', [
@@ -586,6 +589,17 @@ function run($rootScope, $location, $http, auth, user, Restangular, $stateParams
             data.picture_alt = CONSTANT.PROFILE_PICTURE_ALT_DEFAULT;
         } else if ((data.picture_location).slice(0,4) !== 'http') {
             data.picture_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.picture_location;
+        }
+
+        return data;
+    }
+
+    $rootScope.setDefaultLogoLocation = function (data) {
+        if (!data.logo_location || data.logo_location === '/path/to/picture/') {
+            data.logo_location = CONSTANT.PROFILE_LOGO_DEFAULT;
+            data.logo_alt = CONSTANT.PROFILE_LOGO_ALT_DEFAULT;
+        } else if ((data.logo_location).slice(0,4) !== 'http') {
+            data.logo_location = CONSTANT.PICTURE_LOCATION_PREFIX + data.logo_location;
         }
 
         return data;

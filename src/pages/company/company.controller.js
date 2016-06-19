@@ -51,7 +51,7 @@ function CompanyController($scope, $state, user, company) {
             return $scope.setDefaultPictureLocation(value);
         });
 
-        $scope.company = data;
+        $scope.company = $scope.setDefaultLogoLocation(data);
     });
 
 }
