@@ -55,21 +55,25 @@
     <div class="rail-panel">
         <div class="rail-panel-inner">
             <div class="rail-header">
-                {{company.name}}
+                {{ company.name }}
             </div>
             <div class="rail-content">
                 <div class="row">
                     <div class="column small-12">
-                        <i class="fa fa-globe"></i> {{company.city}}, {{company.country.name}}
+                        <i class="fa fa-globe"></i> {{ company.city }}, {{ company.country.name }}
                     </div>
                     <div class=" column small-12">
-                        <i class="fa fa-phone"></i> {{company.phonenumber}}
+                        <i class="fa fa-phone"></i> {{ company.phonenumber }}
                     </div>
                     <div class="column small-12">
-                            <i class="fa fa-envelope"></i> {{company.email}}
-                        </div>
+                        <i class="fa fa-envelope"></i> {{ company.email }}
+                    </div>
+                    <div class="column small-12">
+                        <i class="fa fa-mouse-pointer"></i>
+                        <a href="{{ company.website }}" target="_blank">{{ company.website }}
+                    </div>
                     <div class=" column small-12">
-                        <i class="fa fa-users"></i> {{ "WORD_EMPLOYEES" | translate }}: {{company.user.length}}
+                        <i class="fa fa-users"></i> {{ "WORD_EMPLOYEES" | translate }}: {{ company.user.length }}
                     </div>
                 </div>
             </div>
