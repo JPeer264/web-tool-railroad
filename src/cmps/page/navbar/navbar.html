@@ -6,13 +6,13 @@
                     <a href="#">{{"NAV_HOME" | translate}}</a>
                 </li>
                 <li data-ng-class="{active: $state.current.data.activetab === 'category'}">
-                    <a href="/category">{{"NAV_CATEGORIES" | translate}}</a>
+                    <a href="category">{{"NAV_CATEGORIES" | translate}}</a>
                 </li>
                 <li data-ng-class="{active: $state.current.data.activetab === 'faq'}">
-                    <a href="/faq">{{"NAV_FAQ" | translate}}</a>
+                    <a href="faq">{{"NAV_FAQ" | translate}}</a>
                 </li>
                 <li data-ng-class="{active: $state.current.data.activetab === 'profile'}">
-                    <a data-ng-href="/user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
+                    <a data-ng-href="user/{{currentUser.id}}">{{"NAV_PROFILE" | translate}}</a>
                 </li>
             </ul>
         </div>
@@ -24,22 +24,22 @@
     <div class="row flex-center no-margin">
         <div class="column small-12 medium-9 small-order-2 medium-order-1" id="hamburger">
             <ul>
-                <a href="/" data-ng-class="{active: $state.current.data.activetab === 'home'}">
+                <a href="" data-ng-class="{active: $state.current.data.activetab === 'home'}">
                     <li>
                         {{"NAV_HOME" | translate}}
                     </li>
                 </a>
-                <a href="/category" data-ng-class="{active: $state.current.data.activetab === 'category'}">
+                <a href="category" data-ng-class="{active: $state.current.data.activetab === 'category'}">
                     <li>
                         {{"NAV_CATEGORIES" | translate}}
                     </li>
                 </a>
-                <a href="/rules" data-ng-class="{active: $state.current.data.activetab === 'rules'}">
+                <a href="rules" data-ng-class="{active: $state.current.data.activetab === 'rules'}">
                     <li>
                         {{"NAV_RULES" | translate}}
                     </li>
                 </a>
-                <a data-ng-href="/user/{{currentUser.id}}" data-ng-class="{active: $state.current.data.activetab === 'profile'}">
+                <a data-ng-href="user/{{currentUser.id}}" data-ng-class="{active: $state.current.data.activetab === 'profile'}">
                     <li>
                         {{"NAV_PROFILE" | translate}}
                     </li>

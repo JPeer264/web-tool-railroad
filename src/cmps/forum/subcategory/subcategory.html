@@ -35,12 +35,12 @@
             <div class="rail-content a-background">
                 <div class="row flex-center" data-ng-repeat="topic in subcategoryCmps.subcategory.topic">
                     <div class="column small-12 medium-6">
-                        <a data-ng-href="/topic/{{ topic.id }}" data-ng-click="subcategoryCmps.updateSubcategoryScope()">
+                        <a data-ng-href="topic/{{ topic.id }}" data-ng-click="subcategoryCmps.updateSubcategoryScope()">
                             {{ topic.title }}
                         </a>
                     </div>
                     <div class="column medium-3 hide-for-small-only">
-                        <i class="fa fa-user"></i> <a data-ng-href="/user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
+                        <i class="fa fa-user"></i> <a data-ng-href="user/{{ topic.user_id }}">{{ topic.user.firstname }} {{ topic.user.lastname }}</a>
                     </div>
                     <div class="column medium-3 hide-for-small-only" data-ng-if="topic.latest_comment">
                         <i class="fa fa-calendar"></i> {{ getDate(topic.latest_comment.created_at) | date }}

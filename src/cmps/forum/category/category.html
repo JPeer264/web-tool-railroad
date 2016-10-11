@@ -8,7 +8,7 @@
         <div class="rail-content a-background">
             <div class="row flex-center" data-ng-repeat="subcategory in category.subcategory">
                 <div class="column small-6">
-                    <a data-ng-href="/category/{{ subcategory.id }}">
+                    <a data-ng-href="category/{{ subcategory.id }}">
                         <div>
                             {{ subcategory.title }}
                         </div>
@@ -22,12 +22,12 @@
                             <!-- if latest_comment -->
                             <div class="column small-12"  data-ng-if="subcategory.latest_comment">
                                 <div>
-                                    <a data-ng-href="/topic/{{ subcategory.latest_comment.topic_id }}#comment-{{ subcategory.latest_comment.id }}">
+                                    <a data-ng-href="topic/{{ subcategory.latest_comment.topic_id }}#comment-{{ subcategory.latest_comment.id }}">
                                         {{ subcategory.latest_comment.topic.title }}
                                     </a>
                                 </div>
                                 <div><i class="fa fa-user"></i>
-                                    <a data-ng-href="/user/{{ subcategory.latest_comment.user_id }}">
+                                    <a data-ng-href="user/{{ subcategory.latest_comment.user_id }}">
                                         {{ subcategory.latest_comment.user.firstname }} {{ subcategory.latest_comment.user.lastname }}
                                     </a>
                                 </div>
@@ -37,12 +37,12 @@
                             <!-- if latest_topic -->
                             <div class="column small-12"  data-ng-if="subcategory.latest_topic">
                                 <div>
-                                    <a data-ng-href="/topic/{{ subcategory.latest_topic.id }}">
+                                    <a data-ng-href="topic/{{ subcategory.latest_topic.id }}">
                                         {{ subcategory.latest_topic.title }}
                                     </a>
                                 </div>
                                 <div><i class="fa fa-user"></i>
-                                    <a data-ng-href="/user/{{ subcategory.latest_comment.user_id }}">
+                                    <a data-ng-href="user/{{ subcategory.latest_comment.user_id }}">
                                         {{ subcategory.latest_topic.user.firstname }} {{ subcategory.latest_topic.user.lastname }}
                                     </a>
                                 </div>
