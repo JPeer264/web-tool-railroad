@@ -170,7 +170,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, CONSTANT, $htt
             $window.location.assign('/welcome?ref=' + $location.path());
         }
 
-        $window.location.assign('/');
+        $window.location.assign('.');
     }
 
     /**

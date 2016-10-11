@@ -51,7 +51,7 @@ function LoginController($scope, auth, $window, $cookies, CONSTANT, $location, $
                 return;
             }
 
-            $window.location.assign('/');
+            $window.location.assign('.');
         }).catch(function (data) {
             // function for errors
             if (data.status === 403) {
