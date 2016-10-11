@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="assets/css/global.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:800,500' rel='stylesheet' type='text/css'>
-        <base href="">
+        <base href=".">
     </head>
     <body>
         <div class="railroad-body">
